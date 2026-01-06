@@ -206,10 +206,146 @@ def get_all_chunks() -> Optional[pd.DataFrame]:
         return None
 
 
+# ========== DASHBOARD COMPONENTS ==========
+
+def render_quick_actions():
+    """Render quick action buttons for common workflows."""
+
+    st.subheader("⚡ Quick Actions")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        if st.button("🔄 Generate Roadmap", key="qa_gen_roadmap", use_container_width=True):
+            with st.spinner("Generating roadmap..."):
+                try:
+                    result = generate_roadmap()
+                    st.success("Roadmap generated!")
+                    st.session_state.last_action = "roadmap_generated"
+                except Exception as e:
+                    st.error(f"Error: {e}")
+
+    with col2:
+        if st.button("🔄 Sync Graph", key="qa_sync_graph", use_container_width=True):
+            with st.spinner("Syncing knowledge graph..."):
+                try:
+                    graph = sync_all_to_graph()
+                    node_count = graph.graph.number_of_nodes() if graph.graph else 0
+                    st.success(f"Graph synced! {node_count} nodes")
+                except Exception as e:
+                    st.error(f"Error: {e}")
+
+    with col3:
+        pending_count = len([q for q in load_questions() if q.get("status") == "pending"])
+        if st.button(f"❓ Answer Questions ({pending_count})", key="qa_questions", use_container_width=True):
+            st.session_state.current_page = "❓ Open Questions"
+            st.rerun()
+
+    with col4:
+        if st.button("📄 Ingest Document", key="qa_ingest", use_container_width=True):
+            st.session_state.current_page = "📁 Sources"
+            st.session_state.show_ingest_form = True
+            st.rerun()
+
+
+def needs_graph_sync() -> bool:
+    """Check if graph needs syncing based on file modification times."""
+    try:
+        graph_file = Path("data/unified_graph/graph.json")
+        decisions_file = Path("data/questions/decisions.json")
+        assessments_dir = Path("output/competitive")
+
+        if not graph_file.exists():
+            return True
+
+        graph_mtime = graph_file.stat().st_mtime
+
+        # Check if decisions are newer
+        if decisions_file.exists() and decisions_file.stat().st_mtime > graph_mtime:
+            return True
+
+        # Check if any assessment is newer
+        if assessments_dir.exists():
+            for f in assessments_dir.glob("*.json"):
+                if f.stat().st_mtime > graph_mtime:
+                    return True
+
+        return False
+    except:
+        return False
+
+
+def render_attention_needed():
+    """Render attention needed section on dashboard."""
+
+    attention_items = []
+
+    # Check for critical questions
+    questions = load_questions()
+    critical_pending = [q for q in questions if q.get("status") == "pending" and q.get("priority") == "critical"]
+    if critical_pending:
+        attention_items.append({
+            "icon": "🔴",
+            "message": f"{len(critical_pending)} critical question(s) pending",
+            "action": "Go to Questions"
+        })
+
+    # Check for high priority pending questions
+    high_pending = [q for q in questions if q.get("status") == "pending" and q.get("priority") == "high"]
+    if high_pending:
+        attention_items.append({
+            "icon": "🟠",
+            "message": f"{len(high_pending)} high priority question(s) pending",
+            "action": "Go to Questions"
+        })
+
+    # Check for gaps without decisions
+    try:
+        graph = UnifiedContextGraph.load()
+        if graph:
+            unaddressed_gaps = [
+                g for g in graph.node_indices.get("gap", {}).values()
+                if not g.get("addressed_by_decision")
+            ]
+            critical_gaps = [g for g in unaddressed_gaps if g.get("severity") in ["critical", "significant"]]
+            if critical_gaps:
+                attention_items.append({
+                    "icon": "⚠️",
+                    "message": f"{len(critical_gaps)} significant gap(s) without decisions",
+                    "action": "View Gaps"
+                })
+    except:
+        pass
+
+    # Check for graph sync needed
+    if needs_graph_sync():
+        attention_items.append({
+            "icon": "🔄",
+            "message": "Knowledge graph needs sync",
+            "action": "Sync Now"
+        })
+
+    # Render
+    if attention_items:
+        st.subheader("⚡ Attention Needed")
+        for item in attention_items:
+            col1, col2 = st.columns([4, 1])
+            col1.markdown(f"{item['icon']} {item['message']}")
+            col2.button(item['action'], key=f"attn_{item['message'][:10]}")
+    else:
+        st.success("✅ No items need attention")
+
+
 # ========== PAGE: DASHBOARD ==========
 
 def page_dashboard():
     st.title("📊 Dashboard")
+
+    # Quick Actions
+    render_quick_actions()
+
+    st.divider()
+
     st.markdown("Overview of your indexed materials and roadmap status")
 
     # Get or refresh stats
@@ -231,6 +367,13 @@ def page_dashboard():
     with col3:
         status = "✅ Ready to generate" if stats['total_chunks'] > 0 else "⚠️ No materials"
         st.metric("Status", status)
+
+    st.divider()
+
+    # Attention Needed
+    render_attention_needed()
+
+    st.divider()
 
     # Lens breakdown
     st.subheader("Breakdown by Lens")
@@ -340,10 +483,912 @@ def page_dashboard():
                 st.rerun()
 
 
+# ========== QUESTIONS PAGE COMPONENTS ==========
+
+def get_decision_overrides(decision_id: str) -> list:
+    """Get chunks that a decision overrides from the graph."""
+
+    try:
+        graph = UnifiedContextGraph.load()
+        if not graph or not graph.graph:
+            return []
+
+        overrides = []
+
+        # Find OVERRIDES edges from this decision
+        if decision_id in graph.graph:
+            for neighbor in graph.graph.successors(decision_id):
+                edge_data = graph.graph.edges.get((decision_id, neighbor), {})
+                if edge_data.get("edge_type") == "OVERRIDES":
+                    # Get chunk data
+                    chunk = graph.node_indices.get("chunk", {}).get(neighbor)
+                    if chunk:
+                        chunk_dict = chunk if isinstance(chunk, dict) else (chunk.__dict__ if hasattr(chunk, '__dict__') else {})
+                        overrides.append(chunk_dict)
+
+        return overrides
+    except Exception as e:
+        return []
+
+
+def save_decision_update(decision: dict):
+    """Update a single decision in the decisions file."""
+    decisions = load_decisions()
+    for i, d in enumerate(decisions):
+        if d["id"] == decision["id"]:
+            decisions[i] = decision
+            break
+    save_decisions(decisions)
+
+
+def extract_key_terms_simple(text: str) -> list:
+    """Simple keyword extraction without external dependencies."""
+    import re
+    from collections import Counter
+
+    # Common stop words to filter out
+    stop_words = {
+        "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
+        "have", "has", "had", "do", "does", "did", "will", "would", "could",
+        "should", "may", "might", "can", "this", "that", "these", "those",
+        "i", "you", "he", "she", "it", "we", "they", "what", "which", "who",
+        "when", "where", "why", "how", "all", "each", "every", "both", "few",
+        "more", "most", "other", "some", "such", "no", "not", "only", "own",
+        "same", "so", "than", "too", "very", "just", "also", "now", "here",
+        "there", "then", "once", "and", "or", "but", "if", "because", "as",
+        "until", "while", "of", "at", "by", "for", "with", "about", "against",
+        "between", "into", "through", "during", "before", "after", "above",
+        "below", "to", "from", "up", "down", "in", "out", "on", "off", "over",
+        "under", "again", "further", "our", "your", "their", "its"
+    }
+
+    # Tokenize (simple split, remove punctuation)
+    words = re.findall(r'\b[a-zA-Z]{3,}\b', text.lower())
+
+    # Filter stop words and short words
+    keywords = [w for w in words if w not in stop_words and len(w) > 2]
+
+    # Count frequency and return top terms
+    counts = Counter(keywords)
+
+    # Return top 8 most frequent terms
+    return [word for word, count in counts.most_common(8)]
+
+
+def get_embedding(text: str) -> list:
+    """Get embedding for a single text using Voyage AI."""
+    try:
+        embeddings = generate_embeddings([text])
+        return embeddings[0] if embeddings else []
+    except:
+        return []
+
+
+def get_lancedb_table():
+    """Get LanceDB table for chunks."""
+    try:
+        db = init_db()
+        return db.open_table("roadmap_chunks")
+    except:
+        return None
+
+
+def search_chunks_semantic(query: str, limit: int = 10) -> list:
+    """Semantic search on chunks using embeddings."""
+    try:
+        # Get embedding for query
+        query_embedding = get_embedding(query)
+        if not query_embedding:
+            return []
+
+        # Search LanceDB
+        table = get_lancedb_table()
+        if table is None:
+            return []
+
+        results = table.search(query_embedding).limit(limit).to_list()
+        return results
+    except Exception as e:
+        return []
+
+
+def search_chunks_keyword(keywords: list, limit: int = 10) -> list:
+    """Keyword-based search on chunks."""
+    try:
+        table = get_lancedb_table()
+        if table is None:
+            return []
+
+        # Get all chunks and filter
+        df = table.to_pandas()
+
+        results = []
+        for _, row in df.iterrows():
+            content = str(row.get("content", "")).lower()
+            matches = sum(1 for kw in keywords if kw.lower() in content)
+
+            if matches > 0:
+                results.append({
+                    "id": row.get("id", ""),
+                    "source_name": row.get("source_file", "Unknown").split("/")[-1] if "/" in str(row.get("source_file", "")) else row.get("source_file", "Unknown"),
+                    "lens": row.get("lens", ""),
+                    "content": row.get("content", ""),
+                    "similarity": matches / len(keywords) if keywords else 0,
+                    "matched_count": matches
+                })
+
+        # Sort by match count
+        results.sort(key=lambda x: x["matched_count"], reverse=True)
+
+        return results[:limit]
+    except Exception as e:
+        return []
+
+
+def find_sources_for_question(question: dict, max_sources: int = 5) -> list:
+    """Dynamically find source references for a question by searching graph and chunks."""
+
+    question_text = question.get("question", "")
+    context = question.get("context", "")
+    query = f"{question_text} {context}".strip()
+
+    if not query:
+        return []
+
+    sources = []
+    seen_ids = set()
+
+    # === METHOD 1: Semantic search on chunks (LanceDB) ===
+    try:
+        chunk_results = search_chunks_semantic(query, limit=10)
+
+        for chunk in chunk_results:
+            chunk_id = chunk.get("id", "")
+            if chunk_id in seen_ids or not chunk_id:
+                continue
+            seen_ids.add(chunk_id)
+
+            source_file = chunk.get("source_file", "Unknown")
+            source_name = source_file.split("/")[-1] if "/" in source_file else source_file
+
+            sources.append({
+                "type": "chunk",
+                "id": chunk_id,
+                "source_name": source_name,
+                "source_path": chunk.get("source_file", ""),
+                "lens": chunk.get("lens", "unknown"),
+                "content": chunk.get("content", "")[:300],
+                "similarity": chunk.get("_distance", 0),
+                "search_method": "semantic"
+            })
+    except Exception as e:
+        pass
+
+    # === METHOD 2: Keyword extraction and search ===
+    try:
+        keywords = extract_key_terms_simple(question_text)
+
+        if keywords:
+            keyword_results = search_chunks_keyword(keywords, limit=10)
+
+            for chunk in keyword_results:
+                chunk_id = chunk.get("id", "")
+                if chunk_id in seen_ids or not chunk_id:
+                    continue
+                seen_ids.add(chunk_id)
+
+                sources.append({
+                    "type": "chunk",
+                    "id": chunk_id,
+                    "source_name": chunk.get("source_name", "Unknown"),
+                    "source_path": chunk.get("source_file", ""),
+                    "lens": chunk.get("lens", "unknown"),
+                    "content": chunk.get("content", "")[:300],
+                    "similarity": chunk.get("similarity", 0),
+                    "search_method": "keyword",
+                    "matched_terms": [kw for kw in keywords if kw.lower() in chunk.get("content", "").lower()]
+                })
+    except Exception as e:
+        pass
+
+    # === METHOD 3: Graph traversal ===
+    try:
+        graph = UnifiedContextGraph.load()
+
+        if graph:
+            keywords = extract_key_terms_simple(question_text)
+
+            # Search assessments
+            for assess_id, assessment in graph.node_indices.get("assessment", {}).items():
+                if assess_id in seen_ids:
+                    continue
+
+                summary = ""
+                if isinstance(assessment, dict):
+                    summary = assessment.get("summary", "")
+                else:
+                    summary = getattr(assessment, 'summary', "")
+
+                if any(kw.lower() in summary.lower() for kw in keywords):
+                    seen_ids.add(assess_id)
+
+                    assess_type = ""
+                    if isinstance(assessment, dict):
+                        assess_type = assessment.get("assessment_type", "Unknown")
+                    else:
+                        assess_type = getattr(assessment, 'assessment_type', "Unknown")
+
+                    sources.append({
+                        "type": "assessment",
+                        "id": assess_id,
+                        "source_name": f"{assess_type.title()} Assessment",
+                        "lens": "assessment",
+                        "content": summary[:300],
+                        "similarity": 0.7,
+                        "search_method": "graph"
+                    })
+
+            # Search gaps
+            for gap_id, gap in graph.node_indices.get("gap", {}).items():
+                if gap_id in seen_ids:
+                    continue
+
+                description = ""
+                if isinstance(gap, dict):
+                    description = gap.get("description", "")
+                else:
+                    description = getattr(gap, 'description', "")
+
+                if any(kw.lower() in description.lower() for kw in keywords):
+                    seen_ids.add(gap_id)
+                    sources.append({
+                        "type": "gap",
+                        "id": gap_id,
+                        "source_name": f"Gap: {description[:50]}",
+                        "lens": "gap",
+                        "content": description[:300],
+                        "similarity": 0.6,
+                        "search_method": "graph"
+                    })
+    except Exception as e:
+        pass
+
+    # === RANK AND RETURN TOP SOURCES ===
+    sources.sort(key=lambda x: x.get("similarity", 0), reverse=True)
+    return sources[:max_sources]
+
+
+def render_question_source_references(question: dict):
+    """Render source references for a question. Dynamically finds sources if not cached."""
+
+    # Check for cached sources
+    cache_key = f"sources_{question['id']}"
+
+    if cache_key in st.session_state:
+        sources = st.session_state[cache_key]
+    else:
+        # Find sources dynamically
+        with st.spinner("Finding source references..."):
+            sources = find_sources_for_question(question, max_sources=5)
+            st.session_state[cache_key] = sources
+
+    if not sources:
+        st.caption("No relevant sources found")
+
+        # Offer to refresh
+        if st.button("🔄 Search Again", key=f"refresh_sources_{question['id']}"):
+            if cache_key in st.session_state:
+                del st.session_state[cache_key]
+            st.rerun()
+        return
+
+    st.markdown(f"**📚 Source References** ({len(sources)} found)")
+
+    for i, source in enumerate(sources):
+        source_type = source.get("type", "chunk")
+        source_id = source.get("id", "unknown")
+        source_name = source.get("source_name", "Unknown Source")
+        lens = source.get("lens", "")
+        content = source.get("content", "")
+        similarity = source.get("similarity", 0)
+        search_method = source.get("search_method", "unknown")
+        matched_terms = source.get("matched_terms", [])
+
+        # Type icon
+        type_icons = {
+            "chunk": "📄",
+            "assessment": "🔬",
+            "roadmap_item": "🗺️",
+            "gap": "⚠️",
+            "decision": "✅"
+        }
+        icon = type_icons.get(source_type, "📎")
+
+        # Method badge
+        method_badges = {
+            "semantic": "🎯",
+            "keyword": "🔤",
+            "graph": "🕸️"
+        }
+        method_badge = method_badges.get(search_method, "")
+
+        with st.container(border=True):
+            # Header row
+            col1, col2 = st.columns([4, 1])
+
+            with col1:
+                st.markdown(f"{icon} **{source_name}**")
+
+                meta_parts = []
+                if lens and lens not in ["assessment", "gap", "roadmap"]:
+                    meta_parts.append(f"Lens: {lens}")
+                meta_parts.append(f"ID: {source_id[:20]}...")
+                meta_parts.append(f"{method_badge} {search_method}")
+
+                st.caption(" | ".join(meta_parts))
+
+            with col2:
+                # Relevance score
+                score_pct = min(similarity * 100, 100)
+                if score_pct >= 70:
+                    st.success(f"{score_pct:.0f}%")
+                elif score_pct >= 40:
+                    st.warning(f"{score_pct:.0f}%")
+                else:
+                    st.caption(f"{score_pct:.0f}%")
+
+            # Content excerpt
+            if content:
+                display_content = content[:250]
+                if len(content) > 250:
+                    display_content += "..."
+
+                st.markdown(f"*\"{display_content}\"*")
+
+            # Matched keywords (for keyword search)
+            if matched_terms:
+                st.caption(f"Matched: {', '.join(matched_terms)}")
+
+            # === VIEW ORIGINAL DOCUMENT ===
+            if source_type == "chunk" and source.get("source_path"):
+                with st.expander("📄 View Original Document"):
+                    render_original_document_viewer(source, content, unique_key=f"{question['id']}_{i}")
+
+            elif source_type == "assessment":
+                with st.expander("🔬 View Full Assessment"):
+                    render_assessment_detail(source_id)
+
+            elif source_type == "roadmap_item":
+                with st.expander("🗺️ View Roadmap Item"):
+                    render_roadmap_item_detail(source_id)
+
+    # Refresh button
+    col1, col2 = st.columns([3, 1])
+    with col2:
+        if st.button("🔄 Refresh", key=f"refresh_sources_{question['id']}"):
+            if cache_key in st.session_state:
+                del st.session_state[cache_key]
+            st.rerun()
+
+
+def invalidate_source_cache():
+    """Clear all cached source references."""
+    keys_to_delete = [k for k in st.session_state.keys() if k.startswith("sources_")]
+    for key in keys_to_delete:
+        del st.session_state[key]
+
+
+def get_original_document(source_path: str) -> dict | None:
+    """
+    Load original document from source path.
+
+    Returns dict with content, metadata, or None if not found.
+    """
+    from pathlib import Path
+    import os
+
+    if not source_path:
+        return None
+
+    path = Path(source_path)
+
+    # Handle relative paths
+    if not path.is_absolute():
+        # Try common base paths
+        for base in [".", "materials", os.path.expanduser("~/roadmap-synth")]:
+            full_path = Path(base) / path
+            if full_path.exists():
+                path = full_path
+                break
+
+    if not path.exists():
+        return None
+
+    try:
+        # Get file metadata
+        stat = path.stat()
+        modified = datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M")
+        size = stat.st_size
+
+        # Read content based on file type
+        suffix = path.suffix.lower()
+
+        if suffix in [".txt", ".md", ".json", ".csv", ".yaml", ".yml"]:
+            # Plain text files
+            content = path.read_text(encoding="utf-8", errors="replace")
+            content_type = "text"
+
+        elif suffix in [".pdf"]:
+            # PDF - extract text if possible
+            try:
+                import pypdf
+                reader = pypdf.PdfReader(str(path))
+                content = "\n\n".join(page.extract_text() for page in reader.pages)
+                content_type = "pdf_extracted"
+            except:
+                content = f"[PDF file - {size} bytes - text extraction not available]"
+                content_type = "binary"
+
+        elif suffix in [".docx"]:
+            # Word doc - extract text if possible
+            try:
+                import docx
+                doc = docx.Document(str(path))
+                content = "\n\n".join(para.text for para in doc.paragraphs)
+                content_type = "docx_extracted"
+            except:
+                content = f"[Word document - {size} bytes - text extraction not available]"
+                content_type = "binary"
+
+        elif suffix in [".pptx"]:
+            # PowerPoint - extract text if possible
+            try:
+                from pptx import Presentation
+                prs = Presentation(str(path))
+                texts = []
+                for slide in prs.slides:
+                    for shape in slide.shapes:
+                        if hasattr(shape, "text"):
+                            texts.append(shape.text)
+                content = "\n\n".join(texts)
+                content_type = "pptx_extracted"
+            except:
+                content = f"[PowerPoint - {size} bytes - text extraction not available]"
+                content_type = "binary"
+
+        else:
+            # Unknown type - try to read as text
+            try:
+                content = path.read_text(encoding="utf-8", errors="replace")
+                content_type = "text"
+            except:
+                content = f"[Binary file - {size} bytes]"
+                content_type = "binary"
+
+        return {
+            "path": str(path),
+            "name": path.name,
+            "size": size,
+            "modified": modified,
+            "content": content,
+            "content_type": content_type,
+            "suffix": suffix
+        }
+
+    except Exception as e:
+        print(f"Error reading document: {e}")
+        return None
+
+
+def find_chunk_in_document(document_content: str, chunk_content: str) -> dict | None:
+    """
+    Find the approximate location of a chunk within the original document.
+
+    Returns dict with line numbers and context, or None if not found.
+    """
+    import re
+
+    if not document_content or not chunk_content:
+        return None
+
+    # Clean up for matching
+    doc_lower = document_content.lower()
+
+    # Try to find the chunk content (first 100 chars for matching)
+    search_text = chunk_content[:100].lower().strip()
+
+    # Remove extra whitespace for fuzzy matching
+    search_text_normalized = re.sub(r'\s+', ' ', search_text)
+    doc_normalized = re.sub(r'\s+', ' ', doc_lower)
+
+    pos = doc_normalized.find(search_text_normalized[:50])
+
+    if pos == -1:
+        # Try with even shorter match
+        pos = doc_normalized.find(search_text_normalized[:30])
+
+    if pos == -1:
+        return None
+
+    # Calculate approximate line number
+    text_before = document_content[:pos]
+    start_line = text_before.count('\n') + 1
+
+    # Estimate end line
+    chunk_lines = chunk_content.count('\n')
+    end_line = start_line + chunk_lines
+
+    return {
+        "start_line": start_line,
+        "end_line": end_line,
+        "char_position": pos
+    }
+
+
+def render_original_document_viewer(source: dict, chunk_content: str, unique_key: str = ""):
+    """
+    Render a viewer for the original document with chunk highlighting.
+    """
+    source_path = source.get("source_path", "")
+
+    if not source_path:
+        st.caption("Original document path not available")
+        return
+
+    # Load document
+    doc = get_original_document(source_path)
+
+    if not doc:
+        st.warning(f"Could not load original document: {source_path}")
+        return
+
+    # Find chunk location
+    location = find_chunk_in_document(doc["content"], chunk_content)
+
+    # Document header
+    st.markdown(f"**📄 Original Document:** `{doc['name']}`")
+
+    col1, col2, col3 = st.columns(3)
+    col1.caption(f"Size: {doc['size']:,} bytes")
+    col2.caption(f"Modified: {doc['modified']}")
+    col3.caption(f"Type: {doc['content_type']}")
+
+    if location:
+        st.caption(f"📍 Chunk location: Lines {location['start_line']}-{location['end_line']} (approx)")
+
+    # Content display
+    content = doc["content"]
+
+    # Limit display size for very large files
+    MAX_DISPLAY_CHARS = 50000
+    truncated = False
+
+    if len(content) > MAX_DISPLAY_CHARS:
+        # If we know chunk location, center around it
+        if location:
+            start_char = max(0, location["char_position"] - 5000)
+            end_char = min(len(content), location["char_position"] + 10000)
+            content = f"... [truncated - showing around chunk location] ...\n\n{content[start_char:end_char]}\n\n... [truncated] ..."
+        else:
+            content = content[:MAX_DISPLAY_CHARS] + f"\n\n... [truncated - {len(doc['content']) - MAX_DISPLAY_CHARS:,} more characters]"
+        truncated = True
+
+    # Display content in scrollable container
+    st.text_area(
+        "Document Content",
+        value=content,
+        height=400,
+        disabled=True,
+        key=f"doc_content_{unique_key}" if unique_key else f"doc_content_{source.get('id', 'unknown')}"
+    )
+
+    if truncated:
+        st.caption("Document truncated for display. Download for full content.")
+
+    # Download button
+    st.download_button(
+        "📥 Download Full Document",
+        doc["content"],
+        file_name=doc["name"],
+        mime="text/plain",
+        key=f"download_{unique_key}" if unique_key else f"download_{source.get('id', 'unknown')}"
+    )
+
+
+def render_assessment_detail(assessment_id: str):
+    """Render full assessment detail."""
+    try:
+        graph = load_unified_graph()
+        if not graph:
+            st.caption("Graph not available")
+            return
+
+        assessment = graph.node_indices.get("assessment", {}).get(assessment_id)
+
+        if not assessment:
+            st.caption(f"Assessment {assessment_id} not found")
+            return
+
+        data = assessment.__dict__ if hasattr(assessment, '__dict__') else assessment
+
+        st.markdown(f"**Type:** {data.get('assessment_type', 'Unknown')}")
+        st.markdown(f"**Created:** {data.get('created_at', 'Unknown')[:10]}")
+        st.markdown(f"**Confidence:** {data.get('confidence', 'Unknown')}")
+
+        st.divider()
+
+        st.markdown("**Summary:**")
+        st.write(data.get("summary", "No summary available"))
+
+        # Show full assessment data
+        if data.get("assessment_data"):
+            with st.expander("Raw Assessment Data"):
+                st.json(data["assessment_data"])
+
+    except Exception as e:
+        st.error(f"Error loading assessment: {e}")
+
+
+def render_roadmap_item_detail(item_id: str):
+    """Render roadmap item detail."""
+    try:
+        graph = load_unified_graph()
+        if not graph:
+            st.caption("Graph not available")
+            return
+
+        item = graph.node_indices.get("roadmap_item", {}).get(item_id)
+
+        if not item:
+            st.caption(f"Roadmap item {item_id} not found")
+            return
+
+        data = item.__dict__ if hasattr(item, '__dict__') else item
+
+        st.markdown(f"### {data.get('name', 'Unknown')}")
+        st.markdown(f"**Horizon:** {data.get('horizon', 'Unknown')}")
+        st.markdown(f"**Theme:** {data.get('theme', 'Unknown')}")
+        st.markdown(f"**Owner:** {data.get('owner', 'Unknown')}")
+
+        st.divider()
+
+        st.markdown("**Description:**")
+        st.write(data.get("description", "No description available"))
+
+        # Show gaps if any
+        gaps = data.get("has_gaps", [])
+        if gaps:
+            st.markdown(f"**Gaps:** {len(gaps)}")
+            for gap_id in gaps[:5]:
+                st.caption(f"- {gap_id}")
+
+        # Show questions if any
+        questions = data.get("has_questions", [])
+        if questions:
+            st.markdown(f"**Open Questions:** {len(questions)}")
+            for q_id in questions[:5]:
+                st.caption(f"- {q_id}")
+
+    except Exception as e:
+        st.error(f"Error loading roadmap item: {e}")
+
+
+def save_question_validation(question_id: str, is_accurate: bool, validated_by: str, feedback_note: str = ""):
+    """Save validation feedback for a question."""
+
+    questions = load_questions()
+
+    for q in questions:
+        if q["id"] == question_id:
+            q["validation"] = {
+                "validated": True,
+                "is_accurate": is_accurate,
+                "validated_by": validated_by,
+                "validated_at": datetime.now().isoformat(),
+                "feedback_note": feedback_note
+            }
+            break
+
+    save_questions(questions)
+
+
+def render_question_validation(question: dict):
+    """Render validation feedback UI for a question."""
+
+    validation = question.get("validation")
+
+    st.markdown("**✅ Validate Question**")
+
+    if validation and validation.get("validated"):
+        # Already validated - show result
+        is_accurate = validation.get("is_accurate")
+        validated_by = validation.get("validated_by", "Unknown")
+        validated_at = validation.get("validated_at", "")[:10]
+
+        if is_accurate:
+            st.success(f"👍 Validated as accurate by {validated_by} on {validated_at}")
+        else:
+            st.error(f"👎 Validated as inaccurate by {validated_by} on {validated_at}")
+
+        if validation.get("feedback_note"):
+            st.caption(f"Note: {validation['feedback_note']}")
+
+        # Option to re-validate
+        if st.button("Re-validate", key=f"reval_{question['id']}"):
+            st.session_state.revalidating_question = question["id"]
+            st.rerun()
+
+    else:
+        # Not yet validated - show validation UI
+        st.caption("Review the source references above, then indicate if this question is well-grounded:")
+
+        col1, col2, col3 = st.columns([1, 1, 2])
+
+        with col1:
+            thumbs_up = st.button("👍 Accurate", key=f"thumbs_up_{question['id']}", use_container_width=True)
+
+        with col2:
+            thumbs_down = st.button("👎 Inaccurate", key=f"thumbs_down_{question['id']}", use_container_width=True)
+
+        with col3:
+            feedback_note = st.text_input(
+                "Feedback (optional)",
+                key=f"feedback_{question['id']}",
+                placeholder="Why accurate/inaccurate?"
+            )
+
+        validated_by = st.text_input(
+            "Your name",
+            key=f"validator_{question['id']}",
+            value=st.session_state.get("last_validator", "")
+        )
+
+        if thumbs_up or thumbs_down:
+            if not validated_by:
+                st.warning("Please enter your name")
+            else:
+                # Save validation
+                save_question_validation(
+                    question_id=question["id"],
+                    is_accurate=thumbs_up,
+                    validated_by=validated_by,
+                    feedback_note=feedback_note
+                )
+                st.session_state.last_validator = validated_by
+                st.success("Validation saved!")
+                st.rerun()
+
+
+def render_validation_stats():
+    """Render validation statistics."""
+
+    questions = load_questions()
+
+    total = len(questions)
+    validated = [q for q in questions if q.get("validation", {}).get("validated")]
+    accurate = [q for q in validated if q["validation"].get("is_accurate")]
+    inaccurate = [q for q in validated if not q["validation"].get("is_accurate")]
+
+    st.subheader("📊 Question Validation Stats")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric("Total Questions", total)
+    col2.metric("Validated", len(validated))
+    col3.metric("👍 Accurate", len(accurate))
+    col4.metric("👎 Inaccurate", len(inaccurate))
+
+    if validated:
+        accuracy_rate = len(accurate) / len(validated) * 100
+        st.progress(accuracy_rate / 100)
+        st.caption(f"Accuracy Rate: {accuracy_rate:.1f}%")
+
+    # Recent inaccurate (for review)
+    if inaccurate:
+        with st.expander(f"⚠️ Review Inaccurate Questions ({len(inaccurate)})"):
+            for q in inaccurate[:5]:
+                st.markdown(f"- **{q['question'][:60]}...**")
+                st.caption(f"  Feedback: {q['validation'].get('feedback_note', 'No feedback')}")
+
+
+
+
+# ========== SOURCES PAGE COMPONENTS ==========
+
+def render_lens_distribution():
+    """Render visual distribution of sources by lens."""
+
+    st.subheader("📊 Source Distribution by Lens")
+
+    # Get counts by lens
+    lens_counts = get_chunks_by_lens_count()
+
+    if not lens_counts:
+        st.info("No sources ingested yet")
+        return
+
+    # Define lens colors and order
+    lens_order = [
+        "your-voice",
+        "team-structured",
+        "team-conversational",
+        "business-framework",
+        "engineering",
+        "sales",
+        "external-analyst"
+    ]
+
+    lens_colors = {
+        "your-voice": "#e74c3c",
+        "team-structured": "#3498db",
+        "team-conversational": "#2ecc71",
+        "business-framework": "#9b59b6",
+        "engineering": "#f39c12",
+        "sales": "#1abc9c",
+        "external-analyst": "#34495e"
+    }
+
+    max_count = max(lens_counts.values()) if lens_counts else 1
+
+    for lens in lens_order:
+        count = lens_counts.get(lens, 0)
+        if count == 0:
+            continue
+
+        pct = count / max_count
+        color = lens_colors.get(lens, "#95a5a6")
+
+        col1, col2, col3 = st.columns([2, 4, 1])
+
+        with col1:
+            st.markdown(f"**{lens}**")
+
+        with col2:
+            # Create a simple progress bar
+            st.progress(pct)
+
+        with col3:
+            st.caption(f"{count} chunks")
+
+
+def get_chunks_by_lens_count() -> dict:
+    """Get count of chunks grouped by lens."""
+
+    try:
+        # Try LanceDB table access
+        db = init_db()
+        table = db.open_table("roadmap_chunks")
+        df = table.to_pandas()
+        if not df.empty:
+            return df.groupby("lens").size().to_dict()
+    except:
+        pass
+
+    # Fallback: count from graph
+    try:
+        graph = UnifiedContextGraph.load()
+        if graph:
+            lens_counts = {}
+            for chunk in graph.node_indices.get("chunk", {}).values():
+                lens = chunk.get("lens") if isinstance(chunk, dict) else getattr(chunk, 'lens', "unknown")
+                lens_counts[lens] = lens_counts.get(lens, 0) + 1
+            return lens_counts
+    except:
+        pass
+
+    return {}
+
+
 # ========== PAGE: INGEST MATERIALS ==========
 
 def page_ingest():
     st.title("📥 Ingest Materials")
+
+    # Lens distribution
+    render_lens_distribution()
+
+    st.divider()
+
     st.markdown("Upload documents and tag them with authority levels (lenses)")
 
     # File upload method
@@ -915,9 +1960,167 @@ def page_chunking_audit():
 
 # ========== PAGE: CONTEXT GRAPH ==========
 
+def render_authority_result_card(item: dict, item_type: str):
+    """Render a single result card based on type."""
+
+    data = item.get("data", item)
+    similarity = item.get("similarity", 0)
+
+    # Check if superseded
+    is_superseded = item.get("superseded", False) or data.get("superseded_by")
+
+    # Card styling
+    if is_superseded:
+        st.markdown(
+            f"""<div style="opacity: 0.6; border-left: 3px solid #ff6b6b; padding-left: 10px;">""",
+            unsafe_allow_html=True
+        )
+
+    with st.container(border=True):
+        # Header with similarity score
+        col1, col2 = st.columns([4, 1])
+
+        with col1:
+            if item_type == "decision":
+                st.markdown(f"**{data.get('id', 'Unknown')}**")
+                st.write(data.get("decision", ""))
+
+            elif item_type == "chunk":
+                source = data.get("source_file", "Unknown")
+                if "/" in source:
+                    source = source.split("/")[-1]
+                lens = data.get("lens", "unknown")
+                st.markdown(f"**{source}** ({lens})")
+                content = data.get("content", data.get("text", ""))[:200]
+                st.text(content + ("..." if len(content) >= 200 else ""))
+
+            elif item_type == "roadmap_item":
+                st.markdown(f"**{data.get('name', 'Unknown')}** ({data.get('horizon', '')})")
+                st.write(data.get("description", "")[:150])
+
+            elif item_type == "gap":
+                severity = data.get("severity", "unknown")
+                severity_icon = {"critical": "🔴", "significant": "🟠", "moderate": "🟡", "minor": "🟢"}.get(severity, "⚪")
+                st.markdown(f"{severity_icon} **{data.get('description', '')[:100]}**")
+
+            elif item_type == "assessment":
+                st.markdown(f"**{data.get('assessment_type', '').title()} Assessment**")
+                st.write(data.get("summary", "")[:150])
+
+            elif item_type in ["answered_question", "pending_question"]:
+                st.markdown(f"**{data.get('question', '')[:100]}**")
+                if data.get("answer"):
+                    st.caption(f"Answer: {data['answer'][:100]}...")
+
+        with col2:
+            st.caption(f"Score: {similarity:.2f}")
+
+        # Superseded indicator
+        if is_superseded:
+            superseded_by = data.get("superseded_by") or item.get("superseded_by")
+            st.warning(f"⚠️ SUPERSEDED by {superseded_by}")
+
+    if is_superseded:
+        st.markdown("</div>", unsafe_allow_html=True)
+
+
+def render_graph_query_results(results: dict):
+    """Render graph query results grouped by authority level."""
+
+    st.subheader("Results by Authority Level")
+
+    st.caption("""
+    Results are ordered by authority. Decisions (Level 1) override conflicting
+    chunks (Level 6). Content marked as superseded should be treated as outdated.
+    """)
+
+    # Level 1: Decisions
+    decisions = results.get("decisions", [])
+    if decisions:
+        with st.expander(f"🔴 **LEVEL 1: DECISIONS** ({len(decisions)}) — Highest Authority", expanded=True):
+            st.caption("These decisions are final and override conflicting source content.")
+            for item in decisions[:10]:
+                render_authority_result_card(item, "decision")
+
+    # Level 2: Answered Questions
+    answered = results.get("answered_questions", [])
+    if answered:
+        with st.expander(f"🟠 **LEVEL 2: ANSWERED QUESTIONS** ({len(answered)})", expanded=False):
+            st.caption("Questions that have been resolved by decisions.")
+            for item in answered[:10]:
+                render_authority_result_card(item, "answered_question")
+
+    # Level 3: Assessments
+    assessments = results.get("assessments", [])
+    if assessments:
+        with st.expander(f"🟡 **LEVEL 3: ASSESSMENTS** ({len(assessments)})", expanded=False):
+            st.caption("Analyzed intelligence from architecture, competitive, and impact assessments.")
+            for item in assessments[:10]:
+                render_authority_result_card(item, "assessment")
+
+    # Level 4: Roadmap Items
+    roadmap_items = results.get("roadmap_items", [])
+    if roadmap_items:
+        with st.expander(f"🟢 **LEVEL 4: ROADMAP ITEMS** ({len(roadmap_items)})", expanded=False):
+            st.caption("Current roadmap items.")
+            for item in roadmap_items[:10]:
+                render_authority_result_card(item, "roadmap_item")
+
+    # Level 5: Gaps
+    gaps = results.get("gaps", [])
+    if gaps:
+        with st.expander(f"🔵 **LEVEL 5: GAPS** ({len(gaps)})", expanded=False):
+            st.caption("Identified gaps from assessments, not yet addressed by decisions.")
+            for item in gaps[:10]:
+                render_authority_result_card(item, "gap")
+
+    # Level 6: Chunks
+    chunks = results.get("chunks", [])
+    if chunks:
+        superseded_count = len([c for c in chunks if c.get("superseded")])
+        with st.expander(f"⚪ **LEVEL 6: SOURCE CHUNKS** ({len(chunks)}, {superseded_count} superseded)", expanded=False):
+            st.caption("Raw source content. Superseded chunks have been overridden by decisions.")
+            for item in chunks[:15]:
+                render_authority_result_card(item, "chunk")
+
+    # Level 7: Pending Questions
+    pending = results.get("pending_questions", [])
+    if pending:
+        with st.expander(f"⬜ **LEVEL 7: PENDING QUESTIONS** ({len(pending)}) — Lowest Authority", expanded=False):
+            st.caption("Open questions not yet resolved.")
+            for item in pending[:10]:
+                render_authority_result_card(item, "pending_question")
+
+
 def page_context_graph():
     st.title("🕸️ Context Graph")
     st.markdown("Explore chunk relationships and semantic connections")
+
+    # Add authority-aware query section at the top
+    st.subheader("🔍 Authority-Aware Query")
+    st.markdown("Search across all knowledge with automatic authority hierarchy")
+
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        query = st.text_input("Enter your query", placeholder="e.g., What are the dependencies for Q1 features?")
+    with col2:
+        include_superseded = st.checkbox("Include superseded content", value=False)
+
+    if query and st.button("🔍 Search", type="primary"):
+        with st.spinner("Searching unified knowledge graph..."):
+            try:
+                graph = UnifiedContextGraph.load()
+                if graph and graph.graph.number_of_nodes() > 0:
+                    results = retrieve_with_authority(query, graph, top_k=20)
+                    render_graph_query_results(results)
+                else:
+                    st.warning("Unified graph is empty. Run 'Sync Graph' from the Dashboard.")
+            except Exception as e:
+                st.error(f"Error querying graph: {e}")
+
+    st.divider()
+
+    st.markdown("### Legacy Chunk-Level Exploration")
 
     # Load graph
     try:
@@ -1301,6 +2504,24 @@ def page_open_questions():
     st.title("📝 Open Questions")
     st.markdown("Track open questions, submit answers, and manage the decision log")
 
+    # Validation stats
+    render_validation_stats()
+
+    st.divider()
+
+    # Maintenance section
+    with st.expander("🔧 Maintenance"):
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("Clear Source Cache"):
+                invalidate_source_cache()
+                st.success("Source cache cleared! Sources will be re-searched on next view.")
+                st.rerun()
+        with col2:
+            st.caption("Clear cached source references. Use after ingesting new documents or syncing the graph.")
+
+    st.divider()
+
     # Load data
     questions = load_questions()
     answers = load_answers()
@@ -1363,9 +2584,20 @@ def page_open_questions():
 
                 for q in sorted_qs:
                     priority_emoji = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "⚪"}.get(q.get("priority", "medium"), "⚪")
+
+                    # Validation status
+                    validation = q.get("validation")
+                    if validation and validation.get("validated"):
+                        val_icon = "👍" if validation.get("is_accurate") else "👎"
+                    else:
+                        val_icon = "❓"
+
+                    # Source count
+                    source_count = len(q.get("source_references", []))
+
                     question_preview = q['question'][:80] + "..." if len(q['question']) > 80 else q['question']
 
-                    with st.expander(f"{priority_emoji} {question_preview}"):
+                    with st.expander(f"{priority_emoji} {val_icon} {question_preview} (📚 {source_count})"):
                         st.write(f"**Question:** {q['question']}")
                         st.write(f"**Category:** {q.get('category', 'N/A')}")
                         st.write(f"**Priority:** {q.get('priority', 'medium')}")
@@ -1376,14 +2608,29 @@ def page_open_questions():
 
                         st.write(f"**Created:** {q.get('created_at', 'Unknown')[:10]}")
 
+                        st.divider()
+
+                        # Source references
+                        render_question_source_references(q)
+
+                        st.divider()
+
+                        # Validation
+                        render_question_validation(q)
+
+                        st.divider()
+
                         # Quick actions
-                        col1, col2 = st.columns(2)
-                        if col1.button("Defer", key=f"def_{q['id']}"):
+                        col1, col2, col3 = st.columns(3)
+                        if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
+                            st.session_state.answering_question_id = q["id"]
+                            st.rerun()
+                        if col2.button("Defer", key=f"def_{q['id']}"):
                             q["status"] = "deferred"
                             save_questions(questions)
                             st.success("Question deferred")
                             st.rerun()
-                        if col2.button("Mark Obsolete", key=f"obs_{q['id']}"):
+                        if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
                             q["status"] = "obsolete"
                             save_questions(questions)
                             st.success("Question marked obsolete")
@@ -1415,63 +2662,123 @@ def page_open_questions():
 
                 st.markdown("---")
 
-                # Answer form
-                answer_text = st.text_area("Your Answer", height=150, key=f"answer_{q_id}")
-                answered_by = st.text_input("Answered By", key=f"by_{q_id}")
-                confidence = st.select_slider("Confidence", options=["low", "medium", "high"], value="medium", key=f"conf_{q_id}")
+                # Answer form (Enhanced with decision flow)
+                answer_text = st.text_area(
+                    "Your Answer",
+                    height=120,
+                    key=f"answer_{q_id}",
+                    placeholder="Provide your answer to this question..."
+                )
 
-                create_decision = st.checkbox("Create Decision Record", value=True, key=f"dec_{q_id}")
+                col1, col2 = st.columns(2)
+                with col1:
+                    answered_by = st.text_input("Answered By", key=f"by_{q_id}")
+                with col2:
+                    confidence = st.selectbox(
+                        "Confidence",
+                        ["high", "medium", "low"],
+                        index=1,
+                        key=f"conf_{q_id}"
+                    )
+
+                st.divider()
+
+                # Decision creation option
+                create_decision = st.checkbox(
+                    "✅ Create decision from this answer",
+                    value=True,
+                    key=f"dec_{q_id}",
+                    help="Automatically create a decision record that will be tracked in the Decision Log and override conflicting source content"
+                )
 
                 if create_decision:
-                    st.markdown("#### Decision Details")
-                    decision_text = st.text_area("Decision (leave blank to use answer)", height=100, key=f"dtext_{q_id}")
-                    rationale = st.text_input("Rationale", key=f"rat_{q_id}")
-                    implications = st.text_input("Implications (comma-separated)", key=f"imp_{q_id}")
-                    owner = st.text_input("Owner", value=answered_by, key=f"own_{q_id}")
+                    st.markdown("**Decision Details**")
 
-                if st.button("Submit Answer", type="primary", key=f"submit_{q_id}"):
-                    if not answer_text or not answered_by:
-                        st.error("Please provide answer and your name")
-                    else:
-                        # Save answer
-                        answer_record = {
-                            "id": f"ans_{datetime.now().strftime('%Y%m%d%H%M%S')}",
+                    # Pre-populate decision from answer
+                    default_decision = answer_text[:150] if answer_text else ""
+
+                    decision_statement = st.text_input(
+                        "Decision Statement",
+                        value=default_decision,
+                        key=f"dtext_{q_id}",
+                        help="Concise statement of what was decided (will appear in Decision Log)"
+                    )
+
+                    decision_rationale = st.text_area(
+                        "Rationale",
+                        value=answer_text,
+                        height=80,
+                        key=f"rat_{q_id}",
+                        help="Why this decision was made"
+                    )
+
+                    decision_implications = st.text_input(
+                        "Implications (comma-separated)",
+                        key=f"imp_{q_id}",
+                        placeholder="e.g., Timeline shifts to Q3, Need to inform customers"
+                    )
+
+                    decision_owner = st.text_input(
+                        "Decision Owner",
+                        value=answered_by,
+                        key=f"own_{q_id}",
+                        help="Who is responsible for executing this decision"
+                    )
+
+                st.divider()
+
+                # Submit button
+                can_submit = bool(answer_text and answered_by)
+                if create_decision:
+                    can_submit = can_submit and bool(decision_statement)
+
+                if st.button("Submit Answer", type="primary", disabled=not can_submit, key=f"submit_{q_id}"):
+                    # Save answer
+                    answer_record = {
+                        "id": f"ans_{datetime.now().strftime('%Y%m%d%H%M%S')}",
+                        "question_id": q_id,
+                        "answer": answer_text,
+                        "answered_by": answered_by,
+                        "answered_at": datetime.now().isoformat(),
+                        "confidence": confidence,
+                        "follow_up_needed": False,
+                        "notes": ""
+                    }
+                    answers.append(answer_record)
+                    save_answers(answers)
+
+                    # Update question status
+                    question["status"] = "answered"
+                    question["answer"] = answer_text
+                    question["answered_by"] = answered_by
+                    question["answered_at"] = datetime.now().isoformat()
+                    save_questions(questions)
+
+                    # Save decision if requested
+                    if create_decision:
+                        decision_record = {
+                            "id": f"dec_{datetime.now().strftime('%Y%m%d%H%M%S')}",
                             "question_id": q_id,
-                            "answer": answer_text,
-                            "answered_by": answered_by,
-                            "answered_at": datetime.now().isoformat(),
-                            "confidence": confidence,
-                            "follow_up_needed": False,
-                            "notes": ""
+                            "answer_id": answer_record["id"],
+                            "decision": decision_statement,
+                            "rationale": decision_rationale,
+                            "implications": [i.strip() for i in decision_implications.split(",") if i.strip()],
+                            "owner": decision_owner,
+                            "review_date": None,
+                            "status": "active",
+                            "created_at": datetime.now().isoformat()
                         }
-                        answers.append(answer_record)
-                        save_answers(answers)
+                        decisions.append(decision_record)
+                        save_decisions(decisions)
 
-                        # Save decision if requested
-                        if create_decision:
-                            decision_record = {
-                                "id": f"dec_{datetime.now().strftime('%Y%m%d%H%M%S')}",
-                                "question_id": q_id,
-                                "answer_id": answer_record["id"],
-                                "decision": decision_text or answer_text,
-                                "rationale": rationale,
-                                "implications": [i.strip() for i in implications.split(",") if i.strip()],
-                                "owner": owner or answered_by,
-                                "review_date": None,
-                                "status": "active",
-                                "created_at": datetime.now().isoformat()
-                            }
-                            decisions.append(decision_record)
-                            save_decisions(decisions)
-                            st.success(f"Answer and decision recorded!")
-                        else:
-                            st.success("Answer recorded!")
+                        st.success(f"✅ Answer submitted and decision **{decision_record['id']}** created!")
 
-                        # Update question status
-                        question["status"] = "answered"
-                        save_questions(questions)
+                        # Prompt to sync graph
+                        st.info("💡 Run 'Sync Graph' to integrate this decision into the knowledge graph")
+                    else:
+                        st.success("✅ Answer submitted!")
 
-                        st.rerun()
+                    st.rerun()
 
     # ========== TAB 3: DECISION LOG ==========
     with tab3:
@@ -1501,44 +2808,81 @@ def page_open_questions():
         if not filtered_decisions:
             st.info("No decisions recorded yet. Answer questions to create decisions.")
         else:
-            # Display
+            # Display decisions with overrides
             for dec in filtered_decisions:
                 status_icon = {"active": "✅", "superseded": "🔄", "revisiting": "🔍"}.get(dec.get("status", "active"), "?")
                 created = dec.get("created_at", "Unknown")[:10]
                 decision_preview = dec['decision'][:60] + "..." if len(dec['decision']) > 60 else dec['decision']
 
-                with st.expander(f"{status_icon} {decision_preview} ({created})"):
-                    st.write(f"**Decision:** {dec['decision']}")
-                    st.write(f"**Rationale:** {dec.get('rationale', 'None provided')}")
+                with st.container(border=True):
+                    # Header
+                    col1, col2 = st.columns([4, 1])
+                    with col1:
+                        st.markdown(f"### {status_icon} {dec['id']}")
+                    with col2:
+                        st.caption(created)
 
+                    # Decision statement
+                    st.markdown(f"**Decision:** {dec['decision']}")
+
+                    # Rationale
+                    if dec.get("rationale"):
+                        with st.expander("Rationale"):
+                            st.write(dec["rationale"])
+
+                    # Implications
                     if dec.get("implications"):
-                        st.write("**Implications:**")
+                        st.markdown("**Implications:**")
                         for imp in dec["implications"]:
-                            st.write(f"  • {imp}")
-
-                    st.write(f"**Owner:** {dec.get('owner', 'Unassigned')}")
-                    st.write(f"**Status:** {dec.get('status', 'active')}")
+                            st.markdown(f"- {imp}")
 
                     # Link to original question
                     question_id = dec.get("question_id")
                     if question_id:
                         question = next((q for q in questions if q["id"] == question_id), None)
                         if question:
-                            st.write(f"**Original Question:** {question['question']}")
+                            st.caption(f"Resolves: {question['question'][:80]}...")
+
+                    # Owner
+                    if dec.get("owner"):
+                        st.caption(f"Owner: {dec['owner']}")
+
+                    st.divider()
+
+                    # OVERRIDES SECTION - Show what this decision overrides
+                    overrides = get_decision_overrides(dec["id"])
+
+                    if overrides:
+                        with st.expander(f"⚡ Overrides {len(overrides)} source chunk(s)", expanded=False):
+                            st.caption("This decision supersedes the following source content:")
+
+                            for chunk in overrides:
+                                source_name = chunk.get("source_file", "Unknown").split("/")[-1] if chunk.get("source_file") else "Unknown"
+                                st.markdown(f"**{source_name}** ({chunk.get('lens', 'unknown')})")
+                                content = chunk.get("content", chunk.get("text", ""))
+                                st.text(content[:200] + ("..." if len(content) > 200 else ""))
+                                st.divider()
+                    else:
+                        st.caption("No conflicting source chunks identified")
 
                     # Actions
-                    if dec.get("status", "active") == "active":
-                        col1, col2 = st.columns(2)
-                        if col1.button("Mark for Review", key=f"rev_{dec['id']}"):
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        if st.button("Mark for Review", key=f"review_{dec['id']}"):
                             dec["status"] = "revisiting"
-                            save_decisions(decisions)
-                            st.success("Decision marked for review")
+                            save_decision_update(dec)
                             st.rerun()
-                        if col2.button("Supersede", key=f"sup_{dec['id']}"):
+                    with col2:
+                        if st.button("Supersede", key=f"supersede_{dec['id']}"):
                             dec["status"] = "superseded"
-                            save_decisions(decisions)
-                            st.success("Decision superseded")
+                            save_decision_update(dec)
                             st.rerun()
+                    with col3:
+                        if dec.get("status") != "active":
+                            if st.button("Reactivate", key=f"reactivate_{dec['id']}"):
+                                dec["status"] = "active"
+                                save_decision_update(dec)
+                                st.rerun()
 
             # Export button
             st.markdown("---")
