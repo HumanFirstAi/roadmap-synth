@@ -1,5 +1,10 @@
 # Roadmap Synthesis Tool
 
+[![Tests](https://github.com/yourusername/roadmap-synth/actions/workflows/test.yml/badge.svg)](https://github.com/yourusername/roadmap-synth/actions/workflows/test.yml)
+[![Coverage](https://codecov.io/gh/yourusername/roadmap-synth/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/roadmap-synth)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A CLI tool that synthesizes diverse strategic documents into persona-specific product roadmaps using semantic search and Claude AI.
 
 ## Features
@@ -288,6 +293,58 @@ Approximate costs per operation:
 
 Use Claude Haiku for cheaper Q&A if needed.
 
+## Testing
+
+The project includes a comprehensive test suite with 107 tests covering core functionality.
+
+### Running Tests
+
+```bash
+# Run all tests
+PYTHONPATH=$PWD uv run pytest tests/ -v
+
+# Run with coverage report
+PYTHONPATH=$PWD uv run pytest tests/ --cov=roadmap --cov=app --cov-report=html --cov-report=term-missing
+
+# Run unit tests only (fast)
+pytest tests/ -m unit
+
+# Run integration tests
+pytest tests/ -m integration
+
+# Run specific test file
+pytest tests/test_utilities.py -v
+```
+
+### View Coverage Report
+
+```bash
+open htmlcov/index.html  # View detailed HTML coverage report
+```
+
+### Test Organization
+
+- `tests/test_utilities.py` - Utility functions (count_tokens, cosine_similarity, API validation)
+- `tests/test_chunking.py` - Chunking functions (quality scoring, key terms, time refs)
+- `tests/test_embeddings.py` - Embedding generation and vector search
+- `tests/test_graph.py` - UnifiedContextGraph operations
+- `tests/test_retrieval.py` - Authority-based retrieval and ranking
+- `tests/test_integration.py` - End-to-end workflow tests
+
+### Coverage Status
+
+Current coverage: ~18% (target: 70%)
+
+**Well-tested components:**
+- ✅ Utility functions (~90%)
+- ✅ Chunking functions (~25%)
+- ✅ Embeddings (~20%)
+- ✅ Graph operations (~22%)
+
+### Contributing
+
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for detailed guidelines on writing tests and submitting pull requests.
+
 ## Development
 
 ```bash
@@ -297,12 +354,23 @@ uv run python roadmap.py --help
 # Install in development mode
 uv pip install -e .
 
+# Install test dependencies
+uv pip install pytest pytest-cov pytest-mock pytest-timeout pytest-asyncio responses freezegun
+
 # Format code
 uv run ruff format roadmap.py
 
 # Type check
 uv run mypy roadmap.py
 ```
+
+### Continuous Integration
+
+GitHub Actions automatically runs tests on:
+- ✅ Every push to main/develop branches
+- ✅ Every pull request
+- ✅ Python 3.11, 3.12, and 3.13
+- ✅ Coverage reporting and threshold checks
 
 ## License
 

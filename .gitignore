@@ -30,3 +30,11 @@ materials/**/*           # Source documents (optional - uncomment to track mater
 
 # Logs
 *.log
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+.tox/
+.hypothesis/
