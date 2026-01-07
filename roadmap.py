@@ -3130,6 +3130,79 @@ def sync_all_to_graph() -> UnifiedContextGraph:
     except Exception as e:
         console.print(f"[yellow]Warning: Could not sync competitive assessments: {e}")
 
+    # 5. Sync chunks from LanceDB
+    console.print("[blue]Syncing chunks from LanceDB...")
+    try:
+        db = init_db()
+        table = db.open_table("roadmap_chunks")
+        chunks_df = table.to_pandas()
+
+        chunk_count = 0
+        for _, row in chunks_df.iterrows():
+            chunk_id = row.get("id")
+            if chunk_id and chunk_id not in graph.node_indices["chunk"]:
+                chunk_data = {
+                    "id": chunk_id,
+                    "content": row.get("content", ""),
+                    "lens": row.get("lens", "unknown"),
+                    "source_name": row.get("source_name", ""),
+                    "source_file": row.get("source_file", ""),
+                    "chunk_index": row.get("chunk_index", 0),
+                    "token_count": row.get("token_count", 0)
+                }
+
+                graph.add_node(
+                    chunk_id,
+                    "chunk",
+                    chunk_data,
+                    embedding=row.get("vector")
+                )
+                chunk_count += 1
+
+        console.print(f"[green]✓ Synced {chunk_count} chunks")
+    except Exception as e:
+        console.print(f"[yellow]Warning: Could not sync chunks: {e}")
+
+    # 6. Create edges between chunks and other nodes
+    console.print("[blue]Creating edges between nodes...")
+    try:
+        edges_created = 0
+
+        # Link chunks to roadmap items (based on content matching)
+        for chunk_id, chunk_data in list(graph.node_indices["chunk"].items())[:100]:  # Limit for performance
+            chunk_content = chunk_data.get("content", "").lower()
+
+            # Link to roadmap items
+            for ri_id, ri_data in graph.node_indices["roadmap_item"].items():
+                ri_name = ri_data.get("name", "").lower()
+                ri_desc = ri_data.get("description", "").lower()
+
+                # Simple keyword matching
+                if ri_name and len(ri_name) > 3 and ri_name in chunk_content:
+                    if not graph.graph.has_edge(ri_id, chunk_id):
+                        graph.add_edge(ri_id, chunk_id, edge_type="SUPPORTED_BY", weight=0.7)
+                        edges_created += 1
+                elif ri_desc and any(word in chunk_content for word in ri_desc.split()[:5]):
+                    if not graph.graph.has_edge(ri_id, chunk_id):
+                        graph.add_edge(ri_id, chunk_id, edge_type="MENTIONED_IN", weight=0.5)
+                        edges_created += 1
+
+            # Link to decisions
+            for dec_id, dec_data in graph.node_indices["decision"].items():
+                dec_text = dec_data.get("decision", "").lower()
+
+                # Extract key terms from decision
+                dec_terms = [w for w in dec_text.split() if len(w) > 4][:5]
+
+                if dec_terms and any(term in chunk_content for term in dec_terms):
+                    if not graph.graph.has_edge(dec_id, chunk_id):
+                        graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=0.8)
+                        edges_created += 1
+
+        console.print(f"[green]✓ Created {edges_created} edges")
+    except Exception as e:
+        console.print(f"[yellow]Warning: Could not create edges: {e}")
+
     # Save
     graph.save()
 

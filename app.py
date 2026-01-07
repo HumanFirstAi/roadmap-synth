@@ -9,6 +9,8 @@ import os
 from datetime import datetime
 from typing import Optional, List, Dict
 import pandas as pd
+from enum import Enum
+from dataclasses import dataclass
 
 # Import functions from roadmap.py
 from roadmap import (
@@ -1264,10 +1266,13 @@ def render_validation_stats():
 
     questions = load_questions()
 
+    # Filter out None values and ensure dict structure
+    questions = [q for q in questions if q is not None and isinstance(q, dict)]
+
     total = len(questions)
-    validated = [q for q in questions if q.get("validation", {}).get("validated")]
-    accurate = [q for q in validated if q["validation"].get("is_accurate")]
-    inaccurate = [q for q in validated if not q["validation"].get("is_accurate")]
+    validated = [q for q in questions if isinstance(q.get("validation"), dict) and q.get("validation", {}).get("validated")]
+    accurate = [q for q in validated if q.get("validation", {}).get("is_accurate")]
+    inaccurate = [q for q in validated if not q.get("validation", {}).get("is_accurate")]
 
     st.subheader("📊 Question Validation Stats")
 
@@ -1291,6 +1296,1719 @@ def render_validation_stats():
                 st.caption(f"  Feedback: {q['validation'].get('feedback_note', 'No feedback')}")
 
 
+# ========== HOLISTIC QUESTION GENERATION ==========
+
+def cosine_similarity(vec1: list, vec2: list) -> float:
+    """Calculate cosine similarity between two vectors."""
+    import math
+
+    if not vec1 or not vec2 or len(vec1) != len(vec2):
+        return 0.0
+
+    dot_product = sum(a * b for a, b in zip(vec1, vec2))
+    magnitude1 = math.sqrt(sum(a * a for a in vec1))
+    magnitude2 = math.sqrt(sum(b * b for b in vec2))
+
+    if magnitude1 == 0 or magnitude2 == 0:
+        return 0.0
+
+    return dot_product / (magnitude1 * magnitude2)
+
+
+def gather_generation_context() -> dict:
+    """Gather all context needed for question generation."""
+
+    context = {
+        # Questions
+        "existing_questions": load_questions(),
+        "pending_questions": [q for q in load_questions() if q.get("status") == "pending"],
+        "answered_questions": [q for q in load_questions() if q.get("status") == "answered"],
+
+        # Decisions
+        "active_decisions": [d for d in load_decisions() if d.get("status") == "active"],
+
+        # Graph
+        "graph": UnifiedContextGraph.load(),
+
+        # Assessments
+        "arch_assessments": load_alignment_analysis() or [],
+        "competitive_assessments": load_analyst_assessments() or [],
+
+        # Roadmap
+        "roadmap": None,  # Will be loaded from graph
+        "roadmap_items": [],
+
+        # Source stats
+        "chunks_by_lens": get_chunks_by_lens_count(),
+    }
+
+    # Extract roadmap items from graph
+    graph = context["graph"]
+    if graph:
+        roadmap_items_nodes = graph.node_indices.get("roadmap_item", {})
+        context["roadmap_items"] = []
+        for item_id, item_node in roadmap_items_nodes.items():
+            item_data = item_node.__dict__ if hasattr(item_node, '__dict__') else item_node
+            context["roadmap_items"].append({
+                "id": item_id,
+                "name": item_data.get("name", "Unknown"),
+                "horizon": item_data.get("horizon", "future"),
+                "owner": item_data.get("owner", ""),
+                "dependencies": item_data.get("dependencies", [])
+            })
+
+    return context
+
+
+def find_contradictions(graph) -> list[dict]:
+    """
+    Find contradictory statements in the graph.
+
+    Looks for chunks with topic overlap but different lenses.
+    """
+
+    contradictions = []
+
+    if not graph:
+        return contradictions
+
+    chunks = list(graph.node_indices.get("chunk", {}).values())
+
+    # Compare your-voice chunks against team chunks
+    your_voice_chunks = [c for c in chunks if getattr(c, 'lens', c.get('lens')) == 'your-voice']
+    team_chunks = [c for c in chunks if getattr(c, 'lens', c.get('lens')) in ['team-structured', 'team-conversational', 'engineering']]
+
+    # Look for topic overlap with different statements
+    contradiction_keywords = [
+        ("q1", "q2", "q3", "q4"),  # Timeline conflicts
+        ("will", "won't", "can", "cannot", "can't"),  # Capability conflicts
+        ("priority", "deprioritize"),  # Priority conflicts
+        ("before", "after"),  # Sequence conflicts
+    ]
+
+    for yv_chunk in your_voice_chunks[:20]:  # Limit for performance
+        yv_content = getattr(yv_chunk, 'content', yv_chunk.get('content', '')).lower()
+        yv_id = getattr(yv_chunk, 'id', yv_chunk.get('id', ''))
+        yv_source = getattr(yv_chunk, 'source_name', yv_chunk.get('source_name', ''))
+
+        for team_chunk in team_chunks[:50]:
+            team_content = getattr(team_chunk, 'content', team_chunk.get('content', '')).lower()
+            team_id = getattr(team_chunk, 'id', team_chunk.get('id', ''))
+            team_source = getattr(team_chunk, 'source_name', team_chunk.get('source_name', ''))
+            team_lens = getattr(team_chunk, 'lens', team_chunk.get('lens', ''))
+
+            # Check for topic overlap (shared important terms)
+            yv_terms = set(extract_key_terms_simple(yv_content))
+            team_terms = set(extract_key_terms_simple(team_content))
+
+            overlap = yv_terms & team_terms
+
+            if len(overlap) >= 3:  # Significant topic overlap
+                # Check for potential contradiction signals
+                for keyword_group in contradiction_keywords:
+                    yv_has = any(kw in yv_content for kw in keyword_group)
+                    team_has = any(kw in team_content for kw in keyword_group)
+
+                    if yv_has and team_has:
+                        # Potential contradiction found
+                        topic = ", ".join(list(overlap)[:3])
+
+                        contradictions.append({
+                            "topic": topic,
+                            "chunk_a_id": yv_id,
+                            "source_a": yv_source,
+                            "lens_a": "your-voice",
+                            "statement_a": getattr(yv_chunk, 'content', yv_chunk.get('content', ''))[:150],
+                            "chunk_b_id": team_id,
+                            "source_b": team_source,
+                            "lens_b": team_lens,
+                            "statement_b": getattr(team_chunk, 'content', team_chunk.get('content', ''))[:150],
+                        })
+                        break  # One contradiction per chunk pair
+
+    # Deduplicate similar contradictions
+    seen_topics = set()
+    unique_contradictions = []
+    for c in contradictions:
+        topic_key = c["topic"]
+        if topic_key not in seen_topics:
+            seen_topics.add(topic_key)
+            unique_contradictions.append(c)
+
+    return unique_contradictions[:5]  # Limit to top 5
+
+
+def derive_questions_from_graph(context: dict) -> list[dict]:
+    """
+    Automatically derive questions from graph analysis.
+    These are flagged as 'derived' type.
+    """
+
+    derived_questions = []
+    graph = context["graph"]
+    roadmap_items = context["roadmap_items"]
+    decisions = context["active_decisions"]
+
+    if not graph:
+        return derived_questions
+
+    # === PATTERN 1: Contradictions ===
+    contradictions = find_contradictions(graph)
+    for contradiction in contradictions:
+        derived_questions.append({
+            "question": f"Conflicting information about {contradiction['topic']}: "
+                       f"'{contradiction['statement_a'][:40]}...' vs "
+                       f"'{contradiction['statement_b'][:40]}...'. Which is correct?",
+            "audience": "leadership",
+            "category": "alignment",
+            "priority": "high",
+            "context": f"Found in {contradiction['source_a']} ({contradiction['lens_a']}) "
+                      f"and {contradiction['source_b']} ({contradiction['lens_b']})",
+            "generation": {
+                "type": "derived",
+                "source": "contradiction",
+                "generated_at": datetime.now().isoformat(),
+            },
+            "derivation": {
+                "pattern": "contradiction",
+                "evidence": [
+                    {
+                        "source_id": contradiction["chunk_a_id"],
+                        "source_name": contradiction["source_a"],
+                        "lens": contradiction["lens_a"],
+                        "content": contradiction["statement_a"],
+                    },
+                    {
+                        "source_id": contradiction["chunk_b_id"],
+                        "source_name": contradiction["source_b"],
+                        "lens": contradiction["lens_b"],
+                        "content": contradiction["statement_b"],
+                    }
+                ]
+            }
+        })
+
+    # === PATTERN 2: Missing Engineering Coverage ===
+    for item in roadmap_items[:10]:  # Limit for performance
+        # Get supporting chunks for this item
+        item_name_lower = item['name'].lower()
+        supporting_chunks = []
+
+        chunks = list(graph.node_indices.get("chunk", {}).values())
+        for chunk in chunks:
+            chunk_content = getattr(chunk, 'content', chunk.get('content', '')).lower()
+            if any(word in chunk_content for word in item_name_lower.split()[:3]):
+                supporting_chunks.append(chunk)
+
+        has_engineering = any(getattr(c, 'lens', c.get('lens')) == 'engineering' for c in supporting_chunks)
+
+        if not has_engineering and item.get("horizon") in ["now", "next"]:
+            derived_questions.append({
+                "question": f"Has engineering validated the feasibility of '{item['name']}'?",
+                "audience": "engineering",
+                "category": "feasibility",
+                "priority": "high" if item.get("horizon") == "now" else "medium",
+                "context": f"Roadmap item '{item['name']}' in {item.get('horizon')} horizon "
+                          f"has no engineering source documents",
+                "generation": {
+                    "type": "derived",
+                    "source": "missing_coverage",
+                    "generated_at": datetime.now().isoformat(),
+                },
+                "derivation": {
+                    "pattern": "missing_coverage",
+                    "evidence": [{
+                        "roadmap_item": item["name"],
+                        "horizon": item.get("horizon"),
+                        "lenses_present": list(set(getattr(c, 'lens', c.get('lens')) for c in supporting_chunks)) if supporting_chunks else [],
+                        "missing_lens": "engineering"
+                    }]
+                }
+            })
+
+    # === PATTERN 3: Dependency Conflicts ===
+    horizon_order = {"now": 0, "next": 1, "later": 2, "future": 3}
+
+    for item in roadmap_items[:10]:
+        dependencies = item.get("dependencies", [])
+        item_horizon = item.get("horizon", "future")
+
+        for dep_name in dependencies:
+            dep_item = next((i for i in roadmap_items if i["name"] == dep_name), None)
+            if dep_item:
+                dep_horizon = dep_item.get("horizon", "future")
+
+                # Check if dependency is in a later horizon
+                if horizon_order.get(dep_horizon, 3) > horizon_order.get(item_horizon, 3):
+                    derived_questions.append({
+                        "question": f"'{item['name']}' is in {item_horizon} but depends on "
+                                   f"'{dep_name}' which is in {dep_horizon}. How will this work?",
+                        "audience": "product",
+                        "category": "dependency",
+                        "priority": "high",
+                        "context": f"Dependency timing conflict detected",
+                        "generation": {
+                            "type": "derived",
+                            "source": "dependency_conflict",
+                            "generated_at": datetime.now().isoformat(),
+                        },
+                        "derivation": {
+                            "pattern": "dependency_conflict",
+                            "evidence": [{
+                                "item": item["name"],
+                                "item_horizon": item_horizon,
+                                "dependency": dep_name,
+                                "dependency_horizon": dep_horizon
+                            }]
+                        }
+                    })
+
+    # === PATTERN 4: Unaddressed Gaps ===
+    gaps = list(graph.node_indices.get("gap", {}).values())[:10]  # Limit for performance
+    for gap in gaps:
+        gap_data = gap.__dict__ if hasattr(gap, '__dict__') else gap
+
+        # Check if gap has been addressed by a decision
+        addressed_by = gap_data.get("addressed_by_decision")
+        if not addressed_by:
+            severity = gap_data.get("severity", "medium")
+            if severity in ["critical", "significant"]:
+                derived_questions.append({
+                    "question": f"How should we address the gap: '{gap_data.get('description', 'Unknown')[:80]}'?",
+                    "audience": "leadership",
+                    "category": "direction",
+                    "priority": "critical" if severity == "critical" else "high",
+                    "context": f"Gap identified by assessment, severity: {severity}",
+                    "generation": {
+                        "type": "derived",
+                        "source": "unaddressed_gap",
+                        "generated_at": datetime.now().isoformat(),
+                    },
+                    "derivation": {
+                        "pattern": "unaddressed_gap",
+                        "evidence": [{
+                            "gap_id": gap_data.get("id"),
+                            "description": gap_data.get("description"),
+                            "severity": severity
+                        }]
+                    }
+                })
+
+    # === PATTERN 5: Missing Owner ===
+    for item in roadmap_items[:10]:
+        if not item.get("owner") and item.get("horizon") in ["now", "next"]:
+            derived_questions.append({
+                "question": f"Who owns delivery of '{item['name']}'?",
+                "audience": "leadership",
+                "category": "ownership",
+                "priority": "high" if item.get("horizon") == "now" else "medium",
+                "context": f"Roadmap item in {item.get('horizon')} horizon has no assigned owner",
+                "generation": {
+                    "type": "derived",
+                    "source": "missing_owner",
+                    "generated_at": datetime.now().isoformat(),
+                },
+                "derivation": {
+                    "pattern": "missing_owner",
+                    "evidence": [{
+                        "item": item["name"],
+                        "horizon": item.get("horizon")
+                    }]
+                }
+            })
+
+    return derived_questions
+
+
+def generate_llm_questions(context: dict) -> list[dict]:
+    """
+    Use Claude to generate questions based on full context.
+    """
+    import anthropic
+
+    # Build context summary for prompt
+    roadmap_summary = "\n".join([
+        f"- {item['name']} ({item.get('horizon', 'unknown')})"
+        for item in context.get("roadmap_items", [])[:15]
+    ])
+
+    arch_summary = "No architecture assessments available"
+    if isinstance(context.get("arch_assessments"), list) and context["arch_assessments"]:
+        arch_summary = "\n".join([
+            f"- Assessment {i+1}: Has {len(a.get('gaps', []))} gaps identified"
+            for i, a in enumerate(context["arch_assessments"][:3])
+        ])
+
+    comp_summary = "No competitive assessments available"
+    if isinstance(context.get("competitive_assessments"), list) and context["competitive_assessments"]:
+        comp_summary = "\n".join([
+            f"- {a.get('competitor_development', {}).get('competitor', 'Unknown')}: {a.get('headline', 'N/A')[:60]}..."
+            for a in context["competitive_assessments"][:3]
+        ])
+
+    decisions_summary = "\n".join([
+        f"- {d.get('decision', 'Unknown')[:60]}..."
+        for d in context.get("active_decisions", [])[:10]
+    ]) or "No decisions recorded yet"
+
+    answered_summary = "\n".join([
+        f"- {q.get('question', 'Unknown')[:60]}..."
+        for q in context.get("answered_questions", [])[:10]
+    ]) or "No questions answered yet"
+
+    pending_summary = "\n".join([
+        f"- [{q.get('priority', 'medium')}] {q.get('question', 'Unknown')[:60]}..."
+        for q in context.get("pending_questions", [])[:15]
+    ]) or "No pending questions"
+
+    prompt = f"""You are analyzing a product roadmap and related materials to identify questions that need answers.
+
+## CURRENT ROADMAP
+{roadmap_summary if roadmap_summary else "No roadmap items available"}
+
+## ARCHITECTURE ASSESSMENT FINDINGS
+{arch_summary}
+
+## COMPETITIVE INTELLIGENCE
+{comp_summary}
+
+## DECISIONS ALREADY MADE
+{decisions_summary}
+
+## QUESTIONS ALREADY ANSWERED
+{answered_summary}
+
+## QUESTIONS ALREADY PENDING
+{pending_summary}
+
+---
+
+## YOUR TASK
+
+Generate questions that need answers to move this roadmap forward.
+
+IMPORTANT:
+- Do NOT generate questions that are already answered above
+- Do NOT generate questions that are already pending above
+- Do NOT generate questions that are resolved by decisions above
+- Focus on NEW questions surfaced by the current state
+
+For each question, specify:
+- question: The question text
+- audience: engineering | leadership | product
+- category: feasibility | investment | direction | trade-off | alignment | timing | scope | dependency | ownership | validation
+- priority: critical | high | medium | low
+- context: Why this question arose (reference specific roadmap items, assessments, or sources)
+
+Return as JSON array:
+```json
+[
+    {{
+        "question": "...",
+        "audience": "...",
+        "category": "...",
+        "priority": "...",
+        "context": "..."
+    }}
+]
+```
+
+Generate 3-8 questions depending on complexity. Quality over quantity.
+"""
+
+    # Check for API key
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+    if not api_key:
+        st.warning("⚠️ ANTHROPIC_API_KEY not set. Skipping LLM question generation. Only derived questions will be generated.")
+        return []
+
+    try:
+        import httpx
+        import json
+        import re
+
+        # Create client with SSL verification disabled for development
+        http_client = httpx.Client(verify=False)
+
+        try:
+            client = anthropic.Anthropic(api_key=api_key, http_client=http_client)
+
+            message = client.messages.create(
+                model="claude-sonnet-4-5-20250929",  # Updated to current model
+                max_tokens=4000,
+                messages=[{"role": "user", "content": prompt}]
+            )
+
+            response_text = message.content[0].text
+
+            # Extract JSON from response
+            json_match = re.search(r'\[[\s\S]*\]', response_text)
+            if json_match:
+                questions = json.loads(json_match.group())
+            else:
+                questions = json.loads(response_text)
+
+            # Add generation metadata
+            for q in questions:
+                q["generation"] = {
+                    "type": "llm",
+                    "source": "holistic_analysis",
+                    "generated_at": datetime.now().isoformat(),
+                }
+
+            return questions
+        finally:
+            # Always close the http client
+            http_client.close()
+
+    except Exception as e:
+        st.error(f"❌ Error generating LLM questions: {str(e)[:200]}")
+        st.info("💡 Continuing with derived questions only. Check API key and network connection.")
+        return []
+
+
+def deduplicate_questions(
+    new_questions: list[dict],
+    existing_questions: list[dict],
+    similarity_threshold: float = 0.85
+) -> tuple[list[dict], list[dict]]:
+    """
+    Deduplicate new questions against existing ones.
+
+    Returns:
+        - unique_new: Questions that are genuinely new
+        - duplicates: Questions that match existing ones (with match info)
+    """
+
+    unique_new = []
+    duplicates = []
+
+    # Get embeddings for existing questions
+    existing_embeddings = {}
+    for eq in existing_questions:
+        if eq.get("status") != "obsolete":
+            eq_text = eq.get("question", "")
+            eq_embedding = get_embedding(eq_text)
+            if eq_embedding:
+                existing_embeddings[eq.get("id", "unknown")] = {
+                    "question": eq,
+                    "embedding": eq_embedding
+                }
+
+    for new_q in new_questions:
+        new_embedding = get_embedding(new_q.get("question", ""))
+        if not new_embedding:
+            continue
+
+        # Check against all existing
+        is_duplicate = False
+        best_match = None
+        best_similarity = 0
+
+        for eq_id, eq_data in existing_embeddings.items():
+            similarity = cosine_similarity(new_embedding, eq_data["embedding"])
+
+            if similarity > best_similarity:
+                best_similarity = similarity
+                best_match = eq_data["question"]
+
+            if similarity >= similarity_threshold:
+                is_duplicate = True
+                break
+
+        if is_duplicate:
+            duplicates.append({
+                "new_question": new_q,
+                "matches": best_match,
+                "similarity": best_similarity
+            })
+        else:
+            # Add deduplication metadata
+            new_q["deduplication"] = {
+                "fingerprint": "_".join(extract_key_terms_simple(new_q.get("question", "").lower())[:5]),
+                "similar_questions": [best_match.get("id")] if best_match and best_similarity > 0.6 else []
+            }
+
+            unique_new.append(new_q)
+
+    return unique_new, duplicates
+
+
+def mark_obsolete_questions(
+    existing_questions: list[dict],
+    decisions: list[dict]
+) -> list[dict]:
+    """
+    Mark questions as obsolete if they've been resolved by decisions.
+
+    Returns list of questions that were marked obsolete.
+    """
+
+    newly_obsolete = []
+
+    for question in existing_questions:
+        if question.get("status") in ["obsolete", "answered"]:
+            continue
+
+        # Check if any decision resolves this question
+        question_embedding = get_embedding(question.get("question", ""))
+        if not question_embedding:
+            continue
+
+        for decision in decisions:
+            if decision.get("status") != "active":
+                continue
+
+            decision_text = f"{decision.get('decision', '')} {decision.get('rationale', '')}"
+            decision_embedding = get_embedding(decision_text)
+            if not decision_embedding:
+                continue
+
+            similarity = cosine_similarity(question_embedding, decision_embedding)
+
+            if similarity > 0.75:
+                # Decision likely resolves this question
+                question["status"] = "obsolete"
+                question["lifecycle"] = question.get("lifecycle", {})
+                question["lifecycle"]["obsoleted_at"] = datetime.now().isoformat()
+                question["lifecycle"]["obsoleted_by"] = decision.get("id")
+                question["lifecycle"]["obsolete_reason"] = f"Resolved by decision: {decision.get('decision', '')[:50]}..."
+
+                newly_obsolete.append(question)
+                break
+
+    return newly_obsolete
+
+
+def generate_questions_holistic() -> dict:
+    """
+    Main function to generate questions holistically.
+
+    Returns generation results summary.
+    """
+
+    run_id = f"gen_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    # Step 1: Gather context
+    context = gather_generation_context()
+
+    # Step 2: Derive questions from graph
+    derived_questions = derive_questions_from_graph(context)
+
+    # Step 3: Generate LLM questions
+    llm_questions = generate_llm_questions(context)
+
+    # Step 4: Combine all new questions
+    all_new_questions = derived_questions + llm_questions
+
+    # Step 5: Deduplicate against existing
+    unique_questions, duplicates = deduplicate_questions(
+        all_new_questions,
+        context["existing_questions"]
+    )
+
+    # Step 6: Mark obsolete questions
+    newly_obsolete = mark_obsolete_questions(
+        context["existing_questions"],
+        context["active_decisions"]
+    )
+
+    # Step 7: Assign IDs and finalize
+    existing_questions = context["existing_questions"]
+
+    for q in unique_questions:
+        q["id"] = f"q_{datetime.now().strftime('%Y%m%d%H%M%S')}_{len(existing_questions)}"
+        q["status"] = "pending"
+        q["created_at"] = datetime.now().isoformat()
+        q["generation"]["generation_run_id"] = run_id
+        q["lifecycle"] = {
+            "created_at": datetime.now().isoformat(),
+            "refreshed_at": datetime.now().isoformat(),
+            "times_refreshed": 1
+        }
+        existing_questions.append(q)
+
+    # Step 8: Update refresh timestamp on preserved questions
+    for eq in existing_questions:
+        if eq.get("status") == "pending" and eq.get("id") and eq not in unique_questions:
+            eq["lifecycle"] = eq.get("lifecycle", {})
+            eq["lifecycle"]["refreshed_at"] = datetime.now().isoformat()
+            eq["lifecycle"]["times_refreshed"] = eq["lifecycle"].get("times_refreshed", 0) + 1
+
+    # Step 9: Save
+    save_questions(existing_questions)
+
+    # Step 10: Return results summary
+    results = {
+        "questions_generated": len(unique_questions),
+        "llm_generated": len([q for q in unique_questions if q.get("generation", {}).get("type") == "llm"]),
+        "derived": len([q for q in unique_questions if q.get("generation", {}).get("type") == "derived"]),
+        "duplicates_found": len(duplicates),
+        "questions_marked_obsolete": len(newly_obsolete),
+        "total_pending_after": len([q for q in existing_questions if q.get("status") == "pending"])
+    }
+
+    return results
+
+
+# ========== ASK YOUR ROADMAP ==========
+
+class QueryIntent(Enum):
+    """Types of questions users can ask."""
+    WHAT = "what"  # What is X? What does X do?
+    WHY = "why"  # Why did we choose X? Why is X important?
+    HOW = "how"  # How will X work? How do we implement X?
+    WHEN = "when"  # When will X happen? When was X decided?
+    WHO = "who"  # Who owns X? Who decided X?
+    STATUS = "status"  # What's the status of X?
+    COMPARISON = "comparison"  # How does X compare to Y?
+    DEPENDENCY = "dependency"  # What depends on X? What does X depend on?
+    CONFLICT = "conflict"  # Are there conflicts with X?
+    GENERAL = "general"  # General exploration
+
+
+@dataclass
+class ParsedQuery:
+    """Structured representation of a user query."""
+    original: str
+    intent: QueryIntent
+    topics: List[str]  # CPQ, Catalog, Experiences, etc.
+    keywords: List[str]  # Key terms for search
+    modifiers: Dict[str, any]  # priority, recency, severity, scope
+    time_context: Optional[str]  # now, next, later, future, past
+
+
+@dataclass
+class RetrievalResult:
+    """Results from multi-source retrieval."""
+    chunks: List[Dict]  # From LanceDB
+    chunk_graph_nodes: List[Dict]  # From chunk context graph
+    unified_graph_nodes: Dict[str, List[Dict]]  # By node type
+
+
+def extract_topics(query: str) -> List[str]:
+    """Extract topic mentions from query."""
+    topics = []
+
+    # Known topic keywords
+    topic_keywords = {
+        "CPQ": ["cpq", "configure", "pricing", "quote"],
+        "Catalog": ["catalog", "catalogue", "products"],
+        "Experiences": ["experience", "experiences", "ux", "ui"],
+        "Acquisition": ["acquisition", "acquire", "acquiring"],
+        "Intelligent Agents": ["agent", "agents", "ai", "intelligent"],
+        "Analytics": ["analytics", "analysis", "reporting", "insights"],
+    }
+
+    query_lower = query.lower()
+
+    for topic, keywords in topic_keywords.items():
+        if any(kw in query_lower for kw in keywords):
+            topics.append(topic)
+
+    return topics
+
+
+def extract_keywords(query: str) -> List[str]:
+    """Extract important keywords from query."""
+    import re
+
+    # Remove stop words
+    stop_words = {
+        "what", "why", "how", "when", "where", "who", "which", "is", "are", "was", "were",
+        "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with",
+        "by", "from", "up", "about", "into", "through", "during", "before", "after",
+        "above", "below", "between", "under", "again", "further", "then", "once", "here",
+        "there", "all", "both", "each", "few", "more", "most", "other", "some", "such",
+        "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "can",
+        "will", "just", "should", "now", "do", "does", "did", "has", "have", "had", "been"
+    }
+
+    # Tokenize and filter
+    words = re.findall(r'\b\w+\b', query.lower())
+    keywords = [w for w in words if w not in stop_words and len(w) > 2]
+
+    return keywords[:10]  # Limit to 10 most important
+
+
+def extract_modifiers(query: str) -> Dict[str, any]:
+    """Extract query modifiers (priority, recency, etc.)."""
+    modifiers = {}
+
+    query_lower = query.lower()
+
+    # Priority
+    if any(w in query_lower for w in ["critical", "urgent", "important", "priority"]):
+        modifiers["priority"] = "high"
+
+    # Recency
+    if any(w in query_lower for w in ["recent", "latest", "new", "current"]):
+        modifiers["recency"] = "recent"
+
+    # Severity
+    if any(w in query_lower for w in ["blocker", "blocking", "severe", "major"]):
+        modifiers["severity"] = "high"
+
+    # Scope
+    if any(w in query_lower for w in ["all", "everything", "comprehensive", "complete"]):
+        modifiers["scope"] = "broad"
+    elif any(w in query_lower for w in ["specific", "particular", "just", "only"]):
+        modifiers["scope"] = "narrow"
+
+    return modifiers
+
+
+def extract_time_context(query: str) -> Optional[str]:
+    """Extract time context from query."""
+    query_lower = query.lower()
+
+    if any(w in query_lower for w in ["now", "current", "today", "immediate"]):
+        return "now"
+    elif any(w in query_lower for w in ["next", "soon", "upcoming", "short-term"]):
+        return "next"
+    elif any(w in query_lower for w in ["later", "future", "long-term", "eventually"]):
+        return "later"
+    elif any(w in query_lower for w in ["past", "previous", "before", "earlier", "decided"]):
+        return "past"
+
+    return None
+
+
+def detect_intent(query: str) -> QueryIntent:
+    """Detect the intent of the query."""
+    query_lower = query.lower()
+
+    # Intent patterns
+    if query_lower.startswith("what") or "what is" in query_lower or "what are" in query_lower:
+        return QueryIntent.WHAT
+    elif query_lower.startswith("why") or "why did" in query_lower or "why is" in query_lower:
+        return QueryIntent.WHY
+    elif query_lower.startswith("how") or "how do" in query_lower or "how will" in query_lower:
+        return QueryIntent.HOW
+    elif query_lower.startswith("when") or "when will" in query_lower or "when was" in query_lower:
+        return QueryIntent.WHEN
+    elif query_lower.startswith("who") or "who is" in query_lower or "who owns" in query_lower:
+        return QueryIntent.WHO
+    elif any(w in query_lower for w in ["status", "progress", "state", "where are we"]):
+        return QueryIntent.STATUS
+    elif any(w in query_lower for w in ["compare", "comparison", "vs", "versus", "difference"]):
+        return QueryIntent.COMPARISON
+    elif any(w in query_lower for w in ["depend", "dependency", "requires", "needs", "prerequisite"]):
+        return QueryIntent.DEPENDENCY
+    elif any(w in query_lower for w in ["conflict", "contradiction", "disagree", "inconsistent"]):
+        return QueryIntent.CONFLICT
+
+    return QueryIntent.GENERAL
+
+
+def parse_query(query: str) -> ParsedQuery:
+    """Parse user query into structured representation."""
+    return ParsedQuery(
+        original=query,
+        intent=detect_intent(query),
+        topics=extract_topics(query),
+        keywords=extract_keywords(query),
+        modifiers=extract_modifiers(query),
+        time_context=extract_time_context(query)
+    )
+
+
+def expand_via_chunk_graph(seed_chunk_ids: List[str], max_hops: int = 1) -> List[Dict]:
+    """
+    Expand retrieval via chunk context graph.
+    Uses BFS to traverse chunk relationships.
+    """
+    try:
+        graph = ContextGraph().load()
+        if not graph or not graph.graph:
+            return []
+
+        expanded = []
+        visited = set(seed_chunk_ids)
+        queue = [(chunk_id, 0) for chunk_id in seed_chunk_ids]
+
+        while queue:
+            current_id, hops = queue.pop(0)
+
+            if hops >= max_hops:
+                continue
+
+            # Get neighbors
+            if current_id in graph.graph:
+                for neighbor_id in graph.graph.neighbors(current_id):
+                    if neighbor_id not in visited:
+                        visited.add(neighbor_id)
+
+                        # Get node data
+                        node_data = graph.graph.nodes.get(neighbor_id, {})
+                        expanded.append({
+                            "id": neighbor_id,
+                            "content": node_data.get("content", ""),
+                            "lens": node_data.get("lens", "unknown"),
+                            "source_name": node_data.get("source_name", ""),
+                            "source_path": node_data.get("source_file", ""),
+                            "hops_from_seed": hops + 1
+                        })
+
+                        # Add to queue for next hop
+                        if hops + 1 < max_hops:
+                            queue.append((neighbor_id, hops + 1))
+
+        return expanded
+    except Exception as e:
+        st.warning(f"Could not expand via chunk graph: {e}")
+        return []
+
+
+def traverse_unified_graph(seed_chunk_ids: List[str], topics: List[str], max_hops: int = 2) -> Dict[str, List[Dict]]:
+    """
+    Traverse unified knowledge graph from seed chunks.
+    Returns nodes organized by type (decision, question, assessment, roadmap_item, gap).
+    """
+    try:
+        graph = UnifiedContextGraph.load()
+        if not graph or not graph.graph:
+            return {}
+
+        results = {
+            "decision": [],
+            "answered_question": [],
+            "pending_question": [],
+            "assessment": [],
+            "roadmap_item": [],
+            "gap": []
+        }
+
+        visited = set(seed_chunk_ids)
+        queue = [(chunk_id, 0) for chunk_id in seed_chunk_ids]
+
+        while queue:
+            current_id, hops = queue.pop(0)
+
+            if hops >= max_hops:
+                continue
+
+            # Get neighbors in unified graph (both directions)
+            if current_id in graph.graph:
+                # Check outgoing edges (this node -> neighbors)
+                for neighbor_id in graph.graph.neighbors(current_id):
+                    if neighbor_id not in visited:
+                        visited.add(neighbor_id)
+
+                        # Get node type
+                        node_data = graph.graph.nodes.get(neighbor_id, {})
+                        node_type = node_data.get("node_type", "")  # FIX: was "type", should be "node_type"
+
+                        # Filter by topics if specified
+                        if topics:
+                            node_content = str(node_data).lower()
+                            if not any(topic.lower() in node_content for topic in topics):
+                                continue
+
+                        # Add to results by type
+                        if node_type == "decision":
+                            results["decision"].append(node_data)
+                        elif node_type == "question":
+                            # Get actual question data from nested 'data' field
+                            q_data = node_data.get("data", node_data)
+                            if q_data.get("status") == "answered":
+                                results["answered_question"].append(q_data)
+                            else:
+                                results["pending_question"].append(q_data)
+                        elif node_type == "assessment":
+                            results["assessment"].append(node_data.get("data", node_data))
+                        elif node_type == "roadmap_item":
+                            results["roadmap_item"].append(node_data.get("data", node_data))
+                        elif node_type == "gap":
+                            results["gap"].append(node_data.get("data", node_data))
+
+                        # Continue traversal
+                        if hops + 1 < max_hops:
+                            queue.append((neighbor_id, hops + 1))
+
+                # FIX: Also check incoming edges (predecessors -> this node)
+                for predecessor_id in graph.graph.predecessors(current_id):
+                    if predecessor_id not in visited:
+                        visited.add(predecessor_id)
+
+                        # Get node type
+                        node_data = graph.graph.nodes.get(predecessor_id, {})
+                        node_type = node_data.get("node_type", "")
+
+                        # Filter by topics if specified
+                        if topics:
+                            node_content = str(node_data).lower()
+                            if not any(topic.lower() in node_content for topic in topics):
+                                continue
+
+                        # Add to results by type
+                        if node_type == "decision":
+                            results["decision"].append(node_data.get("data", node_data))
+                        elif node_type == "question":
+                            q_data = node_data.get("data", node_data)
+                            if q_data.get("status") == "answered":
+                                results["answered_question"].append(q_data)
+                            else:
+                                results["pending_question"].append(q_data)
+                        elif node_type == "assessment":
+                            results["assessment"].append(node_data.get("data", node_data))
+                        elif node_type == "roadmap_item":
+                            results["roadmap_item"].append(node_data.get("data", node_data))
+                        elif node_type == "gap":
+                            results["gap"].append(node_data.get("data", node_data))
+
+                        # Continue traversal
+                        if hops + 1 < max_hops:
+                            queue.append((predecessor_id, hops + 1))
+
+        return results
+    except Exception as e:
+        st.warning(f"Could not traverse unified graph: {e}")
+        return {}
+
+
+def retrieve_full_context(parsed_query: ParsedQuery, top_k: int = 20) -> RetrievalResult:
+    """
+    Main retrieval function that orchestrates multi-source retrieval.
+
+    Process:
+    1. Semantic search in LanceDB using query keywords
+    2. Expand via chunk context graph (BFS, max_hops=1)
+    3. Traverse unified knowledge graph (max_hops=2)
+    4. Filter by topics if specified
+    """
+
+    # Step 1: Semantic search in LanceDB
+    search_query = " ".join(parsed_query.keywords)
+    chunks = retrieve_chunks(search_query, top_k=top_k)
+
+    # Extract chunk IDs
+    chunk_ids = [c.get("id", "") for c in chunks if c.get("id")]
+
+    # Step 2: Expand via chunk graph
+    chunk_graph_nodes = expand_via_chunk_graph(chunk_ids, max_hops=1)
+
+    # Step 3: Traverse unified graph
+    unified_graph_nodes = traverse_unified_graph(chunk_ids, parsed_query.topics, max_hops=2)
+
+    # Step 4: Filter chunks by topics if specified
+    if parsed_query.topics:
+        filtered_chunks = []
+        for chunk in chunks:
+            chunk_content = chunk.get("content", "").lower()
+            if any(topic.lower() in chunk_content for topic in parsed_query.topics):
+                filtered_chunks.append(chunk)
+        chunks = filtered_chunks
+
+    return RetrievalResult(
+        chunks=chunks,
+        chunk_graph_nodes=chunk_graph_nodes,
+        unified_graph_nodes=unified_graph_nodes
+    )
+
+
+def assemble_context_for_synthesis(retrieval: RetrievalResult) -> str:
+    """
+    Assemble retrieved context organized by authority hierarchy for Claude synthesis.
+
+    Authority levels (highest to lowest):
+    1. Decisions (L1)
+    2. Answered Questions (L2)
+    3. Assessments (L3)
+    4. Roadmap Items (L4)
+    5. Gaps (L5)
+    6. Chunks (L6)
+    7. Pending Questions (L7)
+    """
+
+    context_parts = []
+
+    # L1: Decisions
+    decisions = retrieval.unified_graph_nodes.get("decision", [])
+    if decisions:
+        context_parts.append("# DECISIONS (Authority Level 1 - HIGHEST)\n")
+        for decision in decisions[:5]:  # Limit to most relevant
+            context_parts.append(f"**Decision:** {decision.get('decision', 'N/A')}")
+            context_parts.append(f"**Rationale:** {decision.get('rationale', 'N/A')}")
+            context_parts.append(f"**Status:** {decision.get('status', 'N/A')}")
+            context_parts.append("")
+
+    # L2: Answered Questions
+    answered = retrieval.unified_graph_nodes.get("answered_question", [])
+    if answered:
+        context_parts.append("# ANSWERED QUESTIONS (Authority Level 2)\n")
+        for q in answered[:5]:
+            context_parts.append(f"**Q:** {q.get('question', 'N/A')}")
+            context_parts.append(f"**A:** {q.get('answer', {}).get('answer', 'N/A')}")
+            context_parts.append("")
+
+    # L3: Assessments
+    assessments = retrieval.unified_graph_nodes.get("assessment", [])
+    if assessments:
+        context_parts.append("# ASSESSMENTS (Authority Level 3)\n")
+        for assessment in assessments[:3]:
+            context_parts.append(f"**Assessment:** {assessment.get('summary', 'N/A')[:200]}")
+            context_parts.append("")
+
+    # L4: Roadmap Items
+    roadmap_items = retrieval.unified_graph_nodes.get("roadmap_item", [])
+    if roadmap_items:
+        context_parts.append("# ROADMAP ITEMS (Authority Level 4)\n")
+        for item in roadmap_items[:5]:
+            context_parts.append(f"**Item:** {item.get('name', 'N/A')} ({item.get('horizon', 'N/A')})")
+            context_parts.append(f"**Description:** {item.get('description', 'N/A')[:150]}")
+            context_parts.append("")
+
+    # L5: Gaps
+    gaps = retrieval.unified_graph_nodes.get("gap", [])
+    if gaps:
+        context_parts.append("# GAPS (Authority Level 5)\n")
+        for gap in gaps[:3]:
+            context_parts.append(f"**Gap:** {gap.get('description', 'N/A')[:150]}")
+            context_parts.append(f"**Severity:** {gap.get('severity', 'N/A')}")
+            context_parts.append("")
+
+    # L6: Chunks (organized by lens)
+    if retrieval.chunks:
+        context_parts.append("# SOURCE DOCUMENTS (Authority Level 6)\n")
+
+        # Organize by lens
+        chunks_by_lens = {}
+        for chunk in retrieval.chunks[:15]:
+            lens = chunk.get("lens", "unknown")
+            if lens not in chunks_by_lens:
+                chunks_by_lens[lens] = []
+            chunks_by_lens[lens].append(chunk)
+
+        # Output by lens priority
+        lens_order = ["your-voice", "team-conversational", "team-structured",
+                     "business-framework", "engineering", "external-analyst"]
+
+        for lens in lens_order:
+            if lens in chunks_by_lens:
+                context_parts.append(f"## {lens.upper()}")
+                for chunk in chunks_by_lens[lens][:3]:
+                    context_parts.append(f"**Source:** {chunk.get('source_name', 'N/A')}")
+                    context_parts.append(f"{chunk.get('content', '')[:300]}")
+                    context_parts.append("")
+
+    # L7: Pending Questions (lowest authority)
+    pending = retrieval.unified_graph_nodes.get("pending_question", [])
+    if pending:
+        context_parts.append("# PENDING QUESTIONS (Authority Level 7 - LOWEST)\n")
+        for q in pending[:3]:
+            context_parts.append(f"- {q.get('question', 'N/A')}")
+
+    return "\n".join(context_parts)
+
+
+def synthesize_answer(parsed_query: ParsedQuery, context: str) -> Dict:
+    """
+    Use Claude to synthesize an answer from the assembled context.
+
+    Returns:
+    {
+        "answer": str,
+        "confidence": str (high/medium/low),
+        "sources_cited": List[str],
+        "related_questions": List[str],
+        "follow_ups": List[str]
+    }
+    """
+    import anthropic
+    import httpx
+
+    # Check for API key
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+    if not api_key:
+        return {
+            "answer": "⚠️ ANTHROPIC_API_KEY not set. Cannot generate answer.",
+            "confidence": "none",
+            "sources_cited": [],
+            "related_questions": [],
+            "follow_ups": []
+        }
+
+    # Build synthesis prompt
+    prompt = f"""You are a product roadmap assistant. Answer the user's question based on the provided context.
+
+## USER QUESTION
+{parsed_query.original}
+
+## QUERY ANALYSIS
+- Intent: {parsed_query.intent.value}
+- Topics: {', '.join(parsed_query.topics) if parsed_query.topics else 'General'}
+- Time Context: {parsed_query.time_context or 'Not specified'}
+
+## CONTEXT (ORGANIZED BY AUTHORITY)
+The context below is organized from highest authority (decisions) to lowest (pending questions).
+When sources conflict, prioritize higher authority sources.
+
+{context}
+
+---
+
+## YOUR TASK
+
+Provide a comprehensive answer that:
+
+1. **Directly answers the question** based on the context
+2. **Cites specific sources** by authority level (e.g., "According to Decision X..." or "Based on the your-voice document...")
+3. **Highlights conflicts** if information contradicts across authority levels
+4. **Acknowledges gaps** if the context doesn't fully answer the question
+5. **Provides confidence level** (high/medium/low) based on source quality and completeness
+
+## OUTPUT FORMAT
+
+Answer:
+[Your comprehensive answer here, with source citations]
+
+Confidence: [high/medium/low]
+Reasoning: [Why this confidence level]
+
+Related Pending Questions:
+- [Question 1 from pending questions that relates to this topic]
+- [Question 2]
+
+Suggested Follow-ups:
+- [Follow-up question 1 the user might want to ask]
+- [Follow-up question 2]
+
+Keep the answer focused and actionable. Cite sources explicitly."""
+
+    try:
+        # Create client with SSL bypass
+        http_client = httpx.Client(verify=False)
+
+        try:
+            client = anthropic.Anthropic(api_key=api_key, http_client=http_client)
+
+            message = client.messages.create(
+                model="claude-sonnet-4-5-20250929",
+                max_tokens=3000,
+                messages=[{"role": "user", "content": prompt}]
+            )
+
+            response_text = message.content[0].text
+
+            # Parse response
+            answer_text = response_text
+            confidence = "medium"  # Default
+            related_questions = []
+            follow_ups = []
+
+            # Extract confidence if present
+            if "Confidence:" in response_text:
+                lines = response_text.split("\n")
+                for i, line in enumerate(lines):
+                    if line.startswith("Confidence:"):
+                        conf_line = line.replace("Confidence:", "").strip().lower()
+                        if "high" in conf_line:
+                            confidence = "high"
+                        elif "low" in conf_line:
+                            confidence = "low"
+                        else:
+                            confidence = "medium"
+
+                        # Extract answer (everything before Confidence)
+                        answer_text = "\n".join(lines[:i]).strip()
+                        break
+
+            # Extract related questions
+            if "Related Pending Questions:" in response_text:
+                section = response_text.split("Related Pending Questions:")[1]
+                if "Suggested Follow-ups:" in section:
+                    section = section.split("Suggested Follow-ups:")[0]
+
+                related_questions = [
+                    line.strip("- ").strip()
+                    for line in section.split("\n")
+                    if line.strip().startswith("-")
+                ]
+
+            # Extract follow-ups
+            if "Suggested Follow-ups:" in response_text:
+                section = response_text.split("Suggested Follow-ups:")[1]
+                follow_ups = [
+                    line.strip("- ").strip()
+                    for line in section.split("\n")
+                    if line.strip().startswith("-")
+                ]
+
+            return {
+                "answer": answer_text,
+                "confidence": confidence,
+                "sources_cited": [],  # Could parse from answer text if needed
+                "related_questions": related_questions[:3],
+                "follow_ups": follow_ups[:3]
+            }
+        finally:
+            http_client.close()
+
+    except Exception as e:
+        return {
+            "answer": f"❌ Error generating answer: {str(e)[:200]}",
+            "confidence": "none",
+            "sources_cited": [],
+            "related_questions": [],
+            "follow_ups": []
+        }
+
+
+def ask_roadmap(query: str) -> Dict:
+    """
+    Main entry point for Ask Your Roadmap feature.
+
+    Process:
+    1. Parse query
+    2. Retrieve full context
+    3. Assemble context by authority
+    4. Synthesize answer via Claude
+    5. Return structured result
+    """
+
+    # Step 1: Parse query
+    parsed_query = parse_query(query)
+
+    # Step 2: Retrieve full context
+    retrieval = retrieve_full_context(parsed_query, top_k=20)
+
+    # Step 3: Assemble context
+    context = assemble_context_for_synthesis(retrieval)
+
+    # Step 4: Synthesize answer
+    result = synthesize_answer(parsed_query, context)
+
+    # Step 5: Add metadata
+    result["query_analysis"] = {
+        "intent": parsed_query.intent.value,
+        "topics": parsed_query.topics,
+        "keywords": parsed_query.keywords,
+        "time_context": parsed_query.time_context
+    }
+
+    result["retrieval_stats"] = {
+        "chunks": len(retrieval.chunks),
+        "chunk_graph_nodes": len(retrieval.chunk_graph_nodes),
+        "decisions": len(retrieval.unified_graph_nodes.get("decision", [])),
+        "answered_questions": len(retrieval.unified_graph_nodes.get("answered_question", [])),
+        "assessments": len(retrieval.unified_graph_nodes.get("assessment", [])),
+        "roadmap_items": len(retrieval.unified_graph_nodes.get("roadmap_item", [])),
+        "gaps": len(retrieval.unified_graph_nodes.get("gap", [])),
+        "pending_questions": len(retrieval.unified_graph_nodes.get("pending_question", []))
+    }
+
+    return result
+
+
+# ========== SAVE Q&A TO OPEN QUESTIONS ==========
+
+def summarize_answer_for_context(answer: str, max_length: int = 500) -> str:
+    """
+    Summarize the synthesized answer for use as question context.
+    Strips markdown and limits length.
+    """
+    import re
+
+    # Remove markdown formatting
+    text = answer
+    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Bold
+    text = re.sub(r'\*([^*]+)\*', r'\1', text)      # Italic
+    text = re.sub(r'\[Source:[^\]]+\]', '', text)   # Source citations
+    text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)  # Links
+    text = re.sub(r'#{1,6}\s*', '', text)           # Headers
+    text = re.sub(r'\n{2,}', ' ', text)             # Multiple newlines
+    text = re.sub(r'\s{2,}', ' ', text)             # Multiple spaces
+
+    text = text.strip()
+
+    # Truncate if needed
+    if len(text) > max_length:
+        text = text[:max_length - 3] + "..."
+
+    return f"Based on analysis: {text}"
+
+
+def get_source_display_name(source: dict) -> str:
+    """Get a display name for a source reference."""
+
+    full_data = source.get("full_data", {})
+    source_type = source.get("type", "chunk")
+
+    if source_type == "decision":
+        return full_data.get("decision", "Decision")[:50]
+    elif source_type == "gap":
+        return full_data.get("description", "Gap")[:50]
+    elif source_type == "assessment":
+        return f"{full_data.get('assessment_type', 'Unknown').title()} Assessment"
+    elif source_type == "chunk":
+        return full_data.get("source_name", "Source document")
+    else:
+        return source.get("id", "Unknown source")
+
+
+def find_existing_qa_question(query: str) -> Optional[dict]:
+    """Check if this query was already saved as a question."""
+
+    questions = load_questions()
+
+    for q in questions:
+        # Check if it came from ask_roadmap
+        if q.get("generation", {}).get("source") == "ask_roadmap":
+            # Check if query matches
+            if q.get("qa_session", {}).get("query", "").lower() == query.lower():
+                return q
+
+    return None
+
+
+def save_qa_to_open_questions(
+    query: str,
+    answer_result: Dict,
+    audience: str,
+    category: str,
+    priority: str,
+    include_answer_as_context: bool = True,
+    link_sources: bool = True,
+    topic_filter: Optional[str] = None
+) -> dict:
+    """
+    Save a Q&A from Ask Your Roadmap to Open Questions.
+
+    Args:
+        query: The original question asked
+        answer_result: The complete answer result dict from ask_roadmap()
+        audience: engineering | leadership | product
+        category: Question category
+        priority: critical | high | medium | low
+        include_answer_as_context: Whether to include the answer as context
+        link_sources: Whether to link the source references
+        topic_filter: The topic filter that was applied (if any)
+
+    Returns:
+        The created question dict
+    """
+
+    question_id = f"q_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    # Build context from answer
+    context = ""
+    if include_answer_as_context:
+        # Summarize the answer for context (strip markdown, limit length)
+        context = summarize_answer_for_context(answer_result['answer'], max_length=500)
+
+    # Build source references
+    source_references = []
+    if link_sources:
+        # Get sources from retrieval stats
+        retrieval_stats = answer_result.get('retrieval_stats', {})
+
+        # Add summary of sources by type
+        if retrieval_stats.get('decisions', 0) > 0:
+            source_references.append({
+                "type": "decision",
+                "count": retrieval_stats['decisions'],
+                "relevance": "Referenced in answer synthesis"
+            })
+
+        if retrieval_stats.get('assessments', 0) > 0:
+            source_references.append({
+                "type": "assessment",
+                "count": retrieval_stats['assessments'],
+                "relevance": "Referenced in answer synthesis"
+            })
+
+        if retrieval_stats.get('gaps', 0) > 0:
+            source_references.append({
+                "type": "gap",
+                "count": retrieval_stats['gaps'],
+                "relevance": "Referenced in answer synthesis"
+            })
+
+        if retrieval_stats.get('chunks', 0) > 0:
+            source_references.append({
+                "type": "chunk",
+                "count": retrieval_stats['chunks'],
+                "relevance": "Source documents"
+            })
+
+    # Create the question
+    question = {
+        "id": question_id,
+        "question": query,
+        "audience": audience,
+        "category": category,
+        "priority": priority,
+        "status": "pending",
+        "created_at": datetime.now().isoformat(),
+
+        "generation": {
+            "type": "user_query",
+            "source": "ask_roadmap",
+            "generated_at": datetime.now().isoformat(),
+        },
+
+        "context": context,
+
+        "synthesized_answer": {
+            "answer": answer_result['answer'],
+            "confidence": answer_result['confidence'],
+            "generated_at": datetime.now().isoformat(),
+            "retrieval_stats": answer_result.get('retrieval_stats', {})
+        },
+
+        "source_references": source_references,
+
+        "qa_session": {
+            "query": query,
+            "topic_filter": topic_filter,
+            "session_timestamp": datetime.now().isoformat()
+        },
+
+        "validation": None
+    }
+
+    # Save to questions list
+    questions = load_questions()
+    questions.append(question)
+    save_questions(questions)
+
+    return question
+
+
+def render_save_to_questions_ui(query: str, answer_result: Dict, topic_filter: Optional[str] = None, unique_id: int = 0):
+    """
+    Render the UI for saving a Q&A to Open Questions.
+    """
+
+    st.divider()
+
+    with st.container(border=True):
+        st.markdown("### 📌 Save to Open Questions")
+        st.caption("Add this Q&A to your Open Questions list for follow-up and decision-making.")
+
+        # Check if already saved
+        existing = find_existing_qa_question(query)
+        if existing:
+            st.info(f"✅ This question was already saved as **{existing['id']}**")
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("View in Open Questions →", key=f"view_existing_qa_{unique_id}"):
+                    st.session_state.current_page = "📝 Open Questions"
+                    st.session_state.highlight_question = existing['id']
+                    st.rerun()
+            return
+
+        # Options
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            audience = st.selectbox(
+                "Audience",
+                ["leadership", "engineering", "product"],
+                index=0,
+                key=f"save_qa_audience_{unique_id}"
+            )
+
+        with col2:
+            category = st.selectbox(
+                "Category",
+                ["direction", "investment", "feasibility", "trade-off",
+                 "alignment", "timing", "scope", "dependency"],
+                index=0,
+                key=f"save_qa_category_{unique_id}"
+            )
+
+        with col3:
+            priority = st.selectbox(
+                "Priority",
+                ["high", "critical", "medium", "low"],
+                index=0,
+                key=f"save_qa_priority_{unique_id}"
+            )
+
+        # Include options
+        col1, col2 = st.columns(2)
+
+        with col1:
+            include_answer = st.checkbox(
+                "Include synthesized answer as context",
+                value=True,
+                key=f"save_qa_include_answer_{unique_id}",
+                help="The answer will be saved as context for the question"
+            )
+
+        with col2:
+            link_sources = st.checkbox(
+                "Link source references",
+                value=True,
+                key=f"save_qa_link_sources_{unique_id}",
+                help="Source citations will be linked to the question"
+            )
+
+        # Save button
+        if st.button("📌 Save to Open Questions", type="primary", key=f"save_qa_button_{unique_id}"):
+            saved_question = save_qa_to_open_questions(
+                query=query,
+                answer_result=answer_result,
+                audience=audience,
+                category=category,
+                priority=priority,
+                include_answer_as_context=include_answer,
+                link_sources=link_sources,
+                topic_filter=topic_filter
+            )
+
+            st.success(f"✅ Saved as **{saved_question['id']}**")
+
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("View in Open Questions →", key=f"view_saved_qa_{unique_id}"):
+                    st.session_state.current_page = "📝 Open Questions"
+                    st.session_state.highlight_question = saved_question['id']
+                    st.rerun()
+            with col2:
+                if st.button("Make Decision Now →", key=f"decide_saved_qa_{unique_id}"):
+                    st.session_state.current_page = "📝 Open Questions"
+                    st.session_state.answering_question_id = saved_question['id']
+                    st.rerun()
+
+
+def render_qa_synthesized_answer(synthesized_answer: dict):
+    """Render the synthesized answer from a Q&A session."""
+
+    st.markdown("**📝 Synthesized Answer (from Q&A)**")
+
+    confidence = synthesized_answer.get("confidence", "medium")
+    confidence_icons = {"high": "🟢", "medium": "🟡", "low": "🟠", "none": "⚪"}
+    st.caption(f"Confidence: {confidence_icons.get(confidence, '⚪')} {confidence.title()}")
+
+    # Show answer (collapsed for space)
+    answer_text = synthesized_answer.get("answer", "No answer recorded")
+
+    # Truncate for display
+    if len(answer_text) > 500:
+        st.markdown(answer_text[:500] + "...")
+        with st.expander("Show full answer"):
+            st.markdown(answer_text)
+    else:
+        st.markdown(answer_text)
+
+    # Stats
+    stats = synthesized_answer.get("retrieval_stats", {})
+    if stats:
+        st.caption(
+            f"Generated from: "
+            f"Decisions: {stats.get('decisions', 0)} | "
+            f"Assessments: {stats.get('assessments', 0)} | "
+            f"Gaps: {stats.get('gaps', 0)} | "
+            f"Chunks: {stats.get('chunks', 0)}"
+        )
+
+
+# ========== GRAPH DIAGNOSTICS ==========
+
+def diagnose_graph_contents():
+    """Print diagnostic information about the unified graph."""
+
+    graph = UnifiedContextGraph.load()
+
+    if not graph:
+        print("❌ ERROR: Unified graph not loaded")
+        return None
+
+    print("=" * 60)
+    print("UNIFIED GRAPH DIAGNOSTICS")
+    print("=" * 60)
+
+    # 1. Check node counts by type
+    print("\n1. NODE COUNTS BY TYPE:")
+    print("-" * 40)
+
+    node_types = {}
+    for node_id in graph.graph.nodes():
+        node_data = graph.graph.nodes[node_id]
+        node_type = node_data.get("node_type", "unknown")
+        node_types[node_type] = node_types.get(node_type, 0) + 1
+
+    for node_type, count in sorted(node_types.items()):
+        status = "✅" if count > 0 else "❌"
+        print(f"  {status} {node_type}: {count}")
+
+    # 2. Check node_indices
+    print("\n2. NODE INDICES:")
+    print("-" * 40)
+
+    if hasattr(graph, 'node_indices'):
+        for node_type, nodes in graph.node_indices.items():
+            print(f"  {node_type}: {len(nodes)} indexed")
+    else:
+        print("  ❌ graph.node_indices not found!")
+
+    # 3. Check edge types
+    print("\n3. EDGE TYPES:")
+    print("-" * 40)
+
+    edge_types = {}
+    for u, v, data in graph.graph.edges(data=True):
+        edge_type = data.get("edge_type", "unknown")
+        edge_types[edge_type] = edge_types.get(edge_type, 0) + 1
+
+    for edge_type, count in sorted(edge_types.items()):
+        print(f"  {edge_type}: {count}")
+
+    # 4. Check connectivity from chunks to other types
+    print("\n4. CHUNK CONNECTIVITY:")
+    print("-" * 40)
+
+    chunk_ids = [n for n, d in graph.graph.nodes(data=True) if d.get("node_type") == "chunk"]
+
+    connections_to_types = {
+        "decision": 0,
+        "roadmap_item": 0,
+        "assessment": 0,
+        "gap": 0,
+        "question": 0
+    }
+
+    for chunk_id in chunk_ids[:100]:  # Sample first 100
+        for neighbor in graph.graph.neighbors(chunk_id):
+            neighbor_type = graph.graph.nodes[neighbor].get("node_type", "unknown")
+            if neighbor_type in connections_to_types:
+                connections_to_types[neighbor_type] += 1
+
+        for predecessor in graph.graph.predecessors(chunk_id):
+            pred_type = graph.graph.nodes[predecessor].get("node_type", "unknown")
+            if pred_type in connections_to_types:
+                connections_to_types[pred_type] += 1
+
+    for target_type, count in connections_to_types.items():
+        status = "✅" if count > 0 else "❌"
+        print(f"  {status} Chunks connected to {target_type}: {count}")
+
+    # 5. Sample some non-chunk nodes
+    print("\n5. SAMPLE NON-CHUNK NODES:")
+    print("-" * 40)
+
+    for node_type in ["decision", "roadmap_item", "assessment", "gap"]:
+        nodes = [(n, d) for n, d in graph.graph.nodes(data=True) if d.get("node_type") == node_type]
+        if nodes:
+            node_id, node_data = nodes[0]
+            print(f"\n  Sample {node_type}:")
+            print(f"    ID: {node_id}")
+            print(f"    Data keys: {list(node_data.keys())}")
+
+            # Check edges
+            out_edges = list(graph.graph.neighbors(node_id))
+            in_edges = list(graph.graph.predecessors(node_id))
+            print(f"    Outgoing edges: {len(out_edges)}")
+            print(f"    Incoming edges: {len(in_edges)}")
+        else:
+            print(f"\n  ❌ No {node_type} nodes found!")
+
+    print("\n" + "=" * 60)
+
+    return node_types, edge_types, connections_to_types
 
 
 # ========== SOURCES PAGE COMPONENTS ==========
@@ -2416,8 +4134,8 @@ def page_format():
 # ========== PAGE: ASK QUESTIONS ==========
 
 def page_ask():
-    st.title("❓ Ask Questions")
-    st.markdown("Query your indexed materials and roadmap")
+    st.title("💬 Ask Your Roadmap")
+    st.markdown("Conversational Q&A powered by multi-source retrieval and Claude synthesis")
 
     # Check if we have materials
     stats = get_index_stats()
@@ -2425,77 +4143,121 @@ def page_ask():
         st.warning("⚠️ No materials indexed. Please ingest documents first.")
         return
 
+    # Initialize session state for ask history
+    if 'ask_history' not in st.session_state:
+        st.session_state.ask_history = []
+
     # Clear history button
     col1, col2 = st.columns([6, 1])
     with col2:
-        if st.button("🗑️ Clear"):
-            st.session_state.chat_history = []
+        if st.button("🗑️ Clear", key="clear_ask_history"):
+            st.session_state.ask_history = []
             st.rerun()
 
     # Display chat history
-    for msg in st.session_state.chat_history:
+    for idx, msg in enumerate(st.session_state.ask_history):
         if msg['role'] == 'user':
             with st.chat_message("user"):
                 st.write(msg['content'])
         else:
             with st.chat_message("assistant"):
-                st.markdown(msg['content'])
-                if 'sources' in msg:
-                    with st.expander("📚 Sources"):
-                        for source in msg['sources']:
-                            st.caption(f"[{source['lens']}] {source['source_file']}")
+                # Display answer
+                st.markdown(msg['answer'])
+
+                # Display metadata in columns
+                col1, col2, col3 = st.columns(3)
+
+                with col1:
+                    confidence = msg.get('confidence', 'medium')
+                    conf_emoji = {"high": "🟢", "medium": "🟡", "low": "🔴"}.get(confidence, "⚪")
+                    st.caption(f"Confidence: {conf_emoji} {confidence.title()}")
+
+                with col2:
+                    intent = msg.get('query_analysis', {}).get('intent', 'general')
+                    st.caption(f"Intent: {intent}")
+
+                with col3:
+                    topics = msg.get('query_analysis', {}).get('topics', [])
+                    if topics:
+                        st.caption(f"Topics: {', '.join(topics)}")
+
+                # Retrieval stats
+                stats = msg.get('retrieval_stats', {})
+                if stats:
+                    with st.expander("📊 Retrieval Statistics"):
+                        col1, col2, col3, col4 = st.columns(4)
+                        col1.metric("Chunks", stats.get('chunks', 0))
+                        col2.metric("Decisions", stats.get('decisions', 0))
+                        col3.metric("Assessments", stats.get('assessments', 0))
+                        col4.metric("Roadmap Items", stats.get('roadmap_items', 0))
+
+                # Related questions
+                related = msg.get('related_questions', [])
+                if related:
+                    with st.expander("🔗 Related Pending Questions"):
+                        for q in related:
+                            st.markdown(f"- {q}")
+
+                # Follow-ups
+                follow_ups = msg.get('follow_ups', [])
+                if follow_ups:
+                    with st.expander("💡 Suggested Follow-ups"):
+                        for fu in follow_ups:
+                            if st.button(fu, key=f"followup_{idx}_{hash(fu)}"):
+                                # Add as new question
+                                st.session_state.next_question = fu
+                                st.rerun()
+
+            # === ADD: Save to Open Questions UI ===
+            # Show save UI for each Q&A (outside chat_message for better layout)
+            if msg.get('role') == 'assistant' and msg.get('query'):
+                # Create a unique key for this save UI using index
+                render_save_to_questions_ui(
+                    query=msg['query'],
+                    answer_result=msg,
+                    topic_filter=msg.get('query_analysis', {}).get('topics', [None])[0] if msg.get('query_analysis', {}).get('topics') else None,
+                    unique_id=idx
+                )
 
     # Question input
-    question = st.chat_input("Ask a question about your materials...")
+    question = st.chat_input("Ask a question about your roadmap...")
+
+    # Handle follow-up question from button
+    if 'next_question' in st.session_state:
+        question = st.session_state.next_question
+        del st.session_state.next_question
 
     if question:
         # Add user message
-        st.session_state.chat_history.append({
+        st.session_state.ask_history.append({
             'role': 'user',
             'content': question
         })
 
-        # Get answer
+        # Get answer using ask_roadmap
         try:
-            with st.spinner("Searching and generating answer..."):
-                chunks = retrieve_chunks(question, top_k=10)
+            with st.spinner("🔍 Analyzing query and retrieving context..."):
+                result = ask_roadmap(question)
 
-                if not chunks:
-                    answer = "I couldn't find relevant information in your indexed materials."
-                    sources = []
-                else:
-                    # Build context
-                    context = "\n\n".join([f"[{c['lens']}] {c['content']}" for c in chunks])
+            # Add assistant message with full result for saving
+            st.session_state.ask_history.append({
+                'role': 'assistant',
+                'query': question,  # Store the query for save UI
+                'answer': result['answer'],
+                'confidence': result['confidence'],
+                'query_analysis': result['query_analysis'],
+                'retrieval_stats': result['retrieval_stats'],
+                'related_questions': result.get('related_questions', []),
+                'follow_ups': result.get('follow_ups', [])
+            })
 
-                    # Call Claude
-                    import anthropic
-                    import httpx
-                    client = anthropic.Anthropic(
-                        api_key=os.getenv("ANTHROPIC_API_KEY"),
-                        http_client=httpx.Client(verify=False)  # Disable SSL verification
-                    )
-                    message = client.messages.create(
-                        model="claude-opus-4-5-20251101",
-                        max_tokens=2000,
-                        messages=[
-                            {"role": "user", "content": f"Context from documents:\n{context}\n\nQuestion: {question}"}
-                        ]
-                    )
-
-                    answer = message.content[0].text
-                    sources = [{'lens': c['lens'], 'source_file': c['source_file']} for c in chunks[:5]]
-
-                # Add assistant message
-                st.session_state.chat_history.append({
-                    'role': 'assistant',
-                    'content': answer,
-                    'sources': sources
-                })
-
-                st.rerun()
+            st.rerun()
 
         except Exception as e:
-            st.error(f"Error generating answer: {e}")
+            st.error(f"❌ Error generating answer: {str(e)[:300]}")
+            # Show more details in expander
+            with st.expander("Error Details"):
+                st.code(str(e))
 
 
 # ========== PAGE: OPEN QUESTIONS ==========
@@ -2506,6 +4268,60 @@ def page_open_questions():
 
     # Validation stats
     render_validation_stats()
+
+    st.divider()
+
+    # === GENERATE QUESTIONS SECTION ===
+    st.subheader("🔄 Generate Questions")
+
+    # Show what will be analyzed
+    try:
+        context = gather_generation_context()
+
+        with st.expander("What will be analyzed", expanded=False):
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.markdown("**Roadmap & Assessments**")
+                st.caption(f"• {len(context.get('roadmap_items', []))} roadmap items")
+                st.caption(f"• {len(context.get('arch_assessments', []))} architecture assessments")
+                st.caption(f"• {len(context.get('competitive_assessments', []))} competitive assessments")
+
+            with col2:
+                st.markdown("**Decisions & Questions**")
+                st.caption(f"• {len(context.get('active_decisions', []))} active decisions")
+                st.caption(f"• {len(context.get('answered_questions', []))} answered questions")
+                st.caption(f"• {len(context.get('pending_questions', []))} pending questions")
+
+        # Generate button
+        col1, col2 = st.columns([2, 1])
+
+        with col1:
+            if st.button("🔄 Generate Questions", type="primary", use_container_width=True):
+                with st.spinner("Analyzing context and generating questions..."):
+                    results = generate_questions_holistic()
+
+                st.success(f"✅ Generation complete!")
+
+                # Show results
+                rcol1, rcol2, rcol3, rcol4 = st.columns(4)
+                rcol1.metric("New Questions", results["questions_generated"])
+                rcol2.metric("LLM Generated", results["llm_generated"])
+                rcol3.metric("Derived", results["derived"])
+                rcol4.metric("Marked Obsolete", results["questions_marked_obsolete"])
+
+                st.caption(f"Total pending: {results['total_pending_after']}")
+
+                # Invalidate source cache
+                invalidate_source_cache()
+
+                st.rerun()
+
+        with col2:
+            st.caption("Generates new questions based on current roadmap, assessments, and decisions")
+
+    except Exception as e:
+        st.error(f"Error preparing generation: {e}")
 
     st.divider()
 
@@ -2535,13 +4351,25 @@ def page_open_questions():
         st.subheader("Pending Questions")
 
         # Filters
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
         with col1:
             audience_filter = st.selectbox("Audience", ["All", "engineering", "leadership", "product"])
         with col2:
             priority_filter = st.selectbox("Priority", ["All", "critical", "high", "medium", "low"])
         with col3:
-            category_filter = st.selectbox("Category", ["All", "feasibility", "investment", "direction", "trade-off", "alignment", "timing", "scope", "dependency"])
+            category_filter = st.selectbox("Category", ["All", "feasibility", "investment", "direction", "trade-off", "alignment", "timing", "scope", "dependency", "ownership"])
+        with col4:
+            type_filter = st.selectbox(
+                "Source",
+                ["All", "user_query", "llm", "derived", "legacy"],
+                format_func=lambda x: {
+                    "All": "All Sources",
+                    "user_query": "💬 From Q&A",
+                    "llm": "🤖 LLM Generated",
+                    "derived": "🔍 Derived",
+                    "legacy": "📝 Legacy"
+                }.get(x, x)
+            )
 
         # Filter questions
         pending = [q for q in questions if q.get("status", "pending") == "pending"]
@@ -2552,6 +4380,11 @@ def page_open_questions():
             pending = [q for q in pending if q.get("priority", "") == priority_filter]
         if category_filter != "All":
             pending = [q for q in pending if q.get("category", "") == category_filter]
+        if type_filter != "All":
+            if type_filter == "legacy":
+                pending = [q for q in pending if not q.get("generation")]
+            else:
+                pending = [q for q in pending if q.get("generation", {}).get("type") == type_filter]
 
         # Summary metrics
         col1, col2, col3, col4 = st.columns(4)
@@ -2592,19 +4425,65 @@ def page_open_questions():
                     else:
                         val_icon = "❓"
 
-                    # Source count
-                    source_count = len(q.get("source_references", []))
+                    # Generation type badge
+                    generation = q.get("generation", {})
+                    gen_type = generation.get("type", "legacy")
+                    gen_source = generation.get("source", "")
 
-                    question_preview = q['question'][:80] + "..." if len(q['question']) > 80 else q['question']
+                    if gen_type == "user_query" and gen_source == "ask_roadmap":
+                        type_badge = "💬"
+                        has_synthesized_answer = True
+                    elif gen_type == "llm":
+                        type_badge = "🤖"
+                        has_synthesized_answer = False
+                    elif gen_type == "derived":
+                        type_badge = "🔍"
+                        has_synthesized_answer = False
+                    else:
+                        type_badge = "📝"
+                        has_synthesized_answer = False
 
-                    with st.expander(f"{priority_emoji} {val_icon} {question_preview} (📚 {source_count})"):
+                    question_preview = q['question'][:70] + "..." if len(q['question']) > 70 else q['question']
+
+                    with st.expander(f"{priority_emoji} {val_icon} {type_badge} {question_preview}"):
+                        # Header
                         st.write(f"**Question:** {q['question']}")
+
+                        # Generation type info
+                        if gen_type == "user_query" and gen_source == "ask_roadmap":
+                            st.success("💬 From Q&A - Asked in Ask Your Roadmap")
+                        elif gen_type == "llm":
+                            st.info("🤖 Generated by LLM analysis")
+                        elif gen_type == "derived":
+                            st.warning(f"🔍 Derived from {generation.get('source', 'unknown')} pattern")
+                        else:
+                            st.caption("📝 Legacy question")
+
                         st.write(f"**Category:** {q.get('category', 'N/A')}")
                         st.write(f"**Priority:** {q.get('priority', 'medium')}")
                         st.write(f"**Context:** {q.get('context', 'None provided')}")
 
                         if q.get("related_roadmap_items"):
                             st.write(f"**Affects:** {', '.join(q['related_roadmap_items'])}")
+
+                        # === NEW: Show synthesized answer for Q&A questions ===
+                        if has_synthesized_answer and q.get("synthesized_answer"):
+                            st.divider()
+                            render_qa_synthesized_answer(q["synthesized_answer"])
+
+                        # Show derivation evidence for derived questions
+                        if gen_type == "derived":
+                            derivation = q.get("derivation", {})
+                            evidence = derivation.get("evidence", [])
+
+                            if evidence:
+                                with st.expander(f"📊 Derivation Evidence ({len(evidence)} items)"):
+                                    for ev in evidence:
+                                        if "source_name" in ev:
+                                            st.markdown(f"**{ev.get('source_name')}** ({ev.get('lens', 'unknown')})")
+                                            st.caption(ev.get("content", "")[:200])
+                                        else:
+                                            st.json(ev)
 
                         st.write(f"**Created:** {q.get('created_at', 'Unknown')[:10]}")
 
@@ -2621,24 +4500,49 @@ def page_open_questions():
                         st.divider()
 
                         # Quick actions
-                        col1, col2, col3 = st.columns(3)
-                        if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
-                            st.session_state.answering_question_id = q["id"]
-                            st.rerun()
-                        if col2.button("Defer", key=f"def_{q['id']}"):
-                            q["status"] = "deferred"
-                            save_questions(questions)
-                            st.success("Question deferred")
-                            st.rerun()
-                        if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
-                            q["status"] = "obsolete"
-                            save_questions(questions)
-                            st.success("Question marked obsolete")
-                            st.rerun()
+                        if has_synthesized_answer:
+                            # For Q&A questions, show Answer and Re-Ask buttons
+                            col1, col2, col3 = st.columns(3)
+                            if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
+                                st.session_state.answering_question_id = q["id"]
+                                st.rerun()
+                            if col2.button("🔄 Re-Ask", key=f"reask_{q['id']}"):
+                                st.session_state.current_page = "💬 Ask Your Roadmap"
+                                # Store the question to pre-fill
+                                if 'ask_history' not in st.session_state:
+                                    st.session_state.ask_history = []
+                                st.rerun()
+                            if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
+                                q["status"] = "obsolete"
+                                save_questions(questions)
+                                st.success("Question marked obsolete")
+                                st.rerun()
+                        else:
+                            # For other questions, show standard buttons
+                            col1, col2, col3 = st.columns(3)
+                            if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
+                                st.session_state.answering_question_id = q["id"]
+                                st.rerun()
+                            if col2.button("Defer", key=f"def_{q['id']}"):
+                                q["status"] = "deferred"
+                                save_questions(questions)
+                                st.success("Question deferred")
+                                st.rerun()
+                            if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
+                                q["status"] = "obsolete"
+                                save_questions(questions)
+                                st.success("Question marked obsolete")
+                                st.rerun()
 
     # ========== TAB 2: ANSWER QUESTION ==========
     with tab2:
         st.subheader("Answer Question")
+
+        # Check if a question was selected from Tab 1
+        pre_selected_id = st.session_state.get("answering_question_id")
+
+        if pre_selected_id:
+            st.info("📌 Question pre-selected from Tab 1. The dropdown below has been set to your selected question.")
 
         # Select question to answer
         pending = [q for q in questions if q.get("status", "pending") == "pending"]
@@ -2647,7 +4551,24 @@ def page_open_questions():
             st.info("No pending questions. Questions will be generated after roadmap synthesis.")
         else:
             question_options = {f"{q['id']}: {q['question'][:60]}...": q['id'] for q in pending}
-            selected = st.selectbox("Select Question", list(question_options.keys()))
+
+            # Find the index of the pre-selected question
+            default_index = 0
+            if pre_selected_id:
+                for i, (label, q_id) in enumerate(question_options.items()):
+                    if q_id == pre_selected_id:
+                        default_index = i
+                        break
+
+            selected = st.selectbox(
+                "Select Question",
+                list(question_options.keys()),
+                index=default_index
+            )
+
+            # Clear the pre-selection after using it
+            if pre_selected_id and 'answering_question_id' in st.session_state:
+                del st.session_state.answering_question_id
 
             if selected:
                 q_id = question_options[selected]
@@ -3658,7 +5579,7 @@ def main():
             "🕸️ Context Graph",
             "🔧 Generate Roadmap",
             "👥 Format by Persona",
-            "❓ Ask Questions",
+            "💬 Ask Your Roadmap",
             "📝 Open Questions",
             "🏗️ Architecture Alignment",
             "🎯 Competitive Intelligence",
@@ -3686,7 +5607,7 @@ def main():
         page_generate()
     elif page == "👥 Format by Persona":
         page_format()
-    elif page == "❓ Ask Questions":
+    elif page == "💬 Ask Your Roadmap":
         page_ask()
     elif page == "📝 Open Questions":
         page_open_questions()
