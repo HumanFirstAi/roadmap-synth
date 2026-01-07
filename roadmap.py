@@ -3164,12 +3164,14 @@ def sync_all_to_graph() -> UnifiedContextGraph:
         console.print(f"[yellow]Warning: Could not sync chunks: {e}")
 
     # 6. Create edges between chunks and other nodes
-    console.print("[blue]Creating edges between nodes...")
+    total_chunks = len(graph.node_indices["chunk"])
+    console.print(f"[blue]Creating edges for {total_chunks} chunks...")
     try:
         edges_created = 0
+        chunk_items = list(graph.node_indices["chunk"].items())
 
-        # Link chunks to roadmap items (based on content matching)
-        for chunk_id, chunk_data in list(graph.node_indices["chunk"].items())[:100]:  # Limit for performance
+        # Process all chunks with progress tracking
+        for chunk_id, chunk_data in track(chunk_items, description="Creating edges"):
             chunk_content = chunk_data.get("content", "").lower()
 
             # Link to roadmap items
@@ -3199,7 +3201,7 @@ def sync_all_to_graph() -> UnifiedContextGraph:
                         graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=0.8)
                         edges_created += 1
 
-        console.print(f"[green]✓ Created {edges_created} edges")
+        console.print(f"[green]✓ Created {edges_created} edges across {total_chunks} chunks")
     except Exception as e:
         console.print(f"[yellow]Warning: Could not create edges: {e}")
 
