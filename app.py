@@ -4501,34 +4501,28 @@ def page_open_questions():
 
                         # Quick actions
                         if has_synthesized_answer:
-                            # For Q&A questions, show Answer and Re-Ask buttons
-                            col1, col2, col3 = st.columns(3)
-                            if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
-                                st.session_state.answering_question_id = q["id"]
-                                st.rerun()
-                            if col2.button("🔄 Re-Ask", key=f"reask_{q['id']}"):
+                            # For Q&A questions, show Re-Ask and Mark Obsolete buttons
+                            col1, col2 = st.columns(2)
+                            if col1.button("🔄 Re-Ask", key=f"reask_{q['id']}"):
                                 st.session_state.current_page = "💬 Ask Your Roadmap"
                                 # Store the question to pre-fill
                                 if 'ask_history' not in st.session_state:
                                     st.session_state.ask_history = []
                                 st.rerun()
-                            if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
+                            if col2.button("Mark Obsolete", key=f"obs_{q['id']}"):
                                 q["status"] = "obsolete"
                                 save_questions(questions)
                                 st.success("Question marked obsolete")
                                 st.rerun()
                         else:
-                            # For other questions, show standard buttons
-                            col1, col2, col3 = st.columns(3)
-                            if col1.button("Answer", key=f"ans_{q['id']}", type="primary"):
-                                st.session_state.answering_question_id = q["id"]
-                                st.rerun()
-                            if col2.button("Defer", key=f"def_{q['id']}"):
+                            # For other questions, show Defer and Mark Obsolete buttons
+                            col1, col2 = st.columns(2)
+                            if col1.button("Defer", key=f"def_{q['id']}"):
                                 q["status"] = "deferred"
                                 save_questions(questions)
                                 st.success("Question deferred")
                                 st.rerun()
-                            if col3.button("Mark Obsolete", key=f"obs_{q['id']}"):
+                            if col2.button("Mark Obsolete", key=f"obs_{q['id']}"):
                                 q["status"] = "obsolete"
                                 save_questions(questions)
                                 st.success("Question marked obsolete")
