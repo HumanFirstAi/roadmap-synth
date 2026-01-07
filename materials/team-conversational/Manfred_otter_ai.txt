@@ -1,0 +1,124 @@
+Speaker 1  0:00  
+A story 20 times, yeah, but that's meeting that doesn't help you at all, because everyone else is not pulling on the same string. You need that architect layer that says, and I'm going to make the call, and you guys store this thing that way, and your API needs to deliver this back. And if you don't, if it doesn't do it, the whole thing doesn't work. Then it's clear, and then
+
+Unknown Speaker  0:21  
+it works. That's, that's nav,
+
+Speaker 1  0:25  
+yes, but he's one person. He this is not gonna work. So I
+
+Speaker 2  0:29  
+listen, yeah. The thing is, what you just described is the is the bottom of the bun, right? I started off. I said, there's the story, and I'm engineering LED. It's the bottom of the bun. I You're 100% right.
+
+Speaker 1  0:41  
+So the I put them all together, well, they
+
+Speaker 2  0:46  
+have to work. The conversations I've had before this have been with NAV, because what I've what I've said is, first of all, do you agree with the intersection story? Second of all, what? Because we've been and when I'm being a bit disingenuous to myself, when I say that I don't know how to do it. We are. We have looked at the services. We've looked at the architecture that can enable this. Now nav comes to me and told me the same story that you told me, which is, yeah, but the problem is, no one owns the story, right? I've tried Jonathan, I've tried to do it over here, and I've tried to do it over here, and I've tried to negotiate with and it doesn't happen. So my thing is, what I want to do is I want to say, Listen, if I'm going to do this commerce thing, that's the story. Now, if you don't want me to do that, then I'm the wrong person to choose, because I don't need I'm not Amy. I don't want to be living at the edges, right? What I want is a story with an architectural foundation and partners, which are the product leaders, to get it done. Now, Ken needs to then buy my story, right? And he needs to operate in the same way that I operate, and then we have that. Now, if he doesn't, I suspect he does, because I've already pitched it to him, but you're 100% right. If I don't. Now, nav, my bet. I said this to NAV the other day. NAV, I'm going to make a bet. I'm going to make a bet that you're my guy, right? You're the guy. You're the architectural guy with enough muscle in the room to validate the story, right? And that's the partnership. Now, the big problem is, has been, in the past, been tam Moy, right? Tam moy's voice has been too loud, but tam moy's voice is not loud anymore, right? So he's always been the disrupter in all of this story, because he, he is a hero and a rogue all at the same time, right? So he has that mo move will buy what you sell if you sell it in the right way, because he'll build what he's asked to build, right? He's not. I've not found him resistant, because I don't think he has a strong opinion either way. So I guess my question back to you is, there's no listen, this will either succeed or fail, but I think it will succeed or fail based on the alliance. And the alliance that I'm making is with NAV. I'm making it with people who share the product, the vision, which is you and Errol, right? The Zephyr team will come along for the ride. The experiences team are young and that they are the rapper to a lot of this stuff. But and then the background to this is people like my ex data scientist, my ex CTO anirud, who's on the data science the data science lead. There's another layer to this, which we probably won't have time to talk about, which is the bit, the kind of the I mean, I've got a deck which is being presented next week, which is from our lead data scientist. The story is from fragmented billing and behaviour data to a single intelligence layer. Right now, we've already built that. We've already built the graph underneath it, I can look at a customer, admittedly only on a media customer. I can look at them from anonymous all the way through to churned account, right? Or churn subscription, yeah. So there's a data layer, but that's my that's, that's where I'm headed. I mean, it's, I don't think it's a million miles from where
+
+Speaker 1  3:59  
+I get you. And I'm everyone gets excited. You can tell them the story and say, Yeah, that's it. That's it. That what we need to do. And then you go back, and you have your escalation, you have your five gaps that have nothing to do with you, and of a sudden we have to plan a roadmap, and that's about priorities. And I think that that's what's missing in this company. And I mean, Sharkey is getting there, but I don't think he's completely there. And it's a hard thing to do. It's basically saying, I mean, the big bets go over there, right? But if you look at the big bets, they're not that clear. I think it needs to be. This is our first priority, is delivering this vision that you basically then as a owner of that story, and maybe I own a different story on that vision, right? But that's our vision, and that's first priority some so that I have to change my roadmap, but I can show you what I'm doing right with my roadmap. It has to come together, right? Whatever resources I have, a certain amount of reasons available, I need to really spend it on it, and Errol has to be also honest, because Errol has like, 5000 problem. He's like, behind on everything and not enough resources. He may say, Yeah, this is a great, great thing. Jonathan, I don't know what he needs to do for you. Maybe it's he says, I already have built everything. You know, great. Is it really true? I don't know, but I know that. I say it's a good story, but I need to make this a priority. There's a prioritisation is that is the key of I agree. Because once you have the periodization, I can follow easy, right? But if you don't have the prioritisation, I'm like, in five directions,
+
+Speaker 2  5:36  
+yeah, I agree with you. Well, that's it. That's the bun, right? You have to have the story, you have the architecture, and then in the middle is the product. So you've articulated 100% right? So that's why I talked about stakeholders, partners. You know, those that they're not, they're not just words. They are there. I also, and I said right at the beginning of the conversation with you, it's insulate, or maybe I did, maybe it was to Errol, but it's about insulating the roadmap, right? In order to deliver a thing. Now, Shakir comes to me and says, Hey, we had this thing with this with Toyota, we need, we got a $300,000 deal. It's our biggest customer. We have to deliver this thing. I need to knock the experiences roadmap off course, right? So what happens is, you take that blow. You know what? It's like. You go, Okay, I'm gonna give you that one. But next time I know, I know how you operate, I'm going to not maybe I won't give you that one. Now, you're my boss. If you're going to tell me to take it, then I'm going to tell you what the impact is, right? I'm going to tell you that story I told you at the beginning of the year. That's not going to happen now, right? And you have to if fine, that's fine. If Silver Lake wants 3x instead of 5x or 10x I don't give a shit. As long as I get my payout, I'm happy, right? But, but the point is, there have to be. There have to be trade offs in the story and the intersection.
+
+Speaker 1  6:55  
+So here's the problem, the the good a good company, like I was, when I look@new.io they're like, very strict in what customers they get on on their platform. Yeah, because they don't want the Toyota case, or they don't want to suitcase, or, you know, somebody who disrupts it totally and takes over a quarter of your of your resources and your roadmap. They basically said, No, you're too early. We're still building this right, and that they believe in their vision, they believe in the story, they believe where they want to go. And then it's easy, because then the prioritisation is done at the top and you don't have to sweat it in the bottom. We just execute according to the one plan. Like you said, the roadmap plan, everyone you know came together building right? So it's up to leadership. Basically, if what is there more? What's more important? That quick fix, like a chunky get that one deal in, and you know now it's one piece is missing or is now faltering in the whole story or and then people are also more under stress, you know, like you can't really think things through anymore. You attention somewhere, so all of the bad thing. And Jake would agree with that, but at the end of the day, he then will be just getting all the to doing it right. How much revenue willing not to make, you know, to get to that story and make more revenue later. That is, that's the question. And Silver Lake is a three year. They're one of the resellers in three years. So, yeah, yeah.
+
+Speaker 2  8:31  
+Well, I guess I think, yeah, that's the problem, I see, right? So it's like, have we just got two pieces of bread, some lettuce, tomato and, you know, chicken, whatever, spread all over the table. Or do we actually have a fucking bun, right? Yeah.
+
+Speaker 1  8:48  
+I mean, you know, this is how it will go. It will go. Okay, great story. Jonathan, everyone loves it. We need to pay it down, right? Because, you know, in order to build this, I don't know how much money we need to spend, but, and what's our market, so all of this other thing that you know is coming then, usually right after it's like, great start. We love it. Love it. Okay, how much money can we make? And how much effort is this, and all of this, right? So without that, No one moves Yeah, you know anything, right? I know Ken. Ken was not doing anything for that, unless you show him how much more money you're making.
+
+Speaker 2  9:27  
+Yeah, well, that's my next call after this is with Stephen Boone, because I want to ask him exactly the same question. So if he turns around says, I give a fuck about about this that, you know, that story you just told me, I don't give a fuck about the guy down there that's doing it on his
+
+Speaker 1  9:42  
+own, because, you know what, he I don't know, he's a good guy. Maybe he says, it's a fantastic story and can sell a lot. Or he says, Great story, fantastic story. Except, hey, I need, like, this problem solved, yeah. Then, then you like, yeah. I mean, well,
+
+Unknown Speaker  10:00  
+then on Tuesday, I'll be selling a different story then,
+
+Unknown Speaker  10:04  
+right? I always think it's good
+
+Speaker 2  10:06  
+to have a vision. I like listen, I like it. I think the thing is, what I mean don't, don't change the vision.
+
+Speaker 1  10:12  
+I mean, the vision is something you strive for. If it Lord, what you want is more than a vision. You want to make it real, and in order to make it real, you have to put priorities behind it, and the stakeholders need to be agreeable that they will move everything out of your way in order to get it done. Well, listen, having the lab there, and having me in there, or you being the leader of all the story, whatever that's that's such organisation. That's the That's the easy part. Yeah, the hard part is getting the buy in for for the from the from the big weeks, so that they keep you
+
+Speaker 2  10:48  
+I can do that. I mean that I can do that. That's not that, actually, I don't mind kind of my wheelhouse. But the bit I want them to I want to be clear on, because you nailed it right. If you're buying what I'm selling, and you let me do that thing if you start to fuck around with it, and it's not going to be a thing that I'm the wrong guy for the job. I don't want to do that. I'm not a political guy. I just I want to work with product leaders. I want to work with smart engineers, great artists.
+
+Speaker 1  11:18  
+Yeah, exactly. And by the way, there are other companies that and they will eat our land.
+
+Speaker 2  11:25  
+Yeah, exactly. Well, there's that also and that, you know, if you put a different leader in place, right, put, I just do get someone else, get someone who's gonna, who's gonna buy your vision, and not try and sell you a different vision. And by the way, it's not some, you know, the reason I'm having this conversation, and we will have many more, is that it, you know, to be a bit kind of, kind of motive about it. It takes a village, right? You need counsel from a lot of really smart people to build this thing. Because if, no, if people are out of step even a little bit, it's the same thing. It's just a fucking
+
+Speaker 1  12:03  
+dependency arrest. You will encounter 5000 problems. Yeah, exactly, exactly. Every product will give you five reasons why they cannot now change. Yeah, exactly. Billing. Billing is one of the biggest impediments, because they can do sometimes things and sometimes things are hard for them to change.
+
+Speaker 2  12:23  
+Well, I'm also, I'm kind of, I like to approach things from a few angles. So I'm trying to work with the guys on the data science side who are doing the bit. You know, how do you speed up the billing implementation? Because for me, speed of billing implementation and complex is one thing. But can I get a small guy. Plg, whatever we call it up in a month, right? Why do I need all of this shit? Why can't I just get him up in a month? So I've got, I've got, really, it's
+
+Speaker 1  12:49  
+not our DNA, by the way. No, it's not. I totally agree. It's like, ridiculous. I can't even, there's no, even a demo system for me where I can just go in exactly what I call a reference system. It's like, I installed this, and guess what? I can go in and I can correct, make some quotes, no, I instal it, and then, like, go through an orgy, like John, who is the best guy, he goes to an orgy of settings. And then we got there, and I don't know well for that, you need to go there, and you wanted to have the button over there, and what field, what? I guess, see three fields, right? No, no, you want my field so you have to go. Have to know what fields like? Oh, my God. It's like three days to just get it state where I can now book it on. Now, if, if you tell this to Johnny, would say, full of shit. No, it's so easy, you know, like it's very quick. And, no, it's not, it's actually hard. It's hard,
+
+Speaker 2  13:46  
+but so, so I know we already got five minutes left, but the the way I the way I approach that is, you got this so you got the bun, right? And then I come to you and say, What should it look like, right? I don't know. You tell me, what should it look like? What if I want to get someone up in a month? Because I've managed to get billing up in a month, and now I want to get this CPQ light, whatever called vibe. I don't care what it is, I want that up in a month. And you go, Well, if you want to get it up in a month, you have to kill all of this stuff, or you or whatever, or if it should be spun up in 24 hours then, then. And you go, Listen, we can get this done, or we could build this into the roadmap. And I go, do you want to build it into the roadmap? And you say, Yeah, we could do it, or we or maybe we could do it here. Or you go, Listen, just don't touch this right now. Deal with some other stuff. And we'll, we'll plan it in next year. So it's but because the because of this, the direction of travel is there. It's not about coming and saying, you know, like, hey, we have to build something new in 90 days, right? That's bullshit, because the road maps planned. It's got some thinking to it. It's about, does it stack up? Is it possible? Should we do it? And then it becomes a still, a product led motion, because the product leader goes, I can see the value, but here's my case against not doing it, then what happens is the intersection story has to shift slightly. It won't break. It'll just shift slightly. And that's the kind of dance that I want to get into. Where the product leaders make the decision about the VA, the validity of the request, understanding the story, and if the answer is no, you have to trust the product leader, to have assessed all of the variables and to go no, for a reason, that's that's the intersection for me. Does that make sense?
+
+Speaker 1  15:32  
+Yeah, no, it does make sense. I mean, yeah, I agree with that. And so that we need to, then you have your story, but then we still need to come together, and everyone needs to pull on the same string and see if I'm coming up with something. Hey, Jonathan, I don't think that's correct, or we should change the story here a little bit. That should be possible Absolutely.
+
+Speaker 2  15:54  
+And listen, there's two outcomes you get to exactly the same point that Amy's dealing with, which is, it's just a bun fight, or the story is so compelling and joined up and everyone's bought into it that there's actually a point where three or four people make some really smart decisions that have big impact, right? And that's, that's what I'm trying to get to, all right?
+
+Speaker 1  16:16  
+I mean, look, our job is mostly getting people excited and, you know, retell the story, because we have no we have soft power. That's I have one one direct report. Shake has many more. But you know, you need to convince the developers. You need to convince says. You need to convince the marketing folks. Everyone needs to be convinced that this is the the healing of this company. You know, this is the vision of this company. Because, to be honest. Okay, there was no vision at all, right? So it was like we are building company. Oh, yeah, but we have all this other stuff when you ask them, okay, how do you see this company in 10 years? Where, what? What does success look you know, when, when we are grown up, how does this company look like no answer,
+
+Speaker 2  17:01  
+no agreed. But on the other side, it doesn't take much. I mean, if you think about acquisition, the cash, I just kept saying it a lot,
+
+Speaker 1  17:11  
+exactly, because it's also obvious that it becomes like almost too obvious that we have to do something for now. But now you feel acquisition, to cash. See no more questions your acquisition of cash. The thing, how do you fill that out with something real that goes like you said, end to end,
+
+Speaker 2  17:29  
+but I needed, I needed this conversation and the other conversations that so you said, it's, I created a very you know, there was no sorry to flog the analogy of the burger, but there was no bottom burger, there was no filling. There was just a story, right? So now, but you can move people to think like that. What I'm now doing is going back and saying, Okay, now let's build a real thing underneath this. And I think your point around I love the idea of saying, you know, and I will attribute to fuck plg and SLG, here's the customer right now. You tell me how many pieces of this platform does it? Does that customer touch through their life? Are you call that what you like? I don't care. SL CLG, market led growth. It doesn't matter. It's just the customer, right? And so I think that's, I think that's the way to crystallise this story, is right, and
+
+Speaker 1  18:24  
+give them those four stories. Yeah, five story. This is, this is how it works. When, when you say acquisition to cash, that's what we mean, yeah, cool, man. It's one of those, end to end.
+
+Speaker 2  18:35  
+I really appreciate your input. I want to, I'm going to drill in a bit more with you, so maybe in in Redwood City, but I really appreciate the help,
+
+Speaker 1  18:44  
+yeah, no. I mean, I'm on board on this, because I am coming from that background, yeah. And was at IBM. We had web sphere. I did the coding there. We integrated all of that. And I know how the story works with people, when you tell them, and how you sell this, and it's very compelling, right? So it's not like you're not becoming a, you know, compared with the best billing applications or whatever. So you get it get compared with the saps and the Oracles and and then then you're actually in the real game, yeah, because that bank is where big companies, and if you solve your problem, make this as simple as possible, you actually, instead of being an SAP or Oracle, you can now appeal to a smaller segment, and maybe that's the solar market, right? So yeah, should we go for two or $3 billion companies where SAP and Oracle or the choice, because it's already there, no but we have a market here where SAP and orca has a hard time to play. We have an end to end. So that's our basically a real end to end, compared to the ankle biters that are out there. They have maybe a little bit quoting and then billing, but they're missing all the other things, you know. So we have to this is what I would say. We have the most complete products, except we haven't put them together. Great.
+
+Speaker 2  20:04  
+That's the story. We're telling the same story lots of different ways, but we're all on the same page. It's brilliant. Listen, I really appreciate it. And then so, just so your timing, you're out Tuesday, Wednesday at zag, right next week? Yes, okay, so And Thursday, do you come into the office or not?
+
+Speaker 1  20:23  
+Yeah, I had a delivery coming, but I can. I had a problem. By then, I can scale it.
+
+Speaker 2  20:29  
+I just want some Monday. You in the office? Did we put some time in? I can't remember.
+
+Unknown Speaker  20:35  
+I can actually be in your office on Monday. All right.
+
+Unknown Speaker  20:37  
+Well, let me see if
+
+Unknown Speaker  20:41  
+I'll put some time in with you. Then
+
+Speaker 2  20:45  
+what is on Tuesday? Yeah, there's the PNT off site on Tuesday. Oh, so that's the first day of it, yeah? So I think, and then there's the Thursday, is actually the product leadership off site, right, right, right. So I guess you are going to be in on but that's going to be stacked,
+
+Unknown Speaker  21:02  
+yeah, I mean the Zach on that second.
+
+Transcribed by https://otter.ai

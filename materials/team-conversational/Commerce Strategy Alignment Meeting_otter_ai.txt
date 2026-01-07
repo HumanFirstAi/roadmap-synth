@@ -1,0 +1,580 @@
+Speaker 1  0:01  
+Somewhere along the way, it's an IVR, it is an it is a agent, or an LLM, whatever. But in order to be to do those, you need to understand the touch point, and you need to understand how they interact and how you choreograph the underlying processes.
+
+Speaker 2  0:20  
+Yeah, agreed, right? And there's another part over here, which I'm not going to talk about, and that's data mediation, whatever it is, right? So, so by owning the experience, we can get the capture the data. The other thing is also this question down here, which I'm speaking to been around, which is identity, not Zephyr? Identity, by the way, I've realised that
+
+Unknown Speaker  0:51  
+actually Zephyr, well, yeah, Zephyr.
+
+Speaker 2  0:56  
+Zephyr identity. Well, in fact, we don't need identity. We don't need an identity platform in the way that Zephyr provides it, because Zephyr is the identity gate is that owns the identity and delivers access based on that identity. We're not doing that in B to B, right? It's not relevant, right? The other thing is rules, but sorry, journey, orchestration.
+
+Unknown Speaker  1:19  
+I finally bought into the idea that Zephyrs.
+
+Speaker 2  1:25  
+Zephyrs, yes, no engine does, has no utility in the story at all.
+
+Unknown Speaker  1:31  
+In my simple world, what I see is
+
+Speaker 2  1:36  
+a simple conditional logic rule, which is, you know if you're going to do pre qualification of a, you know, you want to get to, you know, greater than 50 million, less than 50 million, Arr, you know, you're a business user, marketing user, or whatever it is that this is, I mean, this is simple, but we need a proper in order to do this, we need a proper rules engine, right?
+
+Speaker 1  2:04  
+If you're gonna do web pages, I just depends how far crazy you want to get, like,
+
+Unknown Speaker  2:12  
+that's a whole philosophical debate
+
+Unknown Speaker  2:17  
+that we could get to come in.
+
+Unknown Speaker  2:21  
+I'm trying to do, yeah, do you
+
+Unknown Speaker  2:23  
+want to grab a bigger room?
+
+Unknown Speaker  2:26  
+So Viva needs to run. Okay, so
+
+Unknown Speaker  2:30  
+you need Tony, right? Is Tony still here? Did he leave?
+
+Speaker 1  2:35  
+I did not see him. Okay, then we can, can we meet on Thursday for this? Yeah? Thursday? Yes. I mean, we were just going to talk about next steps. This is not a big comfort meeting. Let's do it on Thursday, because Thursday, I'll be coming back to
+
+Unknown Speaker  2:49  
+Office. Tuesday, Wednesday. You guys have offsite, right? So, Thursday,
+
+Speaker 1  2:53  
+okay, okay, cool, perfect. Well, send it out. You need me here.
+
+Speaker 3  2:57  
+I think I've done if Errol is still sitting and not on the whiteboard, I think that is
+
+Unknown Speaker  3:04  
+good. I'm refraining if, oh,
+
+Speaker 3  3:06  
+there you go. Told you largely, and there is something else, something going wrong,
+
+Speaker 1  3:12  
+I'm conceptually aligned. I think we need to, we need to simplify it for our audience, to get the Yes, so I know where your brains eye, but I don't disagree with what's there. Yeah, I'm just thinking
+
+Unknown Speaker  3:27  
+now I wanted to talk to you 10 minutes.
+
+Unknown Speaker  3:29  
+No, so I'll come back and
+
+Unknown Speaker  3:30  
+talk to you. Come on in. Really.
+
+Unknown Speaker  3:35  
+Just walk me in. Hello, relief. But John,
+
+Unknown Speaker  3:42  
+on Thursday.
+
+Speaker 1  3:46  
+Oh, perfect. So I'll bring you up to speed. So this we're going to defer this meeting that we were going to have. The meeting we were going to have is like, it's not a secret meeting. It's just look at all these projects. Let's figure out how to get Tony engaged and everyone aligned and like as a leadership team, making sure that everyone is excited about the direction. So we'll have that on Thursday. I'm going to play this back, and please do so. We're talking about the big picture, and the most important thing is number one, getting Pete teen the field and others excited where we have failed in the past, and I'm just going to be very transparent, is I've walked into teens office and been like, there's a $13 billion market called commerce, and every customer in the World either sells through sales reps or an assortment of channels, etc, and then he goes off this philosophical and you would get this Amdocs, World of like, why call it a product catalogue? Why don't you call it an offering catalogue? And like, then we go to and he just, he just doesn't understand it, right? So we're now taking and being a little facetious, but like, we use these into these broader concepts, and like, sales gets it and the rest of the business doesn't. It's astonishing. I don't know if you've seen this, but sales is like, I know I want my customers want to package, price and sell, yeah, give it to me, and then you go to other people, and they're like anyway, so with the first audience, as you go top down is getting sales and everyone excited, there's really two different growth sales models. There's self service and there's seller assisted. So self service, obviously being a website, and even on the farthest left off the chart would be agents, because now an agent you don't even to serve yourself, the agent serves you, and on the far right is a sales rep. In that spectrum are things like, I start on the web and I jump over, vice versa, IVR, whatever context, session switching, yes. So true. Omni channel, yeah. So this is the Omni this
+
+Unknown Speaker  6:07  
+is just a representation
+
+Unknown Speaker  6:08  
+of the omni channel, each of the surfaces, if you will. And the
+
+Speaker 2  6:11  
+reason I put it here is so that the business can attach what our go to market is and what the product actually is designed to deliver.
+
+Speaker 1  6:22  
+Right? And so there's, let's not get buried in nuance and just say there's a our business has failed with segmentation and go to market multiple times. We have a discussion about, like, what the heck is this complex? We're not going after complex enterprise, yet they are our biggest segment. And so like, part of what Jonathan's trying to do is like, let's not talk about SAS and plg and media. Let's just talk about we're going to sell through every channel, whether your self service or assisted. So that's like thesis number one. Now in order to do that, left to right. You have to have these experiences for all of these surfaces. You have to understand the context. You then have to by understanding the touch point, sorry, the surface and the context. You can then orchestrate and formulate the perfect experience. So where we get a little stuck is orchestration and actions, which those are kind of nav words.
+
+Speaker 2  7:27  
+I like the idea. I like the I like the orchestrate and formulate the right experience. Yep, the right experience. I think that that's a better way of that's a better way of describing that. It's one block of things we orchestrate based on the context. We orchestrate and formulate the experience. Okay, that's what we're going to call it that. So rather breaking out another concept of actions, where people go, what are actions? We have actions over here. We have actions over there. We just say, Listen, you know, once you've you deliver the experience. The context tells you about the customer, the session, bless you. We then orchestrate and formulate the experience that ends up in one of the you know, this is, and I'm going to tell the story that this is a see, to hear, presses a button, speak to the agent, goes off to a different experience. Both of those have slightly different views given the context, but they they share a common view of the customer just through different representations, right?
+
+Speaker 1  8:32  
+So I guess when you said orchestrate and formulate, I just I combined them as like, I'm going to kind of bring it all together, or, I guess I'm just still caught, and so the rest of the story is, actions are domains or business processes. It's, what are you going to do? I'm going to package, price, promote, configure, I'm going to upgrade, downgrade, I'm going to do things based on the context, yes and or what's my what's my reason of engagement. And I know why nav uses actions, and so like this is what I said earlier. I don't disagree with the use the word actions is just ambiguous. Actions. Well, what is it a user action? Is it a business action? Is it a domain? Is it a package? Price, promote, renew, like
+
+Speaker 2  9:24  
+I think, I think, for the purpose of tomorrow, we just say, orchestrate the right experience that no one's gonna go hey, you missed our actions here.
+
+Speaker 1  9:33  
+Well, I this is a good debate. Debating actions. So good orchestrate. I knew orchestrate and optimise are very important, right? Because that's the best, next best action, or no, no,
+
+Speaker 3  9:49  
+hang on, why orchestrate would be? Orchestrate is kind of you're stringing some things together and you're trying to manage that optimise. Agree, that's the next best action. But if I choose that next best action, you go to orchestrate that?
+
+Speaker 1  10:06  
+Yeah, so orchestrate and optimise. How about we just do that? The thing that I'm stuck on, and I know exactly what you mean with actions like, what am I here to do today? Am I here to upgrade, downgrade? Are you going to package price, promote, renew? It's all the actions. But because actions is an ambiguous
+
+Speaker 3  10:27  
+word, I'm working with the terms. Replace the terms. What do you got? No, but like, that's the question.
+
+Speaker 1  10:32  
+Do we want to call it domains, business processes? What will everyone in that room? So the win forget about what we want to pitch. The win is Pete having a big heart here and being like, I love that. It's getting sales, and everyone in the room being like, I understand this. Yeah.
+
+Speaker 2  10:49  
+So why don't we just call it why do we have to have, why don't we just call it orchestrate? What do we have to
+
+Speaker 3  10:54  
+have an action? Is this thing? So the orchestrator and actions the way I thought, let me explain that. Basically, orchestration means there are going to be bunch of actions that you got to execute to achieve a business process. Business Process is a bigger deal. So we got to implement what, what is one atomic action in Zora, one of the biggest problem is you cannot even execute an atomic action without stringing together five API calls. Then you bring those things together. That's why we like workflow so much. Then you orchestrate that. So there has to be some abstraction of actions from commerce point of view that Zora doesn't have today, except for saying that, let's say I will. What is an order in Zora? Is it a verb? Is it a noun? You have been here for two years? Tell me you may. Or yeah, anybody? What is what is an order? Is it a verb in Zora, or is it a noun? In Zora? It's a noun, it's a noun. Should it be a verb, or should it be a noun? It should be a verb. There you go. So now, if a customer, if a customer goes and talks about, hey, I want to place an order, or I'm, going to then execute an order like they need an engineering degree to understand what the order API is. So the abstractions for me are like, upgrade order. That's an action. What do I need to do for that? That's comes in orchestration now.
+
+Speaker 4  12:18  
+So are you not mixing? It's a business process you want to
+
+Speaker 3  12:22  
+Orchestration is for a business process which then execute five steps or five tasks, five actions, orchestrating.
+
+Speaker 2  12:31  
+So here's a coordination of the actions that are disparate.
+
+Speaker 3  12:34  
+Correct. And sometimes you might have decision making in there and say that I'm going to skip this action.
+
+Speaker 2  12:39  
+I'm going to go. Is that solving a Zora problem, or is that, I mean, you're saying you wouldn't tackle there are always going to be multiple actions you can take, right? Your business is just too complex, yes. So therefore you have to have some intelligent orchestration, that is, that understands this context, that understands what it needs to orchestrate, or how it should orchestrate correct, and then that orchestrates the actions in order to deliver the experience well.
+
+Speaker 1  13:08  
+And I would say, I'm just gonna that's like, if I know you read the document within, like, I we needed a better name for mood, the orchestration and optimization. What are you orchestrating or optimising for, I'm optimising for market entry, for margin, for CSAT, because, you know, rolly logged in and she hates like our brand, so we need to make rolly happy. But you know, there, there are business objectives that change with the context of engagement. So like all of that works together, the actions then
+
+Speaker 3  13:45  
+are, you can leave it to literally at the bottom, that there are some action that we have to do. I only advocated for that is because we keep on forgetting that that is something that we need to polish, without which our exp, our whole thing will not complete.
+
+Speaker 1  14:01  
+I'm going to go super old school, and I'm going to play something different back to you for debate. So in a world
+
+Speaker 3  14:09  
+this is, this is what happens when me nails come together. So, yes,
+
+Speaker 2  14:12  
+luckily, I like it. So, so I enjoy the, enjoy the narrative.
+
+Speaker 1  14:17  
+In a world of systems of record, right there, there are, there's an SAP promote there's a Pegasus promotion system. There's a Zora billing back office. There's, there's all these things, right? And so the whole reason a commerce platform, and there's a reason I'm going here, so just bear with me. The whole reason that a Shopify exists is Shopify is not your your billing system of record, your product, whatever it is, literally, yes, a representation of those actions that's super high performance, yes. So yes, that's why I said I'm going old school, yes. If we go new school and we look at this new paradigm of like, where these new
+
+Speaker 3  15:02  
+ACP and all that you're saying, you're referring to those, yeah, these lie. Yeah, yeah. So now, if you're absolutely gonna go new school and have the vision for that, in my opinion, Zohar will be fossilised,
+
+Speaker 1  15:20  
+absolutely, that's exactly what I've asked.
+
+Speaker 3  15:23  
+So Zora, as we know today, will be fossilised and should be fossilised as well. So it would be Salesforce. But the way that I believe this will come out, we will have a bunch of tools that I expose for an intelligent orchestration engine. So better us coming up with it. Then you can not only use your actions, you can use others actions to achieve something, and then you can be just a system to capture. This is the outcome which Zora, anyway, captures. But you, you forget about it. How did you arrive at it? You just happen to say, Oh, you, you capture something in Shopify. Don't worry. You can bring it here. And I can call this, I can bring it together. It feels like
+
+Speaker 2  16:02  
+what we want, what we want is the permission to focus on this, to answer exactly that question. So what I'm, what I'm what I think the point that you're making, Earl is that what we don't want to do is use a word that everyone then that the room, you know, someone like Tamworth puts his hand up or not, puts his hand up and goes out. Wait a second. You know that means that, what are you actually talking about? And then the whole presentation stops. Right? True. So if we just call, if we, if we, if, if we say, if we were to be kind of reductive about it, we say experiences, context, orchestration. Do we have to mention actions?
+
+Speaker 1  16:39  
+Well, there's a question. There's the reason I went down this path, right, which is, is commerce? And you know, again, there's the four of us in this room. We don't have to broadcast it is billing, just an antiquated back office system that we now, and we don't have to share this, right? But like catalogue, we catalogue. We were sucked down. Sorry, I don't want to say that we were held back because of backward compatibility, and it's not the way we would have given a white piece of paper. Now, would have built it differently. He's bridged the worlds very well. But the reason I go here is now everything else, the promotions, the merchandising, packaging, everything can be net new services that go into the action. So the question is, that's like a traditional commerce platform says back office is, is doesn't serve the need. Like, do we, do we softly position that. Or do we go to a new world and just say, Screw all of that. We're going to the ACP like MCP, ACP world, right? Agent to commerce. MCP, where we're just, you keep your garbage in the back. We're going to pull it out. We're going to vectorize and manage the data. And I don't have an answer.
+
+Speaker 3  18:02  
+Well, in Zora, what we do? We can figure it out after the off site. This is how I think it should be done. In my view, sell it, get the buy in, and then we figure that out. The right answer for that is going to be, we should focus on the ACP, MCP, because, to be honest, that is exactly what it is in three, not three. Six months to come, I believe customers will be building Have you guys seen ag UI? Yeah, yes. So customer will. I think the UI and the experiences and all that should be something that we are not even thinking about it. The customers build it using those platforms, but more importantly, they would prefer the vendor that has the largest coverage, the biggest surface area on either MCPS or the ACPs of the world, because then it allows me to build my own customer experiences. The bigger I am, more I can afford those experiences, and more I would want to stick with you, because you offer everything for that. The latter approach of going and focusing on ACP MCP is better, but you cannot build that, and then you cannot go out to the market starting next month. So what we need to do is, what we have start piecing them away and say, Let me wrap it, put the lipstick of MCP on it. Why will we change that? Because in Zora, one thing for sure, we cannot change everything in one go.
+
+Speaker 2  19:22  
+Well, the other forcing function is, I want to present this sko so I want, I want your commerce vision.
+
+Speaker 1  19:30  
+Well, then yeah, said, Let's not go too far in the future. Like I we can sell all of these.
+
+Unknown Speaker  19:36  
+So I'm just interested in what you said, recipes,
+
+Unknown Speaker  19:40  
+industry accelerators.
+
+Speaker 2  19:42  
+So what I want to just focus on that you said, Do we take merchandising, for example, and turn it as an as an action? Is that? Is that? What I heard you say, yeah.
+
+Speaker 1  19:54  
+So, like, the way, the way we're moving forward is, like, as a traditional commerce so, like, you need some logical guardrails, right? So, like, let me simplify this so all of these would ultimately be actions, but it's, it's how we deliver the actions and what we focus on. And so do we say we're going to create all of these net new domains and or do we say, Screw the domains? We're just going full AI and doing these like abstraction and rules orchestration.
+
+Speaker 2  20:29  
+Why don't we just say actions can be anything. I think, I think I wrote down after our meeting some of the actions that you identified. So what
+
+Speaker 3  20:38  
+I'm going to do, I think those are the action. But he's saying the execution and exposure is AI, or you're still doing the old school
+
+Speaker 2  20:45  
+way that, hey, you're doing. We're not going to deliver the AI by sko and if I if, if we haven't got, if we haven't got something concrete,
+
+Speaker 3  20:53  
+is coding, by the way, he's on cursor, so you might as well think that you can.
+
+Speaker 1  20:57  
+I'm compete. I've got my competing. I did anti gravity. I'm moving it back over to cursor. Oh, wow. The full promotion. And then you're gonna look at it and be like, this is garbage.
+
+Speaker 3  21:07  
+Now he's building the promotion engine as well. I know that competition so, so, so what?
+
+Speaker 1  21:15  
+Yeah, I'm just working to Costa Rica and be like, here,
+
+Speaker 2  21:19  
+but can't come what? We don't have to answer this question.
+
+Unknown Speaker  21:22  
+We don't. We just like
+
+Speaker 2  21:24  
+we don't. Who's gonna when we say orchestra, orchestration of these experiences, right? Just think about tomorrow. I say, Listen, we got experiences. We're doing this. We're doing this. This is not being done, but it, but
+
+Unknown Speaker  21:38  
+it has to be. Has to be. That's the whole
+
+Speaker 2  21:42  
+Exactly, right? So maybe we take out, maybe I, you want to just send me a snippet of that. Yeah, you can a definition of what moose
+
+Speaker 1  21:50  
+is, right? We just use, without using this acronym, yeah, just so we just say,
+
+Speaker 2  21:53  
+Listen, that's all because that's already, you know, documented, you know, I'm going to, it's in one of your documentation documents. So that's orchestration of the experience, right? So no one's gonna go, Hey, you missed the step. It's actions. And then if someone does, then that's where one of you two can say, actually, you know, we've been debating this, you can help me out.
+
+Speaker 1  22:12  
+I would just, I think it flows, and then in actions, just so you connect with the room. I would literally, do, you know, business processes, and then, you know, underneath those you do like the architecture. It's how these two things get, yeah? So it's package, it's package, merchandise, price, promote,
+
+Speaker 2  22:34  
+yeah, okay. And if you want to like the what I'm hoping transact, you know, if I'm if the questions asked that I shouldn't answer you. Just chime in, right? That's, that's the way I would like it. I mean, the way I the
+
+Speaker 3  22:48  
+only people who will ask. I don't think the time was going to be interested. You never know, done more. Wakes up some day and he's like, I'm very interested. It would be probably Ken,
+
+Speaker 2  23:00  
+but this so I'm going to leave data. I'm going to leave ID out of this whole story. Rules we decided is an input into rules and constraints. And you know, Errol agrees with you on this kind of
+
+Unknown Speaker  23:16  
+separate life also
+
+Speaker 3  23:18  
+is what we have refined over. So if you think, if
+
+Speaker 2  23:21  
+you think, I want to build this story, so I'm going to build this, I'm going to give evidence for it. I'm going to build this and give evidence for it. I'm going to say that this has to be a road map, right? So what I would love is this is on the NPR, right? So rather than this being consumed inside, I think we should say, How is commerce foundation going? Right? Well, you know, BCS has expanded, orchestration, Moose has grown, experiences and interactions is now doing this thing. That's the commerce foundation.
+
+Speaker 3  23:53  
+I'm there, but the next person will ask you the question at this time is Satish, like, Oh, my God, this is surprise to me. If it's a road map item, who's delivering it?
+
+Speaker 2  24:02  
+You know, I pitched him today, very briefly, and I said, I speak to him tomorrow. I said that everything except So, this exists, this exists, right? This doesn't exist, but it's written up. It's documented by Errol. It's needed. It's needed, right? Yes. So I'm assuming actions and orchestration go hand in hand, yes. So recipes doesn't exist. That's a stretch.
+
+Speaker 3  24:28  
+Anyway. That's probably anyway, once you have all those things you can build, and I think what I'm going to use the word arrow, use accelerators. Yeah, people will probably relate better with accelerators than recipes. That's just my okay, but then, but yeah, at the end. So what Satish?
+
+Speaker 2  24:47  
+Satish is bought into this the intersection. He believes in. So the only difference is, number one, it looks like most of the most of it. Well, in fact, well, I can't see anything that lives in CPQ. This is all living in, in the commerce team, right? This is the mission, right? So this is, this is fam. So this became, has to be a customer to all of this, so, but that's my point. So this is where the join is. There's a shared concept of what this is, and it gets built in this team. And this, this team gets resourced to deliver that thing. And if this is the, this is the lever, if you don't resource that, then you don't get omni channel, and you don't get CPU, don't get cells self serve to Well, leave CPQ out. From when you don't get self serve to sales assisted. You've got nothing to present at sko and the whole story of acquisition to cash and cells falls apart, right? You just don't have a story. Yeah, so I want to just raise the stakes and say, if you don't resource this, then your decision is right, then you've got the wrong people delivering it. We'll just deliver catalogue and CPQ, and then CPQ, and that's it. You can have all of that stuff, right, but you're not going to get the story the bit, the bit that's failed is that someone has to coordinate the CPQ team and the experiences team. I mean, you're running experiences, but it it from an architectural, from a kind of architectural point of view, everything has to be joined up, right? I mean, I know you run Jimmy and right? Jimmy's done an extremely good job on experiences. But with CPQ, what it can't be as a dependency, it's got to be, listen, here's the pattern. This is how CPQ is going to consume it. So teach needs to take that, internalise that, and make sure that thing happens.
+
+Speaker 1  26:39  
+We can get there, I think I, and I agree with your vision. I believe that, you know, we need to move one step at a time. There's an incredibly large legacy instal base and multiple versions.
+
+Speaker 3  26:55  
+Yeah, no, no, it's not a good CPQ, legacy. CPQ, no, I know you do that is leave
+
+Speaker 1  27:00  
+that I get it. I'm just saying, like, even the direction, like, Well, I mean, you just have to either be jolting or not.
+
+Speaker 3  27:10  
+All I'm saying is next gen CPQ. The way that is going to be built this next gen CPQ is next gen CPQ, Legacy CPQ. We empathise with those customers, but at the same time all the functionality, and there's a document I wrote on that I was showing Jonathan as well. You will take away the functionality, slowly, backend functionality, and you will redirect it to the next gen, CPQ core, with commerce Foundation, the UI, Legacy UI may remain the same for now, until we figure out this experience can be or the components of these experiences can be, I framed into Salesforce, but the those
+
+Speaker 2  27:44  
+will be the stages stories. The same, though, is that you don't get this and the the other thing is, is that, although it's not directly in this intersection layer, if you don't treat CPQ in this in the same, if you don't have the same framing of commerce foundation for CPQ, you just create two different services so that what you were talking about is that I want to configure rules in one place. I want context in one place. I want all of these things to orchestrate the complete commerce experience, which includes quote to cash as well as it does
+
+Unknown Speaker  28:18  
+this self series,
+
+Speaker 3  28:21  
+this, I can bet you, next gen CPQ is not going out very much quickly, out of the door, and will not get a lot many customers very quickly. The momentum is there. But I personally believe CPQ selling doesn't happen like conventional selling, so this kind of motion is needed to catch them young and then grow them onto the CPQ as well. It's not going to be that everyday customers are going to wake up and businesses are going to wake up and say, let me transform my CPQ, well,
+
+Speaker 2  28:50  
+Darren Johnson, this is not very politically correct, but he said his customers would rather change their gender than change their CPQ, yeah. It's not a thing they want to do, and vibe quoting is not going to make any money, because it's going to be just the playground on top of the CPQ.
+
+Speaker 1  29:08  
+And deal room doesn't even like, who knows what that is like. The whole thing doesn't align with market Exactly.
+
+Speaker 2  29:15  
+So my but my point is, is that if CPQ becomes a sore then I can deal with that CPQ thing, but I know the foundation is strong. That's the That's the thing I, I, what I, what I don't understand about the this is, this is obvious, right? Like as a non commerce person, and I step back, I see, well, the only way you deliver these two things is by having this kind of unified view of one thing and then put people who know how to deliver it in charge of it. It seems like I just don't understand why that's not
+
+Unknown Speaker  29:59  
+done. Respond, because I give you my reasons.
+
+Speaker 1  30:02  
+It's simple. And, I mean, you know it, but please don't share it. It was a political battle between tan boy and Mo, and that's it.
+
+Speaker 2  30:13  
+Then it's gonna then, then this is our one shot to just put it right.
+
+Speaker 1  30:18  
+I mean, they brought they like they brought me out. They, you know, nav advocated, created a role for me. We brought over Rolly, we built the team. Like we were all going down this path, and it literally just came down to we went from 19 to three head count because of a political CS.
+
+Speaker 2  30:38  
+So we're going to get this back on travel. I'd love to one
+
+Speaker 3  30:42  
+thing, though, CPQ has a momentum for some data point that somebody found in some that we sell it to Webinar. No, no, we sell to cheap, for sure. But there's a reason we sell cheap as well, because we want to be sticky on billing, and we just throw CPQ as a flavour as a cherry. But the moment you say that I'm now, you're never available. Okay, I'm coming in two minutes. Never available. I'm always available. Just coming. So we sell CPQ for on an average, what Manfred says, $10 a seat. But if you want to go from 1020, to 50, people are going to say, Hey, do you do approvals? And we're gonna say, Yeah, we rely on sales forces approval. The questions come striking down. I fundamentally believe we can double our car, double our pricing. We can make 8 million more dollars from CPQ. You can't go to 60, $70 a seat in CPQ. You need to be better. You need to be doing configuration in there. We don't freaking even have a C, we only have p and q and B. Is also very much reliant on the back end. But where was going with this? In a webinar, somebody mentioned Salesforce legacy has 7000 or 8000 customers, out of which most of the customers are going to leave Salesforce ecosystem. Almost. The idea was more than 40% customers will leave Salesforce ecosystem. So that's a huge opportunity to catch them. Not 7700 something like that. Whatever that number was, I forgot, but the idea was we got a huge opportunity for Zora to go in and say, even if you get 10 20% of that, we got a lot many customers. That is what drove that. We got to have a very good CPQ. That's why I wrote next gen CPQ thingy, or next generation of CPQ thing and all. So that could be one thing that tomorrow gets raised and say, Oh, CPQ is still very important. I'm not saying it is not important, but have we validated our sales team says that I can't sell CPQ, so I feel we're not losing any time in delivering CPQ by going down, because
+
+Speaker 2  32:44  
+this is the CPQ is implicit up here exactly.
+
+Speaker 1  32:47  
+That's the other, I think what you just said, like so and over the past, so I've, this will be my sixth off site. And right, like, over the past, we talked about catalogue, well, boom, check, we delivered it. You know, we then talked about CPQ check, that team's delivering it. Now we're moving forward with the next phase of this, this element, and it's a progression of the unified strategy. And no one feels like their baby is being thrown out with the bath water. Everyone's happy. Nothing's going to get done as a result of this, this is literally. Sorry, I shouldn't say that. This is.
+
+Speaker 1  33:52  
+Came in from Adobe, because, like, at Adobe, we have these meetings, and it's like, you're we're not going to do that. The next day, the decision is made, and it's and then, like we used to use the doc variant of the dot collection method that I introduced, where I'm like, every decision is logged and who voted on it, and then you go back and you repeatedly say, Oh, look, you voted you. We look at the performance of votes and the performance of the business. Here we have it. We make a decision, and then nothing happens.
+
+Speaker 2  34:24  
+Well, that's that that will change now, because all we do is we put this in the deck. You have to insulate these decisions, right? And one of the things that I'm going to make clear the trade web example or the Twilio example, is that if you it's raising the stakes. It's not one thing that you're breaking BCS or experiences or orchestration. What it is is you're breaking at the very top of the right, at the roots, right, rather, right? So you break, you negotiate for Twilio, and you have to give up. This is a reality. Is a different reality, because what we tend to do is we say you're giving up this, because no one understands what that means. But if these things are all connected, right? They support this foundation. They support this. So if you don't want this, that's fine. Go off and do a Twilio deal, but you have to understand the implications of the decision
+
+Speaker 3  35:21  
+that will happen anyway. What's going to happen is you will have a core team that will continue to deliver this, but billing team will be tasked to say, you deliver Twilio, and then they will submit PRs and catalogue. Yeah, of course,
+
+Speaker 2  35:35  
+that's fine. People just have to know what the trade off is. Yes, this is solids, right? So it seems to be, and you'll have to, because I'm, I'm still trying to internalise this myself tomorrow. If I'm, if I'm going off piste, you just need to help me out, right?
+
+Speaker 1  35:51  
+Well, let's, let's talk about like, you know what's, what is the win tomorrow? Like, what do you how do you want to happy to help that's happy to help.
+
+Speaker 2  36:01  
+What I've done is I'm gonna, I've gone to death, which I've synthesised that a conversation I had with NAV, and then we followed up with Shakir. I'm going to take this conversation and just enhance that. And then what I kind of think tomorrow is it will not change. So I'll do it tonight, and then early tomorrow morning, maybe we can all regroup for half an hour. And the way I would do is I'll go up and say, Listen, you know, this is something that Errol and I and nav have synthesised together. You know, there's a lot of the concepts, if you want to read any of the documentation this, you know, It all exists. But what I want to do is bring this together in the in through the lens of sales, go to market through the lens of omni channel, through the lens of sko so I want to talk about, I want to raise the stakes up here. This is why you're listening to this right now. And then I want to go through this. This will land right because this is what everybody wants, the hand off, from the c2 to the c1 and then I'll there's some more throughout your Lego blocks example, which I thought was really cool. So I've got all of that. And then I think what we do is I say, Listen, the way this is going to work is, I want to do this, but Errol, and now we're going to jump in. And what I want is you interrupt me and say, Actually, Jonathan, what we're really saying is this, right
+
+Unknown Speaker  37:17  
+before I get fired, I should go, Yeah, I got,
+
+Speaker 1  37:22  
+I am, thanks, man, you got 45 minutes now tomorrow, yeah,
+
+Unknown Speaker  37:27  
+I'm gonna, I'll be in super early. I'm gonna
+
+Unknown Speaker  37:31  
+be the president. Oh, he's 45 minutes,
+
+Unknown Speaker  37:33  
+yeah. I mean, I,
+
+Speaker 2  37:36  
+what I would what I would love is it's just a riff between the three of us.
+
+Unknown Speaker  37:42  
+I don't think that'll fly. I think he
+
+Speaker 1  37:46  
+because remember how fast we riffed through last time?
+
+Speaker 2  37:49  
+No, I think what happened last time is we didn't have you did yours? Chapter one? Chapter, yeah. So what I want to do is I want to say, Listen, this is the story. It's a collective story that nav and Errol and I have synthesised, right? So what I want to do is I want to present how I see it, but nav and arrow looking to
+
+Speaker 1  38:07  
+I'm never going to antagonise any of the outcomes.
+
+Speaker 2  38:11  
+But if you think I'm, if I don't, I think it's super cool if you say, Listen, actually, like it's, maybe here's a bit more colour on that. I think I'm because I'm, you know, this is still relatively new for me.
+
+Speaker 1  38:23  
+I guess from my perspective, we own the message. We own the delivery. We should, will be rewarded for crisp, clean delivery, instead of any hesitation, totally. So I don't want to come in and add cut like I'm happy to add minor colour,
+
+Speaker 2  38:39  
+just don't let me go off piece. And also don't let me get caught out with saying something that I'm painting myself into a corner, right? So if I I kind of know where to pitch this, right? But I, but this is not a story I know super well. What I do know is what the sales organisation wants. That's where I'm going to start. And I also know that this lands with boon in his B to B complex world. It lands with Paulo in the 60% of his business that's not B to B complex. Mark gagne is all B to any so he wants the full spectrum. So if the sales org is behind it, and omni channel is a thing that the product organisation has wanted for a long time, and I use this term here, which is what Pete identifies with, then we just get insulated and we go off. And the thing is, what we also then need to do with a fast follow is, I need to go back to Satish and say, Listen, you know that thing everyone bought into. We need some RECs opening here. If you want to deliver this, we need wrecks to deliver it. If you don't want to deliver if you don't the wrecks to be opened up, then we have to push back any delivery of this, and that means you have to go to Kyle Christensen, not that Satish, and I enough for Sarah, he buys into this. But you know, if Moo says, Listen, there's no engineering resource, and that's a conversation between Kyle and move,
+
+Speaker 1  40:06  
+that's going to be an interesting one to see. I mean, obviously he made the first move, so
+
+Speaker 2  40:11  
+it's fine. That's That's why this is a but this might this, this, I love, right? I love this, because all of this is in, in your control. This whole section here,
+
+Speaker 1  40:26  
+I'm with you. I i think the the one question I'm going to ask, right? I think we agree. So park this moment as we discussed last we ultimately want to get to a converse because that's what boon and everyone wants to sell. That's how we grow our side. You know, you're, you're the business you run, the businesses we run, substantially, right, and commerce will get, I mean, you've seen the model, right. So to get to commerce, I agree with this, but there's also some fundamental blocking and tackling that needs to be built out. Most notably, you know, we're doing packaging merchandising, but promotions need to be accelerated. So we'll need, like, we could do very weak promotions, or we could do a real promotion engine, because that's what commerce is, that can interact with agents and other things. So at the end of the day, when we actually start identifying these domains, like, how are you thinking of staffing them and defining them.
+
+Speaker 2  41:34  
+Well, I think it's so. I think so. My understanding is that promotion engine goes down here, right? Does it sit next to rules? Or where does it live in this?
+
+Speaker 1  41:45  
+Well, it's a variation. It's it's a domain. That's why I said earlier with actions, are actions to domains so are they? Are actions, just an ACP, MCP layer that call from the that abstract away from the back end to get the difference?
+
+Speaker 2  42:02  
+Yeah, I do. I think the, I think the the argument still lives up here, right? If you want to compete in omni channel, right? If you want to be truly omni channel then, and you're not doing full promotions, then you're not really delivering this. Are you? It's just a it's just, we're not best in class, yeah. Is that a fair summary or not? Yeah.
+
+Speaker 1  42:30  
+I mean, you can't have omni channel without package price promote, yeah, so I know that's so that's package price promote,
+
+Unknown Speaker  42:36  
+order, but that's the input, then right
+
+Speaker 1  42:40  
+order as the verb that rolly created. But that would you have answered verb or doubt on that?
+
+Speaker 4  42:47  
+I actually, I was thinking verb only because that's how the order is placed, and things are pulled in, and then it leads to subscription
+
+Speaker 2  42:56  
+and all right, yeah, but you see that, think about the argument, right? Instead of talking about promotions, we talk about the customer experience up here. So we say, Listen, you can't have omni channel, which, because you can't, you're not. We've built a fragile promotions product, right?
+
+Speaker 1  43:23  
+We don't have a promotions, we have a discounting. That's but
+
+Speaker 2  43:26  
+let's say we built we build it. We have to have it, right? If you want to really deliver a roadmap for omni channel, we can get you omni channel, but the substance behind this a bit weak, right? We don't have some so which means that when we go to market with it up here, we're not really delivering this thing. Because when the customer goes, well, have you got, you know, promotions that they go on? Not really well. They go well, that we don't have this that doesn't exist. Then if you can't get to the last mile. So I would argue that we approach the the the question of Rex, around the delivery of the of this as a first class experience. I do get a feeling that ACP MCP is one of those things you wouldn't get support for. So the staffing, I think it has to be an incremental build, which is, we're going to deliver that thing, we're going to get it to market, we're going to we're going to establish presence, we're going to show what true omni channel means. And then we need more resource in order, or the same resource in order, to deliver an agentic first system. Now if the agentic first is 2027 or, sorry, 28 then we're out of the game, right? So it has to be 27 but when in 27
+
+Speaker 1  44:42  
+so I and I agree, I just feel like and we're saying the same thing. I think, you know, we, I think we ultimately need these domains, right? We need, we have, we have catalogue, right? But let's like, what is catalogue? It's like a co so we have package, price and promote, and within package, it's packaging and merchandising. These need to be like, first class, best, best in class, and then pulling not only from our catalogue, but any MDM, any cat, that's where I'm going, right? So like, if you view commerce foundation as that true abstraction layer and intelligence, you can almost start thinking about it very It doesn't have to be the old school domain. It could be a lightweight domain built for like, the future. Instead of having all of these rigid processes, you get the difference. It's a nuance, but it's like, so hey, we're not your MDM, we're your commerce found subscription optimization platform.
+
+Speaker 2  45:51  
+Yeah, I agree. I agree, in principle, and what you're saying, in order to deliver
+
+Unknown Speaker  45:58  
+that this price package,
+
+Speaker 2  46:02  
+package, price and promote. So that's the pricing,
+
+Unknown Speaker  46:07  
+pricing engine, right? The pricing rules,
+
+Speaker 1  46:09  
+we have pricing today, but then packaging is different, and promotion will be different,
+
+Speaker 2  46:14  
+all right, so packaging, promotion and pricing are domains, and then slash business processes under Actions that deliver the experience.
+
+Unknown Speaker  46:25  
+Yes, right, okay, the one
+
+Speaker 2  46:27  
+thing because that, but where does rules is not a domain.
+
+Speaker 1  46:30  
+Then rules is like, it's a supporting, it's a foundation, okay? So I would say the one thing that is missing by intentional omission at this point is going to be order, and order is cart, checkout, yeah, and I think we, we don't like, if we're asked as a unifying statement, we should say, you know, we'll, we'll provide high performance checkout, but the order object will continue to stay in Zora. We can deal with that later, but I don't if and if nav says different, like, we should coach nav, because we've been down this path and we're set up for failure. It's just it's just too tightly coupled, and it's too protected.
+
+Speaker 2  47:18  
+How just a complete adjacent question, how attached to that is, conceptually, the payments work that Ken is doing, is there any connection between the checkout, the not the order, but the checkout and the payments
+
+Speaker 1  47:34  
+product eventually, yes, so maybe that's the maybe that's the join we when we bring checkout, like, what we need is best in class, checkout with tax fraud, you know, address verification, like all of that other stuff. All Ken does is, like, it's a payment form, but what Jimmy will get us is by August, is the rest of that checkout flow, and it's super easy,
+
+Unknown Speaker  48:03  
+all hooked up into the
+
+Unknown Speaker  48:06  
+Billing APIs, right?
+
+Speaker 1  48:07  
+Yeah, we basically just do what, like fast and bolt have done, like, you know, what,
+
+Speaker 2  48:14  
+a bowl, yeah. Like, we built, we rebuilt bolt for sub
+
+Speaker 1  48:18  
+x, yeah, super easy. Yeah, it was in this day and age. You know,
+
+Speaker 2  48:22  
+we've almost carbon copy. Great. Check out.
+
+Speaker 1  48:27  
+So that way, just by the way. So then loon ding and Christine and Moo, and everyone on that side are gonna go, Okay, we're still, at the end of the day, you're just this abstraction layer and Okay, you go do your stuff. We're complete because we're protecting because you got to think about they're protecting their lab. They're protecting jobs and livelihood. So by staying out of that, we're not going to you. We will reduce friction and agree with you there, because otherwise they'll, they'll nod, and then they'll come back, and then they're gonna sabotage this.
+
+Unknown Speaker  49:00  
+Yeah, okay, this feels like it's,
+
+Unknown Speaker  49:06  
+it's not a hard sell.
+
+Speaker 2  49:09  
+And I think the way we frame it works good. I'm happy then. So then I'll polish kind of a version of this tonight and tomorrow morning, I'll capture what we've talked about. Now I'm not going to present till one, so we're gonna have maybe half an hour in the morning just to kind of bullet through see anything glaring. We can change it on the fly, but I think I'll be more confident going up there to talk about this. If I know that you enough of give me air cover in case I got off piece to whatever.
+
+Speaker 1  49:40  
+Yeah, and I'm just to be clear, I'm just gonna go for the Yeah, like I'm not gonna, neither one of us will surface dissenting points.
+
+Speaker 2  49:49  
+Well, maybe just enrich Yeah, no, dissenting wouldn't help me. No, you get where I'm going,
+
+Speaker 1  49:54  
+and then the other, excuse me, if you want any, if you need any other assistance, like, if you want, like, if you need slides or whatever, send me your draft.
+
+Speaker 2  50:03  
+Otherwise, I'll show you what. I'm going to keep it super simple, like, really simple, just the core concepts, because what I really want is, what would be good is if it sparks a question or a conversation, right? Then that's where you and now we're going to be able to really
+
+Speaker 1  50:21  
+help me. What would be good, in my opinion, is for the entire room to see commerce is a $13 billion opportunity. Key, light is competing. Le Mayo sucks. Our customers want this. And number one, we're all part of Zora. So the success of commerce Foundation, just like payments and others like it's in your everyone in this room, it is in your interest to climb out of your silo and help us? Yeah, totally, but if you could figure out how to get that message to us. So that's number one. And then number two is, is what Shakir has been working on, like get everyone by getting everyone bought in. Then the two things, catalogue was very destruct disruptive to you, good news, Promotions and these other elements are going to be a lot easier, but we need you to, you know, jump into the jump, you know, under the train with us. And if you do that, that's the win.
+
+Speaker 2  51:24  
+Yeah, well, it, to be honest with you, I think I almost I take that rather than ask for it, right? This is the strategy, right? Like just coming back to the same thing, that's what that's the pay master up there. The pay master wants this, which deliver is delivered by this. So we're taking that. We're not asking for it. So maybe it's just a difference of
+
+Speaker 1  51:49  
+so you're not going to talk tab, you're going to say, this is what sales before?
+
+Speaker 2  51:53  
+And that's Boone, DJ, Baptista. You know, that's where the money is. We want. We're the only business that can go from plg to SLG complex and back and forth, right? We have a right to play there. The right to play is enabled by omni channel. We don't have it today. By doing it, it unlocks, you know, this $13 billion industry or whatever. Yep, the only thing you need to do is, is make, and this is my pitch, is that the intersection these things here are the the intersections of everything. Yeah, they are how the customer experiences us. They are the enablement for omni channel. That's that's the story.
+
+Speaker 1  52:37  
+It's anything. Sorry. Bear with me one moment. So this is the policy. So anything. So you have journeys,
+
+Speaker 2  52:48  
+I'm leaving purposely. Zephyr out of this question mark, about, about, about that? I mean, I kind of, I left it very loosely inside experiences and interactions, because the reality is that that you have to build a rule, you have to build a simple conditional logic rules engine, like just like, who builds that not not Zephyr doesn't have any identity, and Zephyr not useful. Components we've established is not useful, rules, engines not useful. The team's useful, but not
+
+Unknown Speaker  53:29  
+and also, if you speak to Alan, who just tells just loaded with tech,
+
+Speaker 1  53:34  
+there with Alan, Alex, others, yeah, so then we just hit that. We have context API. You define that's all the same. And then if we went into here, you have your storefront, we hit CMS, they don't need to know personalization, orchestration up there, context up there, catalogue management. They don't need to under they don't understand it. But you know what this is. This is dynamic search, merchandising features, blah, blah, blah, dynamic pricing, offers and promotions, offers as marketing, promotions are Merchandising, and then this stuff, we all bet,
+
+Speaker 2  54:14  
+yes, yeah, so it's covered, but it's covered to the depth that the audience will will understand it, right?
+
+Unknown Speaker  54:23  
+Yeah, good. All right. We know what the goal is.
+
+Speaker 1  54:28  
+Good luck. Cool. See, cool. Thank you for that. Yeah, my pleasure. If you're on you have version five, I'll share it with you again. Okay, good. I'll run through it with you in the morning. Then, perfect. Okay, see you later. Thanks.
+
+Unknown Speaker  55:00  
+Tomorrow, Yeah, tomorrow. Meeting, tonight, tomorrow morning. Yeah, was this gonna sorry session? There for like an hour
+
+Speaker 5  55:17  
+or so. What's your biggest
+
+Speaker 3  55:20  
+business priority? So do you want to it's obviously what
+
+Unknown Speaker  55:31  
+everybody
+
+Unknown Speaker  55:41  
+so
+
+Unknown Speaker  55:47  
+maybe we'll not. So when is your presentation? It's good to get you
+
+Unknown Speaker  56:12  
+but oh, I figured we will
+
+Unknown Speaker  56:33  
+go upstairs.
+
+Unknown Speaker  56:34  
+Have dinner, please,
+
+Speaker 5  56:37  
+and we'll go sit at the bar, have dinner, go through the deck trying to think about what
+
+Unknown Speaker  56:42  
+needs to be done. Specifically, get some
+
+Unknown Speaker  56:52  
+food. Take a little break for
+
+Speaker 6  56:58  
+lunch. I had one of those peanut butter, yeah, yeah, travel paper. You know, it wasn't. It wasn't. My second
+
+Unknown Speaker  57:03  
+leg was delayed like an hour. It's just,
+
+Speaker 6  57:08  
+like, so it's just
+
+Speaker 5  57:30  
+kind of crazy. It's like five or six hours. Yep.
+
+Transcribed by https://otter.ai

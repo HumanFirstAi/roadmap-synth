@@ -1,0 +1,445 @@
+Speaker 1  0:04  
+Sorry, trying to milk everyone for whatever. Yeah, all right, so we can whiteboard
+
+Unknown Speaker  0:16  
+it. The only channel was a discussion,
+
+Speaker 2  0:18  
+yeah, because I spoke to Shakir, yeah, and he
+
+Speaker 1  0:21  
+was like, be careful not to stray into problem spaces that I can't control I don't typically work like that. Like, I think I can solve the go to market motion. I can negotiate with I can try and facilitate our the delivery of our roadmap, but there's a few things that are true. Plg, self serve, sales assisted is a slider. The go to market. Teams want to be on that slider, wherever they want to be, right? Yeah, that's so but Shakir is saying tell a story to Pete that he feels reassured that because we own all of the pieces, we can do these things right. So the intersection feels like that story, but I feel like it needs to capture
+
+Unknown Speaker  1:25  
+a bit more substance between
+
+Speaker 1  1:28  
+rather than, hey, here's a story that go to market want, and here's the plg, SLG thing. It feels like this is the right pattern for the business. So we did capture some of that, but I wanted to start with a what is the end game? What's the thing that we're delivering? So is omni channel.
+
+Speaker 2  1:47  
+Omni channel is not the only thing. There are two objectives out of it, right?
+
+Speaker 1  1:52  
+And also, sorry, just to give you one bit more background, how do we not usurp the commerce roadmap, right? Because a lot of this sounds like Errol's commerce roadmap.
+
+Speaker 2  2:02  
+Omni channel was not his roadmap. See, he cannot do omni channel if CPQ is not playing in there. Okay, all right. Now I'm not just saying you can say that. You can give credit and say, well, it's the same thing that we've been doing, but we are just adding a little bit of flavour. In my experience at Zora, have learned this, even if you do something new, you tell people that, hey, I'm not changing anything, but I'm taking and evolving. That works very well with people. If you say that actually we should be doing something new, you will have people on defence.
+
+Speaker 1  2:33  
+So what are we? What is our pitch? Then that we are taking a first principles approach, or we're taking an architecture led approach, and we're going to do these series. The proposal is, we do this series of things. We are
+
+Speaker 2  2:45  
+still taking outcome based approach. What is the outcome that we need? The outcome is number one, that we got. Stage one, stage two, stage three. We are not saying, because in the past, we have had discussion that we need a seed addition or something. We are not saying, Let's build a seed edition. We're saying, Let's build what we want to build in a way that we can build architecturally. We can compose anything and everything for stage one and stage two out of this. Now, of course, there will be compromises. That is what we're working through it. But while building what we want to build, we do it a compose in a manner that it is composable, and hence we can build it, not only that, that allows us to really, in effect, deliver which something truly only channel commerce. How does it do that? Because when you extract and abstract the components that are going to sit across the board, and you don't develop it within individual teams, you bring it down into the intersection whatever you call the bottom most layer, which is where the true architectural principles come in. Then ultimately, the actions and interactions are facilitated by your by your L zero or l1 layers, the top most layers, but they are executed in the code, in the same engine. That always gets hit when my core is the same, compliance is through the same when the rules and everything are getting executed in the same engine, I know the decision making will remain same regardless of which interaction you execute from wherever. Channel agnostic
+
+Speaker 1  4:16  
+and what you're sorry just to interpret that, what you're saying is that today, because there is not that intersection. The risk is, or the fact is, that these things are being built in their own roadmaps, and therefore are being built it is not true omni channel, they are being
+
+Unknown Speaker  4:33  
+built in their own road maps. But
+
+Speaker 2  4:35  
+except for billing, billing is there. We are using billings order
+
+Speaker 1  4:38  
+principle substrate. That's fine, but I'm talking only about a two.
+
+Speaker 2  4:42  
+Oh, yes, the commerce for now has been my goal. That CPQ uses its own set of rules, right? Catalogue doesn't have its any any rules. We need to right now, currently, we need to pull it out and then put it there. Second, I cannot.
+
+Speaker 1  4:59  
+Need to, sorry, I don't. Can you just expand on what a unified rules engine does, besides delivering true omni channel, which is that I know that my experience is consistent wherever I place. It not only that,
+
+Speaker 2  5:14  
+it just doesn't need you as a user to craft the rules at multiple places. Okay? I don't need to anymore, yeah, and it helps you to visualise which rules will be conflicting and whatnot. It just makes the experience so easy.
+
+Speaker 1  5:28  
+And are the rules universal enough that a single rules engine caters for those two use cases, regardless
+
+Speaker 2  5:37  
+of them being universal enough, I think they should be in one place. Why? Because when I build CPQ rules, I may have rules that are not my common merchandising rules, for the lack of a better word, why? Because they may be very much specific to my B to B, segment X, Y, Z, for a customer that has ACB of 100 million. But there's nothing to say that I cannot pull it out and put it in my core rules. Right? One can argue that you won't execute it in your plg flow, or you won't execute it in your self service flow, because nobody, for ACV, 100 million is ever going to go
+
+Speaker 1  6:15  
+through that flow. So that goes 100% sales assisted, exactly
+
+Speaker 2  6:19  
+sure, but doesn't mean that for my rule management, I should go to two windows correct two different systems. I should go in one system. And what happens with that is, whilst that guy, or the 100 million ACB guy, has one specific rule for that guy, for that scenario, but that guy will need 10 other rules from here that are still the same. The product compatibility rules being one example, the bundling rules could be another example. So I need to build those things here, and it is very easy when I have to visualise rules. My ultimate vision is I should be able to visualise your guardrails in such a way that I'm not bound to a root entity. What do I mean by that? I want to visualise the whole rule and constraint chain and the graph from a product perspective at the same time, I want to visualise it from a user's context perspective. You are a B to B guy who's ACB this and this, what is your rule graph and all that
+
+Speaker 1  7:24  
+your rules? You want your rules to represent the true use cases, yes, for which you're designing them.
+
+Speaker 2  7:29  
+Yes, right? And and the interconnection and the dependencies of the rules also, I want to visualise because if I want to create something, I don't want to wait for execution and say these two are conflicting.
+
+Speaker 1  7:39  
+And would you say that having, if I have both sales assisted and self serve, that that having visibility in a single place of both sets of rules is a minimum viable requirement? There is no justification for two rules engines. So my question is, why are we building multiple Rules Engines?
+
+Speaker 2  8:07  
+I don't think so we so we have to, right now. We got pricing rule engine out there, and we got CPQ having their own rule engine and the legacy.
+
+Speaker 1  8:17  
+Okay, so they, they're one is new, one is legacy, yes.
+
+Speaker 2  8:21  
+So pricing rule engine, I know is only pricing rule engine, because I know it will be limited when we do multiple products and all those things in there. So we need to come up with something that works for everybody. We have experimented with some things, rules being one, but I think we need to invest a little bit more effort so that it works across the base. There are people who say that there are systems out there that we can just take and white label or, you know, use the libraries and all. I know there are multiple options, but I also want to do a research based on where this whole rule and constraint market is going to go.
+
+Speaker 1  8:55  
+Okay, so what you're saying is that the omni channel is the goal
+
+Speaker 2  9:02  
+is definitely goal, along with their unlocking stage one and stage two, yes, composability,
+
+Speaker 1  9:10  
+composability and the one, one. Principle number one is rules.
+
+Unknown Speaker  9:15  
+Rules are in four parts. I
+
+Speaker 2  9:17  
+won't say that way. I would say principle number one is, do not do one job at more than one places.
+
+Speaker 1  9:23  
+Yeah, that that's like a foot that's Yeah, I agree with that. Well, I guess what I meant was, yes, I agree 100% what I meant it doesn't make any sense either. What I meant was, is that the in order to achieve omni channel and stage one and stage two, for which we make the case that there is a bigger consumer of that our go to market teams. And I also spoke to Darren Johnson just now, and he affirmed that he's got large FinTech companies who are B to B, plg, 253, 400 million, that they that plg is their motion sales assisted is not their motion. So what you're saying, though, is that in order to achieve omni channel intersection, one of the intersections is a common rules engine,
+
+Speaker 2  10:11  
+which is what we call compliance last night. So rules and price waterfall, all they sits
+
+Speaker 1  10:16  
+together for me, what would you say? What would you call it? Because I want to be precise in our rules, rules, compliance,
+
+Speaker 2  10:22  
+price, waterfall, yeah, compliance just fits together. But the other pieces that I believe are have to be same as the flow orchestration that we're calling find a better name for it.
+
+Speaker 1  10:33  
+But is that part of the rules, or is that everything orchestration is different? Okay, so what I want to be clear on is there are going to be some. So we're saying, listen, Omni channel
+
+Unknown Speaker  10:42  
+equals, excuse me.
+
+Speaker 1  10:45  
+In fact, let me. Let me ask you, what does omni channel mean to you? Because I've heard slightly different versions of this. Okay, is it just being able to sell wherever the customers? No, no, no,
+
+Speaker 2  11:01  
+that is not only channel. That is multi channel, right? So for me, Omni channel means that one you can sell from anywhere but making sure I can carry forward the transaction that I started in one channel in another channel, without any loss. Okay, so it's a seamless experience, whether I am in one channel, second channel or third channel. So for example, I may be in the self service when I go and I say, You know what? Let me just ask for assistance. I'm gonna call click the button, yeah, and then you're on the phone. That pop ups the exactly same thing that you were doing in front of a sales rep. And you just pick up from there. You don't explain anything easy the person can impersonate or the person can execute. They can have larger permission set for you. But that's to me, what omni channel is, which also means the type of actions that you can execute behind each of those have to be powered by the same things it cannot be you can do. Of course,
+
+Speaker 1  12:03  
+you can one thing in one channel, a different thing, another channel. So I to me the setup of rules, compliance, whatever else we put into that bucket. The customer use case is from the utility, right? I just want to do one thing in one place that makes sense to me, the omni channel. Hand off to me again. These may be naive questions, but the rules are already baked. So are you. So what you're saying is that if, if it if, if it was possible, that I could be in this environment, which is my self serve, but then I am also have a sales rep in this in the sales assisted, if I was to do something over here that would immediately translate to what the sales assisted,
+
+Speaker 2  12:56  
+regardless of the word immediate, it should, it should. I should be able to pick it up. I should be able to say, refresh the session, and I should be able to take from the last committed point, from wherever,
+
+Speaker 1  13:05  
+and therefore, just as a pattern, having rules in one place. Because how let me, let me just think about this, the self. So at the moment, are you saying that if rules were in catalogue, rules engine in the sales assisted existed, doesn't
+
+Speaker 2  13:22  
+matter if it is in catalogue or anywhere. If we have two set of rules, it's definitely going
+
+Speaker 1  13:27  
+to be a problem. 100% agree with no, no. I agree with that. But what you're saying is, is that what could happen is I've got a self serve configuration in front of me, and yeah, and then I have two different and then I'm over in the CPQ product, and that's just slightly different rules to this over here. In fact, I maybe I got the rules wrong in different environments right. So rules is the substrate to omni channel, one of one of the things I'm gonna get to there. So the journey is I go from a self serve to hit the button I need to speak to a sales rep, unified set of rules to two different channels. One is the website, one is internal portal, and we're good to go. That's omni channel delivered by single observers. Okay, that's number one
+
+Speaker 2  14:18  
+in one sentence. Basically, Omni channel is, regardless of you having N channels every your entire set of your entire surface area of channels behaves as one channel, correct?
+
+Speaker 1  14:27  
+That's what it is. It seems to me entirely obvious that then you would want one intersection. You do understand what
+
+Unknown Speaker  14:34  
+is one thing, what's the other thing? So
+
+Speaker 2  14:36  
+you cannot not have a single context manager on top of it, which is where bcsr intelligent context management comes in. And the third,
+
+Speaker 1  14:45  
+still, sorry, I don't mean to. I just want to go back, because I'm going to tee this up, and I want you to add some flavour. I thought Errol was at zag tomorrow, so I'm not sure how he's going to fit into this, but I can talk to him about that if you think about intelligent context manager. Let's talk about omni channel again, right? So, how does context resolve? How does a single I mean, the principle is, single, yes, 100% but actuality is, how does a single context manager resolve the omni channel?
+
+Speaker 2  15:19  
+Because you pick up a session. So you have a session, you anchor at that session, and you say, I want to resume that session. Okay, if you have ever, there are systems. I think Amazon does this as well. You are doing. You're making shopping. It can ask you, Hey, which one do you want to pick? Not Amazon. I have seen this. Like, there are multiple sessions you started. It will it will prompt you when you go to some other page or website or Safari or something else. Hey, I see these things in there. Do you want to start resume? Any of these insurance companies do that as well? Like, that's when you are, when you're calling progress auto insurance companies, and you hang up, or you're doing something on the web, and they hang up, and then you call them. They're like, Hey, I see that you have tried two codes over here. Do you want me to pick up one of those?
+
+Speaker 1  16:08  
+Okay, sorry, can we just index on that? Right? Because I think the story that we tell is, listen omni channel. Let's give you, let's give you a picture of what we're talking about in omni channel today. Omni channel is we start off at self serve, and it progresses very quickly into sales assisted. But it's just keep that lens, because that's omni channel you can and out into whatever environment, right? So we've, we've we've established What rules do the session and the context of the session. So how rich does the context need to be? Context can be anything right? So you could argue that you don't have to define what the context is. You just need to be able to transfer the context between the channels, or the context has to be a unified thing. If I had tried three quotes, then the sales assisted motion has to understand that I have three quotes. And therefore it has to understand the context, your context, whatever that is, is relevant to the sales assisted
+
+Speaker 2  17:13  
+Yes, right. Okay. I do not need to tell you that. Hey, I actually logged in from Georgia. I mean, when I log into that, I know I can pick up the same context and work as if that guy was working away that user was directly working. It may so happen that I, as a service sales rep, have elevated set of permissions. I can do some things that that person cannot. I can see something that that person, which is where comes, you know, interaction, flow and everything based on permission, about can you see? What can you not see? But yes, context management has to be unified up at the
+
+Unknown Speaker  17:46  
+top. And there's
+
+Speaker 1  17:47  
+also the persistence of something that you do, which is context right now, you know, I'm picking I left, I went away, I logged out, I come back in, I you know, myself, yeah, it's a
+
+Speaker 2  17:58  
+whole box. So I can actually argue that whatever you did, I keep on persisting into a dynamo and then what I do is, the moment you come to CPQ, you give me a call, and I say, what's your customer ID? This is your customer ID. Go in there, and I see DynamoDB Pull what is the most recent sessions from DynamoDB? I can show it. That's exactly how persistence is needed. Yeah. Session is persistence, right?
+
+Speaker 1  18:19  
+So, so context allows a single context, intelligent context orchestrator, is that the intelligent bit, because that, you know, that seems to be like session persistence doesn't feel to me. No, that's to be a context orchestrator, the
+
+Speaker 2  18:37  
+in context not It's not context orchestrator, it's context orchestrator. It's context manager, where I think the intelligence piece is going to come from. I know what interaction you are executing. I can tell you the context can have the sun and the moon and the earth and all the planets, but you don't need it. All you need is just some terrestrial information that I know what you need based on the interaction you're trying to carry out. That's where the intelligence has to be given into this, that if you're doing product browsing, I don't need maybe five other things, but if you are checking out, or if you are trying to look for discounts, I need to look at what kind of entitlements you have. So what those kind of smartness we need to add right now, yes.
+
+Unknown Speaker  19:22  
+So what you're saying is that the context
+
+Speaker 1  19:25  
+is a point, and that there could be other things around the context,
+
+Speaker 2  19:34  
+to be honest. Sorry, it's a kind of a data cloud. That's how I visualise it, and you don't that
+
+Unknown Speaker  19:38  
+intelligence doesn't even exist.
+
+Speaker 1  19:40  
+I mean, when I know we haven't built it, right? So what we have today is we have versions of a rules engine. We have a a context service which is dumb, right? And we have entitlements which is static, not some, right? Yeah, sorry, I didn't mean that you're right. Dumb is a bad word, but static, static context service that, and then zems, which is at the kind of par with that, right? It's not,
+
+Speaker 2  20:06  
+it's a fairly serious, both BCS and zems are infants,
+
+Unknown Speaker  20:09  
+right now, yeah, zems is, is or is not.
+
+Speaker 1  20:12  
+I mean, presumably zems is an enabler for omni channel as well, right?
+
+Speaker 2  20:16  
+Yeah, 100% Yeah. So that is a component you can it's more southbound xems comes after you have checked out. So because the
+
+Speaker 1  20:27  
+account is created, yes, but then it's relevant at the access, the renewal, or at the content, subsequent contract negotiation or whatever.
+
+Speaker 2  20:36  
+You can challenge it. You can figure out what entitlements you have, where you give elevated entitlement and whatnot. But this is going down a rabbit hole. You can do more and more. There just
+
+Speaker 1  20:45  
+one without going down the rabbit hole too far. Where do you see identity, like the individual identity? At the moment, I hear, you know, we have an account in Zephyr. We have an identity. I can attach one, one identity to N accounts. Yes, identity is or is not a substrate
+
+Speaker 2  21:03  
+to reaching to have that it is. This is where I was going, that identity and session management. Should I merge context management with that? Because seems like it should know the identity. So that's what my brain is right now. But we do. We got to do the pros and cons. Where does it sit? It should be a new service, not attached to Zora account. It can have a relationship with Zora accounts, which it needs to but I believe it. I I believe there is value in evolving context service into becoming identity and context management.
+
+Speaker 1  21:39  
+Can I ask you identity in the context of Zephyr is we have identity. We control the grant and the entitlement that the entitlement which creates a grant to the user, right? So like you have access to this content in the B to B space, we're not. We're not the arbiter of access. We are the army feels like a leap, if, like, if I'm a $250 million FinTech company. I know, you know, I've got loads of systems that say I'm logging in and you're that person. It feels to me that what we what we that identity, is part of context, a customer ID, but I don't think we're going to be granting the access to the usage. We will we return. We're not provisioning we return. We say, Listen, give me the identity, because the identity resolves into context, and context is a centralised service that helps you do true omni channel.
+
+Speaker 2  22:40  
+If you're going to that level of identity, then I agree that we are not the right ones, but we need identity associated with Zora account to highlight the context correct.
+
+Speaker 1  22:51  
+So we do need some relationship with identity. At the moment, the only place that we understand identity is in Zephyr. So that is part of you. You would, how would you? Would you put a question mark identity? How would you? How would you connect this story our rules? Feels very precise. Yeah, context feels very precise. Identity is what an open question about the role of identity, but context and identity, let
+
+Speaker 2  23:19  
+me see exactly what data Zephyr stores as well in this and what are the flows that Zephyr executes, then I can give you a precise but from the knowledge that I have right now, I personally believe I can. I still believe I can evolve BCS into a new service which takes on both the roles and says I'm identity and context management instead of intelligent context management.
+
+Speaker 1  23:42  
+That's Errol, that's arrows in your CDP kind of thing in that, in order to have,
+
+Speaker 2  23:46  
+I mean, not CDP, but yeah, you know, that's similar, yeah, actually. Because why he's saying CDP is because this is exactly what I told him as well. At that time I drew it up as well. Yeah, that it's not one element, session and identity becomes a subset of context. Yeah, correct. But it's possible that I don't I do. I'm not the owner of identity, but I capture it.
+
+Speaker 1  24:05  
+You need a better, better word, the CDP, like we discussed, yeah? So my question is, so what I know about our identity and Zephyr is it's not monetization, Data Cloud monetization, yeah, yeah, that's good. MDC, yeah, we would probably have to buy. I spoke to Alan about identity, and he said, if you're going to do identity at this scale, you buy key cloud or key cloak or whatever. You know,
+
+Speaker 2  24:31  
+that's exactly what we discussed. Yeah, I'm not saying we will do it. Okay, yeah, I think
+
+Speaker 1  24:36  
+so we've got, we've got the story of omni channel, we've got rules, we've got context, and then we had actions. That's the bit that might people might go, I've not heard of
+
+Unknown Speaker  24:45  
+that before.
+
+Speaker 2  24:47  
+Find a term that people have heard. The way I am thinking of action is something needs to be executed, and that execution may not be just go and get me products.
+
+Speaker 1  24:55  
+This was the compression of the URL of the API's basically, right.
+
+Speaker 2  24:59  
+It is basically making sure that what is the user facing outcome that we want? That outcome is generally an action or something like or a set of tasks that I have to perform. If action isn't the right word, what is that right word? Whatever that is, it's a composition of steps. If there's a composition of steps, I may have some decision making in there. May have some back and forth in there, some back and forth may be very much channel specific or persona specific. How do I create that whole thing so that it is transferable from one channel to the other, but it is there? I know that my customer, which is zoom, won't have to stitch it together. You can customise it.
+
+Speaker 1  25:42  
+But given given the con, given the rule and the context, an action is taken that delivers my om channel experience, right?
+
+Speaker 2  25:53  
+Given a context and interaction, we execute an action that may lead to some rules getting executed, right?
+
+Speaker 1  26:00  
+Okay, so at the top of this, this whole idea of interactions and experiences, right? So experiences is both the interaction layer and the act and the post action layer, right? Or, or is, in fact, the action looping back in it to the interaction. Yeah. So the experience is, how do the different personas enter? Whatever? Yeah, the interactions inform. So the intent, but the rule, what I'm, what I'm, the rules are driving. The in the interactions are driving the rules. The the rules get the customer to a state, to a point in time, the context is capturing the session this, you know, yeah, where that customer is at that point in time, from entitlements, everything else, yeah, and then, and then, and then, what that achieves is omni channel, because you have a point in time that has a front end representation that can be consumed differently by different channels. Yes, that's
+
+Speaker 2  27:15  
+I see one thing that you were just saying, then I started thinking, you're right. Maybe I can reduce action to action is the ultimate thing that gets executed, or a set of things that get executed. I don't have to overload actions with rules, because technically, rules probably have been executed before that already. One thing we can refine is, I believe right at the time the action is taken, I may have to execute some more rules, like deciding whether or not it goes to approval. That may have to be somewhere down there, but that's like splitting here, and that's too much detail for the audience you're going to have here. Yes, we have to work through it and then perfect decomposition of these things, okay, but conceptually, yes, that's the direction.
+
+Speaker 1  27:59  
+So the story changes slightly, because what I'm going to do is I'm going to say, Listen, let's begin with the customer. What is the vision of omnichannel? We tell the we tell that story through the stage one, stage two, stage three. I do a little bit of framing of how this gives us the slider from cells assisted to self serve or sell, the other way around. I then go into a little bit of detail that effectively translates what you and I have just spoken about. Then what I want to do is I suspect the question on everyone's mind is going to be, how are you going to execute this, right? Like, how is this going to get done? Now, Shakir said to me, listen, he made the point, because you own it loosely, own it. You should be able to control it, right? So it's the point that you made, which is, this is what I've always wanted to do. No one actually owned it, and therefore no one controlled it. And therefore we now own it and control it collectively, and we can get this thing done. So I wonder what is on the table at that point in the presentation? Is it? Well, tell me about the context. I think people are going to want to know what is context, what is rules, what is context, and what are actions, those three things,
+
+Unknown Speaker  29:37  
+there's a risk.
+
+Speaker 1  29:40  
+I need to bring Errol along. Manfred, I don't think actually cares that much, you know, he's, he's got so much on his plate, you know?
+
+Speaker 2  29:49  
+I guess Errol maybe attach your tongues as well, because he was making these presentations. Yeah, so I'm worried.
+
+Speaker 1  29:56  
+I'm worried about that because I read his commerce foundation document just now. And there's a lot of you know that's what he want. I mean, he's bought into it, but I guess it's, it's, how does that get it has to be a an elevation of vision and an executability of it. That's all you got to tell Earl that. Look, I just want to get this done for you.
+
+Speaker 2  30:18  
+Yeah, exactly. So let's elevate it, but You alone are being seen. And that is actually true. There is no I mean, don't use my name. He's being seen as he's dumping so many things on people. And people just go like, Oh my god, this is cheap. Just save me.
+
+Speaker 1  30:32  
+So language is hard for people to consume.
+
+Speaker 2  30:35  
+Language and some model, or some ways, he keeps on saying that I have been giving the downloads again and again and again, but people keep on coming back to me sometimes and saying, but we never understood it, that this was going to happen. So now I think the goal has to be that, let's get it done. You can tell that we have spoken. Others have spoken. We want all of us to do it, but there's going to be still, slight bit of changes, not disrupting your roadmap, but it's like restructuring your Lego blocks in a way that people could understand the burger analogy or whatever analogy you want to give them. And once we do that, we got people owning the ship, and you are going to govern it. You ship the end experience, whatever who, whatever you want to give him, just tell him that you should be in experiences. Because I believe he feels passionately about it. He's not going to be a pricing guy. He's not.
+
+Unknown Speaker  31:31  
+The moment pricing comes or pricing model comes, he's like,
+
+Speaker 1  31:34  
+no and but the pricing you say, the pricing model, rolls up into this larger rules engine, right?
+
+Speaker 2  31:41  
+Not pricing models. Pricing model is one thing that sits across the board. I think the monetization through the catalogue should own the modelling piece. How the model gets executed, could be through rules or could be through hard coded algorithm that I have to there would be hard coded algorithm. There's a whole piece on pricing that I've written, because I believe the core of the pricing has never changed per unit flat fee. Lot. That's it. You keep on putting multiple models on top of it, and then you keep on getting more and more and more abstractions out of it and saying, oh, I should have commitment with consumption. I should have outcome, whatever. That is, a completely different set of thinking on that space, and that goes again to a different tangent. CPQ needs it. Catalogue needs it, but you also need billing and revenue to be able to reason about it and show the data that comes out of it.
+
+Speaker 1  32:38  
+Got it? Okay? So what you're saying is it's an it's a service that's required, but it doesn't directly support the omni channel story. We can be only John
+
+Speaker 2  32:48  
+doesn't care about it. Doesn't care, yeah, Omni channel cares about the higher level construct. And say, I got a product, how do I price it? It's a completely different
+
+Unknown Speaker  32:56  
+abstraction. Who's driving pricing there?
+
+Speaker 2  32:59  
+Nobody, nobody was supposed to be catalogued and drives it. But invariably, what has happened? Now, I used to be passionate and drive it, but Twilio and trade web had pricing requirements, which came to err and arrow was like, I don't want to do it like this. I want to do it through rules. Not everything can be done with rules, because there are multiple constructs that come along and build an assembly. So Errol kind of said, I have my own roadmap, so billing team just took it on themselves and they started doing it. So right now, billing team is pushing ahead with some concepts of their shipping, like commitment and all. I believe that model needs to change. I believe we got to have, just like we have commerce, CPQ, intersection, we got to have a pricing team that lets billing team know and reading team know and revenue team know, and similarly, catalogue, hey, this is the assembly. Catalogue will render it this way. CPP will use it this way. Revenue will interpret it this way. Billing will output the invoice like this. That pricing has to be a piece that is much bigger intersection, not just for commerce, for Zora, so,
+
+Speaker 1  34:03  
+so talking about the intersection, if CPQ and catalogue are the consumers of a much bigger intersection that does that, then I mean, Could you, could You deliver omni channel without pricing? You can right? So who would but? But if pricing is foundational, how do you how do you deliver CPQ and catalogue without pricing?
+
+Speaker 2  34:32  
+It's not that you won't have pricing. You will have pricing. The issue is going to be the abstractions have to be built in a way that tomorrow I have a new pricing model. I don't have a chain, CPQ and catalogue and everything in commerce experience is it just somehow I know the DSL such that that you give me this, I'll render it not a problem. It is not a fundamental redesign. If that happens, then we can deliver it. So only channel already will deliver pricing like flat fee per unit discounts and
+
+Speaker 1  35:01  
+all those. Where does that live now? In the catalogue or pricing? Yeah, in catalogue. In catalogue, yeah, so you could say so. And because CPQ uses catalogue, it's using the pricing that's already baked in right now, yes, so maybe that's one of those things that we don't raise.
+
+Speaker 2  35:19  
+I think you me and Ken probably need to sit together. We can
+
+Speaker 1  35:21  
+do a battle later. Yeah, got an offline Yeah? Because if you do that, then it kind of explodes out,
+
+Speaker 2  35:26  
+yeah, because that ecosystem is much more complicated. Yes, you've got catalogue over here right now. Catalogue says pricing needs to be defined here. Pricing models need to be defined here, but then CPQ uses catalogue, hence it gets pricing, but pricing says I need to talk to a pricing engine, without pricing engine, which is basically where the logic sits, yeah, okay, I cannot do anything. And similarly, there would be a discount engine, and then billing says that when I execute it, because I read something called a subscription, which is the manifested cart. This guy also goes to pricing engine, and then I get the information. And then down here is my friends in revenue, they need this, and they
+
+Speaker 1  36:19  
+need this. Yeah, I can see all of that, right? That makes perfect sense. It's pretty Yeah, if you're gonna have something that touches so many different systems, it has to be SB, one thing. It has to be one thing. But then that doesn't negate the idea of having a, you know, simple pricing rules in the catalogue, because the pricing engine can consume, right? Yeah, that's
+
+Speaker 2  36:41  
+exactly what I did. Yeah, the dining pricing, the way I did it was on this concept. Only what I did, let this be the oldest, be this. So I'm going to extract this out and say I'm building a db which is actually powered by something beneath the surface, which is rules. I can change it any day, rules and constraints. I can remove it. I can add a new one. Nobody cares. But this stays Yes, but this guy knows I haven't talked to this guy always, and this guy returns something. So basically all this ecosystem can stay the same, yeah, and this abstraction is what was an architectural concept that I wanted to put out. Now what I can do is this whole this thing, ultimately, one day, if we can, I'm telling you this. I want to tell Ken this as well. If we can set this thing up as a core team, then I would want to take this architectural concept and blow it up and say, This is our monetization code, because everybody else should just refer to this. That's it, for pricing, for nothing else for pricing. But yeah, anyway, this is
+
+Speaker 1  37:51  
+okay, so that's very interesting. So if we, if we then circle all the way back, we have we start with omni channel, we move into experiences and interactions. Interactions, in your mind is, is, is anything right, anything that the customer needs to do through an experience, to build a self serve experience, or a sales assisted or an internal assisted view, it's whatever it is, right? Okay, so those are, those are our experiences.
+
+Speaker 2  38:23  
+By the way, Errol and I have discussed this term, and he buys this.
+
+Speaker 1  38:27  
+Yeah, alright, so omni channel. The next layer is the experience, the next layer is the interaction. The next layer is the context. The next layer is the is the right, then,
+
+Unknown Speaker  38:41  
+no, they tell you, orchestration, yeah,
+
+Speaker 1  38:43  
+interactions, no, there's context, experience and the orchestration, the the bunch of actions, basically, what are we calling that intelligent orchestra? Is the actions the intelligent No, there was sorry, I'm getting all over the place because I'm tired, but, well, I was on context orchestrated. But we had something before that, not
+
+Speaker 2  39:02  
+context, commerce or commerce. So the that's the
+
+Unknown Speaker  39:06  
+bit I'm not sure of. How do those and actions connect up
+
+Speaker 2  39:09  
+with each other? That is the guy that executes the action case, right? So it is basically called
+
+Speaker 1  39:13  
+that as so it's one block, yeah. One is, I've got the content, I've got the interaction, the context,
+
+Unknown Speaker  39:21  
+and I and I have the
+
+Speaker 1  39:24  
+execution of the action, right? Yeah, it does that. So I understand that orchestration, orchestration of that, yeah, and the outcome of an action to you loops all the way back to the front end. Experience the state, the persistence, is captured in the context. That's omni channel, right? And the
+
+Speaker 2  39:44  
+outcome, although is persisted in wherever it has to be persisted in commerce system, yeah, okay.
+
+Speaker 1  39:49  
+And what we are effectively saying is that if you want a true omni channel experience, we have to focus on the intersections as a roadmap, yes, otherwise, we will not deliver omni channel. Yes.
+
+Speaker 2  40:01  
+And secondly, if we want to focus on building this in a way so that we can have referenceable architecture and composable, I think the word composable would hit home. So then these pieces are even more important.
+
+Speaker 1  40:15  
+So in your I'm always cautious about labels, but in your mind, composable architecture means exactly what it's
+
+Speaker 2  40:27  
+very simple, to be honest, all I all I care about not talking about execution is in your application or suite of applications, I got bunch of functions that I can perform, but I don't need To perform all of those to get to an outcome. I can pick and choose what I want. And if your system, and I love the Lego block analogy all the time, because it works for me in my head, in your system, if I have to assemble 100 Lego blocks to build your entire system, I may want only a fragment of that, and I can compose that fragment for myself, because that's all I need for my business, which is why it will it should work for stage one, stage two and stage three. Stage three needs the whole thing. Stage two needs probably 60% of that. And different stage two customers may need different 60% that can only happen if you do composited. Can I just
+
+Unknown Speaker  41:19  
+draw something? I know we've got 10 minutes. So if we, if we
+
+Speaker 1  41:28  
+assume omni channel is up here, and we also assume that there is a sales self serve and sales assisted, right? Well, I mean, it's not directly, but there's, like, you can have any point, yeah, it's a spectrum. It has to be a spectrum. So that's a spectrum. So this is our, this is our Omni and this is our sales motion here, right? Then, in order for that to work, the you have this composable view, right? Which has these things in it, which is experiences and interactions. You have context, service, you have orchestrator, you have actions, right? And then, actually, there's that doesn't exist that last bit, and then this loops back on itself, right? So the story really is that if you want to have this layer, sorry, if you want to have this layer, you need to have this layer, these, these in themselves, also have
+
+Speaker 2  42:41  
+combinations, yeah, components. Now one can argue that this is exactly actually, yeah, thank you for putting it this way. This is really cool. In my head. I was still drawing Lego blocks, but this makes it very simple to understand and visualise. So let's talk about, maybe experiences. What kind of experiences we're talking about? You got product display pages here? Yeah, so product display pages. You got a cart as an experience. You got a price guidance, maybe a widget. Similarly, they could be my account widget. But when I look at this guy, or this guy actually, I would see that these things, a few of these would be needed in everywhere in the spectrum, in different shape we are formed. So that is why, when I break it down here, let's say this guy has bunch of stuff, stuff in there, whatever this is, what I need to do is this whole experience, layer, interaction, layer, this stays the same, and I carry it forward, but the only thing that will change is at this point, only this, this and this is lighting up over here, there would be more that are lighting up and are used and are interconnected, because
+
+Speaker 1  43:52  
+one is a self serve and one is a sales assistant. Yes. So this, and this is driven by
+
+Unknown Speaker  44:02  
+your contact, context, yes,
+
+Speaker 1  44:05  
+orchestration and actions, right? No.
+
+Speaker 2  44:09  
+Orchestration, action will not drive that, right, right? I think context will drive what you
+
+Speaker 1  44:13  
+see, yeah, but then the orchestration, all right, let's see you're right. So what happens? Sorry, are you right? That's mine. So what you've got is BCS drives Grace Yes, which is omni channel, yes, right, yes. And underneath the actions that the orchestration and the actions that are taken here, and the orchestration and the actions that taken here are all controlled by the same correct the same thing, exactly. So in order to deliver omni channel, yeah, you have to be able to control out omni channel. You have to be able to control omni channel, yes, which means you need unified concepts, which means you intersection as a roadmap, which means, etc,
+
+Speaker 2  45:05  
+so all these components, this is why architecture is important, because how do I not do this in a way that over here is completely different and reused? Because not only that, there is an underlying engineering philosophy behind it. Because if I want to do that, then actually I'm doubling up my work. It will delay the roadmap. So you are actually helping Errol and Manfred to deliver the roadmap faster as well,
+
+Speaker 1  45:28  
+because they because, because over here, because over here, catalogue and CPQ are orchestrating, are the substrate to those experiences?
+
+Speaker 2  45:44  
+Yeah, 100% and even I would say, and I don't want to say that in the public billing as well, yeah. I mean, although I don't care that much, because we're not going to touch billing one day, we will have to touch pricing. But I think too many battles at once is not going
+
+Speaker 1  45:58  
+to the way I'm going to do this is I'm going to change the deck a little bit, quite a lot. I'm going to build this pattern slowly. This is the story. I build this map. And on the start there, the end map will be this. And what I want to do is, then, at each point, say, Listen, why do we want sales assist, self service and sales assisted, right? Well, we want omni channel, but we also have sales teams that want to sell along the spectrum, correct, right? In order to do that intersection. So here's the motivation for intersection. Intersection has to be a roadmap item. It has to be a focus for all the things that we talked about. And this is what we think of inter of the intersection is experiences, BCS, orchestration, actions, right? So that's now, let's bring it to life. Let's actually create a real story, which is, well, I have, you know, a bunch of possible things here. I start off with pricing guide and to the story we were giving. And I actually, then I've done some self configuration, but I actually need a hand over to us. I click the button, cells, sales rep, context pass, you know, is you is a single concept? Yeah, I get I get here. If I take an action here, I see an I see it here. Yes, these are the inputs into those things, and that's
+
+Unknown Speaker  47:19  
+the story. And I think that
+
+Speaker 2  47:21  
+this guy, because there's a context now this, I don't want to use intelligent context if you want to use it. Great, the context is smart enough that now the persona logging in has some elevated permission. So these two additional bits may be lighting up that can give the user a
+
+Speaker 1  47:36  
+better that's this almost like assisted service over there, correct? Yes.
+
+Speaker 2  47:39  
+So we're building a smart system for that. And I think what is in it for adult and Manfred, I think they know what they want to deliver. I'm not going to take that away from them. But what's problematic is the execution part of it, and this simplifies the execution as well, because it just approaches it. You can say, top down or bottom up, it just simply makes sense, does?
+
+Speaker 1  48:02  
+I think the thing that was missing is omni channel, connecting omni channel to self serve and sales assisted, yeah, probably that's okay. This is for me to present
+
+Speaker 2  48:14  
+for me. It was the other way, because I never thought of it. I'll in all honesty, I'm giving you a complete history when I presented it the first time. A similar view of this was I was actually going only omnichannel way. I need to find that deck where I can show you where I presented it. And could have been July 2023, what I did not tie it back to is that spectrum over there that is sell self service to sales assistant. Yeah, my thought process at that time was that Zora doesn't want self service, so forget about it. Let's focus on the complex. But actually, these two things tie in very
+
+Speaker 1  48:53  
+well, yeah, especially now as you're finding more or less self sales assisted businesses finding that the CAC of sales assisted it's just too high. So they want to go back down into the self serve, especially with agents, etc, exactly. This is very this is very powerful. So what this? And this the bit, this bit here, where we go, experiences, interaction, species. That is the intersection roadmap. Yeah, cool. This is brilliant.
+
+Unknown Speaker  49:21  
+Thank you so much. That's crystallised it i.
+
+Transcribed by https://otter.ai

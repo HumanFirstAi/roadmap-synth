@@ -1,0 +1,112 @@
+Speaker 1  0:00  
+It breathe, yeah. I mean, by the way, congratulations or condolences,
+
+Unknown Speaker  0:07  
+capturing a lot what happened to Manfred
+
+Speaker 2  0:09  
+So, Matt, well, Manfred still around. He just, yeah, he just reports into me now, so I'm sure you're
+
+Speaker 1  0:15  
+taking on. CPQ, Yeah, correct. So I was just on a, you know, another call, pretty traditional. You know, we'll end up doing 53 this year. You know, take 10% take another five to 10 million for work day, which is kind of bullshit, lead, non incremental. And so now I'm really gonna go, okay, what are we gonna put some wood behind Zora, fraud protection, payments, whatever, and then they Yeah, there's the call I was just on. Was asking about CPQ in that vein, I don't know, like my first reaction was, feels pretty far away from your traditional focus area. And I personally have sponsored two CPQ projects. And I guess my takeaway is just, CPQ sucks. Yeah, it's not the products. It's just fucking hard, right? It's the epicentre of the challenge in the marketplace. We're not monetizing it all that well, I don't know how to monetize it incrementally better, like if we're going to really jump into this space and compete with Nui or Salesforce that has 90% market ownership, and quite honestly, the customers I serve would rather change their gender than their CPQ.
+
+Speaker 2  1:41  
+You know what? I mean, yeah, so what's the what? Well, that this a good kickoff. Then, so what's the route? I mean, we have revenue uplift against CPQ. We've got three, you know, that's kind of what I've seen in the in the MBRs. We've got three motions on CPQ. We've got cpqx, which is, you know, as you say, shit, we've got the next generation of CPQ, which is currently being built. Then we've got this new vibe quoting. And then we've also got this kind of other motion, which is, how do we create a CPQ light, which is more of an abstraction than it is a new product. So it's not a new product. It's just kind of, how do you abstract away the complexity of CPQ for customers who are B to B, plg, who are who are just kind of touching the edges of a CPQ solution, right? So what I'm trying to build is this story of vendor for life, where we can take a customer from 100 mil to 10 billion or whatever, and then in the middle is a join, which is, I don't need CPQ now, but I might need it, so you might as well come with us, because when you need it, we've got it for you, right? So there's that. So what's the if? CPQ? If? What if? Based on what you just said about CPQ. What is the place that we'd need to get to for that to not be a problem for us?
+
+Unknown Speaker  3:09  
+I think that's the key question. Like,
+
+Speaker 1  3:12  
+there's probably a different core of the story, which is CPQ decisions are made when a sometimes when a billing decision is made,
+
+Unknown Speaker  3:26  
+we throw it in, quote, unquote,
+
+Speaker 1  3:32  
+and we are still a 40% premium on cost. So can I increase my deal size because I got a better CPQ. I think that's the hesitation, right?
+
+Speaker 2  3:43  
+Okay, so you're saying that CPQ is not the thing that helps with the go to market, right?
+
+Speaker 1  3:50  
+I think it could help with our win rates. It can for our OTR deals. I do. I think it has. You hear my scepticism on its impact on our ASPs. But I think, you know, if we can showcase the unlock like, you know, we're, I get this thing with Andrew Robertson for sales kickoff, the demo, but really, kind of show me the cattle, you know, we've, we've invested a tonne in the catalogue. Yeah, we don't sell the catalogue incrementally, yeah, but that unlock is going to really serve us a lot of differentiation.
+
+Speaker 2  4:28  
+Do you think we should sell it incrementally? I
+
+Speaker 1  4:30  
+don't know how we would Okay, yeah, I guess that's the problem I have with CPQ, like it'll unlock a lot of differentiation. It feels like it's a new business decision, versus going back to our customer base and asking them, you know, like I said, they the last thing people want to do is change out a CPQ.
+
+Speaker 2  4:52  
+So what is that? Yeah, let me ask you another question, if CPQ is richer. So, for example, the moment when a quote is composed, we have a very internal view of the quotes. Like, you know, what did you quote last? How do we get, you know, there's none of this behavioural data like I said, let's, let's assume that seats actually still exists in a year's time. But just as an example, you know, I'm going to quote you for 100 seats, knowing that 65% of those seats were utilised at 90% and 12 of those seats were utilised at this and then it, do you think that any of the the usage data around the thing that you're quoting for is relevant? Is that an unlock or or not?
+
+Speaker 1  5:39  
+I don't know. Okay, I don't know. I'm also just, it's such a deep space, very specific, niche deep space. I'm, I'm hesitant.
+
+Speaker 2  5:49  
+Okay, so it with our, with our vibe quoting, right? So teens on this mission with, let's just, let's get everyone off spreadsheets. Let's vibe it out.
+
+Speaker 1  6:00  
+By the way, I've seen it like I forced someone to look to show it to like Deloitte when we were in a big exec meeting, right? And fucking cool, yeah, yeah, okay. But conceptually, just the natural language, just generate a quote for
+
+Unknown Speaker  6:17  
+the is cool, right? That's an unlock, is it?
+
+Speaker 1  6:20  
+Yeah, yeah, I think so what about what about compliance? Is it as a you know? Can you mark the you know? Can you incrementally monetize?
+
+Speaker 2  6:29  
+Yeah, okay. And what about things like compliance and stuff like that? Do we ever get into the weeds? So, because the one problem with Vibe quoting is it doesn't have compliance baked into it. But I wonder if that actually matters. You just want something that moves the cheese on the CPQ market right when you go to what you want, something go that kind of cool demo. Get everyone off. The spreadsheet integrates with next, our next generation of CPQ so that you can get the compliance. You can get the quote done, you can get it signed off. That does that feel special enough for it to answer the problem that that you've raised, which is like
+
+Unknown Speaker  7:03  
+another way to say
+
+Speaker 1  7:04  
+approvals, yeah, yeah. Got it, because that always seems to be a functional hole. Yeah, it definitely is, yeah. I guess my challenge with it is, I remember this explicitly with Qualtrics and approvals were a big one. But even if I had the right approvals, like solution, I don't, I don't know how I would incrementally monetize it.
+
+Unknown Speaker  7:32  
+But if you, if you're saying that
+
+Unknown Speaker  7:35  
+people would rather change their gender than change their
+
+Speaker 1  7:38  
+CPQ, which is probably not the most PC thing, no, but it's fine.
+
+Unknown Speaker  7:43  
+I get, yeah, I think it's
+
+Speaker 2  7:45  
+but do you think the the incremental, I mean, the revenue, I'm assuming that the revenue uplift is us just pricing a better CPQ at market rate, right? That's there's not, there's no magic in there. It's just price it more effectively. Make it a, you know, a good bog standard CPQ, and let's just make a bit more cash out of it, right? It's not a go to market for you. You're not going to be selling our next generation of CPQ unless it was the vibe quoting bit. But you're saying you don't know how to monetize the vibe quoting bit. Does the vibe quoting bit just become a it just becomes like, yeah, it's AI, so you have to do it. Why would I bother? I'm not going to pay for that. It's just that's the new landscape, right? That's what it feels like, yeah.
+
+Speaker 1  8:29  
+Okay. I also just, I really hesitate to speak as an expert on the space, and we have way better experts, but these are the questions I do have, yeah,
+
+Speaker 2  8:39  
+okay, I'll take those back to Manfred. I'll speak to him about that. Okay, the other
+
+Speaker 1  8:43  
+question, you know, and I don't, and we should get like, a like barstan involved with us, who's been in front of a
+
+Speaker 2  8:50  
+million of these things, yeah, okay, all right, well, I'll reach out to him as well. One, I know we've only got seven minutes, but one question I've been posing to the to this. Gms of the different regions, is the way I see it now. Is the gorilla, B to B complex, sauce, right? So that's what Boone wants go to go to Paulo. 60% of his business is not B to B complex. He wants more. Plg, B to C stuff, right? Mark gagne is kind of shoehorned, doing b to any by getting global services to bend over right, so that it reference implementations, that kind of stuff. The thing that I've been talking about is, can we, can we be vendor for life? And do we want to be vendor for life, which means, can I go into $100 million SARS business? Say, listen, I can give you self serve. No problem. We get you up in four or six weeks. That's a different question. Why would you go with us now? Well, in three years, you can have to rip out your billing system, and you're gonna have to replace it with us. So what we can do is we can do is we can take you from 100 mil, you know, through to completely self serve, up to light touch, CPQ, you know, you don't need the full bells and whistles. You just have something that's kind of what you need, configurable. And then when you get to complex, we're here for you, right? And we've travelled the journey. So it's kind of like zoom, right? We go from from one place to another place. And I like Paulo is buying, I mean, some of that stuff touches outside of my pay grade, so there's some. You know, it's more about the message rather than the product, but the product needs to do that thing. So my question to you is, if we, if we protect the core road map. So that Boon gets complex B to B, so no sacrifice to the main stuff. If we start talking about self serve, I know that works in Amir, and I know it works in APAC, but does it create noise, or does it add in in Noam?
+
+Speaker 1  10:56  
+It adds in Noam, especially if we're going to start going back after the high growth B to B SAS finance led sector, okay, okay. Because I would say, you know, two out of three of those companies are plg emergence,
+
+Speaker 2  11:14  
+all right. And then also, there's this increasing trend of SLG to plg, right? And in fact, I often think that SLG and plg are a little bit too rigid. It's basically, what's the gradient between self serve and sales assisted, right? Totally, yeah, okay. Totally. So is that a message? Because the the the trying to work out what to what to say to keep everybody happy without having this kind of shit pot of no product is quite difficult in Zora, but it seems to me like if you can, if you can build the slider and let this the GMs position each customer on the slider themselves, create little friction. I mean the billing implementation. I heard the other day that we have reference implementations for billing that can get less complex, B to B businesses up in four to six weeks. And my question is, Why does no one use those or talk about those? Why is it all GS LED?
+
+Speaker 1  12:16  
+Yeah, I think a lot of it's actually not even GS LED. Gs has been the problem, right? And Jess will show up and go, What do you want to do? Yeah? And they'll go replicate every fucking old business process the customer has because their style grows, yeah. What I see working is like, Robbie started pushing on this, like, integration scorecard, yeah. Minimise customizations. Time to live out of the box. Like, that's what I feel like is driving a lot of this, yeah, because I at the same orb com is a perfect example. We signed that thing at the end of last month. They want to get live in January. Yeah, they're crazy. $250 million business, but the CEO is, like, out of the box. Anybody says otherwise, yeah, let me know now, like so I think we're seeing more of that.
+
+Speaker 2  13:08  
+Okay, I had the same experience with immediate when I went back to clariss, who worked and I said, What should we have done? They said, if you'd given us a reference architecture, we'd have had 80% done in three months, and then we'd have spent a little bit of time on the 20% but building from the ground up was a complete shit show. Yeah, so is that? That's a real thing, right? That So, so the slider self serve to sales, assisted with reference implementations, is the sweet spot, right? Let the GMs do let the GMs go to market how they want based on the customer, right? In Europe, in Europe, Paulo. Paulo wants that.
+
+Speaker 1  13:50  
+Yeah. Okay, yeah, I agree. All right, I agree. All right, I gotta go get in the cab. All right. Mate, thank you. Sorry for keeping you waiting. No, no. Thanks Jonathan, good to connect.
+
+Unknown Speaker  13:59  
+All right. Mate, thank you so much. Cheers. Bye, bye.
+
+Transcribed by https://otter.ai

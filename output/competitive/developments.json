@@ -1,0 +1,12 @@
+[
+  {
+    "id": "comp_20260106104303",
+    "competitor": "Stripe",
+    "development_type": "product_launch",
+    "title": "Introducing the Agentic Commerce Suite: A complete solution for selling on AI agents",
+    "description": "In September, we announced the Agentic Commerce Protocol (ACP), the first live standard that enables programmatic commerce flows between AI agents and businesses. While ACP creates industry standards for agentic transactions, your business still faces a heavy integration lift to participate in agentic commerce. You have to build and maintain public ACP endpoints with proper versioning and access controls, navigate each agent\u2019s unique catalog specifications and API requirements, and integrate your existing commerce stack with AI agent workflows. This can take up to six months for every new AI agent you support.\n\nWhy It Matters\nStripe looks to power new ways of buying, particularly for B2C.",
+    "source_url": "https://stripe.com/blog/agentic-commerce-suite",
+    "announced_date": "2025-12-11",
+    "created_at": "2026-01-06T10:43:03.372526"
+  }
+]

@@ -1,0 +1,184 @@
+Speaker 1  0:00  
+Like, none of that matters in deal hub, like, that's too smart. NAV is too fucking smart. Just dumb it down I want. And by the way, we have quote Studio, you can dumb down things today in experiences, in quoting experiences already. So what is the world that we build towards? Well, now that Jonathan owns all of these core components, I own the fucking commerce platform, every single foundational component, from the contact service PCs to experiences to rules engine to workflow. These are all mine. I own them. Okay, so now imagine a world. This is the deal, hub experience. First step is you define a channel. And when you define a channel, you say, Look, I'm going to capture the source of this channel. This is what the label I'm going to tag this thing is, because I know later I'm going to have marketing campaigns. I'm going to do a to b, AB testing on this specific channel. Yeah. So I've defined the channel. I've defined the source of that channel with a specific label or tag. Now I get to build the experience for that. And this could be my partner portal, this could be my reseller portal. This could be my plg motions. Could be my SLG motion doesn't get matter, but what that channel or motion is because the experience platform allows me to embed this thing any fucking way. It could sit in a WordPress site, it could sit in Salesforce. It could sit in some custom thing, yeah, nobody cares. And then that has a unified cart like it creates a draft order that means that natively, we have this concept of a
+
+Unknown Speaker  1:43  
+concept of a
+
+Speaker 1  1:47  
+context shift or context channel switcher, and what are the use cases there? Hey, like customer or partner doesn't like the out of the box prices hits the I want to talk to somebody button. Cool creates draft order, captures their contact information. Now, sales rep gets to pick it up and run with it, because we gain I own all the commerce platform. I own all the key components. Now I can actually see my inbox and I can pick up the order. It's my draft orders. It's assigned to me because I manage this source. I'll pick that thing up. Dial for dollars. Send them a quote. Off you go, that that has all aspects of everybody. The deal hub room is manfred's aspect or thing. There's a contract piece to it, which is manfred's thing. There's an experience part, which is arrows thing. There's even this potential journey orchestration, or journey buying experience, which is your thing, like all these things, just now that you own it, you should be
+
+Speaker 2  2:58  
+able to run it. Yeah, I agree with that. I think so that's the useful frame, because it doesn't doesn't detract from the use cases can be pretty diverse. They can go from self serve to sales LED. So that that works. So that frame, plg and SLG can be a little bit of a red herring. They can be distracting because we kind of compliance like B to C. Well, B to C means so much so. Plg, SLG. They create these delineations that actually don't exist. As you just described. What you want is the customer. We take the customer lens. What does the customer want to do at that point in time? And then they can run through that sequence. And when they do have to hit, you know, I need that button, or I want to speak to a service rep or a sales agent. I don't need something full blown. I can do that, but then, all right, so what did vendor for life? I mean, Ken appropriated it, which is fine. I want to make sure I meant one thing and well, I'm worried now it's become another thing. So what does vendor for life mean for you?
+
+Speaker 1  4:01  
+Yeah, okay. Why does this matter to me? Because vendor for life when it's from you, that's very different than from him, yeah, vendor for life for you means I think of LastPass. LastPass is a really great security company. Started very plg motion, yeah, no, let me flip that around. Started with the Yeah, no, no. Started with a heavy SLG motion. Thank you. Sorry, heavy SLG motion. And realise this channel is fucking expensive. Our CAC is too high. It's really hard. Creates a corporate mandate. 70% of all sales need to come from a plg, motion, no longer an SLG. They went down. They went down. They said, look, it's too expensive to and by the way, in this agent world, this AI world, sales reps not gonna be buying and selling things. Everything's gonna be an agent anyway, so let's just fucking go down now. And only platform in the world that does both can support both. Plg, SLG, XOR, Asana. Opposite Asana was all you'd go sign up for Asana on your own, and what they notice is like, hey, like, nine teams at zoom signed up for Asana, for project management, product team, signed up for it, programme management team, engineering, man, why don't we just go fucking approach them, give them a discount, unify all this stuff that drove the need for an SLG motion. So they went the other way. And again, it's originally platform that supports, the only platform in the world that has a strong quoting experience, along with some plg capabilities. So they chose us.
+
+Speaker 2  5:53  
+So tell me about the if we have the plg capabilities, then the blocker is the ICP, not the capability then, right? So we're saying, if we have a plg motion, we just know.
+
+Unknown Speaker  6:06  
+So what I'm saying is like,
+
+Speaker 1  6:09  
+vendor for life means as your company, and for me, as your company involves you're going to figure out new channels to sell to, right? And so that may open up a reseller, a partnership marketplace opportunity I might want to sell on Amazon's marketplace. Those are all points in time where we support you. Like, my mission in the world is to support you across all those channels. I must channel,
+
+Speaker 2  6:35  
+okay, but that's only enabled by the new experience, to large extent, by experiences, right? Because that's the abstraction of all of that stuff into whatever channel you want to put it.
+
+Speaker 1  6:44  
+Yeah, so my, my world for you is CPQ, as it is known today, dies because it's all hard coded quoting, quote builder sitting in the middle of Salesforce. And again, you're gonna, you're gonna come at this and say, vendor for life is like, I'm going to be here to support any channel you want, any channel. And so experiences to your point is the rock of all that,
+
+Speaker 2  7:09  
+yeah, because you can Yeah, but then, doesn't that? Where's the resistance? Then to think about the self serve customers that begin at plg, right? Like, if we can go up and down that spectrum, which is, like, all of the stuff that I'm talking about, it's nothing to do with you.
+
+Speaker 1  7:30  
+So maybe I wasn't. We've had many teams work on this. And in fact, we had a seed edition Zora, 150 customers on seed edition. What was seed edition? It's literally in our billing code already. Yeah, it's so what did they do? They with precision some pm said, hide this feature. Hide this feature. Hide this feature. Seed edition. Yeah, right, yeah, right. Because then you can grow up to the big edition and you just unhide the toggles. You're good to go. So why, why did this motion die at Zora, too much manpower. Because, sorry, it started off with too much churn. CFO said, Yeah, I can handle this churn. I'm about to IPO, yeah, I can't have them seeing a 30% churn. All right, so then that killed that motion. Then reference implementation came in. And why did that motion die? That motion died because Global Services, to your point was like, hey, customers want complex now they could just be bullshitting because they have a big number to pit, most probably, but they came up with that. Otherwise we'd be fixed cost, price, price. We do so many things to drive more deals, but they got in the way. So then we went to all these mid tier partners. The product leader Karthik, was smart enough to be like, Hey, fuck you, Global Services. I'm gonna go sign up with a bunch of elite partners. So what like mid tier partners? Rev gurus is a great example of one that will do half a revenue implementation. So what did the sales sales team loves it. What did the Global Services team come in? He started creating noise and saying, hey, those partners suck. They don't know how to implement this product. Your customer sat is bad. So now the sales team were convinced that these guys all need the elite services people, because nobody knows Zora as much as Zora does. So that's how they started to move deals away from those mid tiers and low tier. And in fact, Paulo has zero strategic partners in his region, Mark has zero strategic partners. These is all no end business.
+
+Unknown Speaker  9:46  
+Then we realise, hey, we can't kill
+
+Speaker 1  9:51  
+the partners. Bring in the big deals. See how our mind works. We our mind is just working in these weird motions that it keeps killing these initiatives. So that's why we have PwC in Deloitte, and they bring us the most complex deals the because they they know we're the only ones that will bend over backwards to make sure that that customer goes live.
+
+Speaker 2  10:12  
+So, so there's a there's a this, I'll be honest. So I'm just trying to get the framing of this. There's a disjoint for me, which is the political barriers. Yeah, like those. I would just ignore those. I would just move through them that that's not how I would typically. I wouldn't respond to that. So that's one thing. The other thing is this, you're already saying to me that the that the constituent parts, which is the slider between plg and SLG. We're the only business that can do that right. The structure of the commerce business can be a thing where that slider becomes very fluid. You can, you can be anywhere on that on that line. And you can also tactically choose B to C, like stellantis or GM, and say, Okay, well, you know where we can also do that sliver of B to C, there's a, there's a, there's a recognition from Manfred Errol and nav and Satish, that that's a good motion. There's a guardrail, which you say, which I agree is protect the core, which is about delivering and insulating the core roadmap, but then strategically improving the capability of us to move that slider up and down with ease. So as you say, Omni channel, the the experiences, on top of CPQ, all of that kind of stuff, says, in my translation of that is slightly different to yours, because I'm still assimilating what you're telling me. The unlock to that is that there is an architectural principle that's underlying everything that we do, which is that we duplicate or share thinking around one thing. So for example, what's a rules engine that has many versions of what in see in the commerce side, different versions of what that thing is and should be? Should the rules be in the catalogue? Should it be a rule service? Should that have constraints to it? Where should the constraints live? So that becomes a bit of a soup. Context, for example, is heavily indexed against the catalogue. But if you pull that out as a shared service, context does exactly what you what you talked about, as you expand the utility of context, and it becomes part of CPQ, and you get all of that richness of the kind of pre quote that you were talking about. So that's kind of a simple view of it, but it feels to me like what you could do is you could say, Listen, the prince, the direction of travel is we have, we have a slider. We have a Unified Commerce leader. Now there are these. Here are some examples of the things that we can do to give us that slide up and down, and it will service to mark, to go to markets, because it if I, if I go to power and so listen, first of all, I'm uncovering the these reference, the all these bones that are buried all over the place. You know, I don't give a shit about GS. I'm going to give you what you need. It partially already built. I'm going to polish it up, I'm going to package it up, and I give you a story that's your four week implementation. Clariss, you go off and sell that EMEA APAC, you sell that second bit is, we're good at self serve to sales lead. We can move you up and down that slider to do that, here's three principles you know now that I get, you know, business context, service, intelligent orchestrator in the middle, and actions, right? And then the L threes, the products themselves consume a lot of these. The the Errol and Manfred become stakeholders, but there are customers. And here are these services. It gives us that slider, so it's the same story, but it, but it, I don't know, with a slightly different you're telling it to me in a slightly different way. Why would I care about the way the business has done it before, right? I mean, like I can be encumbered by that, and I can go, Okay, I've
+
+Speaker 1  14:35  
+because you don't have control over building a plg motion, you alone, don't have
+
+Speaker 2  14:43  
+control over you mean the sales motion, correct, right? Yeah, what if? What if that plg motion?
+
+Speaker 1  14:50  
+Because that means building a bunch of shit that no longer exists, that you need to launch. So this is, could
+
+Unknown Speaker  14:58  
+you give me an example of what would, what would that be?
+
+Speaker 1  15:01  
+So that would be like, okay, in the old world, how we did the plg motion is that there was a test drive site. That test drive site you would go to, literally, zora.com forward slash test drive, you would sign up for a form. That form would create an opportunity in Salesforce. It would validate your email address. It would say, hey, you've got a Gmail email address. We don't do trials for Gmail or Hotmail. Yeah, it would do a dupe check. It would say, hey, like, you already signed up for a trial like it, and then follows rules passed. Then it would actually create your tenant, and we owned the Provisioning Service. But then somebody would get that opportunity landing in their inbox. So Jack Friel would get that email, picking a random sales rep, and then that sales rep would be like, Hey, thanks for signing up for trial. Like, that's our plg motion, yeah,
+
+Speaker 2  15:58  
+I see, yeah, that's where all right, I'm, I'm, are you talking I'm talking about something different customers. I'm, yeah, I'm talking about our customers. Plg, right, so this is, this is where the naming matters,
+
+Unknown Speaker  16:12  
+yes. So like
+
+Speaker 2  16:15  
+Paulo on $150 million 50 million euros, AI startup in Europe.
+
+Speaker 1  16:22  
+So wait, but you are building an plg motion for customers. That's all manfred's world. Sorry, Errol's world.
+
+Speaker 2  16:30  
+Yeah, yeah. But the Yeah, you all right, so maybe we're Yeah, so I'm what I'm talking about is not our plg to SLG. I see I'm talking about our customers, and which is where I'm thinking the disjoint is so. So what Paulo misses, yeah, is I go to a $50 million 50 million euro AI startup growing it, you know, growing super fast. He goes in, there's two problems he's got in the back of his mind, yeah. Number one is going to take a 304th you know, two or $300,000 GS implementation, right? Doesn't want to do that. What he wants to do is he wants to do a 50 or $60,000 implementation for that company, right? So, in his mind, he does not have a reference architecture, he does not have speedy, no billing, but they all do, yeah, but they but that's partly my job, right? They know. Is that your job? But then, well, they don't have he doesn't think he has it. So if I know where it is, and I can work with Ken to say that's the thing that I need, then that's just a constituent of the total story,
+
+Speaker 1  17:41  
+yeah, but that's still not in your wheelhouse, because you you're not in the line of fire at all. When it comes to these deals coming through, they don't call Jonathan when the deal comes through, yeah, they go to a technical architecture Review Board, which then gives them a what is that thing called rom No, some average cost of implementation. It's your initial quote, right? Yeah. Then, then they bicker back and forth on like, hey, GS, why are you charging this much? Yeah, he doesn't want that. That's the block. But he doesn't have to do that, but he does do it, but he can go to any partner. This is the problem,
+
+Unknown Speaker  18:24  
+but that, but there's a, there's um, let
+
+Speaker 1  18:26  
+me, let me show you what Mark ganye is doing now. He's doing his own he is doing his own thing. He's doing his
+
+Speaker 1  18:40  
+don't over index on these guys. They're just whining because the quotes are high. So why don't you just, why don't we solve the right problem? We just get the fucking quotes down. This is my problem. So what Mark gagne has done is
+
+Unknown Speaker  18:56  
+he's built his own programme,
+
+Speaker 1  19:00  
+and the programme is he sends his CSE to go do this statement of work. Then he implements them in the sandbox. Then he's cherry. He's worked a white glove deal with Charles keen, his GS leader, and said, hey, yeah, no, child, yeah, my CSE is going to do all the fucking design work. You're going to cut your quote in half, and you're going to make me win this deal. I'm never losing a deal because of GS. And hold on, hold on. I'm going to show you this document. He's literally documented it and got sign off from so this is the thing is, like, not, I don't know how to say this the right way. I'm I don't want to send you on a mission to go try and solve global services sows.
+
+Unknown Speaker  19:56  
+That is, by the way, you cannot do that on your own.
+
+Speaker 2  19:59  
+No, no, no, I've been a recipient of it as well. I've been in the middle of it. Yeah, and
+
+Speaker 1  20:03  
+the core is not catalogue, the core is not building rules and CPQ, the core is actually billing and revenue. So you would, you, you'd need to team up with Ken, and by the way, they were already team is already involved trying to solve for this, but you,
+
+Unknown Speaker  20:23  
+yeah, okay, although you said that the the,
+
+Speaker 2  20:30  
+you know, the reference architecture, or some version of that already exists. So why is Paulo on deals that he thinks he can win, thinking that GS is the blocker to those smaller deals, why doesn't he just have the reference architecture?
+
+Speaker 1  20:48  
+The reference architecture initiative died
+
+Unknown Speaker  20:54  
+of GS, right?
+
+Speaker 1  20:56  
+The reference implementation architecture was owned by Gs. It was a 1000 hours, 20k 30k implementation, fixed fee implementation. It specifically said, I'm gonna you're gonna load all your stuff into the Zora system. Yeah, we're gonna help you configure it, and then we're gonna train you how to use it. Fixed includes these
+
+Speaker 2  21:18  
+pieces, and it died because of the politics or because no one bought it,
+
+Speaker 1  21:23  
+I don't have real information, so I think you should talk to Randy, who helped drive it. And I think I don't know. Look, I don't trust global services so, but I'm
+
+Speaker 2  21:46  
+kind of, isn't our isn't that part of the reason for having two people sit across the whole product that some of these inefficiencies can be solved collectively. Why? Like, let's just say, take one problem. I say, Okay, I'm gonna solve for your problem, right? I'm gonna, I'm gonna work with Ken to give you a thing that exists, or you don't think exists, whatever it is. I don't know what the history I mean, Paolo is a smart guy, right? So he's kind of, that's his presentation. To me, if it's got an agenda, that's fine, but it, I can give you that thing. That's the that's the billing implementation. As reference architect, Claris has had the same gripe, by the way, you know, on immediate media. So if we'd have had a reference implementation, we could have got 80% of the way, and it wouldn't have been the pain that it was, and, you know, they're not super fans of GS as well. There's a, you know, anyway, so there's, so maybe he does, maybe is there? Maybe isn't. Maybe he does know it is there, but it's, there's something missing that, hey, that's that's perceived as one of the biggest blockers for 60% of his his revenue is billing and GS, that's how, that's how he frames it. And I know Mark has got a similar case, but because he, but he's gone off and solved it in a different way, right? So there's that. Then you, then you take the story that, that you're telling, which is, we are the plg, we're the only business can take you, plg, SLG, that that's exactly what nav and I, I think, can present because the the way to the way to make the commerce product work more or the commerce or acquisition order work more efficiently, is to understand what the services are that drive that experience. So you talked about that story. The story is lost in the core road maps, because my point, my point is that the intersection is how our customers see us, right? The intersection is how they want to use the product. But the intersection is not owned. The intersection is a product. It is a road map independently of itself. You can't try and people in these, you know, Errol and Manfred are very focused on what they want to deliver. When Errol says I need this, or Manford says, I need this, that's a dependency. The dependency has this, you know, this additional workload concept. So what I want to try and do with NAV is to, is to abstract away the things that enable the commerce vision, like the intersection and and this is not about building something new. This is about making sure that it's has a focus, which means we can deliver this seamless experience, right? So everything that you just described, I think, needs that abstraction, but that's actually solving for the European problem, which is, I have smaller plg targets who don't need quote yet, but they would buy us if they think that ripping out stripe or doing something in three years means they should be buying for five or 10 years. At the moment, I'm just losing because it takes 90 days or 200,000 euros to implement, and I don't have a good multi omni channel story. So that's the bit I'm struggling. Yeah? Like it feels like it's
+
+Unknown Speaker  25:17  
+there, like it's within reach,
+
+Speaker 1  25:19  
+yeah, and my feedback is, you don't want to, you don't know how customers are going to implement, right? You're a product owner like you and I have been burned many times where the customers decided to implement a unique way, and we just learned off the cuff, right, that there are full time jobs of people implementing Zora, and those are the people that should help you build your implementation, your reference architecture, right? Those are the people that should own this, not you, or you should hire those people. Nav, yes, once implemented the Zora product in the Australia region and did it aggressively because he was under Mark's like Mark runs his region. He yells at the Global Services team to get the shit moving fast right
+
+Unknown Speaker  26:10  
+now, my feedback to you is,
+
+Speaker 1  26:14  
+is less. Don't get involved. It's it's more. There's other people who should be owning this, like, it could be Joe grey, she's solution like, or it could be, look, I've also advocated for the partner. There's a team called PDS, so you need to talk to Sujit as well. PDS team built is actually building an AI implementation pack right now, in partnership with s to it. So what does it do? It essentially reads your APIs from stripe, it transforms the data and then loads it into Zora. So they own this little agent that does that, so he's doing new, innovative things. So like, my feedback to you is, like, the way you solve it is very product centric, meaning you're going to have these templatized experiences. You'll have template experiences. You'll have template catalogue. Maybe there's when you hit the create button, it says, Hey, like, what kind of products you have. Or you'll have a copilot type of experience. You use AI to start driving this stuff, where you can point to some other system. It can log in, and you can access your stuff and pull it so my my ask for you is to solve it in a productized way. But if you're going to solve it, and I'm going to kill GS way, then you go toss it over the fence to somebody who knows the GS world, and you get out of the way, because the last thing you want to do is, like, Jonathan's, Jonathan's killed GS. Like, that's not the label you want it.
+
+Speaker 2  27:59  
+Yeah, you know, there's, there's a, I mean, I can navigate that. I think what I'm trying to do is frame it in a way that you are aligned and that Pete is aligned. So the the framing that I put to everybody is almost identical to what you said, which is, we are we can do plg to SLG. I mean, self serve to self LED. There's a, there's an efficient way to do that. The broader story that I can take to Paulo is the collaboration across the rest of the org. I'm not worried. That actually doesn't worry me. It's, it's, it's, how do you frame
+
+Unknown Speaker  28:43  
+what the product is meant to do
+
+Speaker 2  28:46  
+in a way that I can then use that as a story and a lever into supporting the because the Yeah, I think product is the sharp end of the organisation, right? Like it is our job to evangelise how you can take what we build and get it into market. And I think that does touch go to market. And I think it does touch implementation reference. I mean, that's just the I like to know where it all fits in, because I don't want to do one thing and then have it blocked by another thing. So I can do that.
+
+Unknown Speaker  29:15  
+But so, so if I can
+
+Speaker 1  29:18  
+give you details on all the tools that we've built. Like I built the concept of cloning,
+
+Unknown Speaker  29:29  
+cloning sandboxes,
+
+Speaker 1  29:31  
+and making sure that the look I was platform. Pm, so I built a lot of these things, yeah. So the thing I built, it originally, was moving all of the pre sales demo tenants to central sandbox. And why did I do that? Because one day I want to be able to convert that into a customer's central sandbox, which you can do today. So literally, pre sales guy can create a demo tenant. You can tell us, we'll move the demo tenant under the customer's org, so you don't have to start all over. They literally can start from there, and it's a central sandbox already so you can refresh that thing. If you want to start from scratch, you can load up your deployment manager or Data Loader templates. So if you had a file, if the partner was smart enough to have their own templatized file of like, Hey, this is the best IoT implementation they can run that. In fact, I built it so it could sit in your own GitHub project. You can pull it from GitHub, and all these tools are built. But that problem we have is that, no, Paulo is not going to be the executor of these tools.
+
+Speaker 2  30:31  
+But also, I think the story, you know, you said, you said, part of is you put me in charge, because I tell good stories, right? So the the collection of those things compose up into a story. Like, if I can, if I can, take the collection and say, Listen, as a we are plg to SLG, but there's something missing in, I mean, I've spoken to, I don't know, the SDRs, the AES, the GM in Europe. It's like, this is foreign This is foreign to them. The idea that they can win in 50 million euro, SAS, plg, led businesses, is foreign to them. Like this, like it's, there's a complete disjoint between what they think they can do.
+
+Speaker 3  31:20  
+That's, and that's amazing to me, because, yeah, that's, that's, that's what I
+
+Speaker 2  31:24  
+even at the SDRs, I've said, Listen, how do you Oh, you know, it's really difficult. We don't really get support, because it's US centric. And plg, you know, B to C is not really a thing, and we struggle to compete with strata. Say, I hear that all day long.
+
+Unknown Speaker  31:39  
+That's weird to me. Yeah,
+
+Speaker 1  31:42  
+that, look, I cannot argue with I'm not concerned about you building the story. I'm not concerned with you understanding the tools that are available and helping. I would, I would say, just don't do it alone. Yeah, you know, I guess that Arvind, who's in the growth team now, Richard saw way, who's using Solution Architect, who's doing the dev x stuff, part of this stuff, you're going to need developer experience, right? You got to integrate,
+
+Speaker 2  32:16  
+I've spoken with Richard. I'll build those alliances. But I think they're, the thing is, is that the A to O doesn't live in a isn't living in a vacuum, right? It lives in this broader ecosystem. So I need to learn more about that. But what I need is a story that underpins, why would we in there needs to be a because I always start. I start in two places. I start with the with the commercial side of the business, which is our go to market. And then the architecture, to me, the product in the middle is,
+
+Speaker 1  32:46  
+sorry, I have we got to go meeting. Sorry, okay, can I gonna need some I can meet you at lunch. Okay, let's do that. What's that? 1212? 30. Yeah. Okay, 12 All right. Sorry,
+
+Speaker 3  33:05  
+congrats, I got to do a lot more work. You you
+
+Transcribed by https://otter.ai

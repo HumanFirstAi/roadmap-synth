@@ -1,0 +1,190 @@
+Unknown Speaker  0:01  
+Thanks for directing some of those things in that.
+
+Speaker 1  0:07  
+In that note, I'll fire it off on Friday to the internal pm channel, and then there will be an EM email that goes out to everybody on Monday. Yeah. Cool changes.
+
+Speaker 2  0:18  
+Yeah, that's nice to get it. Nice to get it out there and socialised,
+
+Speaker 1  0:22  
+yeah, I did let we had this off site at Silver lakes offices yesterday. I let folks know. DJ and others, Daniel, they all made reference to, this is a really good idea, cool. So just Yeah, yeah, they're super bullish on you.
+
+Unknown Speaker  0:39  
+But I changed the language a little bit
+
+Speaker 1  0:46  
+instead of, I don't know why it said two years. Like, maybe it just feels like two years, okay, maybe it just feels like two years, yeah. But instead of saying one year, I just removed all the reference to and I just said, like, yeah, strategic clarity was the big one that I wanted. Yeah, I mean, that's, that's one of your key skills, for sure. I wanted to maybe just spend a few minutes to talk about Manfred and what's going on there, and then a few notes on Errol and what's going on there, and things you just need to be aware of. You don't need to necessarily jump in at this time, but just so that you know when you're doing your one on ones, what to extract and then get involved and engaged as needed. Okay, so in manfred's world, it's actually pretty complex. He's got this. He's got this added dimension of teen wanting, wanting the CPQ team to build this quote vibe, quoting, quote pad piece. And Tina's talked to you about this. The concept is today's CPQ is an order entry product, like the foundations, the DNA of this thing was, I'm selling billing, and our customers are asking for sales reps to create an order in Salesforce that was picked up. And then they built more rules, and then they built a designer, a quote designers, you could really make that order form look better. That was the fruition of CPQ. So what happens in the sales world's real world? They are like experimenting with pricing and packaging, most likely in Excel or Google Sheets. Then they go figure out what the right discount is based on a couple of options. Then they'll put that into a pretty slide deck, and then they'll throw it over the fence and say, Hey, like, this is your this is your offer. And you can, like, call your favourite sales buddy to say, hey, like, can you send me some of this stuff? Like, walk me through how you sell deals. So once the deal is like, some verbal like, hey, sales rep here on the right target, then these guys come in to CPQ, and then they start, like, manually creating their orders. So it's really like the draft workflow is way out of Zora. Then they focus on, like, doing the heavy lift in Zora. Some of our customers hate CPQ so much. The reps like, don't do it at all. It's literally like they throw that PDF over the fence to a deal desk person. Deal desk person is literally creating the quote. So you're going to see that added dimension. That's because Cbq is painful. A bunch of drop down lists of a bunch of products you don't really understand. There's no context of you. There's no context of your customer. If you're up selling. There's no life cycle built into this thing. Like, we're a recurring billing product. Like, we know when you're when you're recurring. Deal is about to end. Why aren't we smart enough at like, three months before the end go route back and create a draft quote in Jonathan's inbox and say, Hey, like, just heads up. Zoom is about to renew in three months. You should probably start fucking putting this thing together and talking to zoom and figuring this out. Like, we don't close the loop there. There's a lot of issues from a subscription billing perspective. And there's a lot of issues from, like, a more complex world of like, I'm selling hardware and software or selling, like IOT devices. There's no, like, complex configurator where you can just say I wanted this, and then this opens up a new list of questions and another list of questions. There's a lot of gaps in the core CPQ product, and then there's this new world that we've never even touched. So the agreement is, and I've told this to Manfred as of last week, and I'll give you an understanding of why in just a second, but the agreement that it landed with Manfred is like, I need you on the CPQ problem. I need a fresh coat of paint on this thing. I need the approval, advanced approvals. I need the configurator. I just need you to really clean up this thing, because this is the thing that's selling right now, and I need to make more money on this thing. And then Siva and Satish, I'm gonna let them go run off and go work with teen to go figure out what this shift left world is, where you get to simulate and pretend like you're creating quotes. All right, so that's what I've told Manfred. I hope I hope that's like resonating with him. I need to check back in with him. It might be I know satisha was going to go talk to him. And then I also want you the opportunity to go Understand, understand what these two worlds are. Hey, there's this vibe quoting thing that I know teen is all up working on, and I know Shakir has asked you to work on, like the cpqx thing. And can you walk me through these two worlds? Yeah, Okay, gotcha.
+
+Speaker 2  6:09  
+I spent, I spent quite a lot of time, so I've had some conversations with man food already. I also spent a lot of time with Satish, getting his lens of that of what you gave me a bit more depth and history to it. So this super valuable, the bit that I couldn't join up was the compliance piece on the vibe quoting bit, yeah, like it seems to be a it, I think, I think Satish, I don't know, I haven't spoken to Siva, but Satish felt, when I kind of prodded him on this, that it was a gap, but it was, it was a gap that no one really wanted to think about right now, like we
+
+Speaker 1  6:54  
+don't want so we don't want any imagine A world where you get to experiment and go rogue. No blockers. Because when you're in expel Excel or Google Sheets, nobody blocks you, yeah. So you may be able to hit the Validate button, and in that case, maybe it hits Zora or Salesforce or like name your billing system, Stripe, yeah, and then you'll validate the order, and then come back and like, say, hey. Like, I found this to be a problem. This product doesn't work with this product. And like,
+
+Speaker 2  7:30  
+that feels like the join. It's like, the bit I had a problem with was the publish right? If you publish, push the CPQ, the computer says, No, you have to go back in. Then the product doesn't work right. The last mile is not there. If you're validating in flight, then it does. So that's the bit I was talking to. That was the bit I was talking to Satish about. It feels like validation needs to have some concept within this vibe quoting, because it's the last mile that creates a frustration for the for the you know, it's like, I'm going to build this thing, push it 10 times. It says no, I'm going to stop pressing publish. I'm going to go back to my Excel spreadsheet. Because it doesn't so I think that's, yeah, okay, that's good, makes sense to me. But so is, is vibe quoting out of my purview. Then I stay out of that. Do I?
+
+Speaker 1  8:20  
+Here's, I don't know how to frame this the right way. Okay. Teen is he thinks that Manfred just can't get out of his own CPQ way. He's been very clear to get Manfred out of the way, like, please, I need to work with 123, a small team. He's specifically said verbatim, I think Jonathan gets it. I know Siva gets it, and I know Satish gets it, but I just cannot have Manfred
+
+Speaker 2  8:53  
+in the room. That's fine. So I can play in the same sandbox as Siva and Satish 100% okay, that's good, yeah, because, yeah, that's fine. And I also think that there's a way to, you know, what you don't want is ultimately you have to join the two things together, which means you have to join the human beings together, which means Manfred has to be brought along at some point on that journey, so that it's the same thing. Otherwise, you inherently build friction into the product team, and that's not okay. So that get that completely, yeah, yeah.
+
+Speaker 1  9:27  
+I, I mean one thing, I actually love Manfred. I really respect him as a product owner. I I feel like in some cases, he's just very binary and very German, and teen is not,
+
+Speaker 2  9:44  
+yeah, I guess I like Manfred, though he's a collaborator. You know, he loves to share, thinking he wants to teach and listen. You know, he's a great product manager because he's good in front of the customers. I think so. From what I've seen. He asked the right questions. He's not confrontational, you know, he's thoughtful. So I like him as a person, so I can understand where that join is. And we've had a couple of good conversations. And one of the things I pitched to him, and again, it's, how do you as a product leader? How do you receive this stuff? Do you just kind of stare and say, Okay, this guy doesn't know what he's talking about, or let me listen and see if I can shape a story. And I asked him the question around behavioural data. It's like kind of you know in when you don't know CPQ, it seems odd when you sell 100 seats that as a salesperson, you don't know the 65% of those seats were utilised at 100% and 30 of those seats were utilised at 50% or whatever that is. And he said to me, yeah, that's a, that's a, it's a gap. I haven't had time to dig into it with him, but, but what we're doing with Anirudh on the data acquisition side and this knowledge graph, it feels like there's a potential join there at some point, someone to validate. I'll validate that out with him. It won't mean, I mean, I'll tell you what I'm going to pitch on it next week, but it won't mean changing the CPQ road map. It's just trying to find out, are there any adjacencies across the entire product that add value? If they don't, we won't do them if they do, and we can test them out internally and then externally. Then then that becomes potentially a join
+
+Speaker 1  11:20  
+Yeah, I love that. Look my I think we're just I don't understand how dumb we are around CPQ. We don't capture the quote information, like pre quote. We don't capture the sales rep information. We were so hyper focused on the order, and that means I can't do simple things like, Hey, who's my badass sales rep? Hey, can you build me the sales org chart in Zora so I can actually see this stuff? Can you help me build an approval engine? Because now I have the sales org Now I know that Jonathan works for this person who works for this person. There's, can you build me a leaderboard that shows me not only who's the number one sales rep, but actually walked me through who takes the longest, who, who gives the most discounts, all those analytics and metrics, we've literally said we don't care. We don't want to be in that business. Historically, at this company, it's weird to me.
+
+Speaker 2  12:16  
+Well, I think, I think all of the upstream data is excluded, like everything, everything about the customer is excluded. The work that we're doing with Anirudh and Shabazz on this churn agent is a major, major unlock, because what we've managed to do is to understand how someone gets to a churn that, to understand that and then to then feed that into what would be the down sell or cross sell to that customer. It's the same principles and CPQ, but that's something that I want. I've asked Andy Rud and maybe Shabazz to present that to you and Pete next week. I did want to try and find half an hour in your diary on Monday, because I've talked about churn and arc and all this kind of stuff. But you should see it anyway. So I agree with you. I think I think it's right. I think that the go fix the thing that's being sold, and then let us do this thing over here. But what I want to try and do is say, listen, we're going to do this thing over here, and then we're going to, we're going to bring this all back together in a holistic view, so that there's that power, you know, there's that, there's that end product vision. So that's great, and I love working with Satish. I haven't met Siva, but, but I love, you know, I kind of enjoy him. Yeah, good. Thank you for that. That's good
+
+Speaker 1  13:27  
+background. Okay, so just for Manfred, just keep a lookout, keep him focused. I want to, I want a badass CPQ X roadmap from him. I don't, yeah, I want visibility into it, and then I want him to get super scrappy, like put on a fresh coat of paint. I just need some CSS. I need it to look more modern. I don't need big ass features. I just need small, scrappy, quick wins. But if he is going to build a big Harris featured, then it's probably approvals. That's the big one. That's the noisy one. Okay, so Errol. The big thing for Errol this week and last week is plasmic experiences. So the first thing that I'm personally taking on is getting his SKU created.
+
+Unknown Speaker  14:19  
+I've told Errol and
+
+Speaker 1  14:24  
+Jimmy that I'm what they tend to do is they go they go so broad and they're not prescriptive, it's really frustrating. And then when you ask them to be very binary, then it's always an excuse. Well, if I had 20 engineers, everything would be fine, and it's not like,
+
+Unknown Speaker  14:45  
+so I'm just struggling a little
+
+Speaker 2  14:48  
+drives everyone nuts. It drives everyone nuts. Yeah, I'm
+
+Speaker 1  14:52  
+not sure where what the angle is, but because it's not like, we can grow more engineers. So I'm taking ownership, because I can't have him in the pricing committee meeting. It's he will just confuse everybody so and I'm also filtering out his pricing deck, and I'm just going to create one simple skew. So I'm, I'm I've overtaken, and that may frustrate him and annoy him, I apologise, but if I do the he wants a free tier, but when I dig in, there is no ability. First of all, we're not contracting a free tier with plasmic. So how am I going to lose money? I can't give it for free to everybody right now. Then there's this middle tier, and then there's an advanced tier, and the advanced tier doesn't exist. So what he doesn't understand is for rev, rec policy. When I create a skew that shit needs to be in existence, it's you cannot have a skew with roadmap like it needs to be. I need to turn this on today, and otherwise we'll have rev rec challenges, and we've got to do all this other exception reporting and shit like that. So I will get this view done. Satish is going to get the architecture review done for plasmic, which will then allow Elaine to go get the contract created, which will then allow us to go sign with plasmic. The only piece that I'm not monitoring, well, I don't have visibility. Well,
+
+Speaker 2  16:29  
+triggered is really around the engineering velocity. No, I'm on, I'm on a call, sweetie. I'll chat to you later. Let me just move out of this Room.
+
+Unknown Speaker  16:40  
+One second. I'm just gonna move.
+
+Unknown Speaker  16:49  
+Sorry.
+
+Speaker 2  17:03  
+Oh, okay, all right, yeah, it's a general it's a general issue. So the normal pattern is that you get a team of people together, and they share what it is that the product does, what they think about, the right engineering patterns, and then, when asked, they disclose right but there's a defensiveness. I don't know what it is. I don't know if it's a if it's a GS thing from Jimmy, whether it's just a general thing from Errol that he just generally doesn't think people understand, but I've been in the meeting since the beginning, yeah, and I've seen I had the same approach as Satish, which is okay, if we're going to do This, we got one shot to do it. Let's let's understand everything, and let's make the right decisions, architectural, the right architectural decision, but also the right product decisions. And it's been extremely difficult to do that. Extremely difficult because it really is a blank. I want to talk specifically about Jimmy, so I don't think Satish is being a blocker. I think he's asking the right questions. I've been in the calls, and generally the response is, listen, just trust us. It works like that's okay, but, but can we maybe just get some of the detail? Let's dig into this. And we've had multiple meetings, and the other thing that that Errol tends to do is he will say, Listen, I've written a 400 page document. Go, you know, and I've got 900 JIRAs, right? Go and read them. And I'm trying to say to Errol, people don't have the time to do that. They don't. They need to internalise what it is your vision is. And when they internalise it, they need to try and connect the dots to other things, like Alan, for example, back into the journey orchestration with Zephyr. You know, what does my account mean? Have we captured both the my account for the media customers, which of which? We have many using my account? Have we captured everything for Subscriber Portal? Do we have a single product? That was the message you gave? I want a single product. I want to deprecate the old thing. I don't want two experienced builders. I want one thing, and it's generally quite hard to get that information. And in addition to that, there's a lot of misinformation. So for example, the the Toyota deal, which I did a lot of digging into, was used as a lever. I'm not dumping a whole bunch of shit on you. I'm just trying to give you the background. Was used as a lever for my account. And of course, the Toyota deal has got nothing to do with my account. It's got to do with a payment form, right? So the the two things that come it doesn't, doesn't change the direction of travel, but that it's this kind of minimal amount of information transfer which then creates a lack of trust, requires due diligence and then clarification, and then we come back together. So on, on, plasmic, I would Toyota that Toyota is clearly something that came up that had not come up before, right? We've been talking about it hadn't come up. What had come up is we have to get my account built by November. And I said, Listen, this was before I was running this team. I said, I don't think that's realistic. We need to capture everything and make sure that plasmic is the right thing for every scenario, because they completely ignored the c2 experience in Zephyr. It was for them. It was nothing. They didn't want to consider it. So we managed to get everyone together, and we've aligned on what that looks like, and we have Alan doing it. But then the next thing was, we have to get my account up by this by December, using Toyota as the example. And so there's so I would argue that there is a it is the it is the lack of velocity is due to just some lack of trust and clarity. I mean, Satish is just honestly going I just want to make sure that the architecture is right, and I need all this information in order to make that decision. Maybe that could be accelerated by a week or two weeks, but we're not talking about major changes. Now that we understand what Toyota is, we're clear, in order to win a $300,000 deal, we need to do the Toyota thing. But the Toyota thing is not my account. My account is a much bigger thing. The Toyota thing is a very narrow requirement. All right, we're building for a customer again, but we all know we can get that done. The other thing is, sorry, this is a monologue. We've got this anyway. Let me pause there, so you and I have the same experience. Everyone has the same experience with Errol and Jimmy. Let me just talk about Errol. Errol, I'm trying to, you know, synthesise all of his documentation down to simpler language, right? You know, so polymorphic and canonical and things that just shut people down. I'm trying to level that out, translate his documentation and be the filter for him, right? Whilst not, I can't constrain Errol. Errol is a great product manager, product leader. You know, 30 years in the business as he as he likes to remind everybody. So you have to let Errol do his thing, otherwise, Errol will walk but at the same time, and I'll talk about my strategy for next week, you have to create some framework, right? So that's that. So we will get there. But I wouldn't point at Satish, genuinely my experience, and say, Hey, you're just holding things up. He's asking the right questions, but we will get the Toyota thing done.
+
+Unknown Speaker  23:04  
+My concern is not
+
+Speaker 1  23:07  
+t Well, my concern is to teach his bandwidth right like he's spread very thin. He's now the product manager of this vibe quoting thing, and needs to meet with teen hours per day, hours per day, because team won't let go. Okay? So now Satish, who has always been hyper, CPQ focused one foot out the door on catalogue and zero feet in the door for experiences, is now having another initiative on his plate and having to scale so his second tier is weak. Viva is not technical. She's programme manager on the catalogue side. Alan Alan Chu, not not your Allen. Allen Chu is very junior engineer. He's not strategic when it comes to CPQ, and then your Allen is the sentiment. I don't know Alan at all. The sentiment is he's very architecty. He's not a hands on keyboard developer, so he's not like a tailor. And the fact is that the other two people are quite Junior and need coaching by somebody who's like hands on keyboard, that's why, and Taylor couldn't do that. That's why Taylor was moved out of being a manager, because he wasn't a coach. He was a mentor. He's an awesome developer, but he's kind of just a rogue engine, so like putting Alan into the mix means you have a good architect, but the team is still struggling to have a mentor who can show them how to code. That is That is why Errol is frustrated. That is why Jimmy is frustrated and and Moo and Satish aren't really hearing the feedback of like, hey, just throw in another dev that actually knows how to code into the scrum team to help translate Alan's architecture to like what we can actually build. Okay? So that
+
+Speaker 2  25:11  
+all right. So if it's a reason, if it's a resource issue, that's fine. I think it tends to be a finger pointing exercise, but I will speak to Satish. I move the point is, is that there has to be a solid motivation for it. So I think what happens is the approach sometimes falls flat. There's a bit of friction between Satish and Errol, and so I will, I'll speak to both Satish and Errol about that Jimmy. Jimmy's a different kettle of fish, but I don't know how Jimmy got to where he is, but he's a product manager that no one wants to deal with. Well, no one wants to deal with him. I mean, we've got this we've got this news court pitch tonight at 10 o'clock UK time to, I think two o'clock your time. And the lack of collaboration and resistance to engaging is, is in, you know, I've not seen it before. The other thing is, is that in the discovery phases of experiences, is extremely combative, right? Doesn't want to share information. It's kind of, I told you, it works. Why don't you trust me? So there's definitely a personality problem there. I mean, I don't think you'll solve it. I think it's going to continue to be a friction. I wanted to ask, what, what you typically do? I mean, I know the US is different to the UK. You know, I don't want to throw the guy under a bus. I've got another meeting with him this afternoon or this evening my time. I want to try and find out a pattern that I can get to with him. But I just want to know, you know, here currently, is a significant friction to everybody who's touching experiences.
+
+Speaker 1  26:45  
+Well, yeah, I mean, probably the next step is
+
+Unknown Speaker  26:57  
+you have to make arrow document
+
+Speaker 1  27:00  
+this and my concern is that Errol is not on board yet. Errol doesn't see and that's, that's probably the biggest challenge.
+
+Speaker 2  27:11  
+Yeah, I agree with you. I agree with you. All right, let me Emily
+
+Speaker 1  27:15  
+might have feedback and Brandon the US HR partners, and it might be a quick 30 minute conversation of like, here's the situation, yeah, okay,
+
+Speaker 2  27:24  
+I got this. Let me speak. You're right. Let me speak to Errol first, then I'll follow that chain of command. But it is frustrating, because you just actually want to get on with the job.
+
+Speaker 1  27:37  
+And just to give you additional evidence, the sales team at Toyota also gave the same comments
+
+Unknown Speaker  27:49  
+that, okay, yeah, okay,
+
+Unknown Speaker  27:51  
+remember, it's not just
+
+Speaker 1  27:55  
+me, so that would be the conversation I have with Harris. Okay, hey, like, heads up, just across the board, the sales team do not want to work with with Jimmy, and have asked me to represent Jimmy. Yeah,
+
+Speaker 2  28:09  
+okay, let me, let me just see how he does this evening with News Corp. Let me get the feedback from the Australia team as well. Okay, and then I'll feed I'll speak to Jim, and I'll feedback to you. I'll let you know. I'll handle it, but I'll that's good context besides CPQ, so on catalogue, is there anything around that strategically that you in the same way that you described? CPQ, how do you frame catalogue? Yeah.
+
+Speaker 1  28:42  
+So, okay, what you have a high potential, up and coming product owner there. Her name is rolly. Rolly, sitting in Canada. Rolly will be at the leadership off site as a special invited guest. So I want you to spend some time with her. She came from Amdocs. She knows billing really well, so she's doing what you're doing. She's an Erol translator. Errol has no understanding of billing. He's a commerce guy who's faking it till he makes it. And Rolly does a really good job of balancing what Errol wants from a commerce perspective, into what a billing customer needs in terms of, in terms of what's next. There is hard bundles, which Satish stepped in and solutioned, okay, so there's like, hard bundles, and then there's dynamic bundles, and then in the middle, Satish inserted himself because he was in the middle of a black line escalation on the ability to take a hard bundle but add something to it, which is almost a Step into dynamic bundles. It's a it's a weird concession. At any rate, what they'll do is they'll put a little flag around this ad with a hard bundle flow, so that the blast radius is quite small to just to Hey here black line. Take this thing and fucking get off my back. But the designs, Manfred and Errol have done a good job of partnering well, and Satish is going to done a great job of like bridging them, and Rolly is executing so as the Big Top of Mind feature, the next real big thing, which has been on our requirements or ask AOCs for 10 years, is bundles. So that team just needs to keep their head down. They clocked a real big win now that they're GA they need to now focus on getting bundles out the door, hard bundles, and then soft bundles or dynamic bundles next as a quick follow, and then it's a and then, honestly, at that point in time, if we don't deliver anything else, if Errol's like, I'm done, I'm out of here, then I'm not concerned, because those that's the only thing that we've been playing catch up on. Everything else is now about helping our customers move to the new catalogue, because I know the PMs are not going to focus there, but we have to. That means every month I want rolly in a table talk, like hitting them hard, showing them why it matters, and then us learning along the way. Yeah, new customers turning this thing on,
+
+Unknown Speaker  31:40  
+yeah, and where do you actually?
+
+Speaker 2  31:44  
+Let me park that question. Let me come back. Do you have a succession plan for Eric, for Errol?
+
+Unknown Speaker  31:53  
+I don't. I don't.
+
+Speaker 2  31:58  
+But if, if Errol, I don't have any insight to this. If Errol did leave like, let's say he just didn't like the constraint, or he didn't like, you know, he wanted to do stuff that wasn't bundled. I mean, I know he does want to do bundles first, but let's just say there was something that happened along the way. Is there? Is there a hire out there that has his experience, or is it a keep him? I mean, I know you said you don't mind after bundles, but is there a, is there a dimension to how much you want to keep him? Because I get the sense that if you, the more you try and absorb Errol into the ecosystem, the platform he the more frustrated he gets, because he gets really frustrated with people because they don't think at the level of complexity that he thinks about, and they maybe we don't have the work ethic, and so that's where the rubber band is, right. So what's your thinking just generally on the risk of Errol and his importance generally in the org?
+
+Speaker 1  32:58  
+I would, I would probably push on rolly to step up. Yeah, it's my humble opinion. Agreed. I think the team is four or five engineers. The team is four or five engineers who are focused on the catalogue. So it's kind of a small team. Anyways, make really step up. Yeah, and is sure is the other person on Errol's team. He's kind of weak. He's as well. Errol's been micromanaging him to try and get him to drive. He owns custom objects, custom rules.
+
+Speaker 1  33:38  
+So you look, if that whole org fizzled, and we need to start from scratch. The only person I would really want to save is is rolly.
+
+Speaker 2  33:48  
+Okay, let me spend some time with her then, okay, I spent, I spent, I do need more time with you in Redwood City for some other questions, but I spent a lot of time with NAV. I like nav. He knows where the bodies are buried. And I've, I think he's a, I feel like he's a good partner, right? So I'm trying to understand how he sees the organisation and what he, you know, he's, he was in, he built BCS with, actually, the Zephyr team. Zems was built by tyre on the Zephyr team with Chiron.
+
+Unknown Speaker  34:29  
+I don't, I don't, I don't
+
+Speaker 2  34:32  
+believe there's a necessity for BCS and zems to live in the in the catalogue team. They feel like services that should have some focus. I think they're important things. But I spoke with NAV, and my pitch to him was, which is very kind of what I'm thinking generally, is that you can't it in the short term. You can't brute force a product leader with many years of experience into a different product roadmap, right? We're at, you know, we've got a week till we have to deliver PRDs. As you said, you've got a stack rank, which is Manfred. Go off and build, you know, improve the cpqx. Give it a lick of paint. Sorry, next gen CPQ give it a lick of paint. Give me a bunch of stuff that's missing, that's really constrained and focused on Errol side. It's like, give me bundles. Maybe there's a fast follow on other stuff. So you kind of, I feel like you kind of leave those guys to do what they what they need to, and then there's some finessing around all of that, right? But it's, it's a, it's, it's, you don't want to just come in and and wedge into those strategies, because it'll blow up, right? But my feeling is, is that at the intersection of Zora acquisition, Zephyr discovery, whatever we're going to call it experiences, CPQ and catalogue, there are connect, there are intersections, right? They cross over. And it's at those intersections that I think the platform story is right. You can let the capabilities be built by the product teams. You have to enable the product leaders to build what they want, right? That those have that what they're selling has to be bought by you, and they have to deliver based on their commitments in the JIRA, right? So that's that's kind of baked in, and that's the capabilities, but the intersection is where these services connect. And I, you know, at the risk of being a bit reductive, I kind of see it like it's like a burger at the top. You've got the story. So I'm doing a lot of work with Mark gagne, Paulo, Steve Boone Emmy, to try and understand underneath silver lakes, B to B complex SARS focus, and then through the filter of your 12 bets and then, and then down to what the field is. Is wanting, you know, because Emir is different to APAC, which is different to no am is, what is the tote? What is the story? And it's that thing I pitched to you is, can we be vendor for life? Can we go from 50 mil to a billion, you know? And I'm just validating that out. I'm again, I'm agnostic about at the moment, because I haven't had generally buyers, but I need to refine it underneath. It feels like the intersection of these capabilities is where the engineering architecture story is, right? So what is the platform? And it seems to be that that is the place that it breaks down, right? Because we call the what CPQ needs from catalogue. We call it a dependency, and then the dependency is exactly that, right? It's like, Oh, I've got another dependency from catalogue, from CPQ. It's not necessarily what I want to build. Or experiences has a has a thing, and then Zephyr has a dependency on experiences. And so my focus was going to be at the intersection, and I wanted to work with NAV to say, what is the platform and where are the intersections weak? And how do we create the narrative at the top? And whether we have, you know, lettuce or turkey or hamburger or whatever in the middle, which is the product, I can take out pieces and put in pieces, as long as they support the story at the top, and they're supported by the architecture. And so it's a long like pitch, but that's the kind of narrative I want to talk about next week, right? I want to wrap it up in some data, like, how many deals did we lose to stripe in 50 to 100 million? It is winning that part of the market, the feeder to more complex billing customers, you know, do we want to play in that space? And I need, you know, I need Steve boon to play the counter against Paulo and and Mark Gagne. But do you think the intersection is right? Is, is that where the platform is, or do you think that's over, finessing the story and trying to create, you know, connective tissue that just is never going to get built.
+
+Speaker 1  39:07  
+I mean, it feels right. I think, I think you need to sit with, yeah, I mean, I would just keep sitting with NAV on building out or defining what those shared componentry, those platform components are because I think that's the piece. If that doesn't resonate, then the story is not going to going to resonate. Well, does
+
+Unknown Speaker  39:34  
+do you try? I mean, this
+
+Speaker 2  39:35  
+is a very direct question, but you you know nav better than I do. I listen to NAV. I like his thinking. He shares thinking with people like Anirudh. Anirudh is much more platform orientated. I'm platform orientated. It's, it's what Pete is selling. And you know, we kind of, I agree with it. But nav as a partner, good partner or a bad partner, in your view,
+
+Speaker 1  40:02  
+good partner, bit of an arrow whisperer as well. So you would be able to pull him into the arrow, into the room to do this stuff, and that would bring trust with you. And Errol, even better, that's what I thought he's he's also highly regarded with Manfred, because he and Manfred worked really closely on the original versions of vibe quoting, so I would trust him. And also he is high regarded by Pete, so you would have that additional benefit of a nav, vetted story at the P and T off
+
+Speaker 2  40:40  
+site. All right, yeah, so that's my that's my bet.
+
+Speaker 1  40:43  
+Yeah, yeah. I think it'll land just just being but spend some time on what that shared component tree is. Yeah, that's and
+
+Speaker 2  40:51  
+we've started to draw that out, but I wanted to just validate that with you before I continue on it. And then the other thing is that
+
+Unknown Speaker  41:00  
+Ken is a great partner, right?
+
+Speaker 2  41:03  
+He's a great partner, and I think he's buying the broader story. One last question in the last two minutes, Silver Lake says be to be SARS, that's a no am lens, right? Why does, why does even you know, why does it why? Why do we have an Emir bit? I mean, I know we need the revenue, but there's an Emir business that has only 20% of its business, which is B to B complex. SaaS Mark ganye Probably has 10% of his business which is B to B complex. SaaS, so how are those three typically negotiated together? And what does that mean for the product? You might not get that in in one minute, but
+
+Speaker 1  41:45  
+yeah, yeah. I mean, the quick answer is that they don't. They get the scraps. They get the leftover. NOAM runs the show. Now, what that has helped with Australia is that means that they have done really well at accounts like Canva, again, that be to any when it's that B to any story stitch, Canva, or in the US last pass Asana, that's when we're clearly the winner. There's nobody else that does CPQ, Omni channel, blah, blah, blah, but yeah, there is no negotiation for those teams. Okay, yeah. So they're also run very differently than us. We are hyper partner focused. Deloitte, PwC, those teams don't have a partner strong environment. They don't have the same competitors. Might hurt from mark on you the billing platform packed up and left. Yeah, so stripes, the only show in town, charge B is still there, though. So yeah, I don't Okay, yeah, yeah, I would say that
+
+Unknown Speaker  42:52  
+go with the Silver Lake, Bee Gees, battlegrounds. I mean, that's the safe bet. Yeah.
+
+Speaker 2  42:58  
+Okay, cool. All right, brilliant. Thank you. Shakir, all right,
+
+Speaker 1  43:02  
+buddy, it's gonna be quiet Wednesday, Thursday, Friday here in the US, because Thanksgiving and all that stuff. So hopefully you get some breathing time.
+
+Speaker 2  43:10  
+Cool. Have a good thanks. Everybody. Take you Cheers. Bye. You. You.
+
+Transcribed by https://otter.ai

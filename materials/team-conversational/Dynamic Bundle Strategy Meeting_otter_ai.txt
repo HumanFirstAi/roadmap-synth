@@ -1,0 +1,703 @@
+Speaker 1  0:00  
+Three, right? If I wanted to go, this is catalogue, right? If I, for whatever reason, wanted to go and have you know these things as something else you're not allowed to do that, you would physically have to go and create a new call it Plan C, and I'm creating c4, dash c, you know, three, dash one, right? And it's brand new now. Christina said, when, and this is in catalogue, right? When you go and do a subscribe to an order, there is nothing that says we couldn't go and have is There's nothing. There's no, what I call hard restriction that says, when I go and subscribe to something, I can take this and this, c4, c3, and directly put them here. The relationship becomes a little bit weird, because
+
+Speaker 2  1:00  
+means this doesn't exist, right? This is, this
+
+Speaker 1  1:03  
+is, this is completely gone, yeah, now there is a rate plan, something that basically says, Hey, I'm kind of special. And this special thing says, Well, I can take anything from the Zora catalogue. Now my thought here, is that, okay? Well, with a rules engine, right? Something here that says, Okay, I know what attributes that come in. Yeah, this thing can go and say, Great, I know everything within the catalogue. And I can create this. Call it a it's like, it's a virtual item. It's something that's dynamic at runtime, that's created, but then
+
+Speaker 2  1:40  
+based on a set of based on the set rules, right? Correct. What?
+
+Speaker 3  1:44  
+But, but this is, this is how long based on, yeah, maybe you do not based on the rules. You can just based on the futures.
+
+Speaker 2  1:53  
+This is a configurable product, right? Yes, that's why we call so, yeah, but, but that's the same concept as I know, Errol calls it hard bundles, but hard bundles is a pre configured product. Hard bundles is, is pre
+
+Speaker 1  2:07  
+complaints, yeah, and it's a brand, it's brand new items in the tape, which is what you described here, correct, yeah. And that has problems where.
+
+Speaker 2  2:15  
+So the concept is you've got configurable and pre configured, right? Yeah, okay, this is configurable, yeah, and that it's the same in CPQ, configurable bundles, pre configured, configurable, quite just like so it's pretty this is, this is dynamic, and the other thing is static. One is, pre is configurable. It just just happens to be configurable in the runtime. It's config. It's a runtime, yeah, instead of, instead of someone configuring it in a CPQ system, yeah, well, not under CPQ. It could be configurable as well, right? You can have dynamic, dynamic.
+
+Speaker 1  2:50  
+You're saying that blue box that's there, right? Which is essentially your rule system. Is what we
+
+Speaker 2  2:56  
+want to break out for CPQ and for catalogue. Yeah, that's the I think the thing is, what you're missing is the virtual catalogue. We have to bring you in on the con that what I was pitching on Tuesday, which is, this is what I call the intersection. It says it's a serve. It's a component that runs, well, I
+
+Speaker 1  3:13  
+don't even think it would be a separate service, because the runtime has to be pretty performant. It's what I would it's some type of rule framework that can understand the layout of the catalogue, so it knows about the charges, and it can run, you know, it has to be able to go in run within five less than 500 milliseconds. So if it was another service, then that becomes problematic, because then it's, it's going to be a slowdown in the system.
+
+Speaker 2  3:40  
+I agree. I think the concept is that the same rules engine should live for CPQ is the same thing, yeah, that's the intersection I'm talking about. Is that you build it once correct, and it understands
+
+Speaker 1  3:51  
+well, what feeds into that blue box, right? There is a set of attributes. Maybe it says, Okay, I coming from
+
+Speaker 3  3:57  
+one question for these things, is that if you, if you see things right, you select only the select, or only the filter. You know, my mean, if only the filter, filter, filter, yeah, if we only filter, only filter and combine meet some conditions or filters, filter odd, resort to this new stuff, configurable things. These do not need
+
+Speaker 1  4:33  
+room, yes, so it could be filters, but we're, we're,
+
+Speaker 3  4:37  
+yeah, we just use, elect search, search
+
+Unknown Speaker  4:41  
+for what's the limitation? Well, so, but
+
+Speaker 3  4:43  
+here's what these things is, that they do not do actions.
+
+Speaker 1  4:47  
+So let's, let's call so filtering basically just says, I'm going to compose it. But what I think that blue box really needs to be, it needs to be both a filtering thing that says, based off these conditions, please pull these things together, but also apply maybe validation, or do something that says, hey, like that blue box, right? Starts expanding that then says, Well, maybe it pulls in extra discounts that need to be applied if you're feels like that's a limiting factor at some point, if you do filters exactly
+
+Unknown Speaker  5:19  
+only that is a limiting factor. Yeah.
+
+Speaker 3  5:22  
+Filter another thing, yeah, subset.
+
+Unknown Speaker  5:25  
+This is an action. This is a subset within, yeah.
+
+Speaker 3  5:29  
+Filter means that you have the big data here and already there, and you get some logic here.
+
+Speaker 2  5:37  
+Let's just a way to it's a partition of a database, right? Isn't it? You just looking up,
+
+Speaker 3  5:42  
+yeah, look up things, and the filters, you can define different layers or the few. So there's a
+
+Speaker 2  5:48  
+simpler concept, which is, I just want to filter. But what you're saying, there's a second part to this, which is, I then want to create some kind of compliance or validation, or whatever. I want
+
+Speaker 1  6:00  
+to filter the charges. I want to say that the quantities all have to be the same. So that charge object right in that rule system, I could see where, okay, please combine these charges. Also make sure that the quantities are going to be equal across them, X, Y and Z. There. There becomes these other things on top of it. Now, if you're the problem, you can't your filtering system and your rules need to be together. Otherwise, if you're jumping from one to another, yeah, you would get, you would
+
+Speaker 2  6:29  
+get, this is what? This is a complete blue box. It has all of those.
+
+Speaker 1  6:33  
+It has to be able to do filtering validation. Yeah. Well, that's, that's a
+
+Speaker 3  6:36  
+proper your validation is something, okay. I mean that the filter is just C suite, right from a big one to small one. Rules is input small and wrong, some determined or decisions, logic and got some actions different,
+
+Speaker 1  6:55  
+but rules could have access to there's no reason that says the rule, yeah, right, because the data here, right, being catalogue, right? It is charges, right? It's a small size of data. There's nothing that says that from the catalogue, this data can't be present in this layer to assemble.
+
+Speaker 3  7:17  
+Yeah, I know, but I mean that if there was a data depend on the data asset size or volume. Correct is a big
+
+Unknown Speaker  7:28  
+ingested so many data to these rules.
+
+Speaker 1  7:30  
+100 agree. But the what I would say is that the catalogue is small data relatively it's, you know, customers times products. It's not customers times, products, times, subscription?
+
+Speaker 3  7:43  
+No, I don't think so, because we so. Why we use the elect search to handle these things? Because they have some structure. Some of them structure. Why we currently see data store, our database and inside my circle, with some ER model and very complex structures and and if you want to get that data to this guy, it's very it's not easy, or I cannot think this can handle very quickly for that in soras catalogue, uniform one tenants
+
+Speaker 1  8:24  
+for Well, no, you would.
+
+Speaker 3  8:27  
+Maybe we can leverage that. Okay, we leverage these things to filter some things, or to a small one and a small one. Then we split these rules, but common rules we can relate
+
+Speaker 1  8:42  
+to filters you're treating Well, when I say charges, I'm only talking about catalogue charges. I'm not talking about charges related to subscriptions.
+
+Speaker 3  8:54  
+I understand you mean so for that the product, the plane, not subscription to the plane. I know that correct.
+
+Speaker 1  9:01  
+So you said, Okay, if you had to stick this in memory, right? Okay, well, that would be, let's call it just charges or product charges times tenants, right? This number is not something that goes like this. It is not, you know, charges times tenants,
+
+Speaker 3  9:20  
+yeah, for your case, maybe it's just a small case for you kids. I mean that, therefore, for many scenarios, we need to get our source for some subscriptions information, because you have to know what is the subscription term and how they use some things.
+
+Speaker 2  9:41  
+Are we talking about? At least you have two different concepts.
+
+Speaker 1  9:44  
+So there's two different concepts. So you got the scale there, which is called charges times tenants, right? There's this other one that says charges times tenants, times subscribers, right? Yeah. This is a much bigger number, yeah. Now I think there's a difference here of how we partition this your rules system, right? If I'm coming in that says I'm not, if you don't have the concept or your context doesn't include customers, right? Having this in memory is only this, and it's very fast, right? Now, let's say Tony says, hey, I want to get a custom quote for Tony, right? Well, now this thing needs to go and fetch for Tony's specific thing. I think it's fine for this thing to have to say fetch if it's Tony, because Tony can be slow, right? But if it's a rule system that's governing in you know, not the individual you know, you you get what I'm saying, like they're this, this thing, if it stores memory of here and selective addition, right, sure Tony has to pay a penalty when he gets his custom quote. But that doesn't affect everyone else.
+
+Speaker 3  10:58  
+I mean, I mean that. I mean why you copy these things to system memory, understand the facts are related things. My points here when we define some conditions, right? Conditions, there are many kinds of the conditions, yeah. One popular one is just the filters, yep. If they have some futures, why we need to copy the data to here. Why not? We just Okay, put this filters logic to here, let this guy to filters based on this stuff, and get this more data. And then we maybe we can handle this directly, because rules is just computation, right? Computation is his advantage or his characters.
+
+Speaker 1  11:49  
+I would say it the only thing. It would just depend on. It would depend on, depending
+
+Speaker 3  11:53  
+on how much data we want to handle Correct. Yeah. So my point here is that we can split this scenario and characters, different kind of conditions and actions to different things, and we can merge together with Thor US data structure as a basic thing, and merge together as our solution.
+
+Speaker 2  12:16  
+So yeah, what I'm understanding here, just zooming out a little bit, is these are also that this type of discussion is also related to what you said before, which is whether or not our existing Z rules, it can't so existing
+
+Unknown Speaker  12:35  
+rules can't even do is just a look up, sir. Yeah.
+
+Speaker 2  12:37  
+Okay, well then so what I kind of what I feel is that
+
+Speaker 1  12:41  
+what we're talking about here, current rules cannot support, and even if it did, the problem is that yeah, the dynamic, yeah,
+
+Speaker 2  12:51  
+where in the mark, if we built this rules engine, which seems to be a solid business use case for what We want to do with commerce Foundation. And I do need to walk you. I was going to do it now, but we're not gonna be able to do it now. I wanted to walk you through commerce foundation, but I will set up another meeting for to pitch to I mean, I can share, I can show you the pitch, actually, that was recorded. I just want you to see it, because I want you to look at it and go, you saw it, right? The Commerce foundation. Story, Tony, yeah. So I want you to go, Yeah, I agree with that, or I don't agree with some of that, or that. Let me pick it apart. Well, it's general direction is right, so we have to be aligned on it. But so what we have to what we're effectively doing, is making a business case for why we would invest the dollar in a rule, in a new rules engine. And it seems to be absolutely evident to me that there's a very solid business case for it.
+
+Speaker 3  13:44  
+Can I either one comments, yeah, why we coordinate?
+
+Speaker 2  13:48  
+Don't know, because that's what, that's what tell me using, tell me what, what it is, what it
+
+Unknown Speaker  13:53  
+is, it is a lookup.
+
+Unknown Speaker  13:54  
+No wait, no, what is? What is this system, decision making, or decision supports the term.
+
+Speaker 1  14:02  
+I call it a it's a pack. It's a packaging.
+
+Unknown Speaker  14:06  
+And let, well,
+
+Unknown Speaker  14:11  
+let's give it a name. Just names matter in this company.
+
+Speaker 1  14:13  
+When you call it a dynamic bundle, I call it really it's a dynamic plan. It is, but I
+
+Speaker 2  14:19  
+don't think it can be at the plan level. I think we have to abstract the name out to like a subscription engine, or a plan engine, or something engine, or AI or an agent ready, orchestrator, or whatever we want to give it. It just has to have a really nice name. Yeah, right, so we can find the name. But let's, let's, let's do that quickly. Otherwise rules engine will get in everyone's head and you'll never be able to change that so, but, but, so how would you let's just think about what the pattern is here, because I want also nav in the room on this right? So would, what would you do? Would you get in a room, get into a level of detail that I don't understand, or it's not relevant for me to know, and I see where you're going with all of this. I understand the concepts, but there's probably another layer beneath this, which is an engineering validation, an architectural validation, where you go, okay, really, what are we going to do in this thing? You give it a name, you write a one page business case that says Y, Z, rules. Or, you know, the lookup service is nowhere close to doing this. This then becomes what we call this intersection item, which is a engine, or whatever we give it, whatever name we give it, that it's foundational to delivery of commerce, right, of true omni channel commerce that then becomes a focal point for the business, and that's what we have to do, right? And then when I go to Shakir and I say, we're not built, we're not going to use zeros, I have enough. I have a one pager, which I can internalise, and I can make the business case to him to move to Satish and to Pete and unblock us from doing this, because this seems like this is where the value lies in commerce. Foundation is a thing that tell me something, does this get us to parity with the market, or does this get us to better than the market like? Is this market table stakes? Or is this market leading this approach?
+
+Speaker 3  16:08  
+Since approach, I think there are several companies are using some things as I know right for I know he has some mitigation for the competitors. They are using the similar underlying, using the similar stuff.
+
+Speaker 2  16:25  
+So it's table stakes with our main competitors.
+
+Unknown Speaker  16:28  
+I call it more table set. Well, it is.
+
+Speaker 1  16:34  
+You could say it's table stakes. The one thing is that, okay, well, if you do this, this is them still where, like, for example, this thing it still might use, let's call it XOR rules underneath for any of the dynamic pricing related items,
+
+Speaker 2  16:50  
+yeah, which means it has, it might have, yeah, it has broader value than just the correct one use case you
+
+Speaker 2  17:03  
+I hate to use the word agentic, but I always find this useful. Like how you think, I'm not sure you actually used it, but it caught my mind. It's an orchestration agent. I think you said orchestration engine, but I heard agent just because that's where my head's always at. So how would what
+
+Unknown Speaker  17:23  
+is the engine and the service?
+
+Speaker 2  17:25  
+Yeah, okay. I just, I just think, what we have, one of the first one of the principles is, if we build it, do we build it with today's lens or tomorrow's lens? That's the only other colour, I would say, is we go, okay, well, that's what we want to build today. Is there a better way to build it for a year from now? Does this become legacy, or does it? Does it become extensible? That's the only other lens that I would add to but
+
+Speaker 1  17:52  
+me and Aaron will target. They're still deterministic, right? So it's not like, Okay, well, with today, you're getting a lot of, let's call it stuff that's using, you know, vector stores to find nearest neighbours and things like that. But it is not absolutely deterministic. When you say, I am having something that is being used to build, something that is build or something, sorry, when you're having something that's being used to drive how you're building out something that you're going to be built for, or that represents this billing item. It has to be very, very deterministic, so that assembly right is, regardless of what AI even has today, the data store from an AI is not going to go and change how that assembles together, correct?
+
+Speaker 2  18:43  
+Yeah. Like, that's a fair point. So, yeah, that's
+
+Speaker 1  18:47  
+you might have AI that says, okay, like, where I could see maybe this is going is like, okay for these plans, or these, these, you've now got what are and now calls these kind of, like, billable items, or with the entitlements and your search may say, Okay, well, go through, you know, more of an AI search vector store to get to these items that you then run rules on today, calculated
+
+Speaker 2  19:14  
+out, well, the only thing that's missing from here is the behavioural data is upstream data, right? So this lens begins from the catalogue in woods, for example.
+
+Speaker 1  19:25  
+Well, you would say that it would come through, like, in this case, like your API endpoint that would say, Okay, I either know about, you know, Jonathan's subscriptions, or I know about the metadata that comes from, you know, how you're browsing on the page, something that represents you that somehow influences how this thing is produced?
+
+Speaker 2  19:43  
+Yeah, we built a graph on top of the Zephyr data, which for the FT, which has the behavioural data, and it has the transactional data, so I can visualise. And the question I was asked with a graph is, if I can do, if it's not complex multi hop, then why use a graph, right? So we we managed to build the build this graph that had the behavioural data all the way through to the account, the subscription, number of invoices generated, and also the CRM the reason for cancellation, or, I think, was expired or cancellation. I can't remember when we found CRM equals price was the reason for the cancellation. So it was a really good way of visualising behavioural data and transactional data, which is typically something that Zora doesn't have. So the only thing that I'm interested in, one of the things I'm interested in is, is if we own, so we look thinking about, how do we use mediation to capture behavioural signals, right? You know, distance travelled for connected
+
+Speaker 3  20:44  
+services, you want to do them like ETR job from the different source of data with some mediation. And I wouldn't be some ETR tools to well, it could be, yeah,
+
+Speaker 2  20:57  
+it would be ETL, but be very high frequency. So it'd be like, super, like, yeah, very, very, not, not, you know, it's kind of Kafka s not Kafka Kinesis, like, just kind of streaming data. So, yeah, ETL for so they could do batch ETL for some but you need something a bit more performance. But anyway, that's that, that my point is, is that this to me, as long as the as long as the inputs into this are both inward looking, which is the Billing products, right, the catalogue? Well, not billing product, because the catalogue and everything that begins from there, but it's also outward, like, how would we if we're collecting this data? How would behavioural data get into this? What would he come in as?
+
+Speaker 3  21:42  
+I think, I think it's three ways. What was that three? Three approach, right through. Approach for some things is that, if there was these, I call these things like rules or filter together, work together, maybe it is the court decision or logic, even this logic is do not change very frequently, and they can just working like pipelines. All the data's data may be changed very much, but logic do not change much. In this case, we can use leverage, leverage or push mode, like car or something message queue or something to send to our CC term, to apply each of the data and to do the it also.
+
+Speaker 2  22:34  
+It also depends on the use case, right? So, yeah, depends on, depends like up here, if you were doing B to C, just this plan that was drawn here would might change, yeah, based on the use at the user level, yeah, let's say they had three subscriptions before they have had trial before, something like that. Yeah.
+
+Speaker 3  22:56  
+Okay, so what's the second? Approach is okay. I mean that there was one approach is context builder. Do you think this distance is good? This is why it's good, because, based on users the input, maybe the input is on demand.
+
+Unknown Speaker  23:18  
+That's really from BCS, right?
+
+Speaker 3  23:20  
+Yeah, is yes? Is Yes? This guy responsible, assemble, assemble the catalogue that feels better, user stuff and contribute all the food is as a context. And this contest two, yeah,
+
+Speaker 2  23:37  
+that's what we drew. And then the orchestrate, yeah, yeah. So, yeah, it's that back to that, that stack of context, orchestration actions, and then you can also have recipes at the end, yeah, yeah. Okay. So, you know I need, I need a reason. Well, I can already see the reason. First of all, we have to kill the concept that Z rules is a use case. It's a lookup service. But we have to do that. If I say it's a lookup service, I need a I need some bullet points.
+
+Speaker 1  24:13  
+It's a lookup for price. It's a lookup for prices. It is not something to assemble or run rules on okay?
+
+Speaker 2  24:25  
+So everything, that's the starting point. We gave an example of a use case right? Previously, like, why Z rules is limiting. So we say that thing, and then we say, Okay, well, here's here's an example. There's another example. Let me give you a practical use case of what this can't do, which you gave earlier. Then we have this, this concept of what rules should be, or the orchestration engine, or whatever it's going to be, and how it interacts with context.
+
+Unknown Speaker  24:56  
+The bit that I guess is missing
+
+Speaker 2  25:00  
+is how much surface area does this solve for? Right? You've got this engine. It solves for some business use cases today, but it must have some other utility. It feels like I would
+
+Speaker 1  25:12  
+think this rules would eventually even go and do things like suggest, here are upgrade paths, or here are downgrade paths. So that context that comes in, there's nothing that says, if that rules framework is able to understand, okay, it's Tony, and he's got plan A and plan B. Out of that, that rule system can say, Okay, well, let me run rules that create options for upgrade pass or downgrade pass. Or, here are extra promotions, which represents a plan that might be a discount. Or, you know,
+
+Speaker 2  25:51  
+that's, that's AI, I mean, that's kind of, that's like what sub X was doing. That's what was churn agent is building now, right? Is that, to me, feels like you can have, like, how would you get to the end of that path? Something's got to orchestrate that. So there's some intelligence that's got to orchestrate well.
+
+Speaker 1  26:12  
+So to get to that path, like, for example, there in the catalogue, I had the team create what's called a purchased options endpoint. So it's not plan specific, it is not product. It's not charge. It is something that says what you can purchase. And from that, I would imagine extra data comes in, right, which changes how that API operates. So you can pass in your subscription you could be passing in the context that came from the page, IP address, or whatever.
+
+Speaker 2  26:42  
+You could also just get a decision from an AI. I mean, you could just say, Listen, the AI, it's what sub X does. We take all of that information and we generate the path. That's the thing you're going to get, because it has based on the outcome that the business wants, which is maybe maximum amount of revenue or maximum margin, or whatever it is. That's the pathway, given the customer, given the available purchasing options, that's the thing that you put you should be presenting, right? Yeah, well,
+
+Speaker 1  27:10  
+just becomes something that in that API. Another
+
+Speaker 3  27:16  
+thing is confusing is that we just now we we talking about the rules, another ranges or something, another C term named constraints.
+
+Speaker 2  27:28  
+What's that? Constraints? What is that?
+
+Unknown Speaker  27:38  
+Our constraints? Okay, yeah,
+
+Speaker 3  27:39  
+constraints, yeah, you have many options, right? Option one, option two, options three. For example, you buy the computer you have, you buy the motherboard. It's like
+
+Speaker 2  27:54  
+CPQ constraints, right, correct, right. But is it the same? Is the compliance in CPQ the same as these constraints?
+
+Speaker 3  28:01  
+Yeah, it is actually, actually, if you give some budget, right? This budget, you have each options, yeah, and each options, he has some money, cost, yeah, you can give, what is the solution within this budget,
+
+Speaker 2  28:18  
+yeah, but that's that so, So are you saying another thing? So then it's a rules and constraints engine, right? So the rule there have to be it that's
+
+Speaker 3  28:28  
+different. Rules is another constraint.
+
+Speaker 2  28:32  
+So the constraints come off before the rules, right? How do you compose? How do you can? Where does constraints come before after?
+
+Unknown Speaker  28:40  
+This my country should be
+
+Speaker 2  28:44  
+for it, okay, but here's the set you can work with. And then, given the set, let me execute a rule.
+
+Unknown Speaker  28:53  
+Give me size
+
+Speaker 2  28:54  
+like so the constraint comes first. The constraint is the primary filter, right? It's the thing that boundaries what it is you can run through all of this is that correct
+
+Speaker 3  29:04  
+or not? No no constraints. Do not lack, like conditions, no right. Your conscience means that you give his a goal. You give him a goal, he finds
+
+Speaker 2  29:18  
+a solution. I see, okay. Now I understand. I understand
+
+Speaker 3  29:21  
+I understand this is execution, yeah, this is, you give it a go. He finds a pass.
+
+Speaker 2  29:27  
+Yeah? You wouldn't want that to be manual. Well, yeah, there's two different concepts. Constraints are
+
+Unknown Speaker  29:36  
+like in the sub x system is
+
+Speaker 2  29:41  
+setting LTV isn't a lifetime value as an objective, but giving ad revenue as a secondary objective, that's a that's a min max for me, exactly.
+
+Speaker 3  29:51  
+Okay, I got you exactly the different thing, yeah, currently, some people are confused things as well. I got you.
+
+Unknown Speaker  29:58  
+Okay, yeah. Okay. Do um, what would you do? Like, how would you approach this like?
+
+Speaker 2  30:07  
+So, so let me tell you about the reason for the question is, I need to get the business lined up with the concepts, and then I need to deliver the concepts right. That's what I want to do. I don't want any I don't want any opacity. I don't want any kind of wiggling around. We've made the decision. This is the decision we're going in, and that's what we're going to build right then we judged on our engineering velocity. We either deliver it or we don't deliver it. But what I'm trying to do is get to a baseline now where we so we know exactly what we're delivering. That was the presentation that I did on Tuesday. So how would you? How would you approach this? Is this you Tony and nav in a room, direction of travel, build it out, and then, yeah, we resource it. Yeah. Are you? Are you on experiences or catalogue both? All right. Good, right. So your IC now, right? Yeah. Great
+
+Speaker 3  31:02  
+guns, yeah. To do this in CIS approach. One is that I trying to figure out, is architecture stuff, at least, maybe in this architecture we can compile other concept or confusion stuff, yeah, so that our body can understand what you are building. Yeah, second thing that I am working on, quick POC about these things, and so that we can align, at least align from the concept, align from CPM to euros and nav roles. And do you,
+
+Speaker 2  31:44  
+do you think? All right, then it feels to me like once you've valid it, so you've you've all validated this, you've created some kind of, you know, like POC or something that then gets wrapped up into a simple document that the rest of the business can understand. Yeah, and we make a statement that that's the direction of travel. So I've defined this as the intersection, right? Because what my pitch to the business was, if you don't own the intersection, the services that run commerce Foundation, they get duplicated or lost in individual road maps, right? So, for example, there's a bit in CPQ. There's there's a similar, but slightly different concept in in catalogue. And so what I wanted to do is just extract these out, not the engineering teams, not create a new team. Well, the
+
+Speaker 1  32:40  
+concepts need to be extracted out and put into the central layer that runs everything. In this case, is the API layer, right?
+
+Unknown Speaker  32:48  
+So that I call it the intersection layer, but it's basically
+
+Speaker 1  32:52  
+an API layer just exactly whoever's serving it up. So in this case, it's the catalogue service is technically serving up the data of what you can purchase. And so that's kind of the area which should be doing. Let's call it the rules combinations, x, y, z, CQ is then either reading from that. But the more that, least that you centralise that around the domain of who's got it, it at least, you know, you can apply it to different areas, like, so okay, like, is it, you know, if it can satisfy CPQ, well, then why can't it go and do other things like, okay, know how to recommend promotions that can show up underneath of an end customer, you know, Portal, right? So, 100%
+
+Speaker 2  33:37  
+and part of it in the conversation we had the one of the conversations with you yesterday, but I also had a meeting with Errol nav and
+
+Unknown Speaker  33:46  
+and Manfred.
+
+Speaker 3  33:48  
+What's now's points? What's the name now, now? Now, looking this a long time.
+
+Unknown Speaker  33:56  
+What's What's his? Yeah, he has been working. Yeah,
+
+Speaker 3  33:58  
+what was the navs points? One of these things. Yeah, I want to know what
+
+Speaker 2  34:04  
+I what I pitched is a synthesis of nav and Errol and Manfred, so that we're completely lined up, completely lined up. And, you know, you could argue that this is just a translation. I'm just a translator. So I came to NAV and I said, Hey, listen, it seems really dumb that we've got this omni channel vision, but we can't work out how to get it done. So my pitch to you is I want this thing called the intersection layer, and I want to put rules engine BCS, not different teams. I just want to call it out, and I want to make the intersection a road map. It is a it's a foundational thing. And he said to me, I've been trying to do this for three years, right? And then I went to Errol, and Errol said, That's what initially, this is what I wrote up. And then I went back and read Errol's documentation after I'd run it through an LLM, because it's a bit complicated for me, right? And it and it was the same thing. So the beauty of this is it's just the same thing. It just has a Polish story to it. My job is to get it over the line, right? What I said in the pitch is, there's the story at the top right. That's easy to colour. I can do that all day long, right? The most input, there's the middle bit, which is the product catalogue, CPQ, etc. The most important bit is the bottom of the bun, the burger bun, right? So I think of it like a burger story at the top, lettuce, tomato, hamburger in the middle. And the bottom bit is the architectural bit. This is what we're talking about now, right? Agreement that we bring we build these services with a unified view of what they do, that we consume in a collective way. We make decisions across CPQ, commerce experiences in a collective way. That intersection is the thing we're building for, right? And the and the very interesting thing happened yesterday, right? So the other side to this is you cannot disrupt core roadmap. I can't go to Errol and say, Hey, I'm giving you a new dependency. I can't go to Manfred and say, Hey, I'm going to give you something new to do. What you have to do is you have to let the individuals recalibrate their own roadmaps very subtly. So we build for the intersection. Then Manfred and Errol have got to internalise that and go, okay, because if you think about Errol's brain or manfred's brain, there's a kind of a vector space there that I can't, I can't get involved in that, right? I don't want to be inside Errol's frontal cortex. He has to, he has to stack rank and subtly move stuff around and reorientate his own roadmap. Now he'll either do that well or not well. My bet is he'll do that well, Manfred will do that. Well, Jimmy will do that. Well on experiences, but we have to have a point of view at the intersection. And one of the benefits of you now coming into the team and you Taylor and nav, is that you have a holistic view of the intersection, right? You can guide the narrative across Errol. And man, you know, Errol is very forceful. He has a view, but also he buys into this, right? So it's just about, that's the that's what I'm trying to get.
+
+Speaker 3  37:13  
+My video is paying this, yeah, he loves this. Yeah. This is all over. Sure to be okay, yeah, no problem with it. Pop out of Peter's point. Who? Peter? Pete, who? Pete Pete Hirsch, Pete Hirsch, yeah, Peter. What about Pete? See, he
+
+Unknown Speaker  37:32  
+has some view about this, vision, about this.
+
+Speaker 2  37:39  
+You have off site, right? Yeah, but I pitched it. He loved it, but that's the story, right? Shakir likes it. I'm not doing so listen, I said this, if I'm gonna do this, this is my view of the story. They like that view, but we now have to deliver it, so now let's just deliver it, yeah, but Taylor, you bought into this, right? You bought into this? Yeah, yeah.
+
+Speaker 1  38:05  
+Well, you're removing certain of the, I would call it, maybe limitations, that are that the previous catalogue had. And if you don't have those, not limitations. But if you remove some of those assumptions, then you can make something that's more kind of flexible and dynamic.
+
+Speaker 2  38:25  
+That's the story. I love it, okay?
+
+Speaker 1  38:29  
+And then it shouldn't, you know, not take forever to build great.
+
+Speaker 2  38:35  
+Okay, that's cool, man. Well, that's kind of what I wanted to talk to you about, but we did it in a slightly different way. I like that, thanks Tony. More general, yeah, more general ways. Brilliant. I got to go to see nav, but let me just tell you, Oh no, I don't have to. It's fine. So does that? Does this kind of vibe with what you what gets you up in the morning like is doing this gonna move the needle for you?
+
+Speaker 1  39:09  
+The bigger thing would be, I think the biggest thing around moving the needle is more around the experiences side, yeah, yeah, simply because the cost for, like, the cost drivers that kind of consulting has is always about, okay, what APIs do you have to integrate with? Yeah, if you can wrap things into an experience, a customer is then given a choice, agreed, they could say, I can either take the experience, and that might have say 10, or, let's call it six API's that are bundled into that you can get that working within. Let's call it a day, yeah. Or I've got the other option that says, Okay, I've got a month worth of dev time. Yeah, I agree with you. And if you've got that choice, okay, well, I'm betting most customers are gonna say, just give me this. Drop it in 100% and that will then reduce 100%
+
+Speaker 2  40:02  
+I think experiences will be huge next year, yeah, and also experiences maybe multi channel next year like but I think my bet is we can make them omni channel very, very quickly.
+
+Speaker 1  40:13  
+Well, the longest built in the correct way, how you deliver that experience can go to, really, any of those different channels, but
+
+Speaker 2  40:20  
+it needs context for it to be omni channel, for the handoff to happen Correct.
+
+Speaker 1  40:24  
+Well, it needs to, it needs to be a little the experience needs to be able to absorb what's on the page or what is being passed into instantiation.
+
+Speaker 2  40:34  
+Yeah, so it's either at the session, but I also think there's a wider lens, which is you can persist beyond the session.
+
+Speaker 1  40:40  
+Well, Jimmy had an interesting kind of POC that he was doing around this, which was using, what's what does Uber use, adding a temporal session that basically kind of kept track of the user state through time. Now that
+
+Speaker 2  40:59  
+use you could, yeah, for an LLM to be something like mem zero, but you can persist the session. Sub X was doing it. We persisted audiences for a year.
+
+Speaker 1  41:10  
+And we currently don't really have us. We don't have a way of persisting that. But I would assume that once you get the experience to start that will just become a natural evolution that says, Okay, well, the next thing says, Okay, well, let's absorb more data that comes off of that, but at least then, until you own the experience and what is injected, basically onto the browser, we've never been in a place as a company to be able To absorb that data. Yeah.
+
+Speaker 2  41:41  
+And also, well, there's two use cases. This gives us a broader it gives us a way to persist with a longer lens or a longer time frame. But also, that's the substrate to the decisioning. Yes, right? So that's where the AI comes in. So when we think about decisioning, this session as a no utility decision. The session is a point in time delivery mechanism. It has some some useful context to it, like country, for example, but it doesn't it's the longer view of the customer that matters,
+
+Speaker 1  42:14  
+correct, and that view has not well. We've never really been able to capitalise on that, because that would always rely on the customer being able to feed that data to us.
+
+Speaker 2  42:29  
+Yeah. We want to build those that API layer, yeah, and maybe it's me, maybe we leverage mediation to do that.
+
+Speaker 1  42:35  
+I think it would be enough, once you get the experience there, and that's absorbing. If that's already if that widget right is already on the browser, yeah, you can you get this at that point, you can go and say, Well, hey, let me silently go and add this other thing that goes and pipes it into temporal. And we could say, Well, okay, great. Even though that experience is driving it. There could be the temporal back end that actually understands, well, hey, wait a second, let's go. And you know, you haven't actually responded back then maybe that's emitting back to the experience to say, Well, hey, go and show a discount.
+
+Speaker 2  43:12  
+Or, yeah, it's exactly the way sub X works. We actually deployed APIs in the back end, but you can do it to client side. You could do it. So you can do API.
+
+Speaker 1  43:21  
+Well, it's just, you got to, you got to, you have to be running client side to even attempt to start trying to do that.
+
+Speaker 2  43:27  
+Well, I mean, it's what I meant was you can either JavaScript or you can do you can, well, it's the same thing. Is still an API. So, yeah, client so
+
+Speaker 1  43:38  
+you have to be operating on the client side to start attempting to do that. So between that the catalogue actually being able to do, we finally got the catalogue actually out of the billing system. And that was, I would say something, people always underestimate the we've
+
+Speaker 2  43:57  
+got to make more noise about it. Though I don't know many, I don't know much of the rest of the org that that really understands how powerful that catalogue is. Customers do when I speak to customers. They get it because they know what the limiting factors are. Anyway. That's a separate conversation. So I agree with you on experiences. I think the problem with experiences is the velocity at the moment. Yeah, it's just too slow, yeah. So I'm going to try and escalate that I spoke to Errol today. I think as a skew, experiences could be one of the biggest revenue generators for the company next year.
+
+Speaker 1  44:40  
+Well, I would actually, you, I would actually be trying to give it out for free, right? Well, you free, not free, but you're, you're looking at it because, for example, if it's a lowering sow costs, right? Well, that's only going to go promote more deals to be sold. So you don't necessarily
+
+Speaker 2  44:57  
+like, well, listen, as long as somebody puts $1 value to it. I don't care. I'm not a big fan of lowering. So, W, let, let, let the GS, AI motion lower. So. W, well, we'll, yeah, I've got views on that as well, but, but, but actually, that's a very good point. I wish I had more time with you. Very good point. Is one thing I could go all over the place on this, but the other thing that bothered that I can never get a straight answer to is I like arvin's got one view. Annie Wood's got another view. Pete, Pete and Satish and Shakir have got another view. But I spoke to a partner the other day in the UK, and I said, What would it take if I wanted to do PL like sales, self serve? So we build commerce foundation. You can have a self serve experience as you grow, you get sales assisted. As you get really big, you get complex, you know, you do sales led and so that what we're building in commerce foundation is this omni channel that allows you to move up and down the slider, right? So you can do any kind of sales motion, all of this power in the background. But then someone comes to you as a $50 million $100 million SaaS company and say, yeah, we can do all of that. Was going to cost you $300,000 to get the billing implementation done.
+
+Speaker 1  46:25  
+They normally, those big companies, they don't care about, you know, paying, you know, normally they, they don't,
+
+Speaker 2  46:31  
+but the smaller company, there's a lot of companies that we lose deals to that don't want to pay $200,000 to implement something right,
+
+Unknown Speaker  46:39  
+which is, comes down to onto the experience
+
+Unknown Speaker  46:41  
+part, yeah. But what could, how do you mean
+
+Speaker 1  46:44  
+most of those, so W's, right? They like, for example, GS charges based off of the per API, right? So if you look at like a for a customer to go live, you need to go and have the catalogue right. And historically, that was problematic because that was a very slow API. So you have to go put caching on front of that. You then have to go do the RSA API call. You got the next API call to then display the HPM. After you get that, you then have to go do the order preview. After that, you have to go do the same experience. That's, that's, that's five API calls just right there. And now let's say if you want to go and display the invoice after that, that's another API call. Each API call from GS, they would scope out a week worth of effort. So just to get off the bat with a simple or just a, you know, pixels, which should be out of the box, takes six weeks.
+
+Speaker 2  47:36  
+So there's, there's a few ways to skin it, right? So you got Arvin that's trying to get nine month implementations down to six. The other thing is that I, what I couldn't understand is when I actually went in and looked at a billing implementation for a small for, you know, $50 million SaaS company, which is pretty small, you know, why do we not have a reference architecture?
+
+Speaker 1  48:00  
+I would say you could have a reference architecture, like, for example, like that, how I said that kind of sequence? Yeah, sure. That's kind of what all customers kind of have to go and do just to get live. But okay, well, because there is, because Zora, historically, is a server you have to communicate to the service, not client side. You You know that customer's back end is in Java, this other customers and is in whatever, you know, C sharp, right, or Python. It's not like we've got something that's transferable, that can be directly kind of plopped in, that shortens that
+
+Unknown Speaker  48:41  
+we must have done it 100 times, yeah,
+
+Speaker 1  48:44  
+but then putting it into something that is so just
+
+Unknown Speaker  48:47  
+lives in GS as a custom implementation, yeah?
+
+Speaker 2  48:52  
+And when you when GS is a revenue stream, then you can understand why that happens, correct?
+
+Speaker 1  48:58  
+Well, the incentive structure is not about trying to reduce, not reduce friction, but where, for example, like that, you don't get the frictions that you would get normally in that you see in GS don't get translated into either making the API simple or reducing the number of steps that you have to execute. So, like the good a good example, is that, okay? What that order call for example, right? That is slow. You know, once it has to go talk to the payment once it has to go and talk to the taxation system, and then it has to go talk to the payment system, to go and capture it, those are things that are out of our zone of control, yeah. And if you if engineering, you know, kind of like we lost the we lost the HBO deal to to stripe, because stripe, you know, could go in control, and it could get to the throughput that we couldn't because they don't have those, you know, dependencies to downstream systems that they have no control over, or we have no control over. Yeah, and the only way and that, like, you know, this comes to down to that whole argument that says, you know, why are you making, you know, the experience. Why are you making the experience for 90% of people slower to protect, you know, the 10%
+
+Speaker 2  50:24  
+so do you? So do you think that? So let's assume that the business solves the nine to six month problem, right? That doesn't solve a lot of it. Doesn't solve for what we call our segment three, which is sub 100 million, which has got a massive Tam. But we're very, very bad at winning in it.
+
+Speaker 1  50:42  
+That's and that's the whole point of the experience, because if you can deliver,
+
+Speaker 2  50:47  
+are you so you saying that? So All right
+
+Speaker 1  50:50  
+experiences, because they bundle up, what is the objective function into something that can be dropped on client side, that can reduce the sow cost dramatically, right? So, what about
+
+Speaker 2  51:04  
+the implementation of core, but of billing, though, because that thing is over engineered for a lot of use cases,
+
+Speaker 1  51:09  
+that implementation of bill. So there is, you have to implement the API's of billing versus I have to go configure billing. Configure billing is always going to be kind of that cost. And AI might go and help you, you know, reduce that. But the surface layer of getting this operating within your website right now, all customers, they have to go and implement that six, you know, API sequence, if you can, if you can remove that. So, for
+
+Speaker 2  51:35  
+example, it can't be that simple. We can't, we can't, we can't be missing.
+
+Unknown Speaker  51:42  
+I mean, if this is your website right,
+
+Speaker 1  51:47  
+right, and you you've now just bought to the Zora, right, and I need to go, let's just say there are tabs right here for, you know, payments, yeah, you know, invoices. You know, tab for my subscription, yeah, another tab for,
+
+Unknown Speaker  52:04  
+like, yeah, we said this is the experience layer, right, correct.
+
+Speaker 1  52:07  
+So this is, this is your, this is your website, right. So right now, and here's the back end, right, yeah, and let's just call this as a Python right,
+
+Speaker 2  52:17  
+right now, is this an internal system, or is this a c2 facing?
+
+Speaker 1  52:20  
+This is, this is the c2 face. Okay, right? This is the, here's the c1 back end, right. Now, to go and do this, they have to then build this UI. They then have to go make this, and then here's now, Zora, right? They have to build this over here. They have to build this over here. And for what they're trying to go and do they just want to have something that says, show my payment list and all this other stuff. So to make this thing work, and let's also say there's something to add new payment method, this would take about, let's call it 10 different APIs that they would have to integrate. Now, if I can give a widget right that says, you know, and when I configure this widget, maybe I turn this on, turn this on, turn this on. But if I drop that widget in, and you can go and do that, this thing now is talking directly to Zora, all you had to do was drop this in and you remove all of this. Does that make sense? So now there's no who care if this is Python or if this is Java, and
+
+Speaker 2  53:30  
+then you don't care that the customer still goes into the billing portal. Well, the our own billing port. There are the c1 goes in there, and they go whatever. So this is your this is what they care about is the outcome.
+
+Speaker 1  53:41  
+They care about the outcome that I can go and display something that would show here are the list of my you know, payment methods or add a new payment. So the
+
+Speaker 2  53:50  
+unlock is the experiences. So what I don't understand is, why is experiences like what we've done is we're solving for the complex there must be more to implementations that the team are trying to solve for though,
+
+Speaker 1  54:07  
+implementation would be configuration and then building out in building the thing out, if you're in that lower category,
+
+Unknown Speaker  54:18  
+the you really just Want to be huge
+
+Speaker 2  54:20  
+cases, different, yeah, complexity is just
+
+Speaker 1  54:24  
+normally, the complexity is not that complex. Yeah, you normally are saying,
+
+Speaker 2  54:28  
+I just want this thing. I take a payment, and when I change
+
+Speaker 1  54:32  
+my payment method, I want you to show my, you know, my bill to my soul, to maybe update that, right? The it is not something that says,
+
+Speaker 2  54:39  
+but this is also, this could be, this is c2 this is, this could also be c1 into their own systems, right? Well, a lens,
+
+Speaker 1  54:47  
+well, so this is now c2 but say, if you build this out right now, over here, you know, c1 let's call this the sales person, right? Yeah, this and they go and say, let me search by this account ID, right? Okay, this thing that's true, Omni channel, now it drops into here. Yeah, it's brilliant. Okay, now that
+
+Speaker 2  55:06  
+I'm gonna go and ask a few people about if they see the problem the same way, because it sounds entirely logical. So, what?
+
+Speaker 1  55:13  
+That's what, like, Gs on the on the so w, they charge for every single connection here, right? So if this is the, you know, but
+
+Unknown Speaker  55:21  
+what if they just doing cookie cutter, same thing over
+
+Unknown Speaker  55:24  
+but that's what I'm saying, is in that lower
+
+Unknown Speaker  55:26  
+they've got no incentive to sell. We've already done that, though.
+
+Speaker 1  55:29  
+Well, in that lower tranche, for those customers that are, you know, their their use cases are pretty simple, yeah, you're right. And they just want something where they can quickly drop it in, and that's where, okay, hey, you've got the option. You go take this. You can maybe change the colouring, you know. You can take this. You can get live within, you know.
+
+Speaker 2  55:50  
+Well, now we can prompt this when we, when we finally close this plasmid contract, we can, you could prompt that out. Well, you could, you could compose a page like this easily, because the
+
+Speaker 1  56:02  
+well, it just becomes part of the default template. Now it's part of plasmic, right? Okay, well, this gets built out now. Say, if they need to go and change this, well, then you get something where it says, Okay, I'll fork this. I can go and add my own API here. Whatever you don't really care.
+
+Speaker 2  56:16  
+Tell me something. I'm assuming Errol buys this. Okay, so,
+
+Speaker 1  56:20  
+but it's you're removing connection points, right? So you had to go and pay you either you personally had to go build this UI, build this into your back end and then route to zero. Yeah, I'm saying you, I'll give you a widget. You just drop that in, and we'll take care of this.
+
+Speaker 2  56:37  
+Is a very valuable lens, because I don't think this has been really well conveyed. Is that experiences as an unlock for our segment three, which is sub 100 million, yeah, but that's a story.
+
+Speaker 1  56:48  
+So those customers that don't have, they do not have their complexity. It's not a, it's not a, it's not a Twilio, right? That has some crazy, yeah,
+
+Speaker 2  57:01  
+I called this billing light, but I think I began at the wrong place. I began at the c1
+
+Speaker 1  57:09  
+it's more the CC two, yeah, it is, because that's where, that's where the cost I'm sure there might be, like, for example, that one. There might be something there that says, okay, my support staff, right, needs
+
+Speaker 2  57:23  
+to be services, whatever, whatever. But that's all context, though.
+
+Speaker 1  57:27  
+That's just, that is just, it's displaying the same thing, but in a different, yeah, with different
+
+Speaker 2  57:31  
+permissions in that correct. Well, that's all right. So, so experiences isn't, is both an omni channel, go to market story for ourselves teams, it's also has a double value for smaller, less complex customers, because it helps accelerate time to value or time to life. Yeah, okay.
+
+Speaker 1  57:59  
+Why do we lose just right stripe is easy, like you you know, you go and implement that, you drop the widget in, and you're done. Now that doesn't
+
+Speaker 2  58:06  
+what I guess, honestly, what I don't understand is everyone in the in the in the commerce team, and including, I'll put Zephyr to one side for a second, but everyone in the commerce team, in one shape or another, has expressed the sim. I mean that's because you all kind of have a similar view about what the problem statement is and what the out what the solution should be, right?
+
+Speaker 1  58:28  
+So debate, I mean, Jimmy, Jimmy is also,
+
+Speaker 2  58:31  
+yeah, Jimmy, I can see that, yeah. I mean, listen, Jimmy did May, you went on the news court presentation. We I said to him afterwards, that was first class, he answered every single question. Didn't even bat an eyelid. And he should be doing that everywhere. He should be talking to customers everywhere, even if we're not that level of product knowledge is really hard to translate, because he understood well, you both understand, but he did a very, very strong presentation. So, so what I don't understand, and I've not seen this in many companies before, none of the companies that bought my businesses before have I ever seen this is that there is a very smart group of people that know the direction that we should travel in, but there seems to be this friction in getting to that point, like, why is this just not baked in? What to the organisational thinking? Is it a translation issue? I think it's
+
+Speaker 1  59:33  
+a it's an issue where you've got GS that's a separate wing, right? And those frictions are kind of just the status quo, right? And it's true. How, how do you go in, like, if you're, if you're GS, or if you're billing, right? You kind of kind of are saying, like, Okay, well, yeah, all the customer has to do is implement these, you know, five API calls.
+
+Unknown Speaker  59:58  
+But normally, a customer.
+
+Speaker 1  1:00:03  
+They don't want to go and have, you know, a team of five or six engineers going and implementing that they want to that's not part of their core business. It doesn't make them any money they are. They just need to provide the minimum amount to basically be able to allow for a customer to access their payments, their invoices, their contact information.
+
+Speaker 2  1:00:26  
+So, so tell what I'm going to do. I want to play this so we've got an implementation partner called clariss in Europe, who did the immediate media thing. Would you ask them? No, I want you to get on a call with them. Okay, I want to. I don't want to get in the middle of it. I want to be on a call with Clarissa and you. And I want you to to share that thinking and see from a customer that does is the competitor to Gs, who's been doing implementations of billing and CPQ since 2017 so they know Zora inside out. They started with reference architecture. If you give me a reference architecture for sub 100 million, I can get it live in 60 in 60 days or 45 days, right? That's their opening statement. You're bringing a different lens, which is, Listen, this is what experiences is. And so what I'd love to do is, I'd love to get Jimmy on the call to demo the experiences, like, what does that thing actually do? And then for you to say, Listen. And here is a implementation. This is the story around implementation. I'd love to just, you know, if you can get a partner to go fuck me, if you give me that, it's going to change how we go to market, because they have a, you know, they're very big in the European market. Now, what I'm trying to do is build into, I want to internalise some of these stories and then force this type of motion through the business. Yeah, would you? Yeah, I'm gonna set that up all right. And then, is there anything else that you want to share with me? I don't know. If you haven't got anything written, that's fine, but how do we there's a story here, there's a pitch here, there's a presentation here. Like, if I was going to elevate a pitch this, I'd put 10 slides together and say, and do that. I tell you what I'm going to do. Let me play back to you what I just heard now in maybe a three slides. And then if you say, yeah, you missed a bit, or that's kind of what I was saying, we go validate it with clarissis, and then I'm going to use that collateral wherever I can to say that's what also experiences does. And I want to see who pushes back in the business. Yeah, yeah, cool, man. It's really good. I mean,
+
+Speaker 1  1:02:47  
+we built, like, in sales. They had this thing called Zillow. It was like a PHP and customers would say, Great, we'd like that. And they would have to go and say, well, we can't give that to you. That's just our own internal demo product. And because the thing was riddled with, like, you know, it was only built to go demo. It's not built as, like, a secure solution. And that always then turns into, okay, well, if you want to go live, you have to, you know. Well, if you, if you're trying to display things for your account management, okay, you've got, let's call it eight API's, or six or seven API's that you're gonna have to implement there. And this is before graph was even implemented. Which that there before you had to go do an API for every single you know, of every single object,
+
+Unknown Speaker  1:03:37  
+I think there's the
+
+Speaker 2  1:03:40  
+first of all, there's the long lens, right? Some of the stuff we're talking about here is a, you know, I think Shakir sceptical that we could get an omni channel commerce experience up before the end of the next year. I think we can, right? If you think about the engineering velocity that we're getting out of AI, if you believe what moves selling, which is, we can two or 3x or engineering velocity, then I think we could get an omni channel out. But that's the longer lens. The shorter term lens is that what you've described is the is a immediate value prop for experiences. If we get, you know, if we accelerate the velocity of the experiences team, right? We have to, we have to do that, but I think experiences could be one of the largest revenue generators for the business next year. I'm not so bored on the let's help lower this. I mean, I It's time to go live, yeah, which inherently has an impact on so w, yeah. But I think you should. I think we should. I think experiences an SKU
+
+Speaker 1  1:04:41  
+is a go and, for example, like, give account management for free. For example,
+
+Unknown Speaker  1:04:46  
+yeah, you give, you could give one module,
+
+Speaker 1  1:04:48  
+and then at that point you would you, you would accelerate. And I think by giving part of it, like, like, if you give account management for free, yeah, yeah, customers would say, Great, oh, I've already got that, and you were able to go and cut sow costs by, let's call it x percentage. Okay, well, you go buy this, and
+
+Speaker 2  1:05:08  
+it's great. Sales motion, nice one. All right, I'm gonna let me play it back to you, and then
+
+Speaker 1  1:05:18  
+you're I'm based in Chicago as of right now, but I'm probably gonna be moving in the next two months
+
+Unknown Speaker  1:05:24  
+back to here.
+
+Speaker 1  1:05:26  
+I don't know, so kind of just trying to figure out what is where she is. She's in Richmond,
+
+Speaker 2  1:05:37  
+but what's that East Coast
+
+Speaker 1  1:05:40  
+I'm probably gonna be, I'd rather be on the East Coast, just because it makes it easier to travel to, to Richmond, if I'm new that's Virginia, right? Yep. So, yeah,
+
+Unknown Speaker  1:05:54  
+I was asked to move to the West Coast. I'd go east. I go New York.
+
+Unknown Speaker  1:06:04  
+Yeah, so you having to fly back to your monologue.
+
+Speaker 1  1:06:09  
+It could pick up, right? So she's still she can still walk. She just got onto a feeding tube. But depending when it kind of gets to the point where she has to have far progress?
+
+Unknown Speaker  1:06:28  
+Is she eight,
+
+Speaker 1  1:06:34  
+nine months so far, and we think maybe before she would have to go on like ventilator and all that. Maybe another six to eight. Yeah, that's why you want to be on the East Coast.
+
+Speaker 2  1:06:57  
+Exactly, return to work. Thanks for making time. Appreciate really interesting. And I guess I'll send you the I'll make sure, I'll send you the clip of what I pitched, so you know what it is. But I want to just my part of my job is just to make sure that these concepts are understood by so we have to simplify the concept.
+
+Speaker 1  1:07:27  
+How do you simplify? You get there's a lot of complexity that comes when you're on the ground, at least from a customer. How do you go and simplify that? So that way, what I would call hierarchy, should understand
+
+Speaker 2  1:07:42  
+that's my as part of my job. Because these are, these are, I think, I
+
+Speaker 1  1:07:46  
+mean, this is where I used to because I've got, like, an old, I don't know what they currently do on the quoting side for, for GS engagement, but historically, for every single API, they would go and spec, okay, 40 hours. You know, for every single one, it's a scam. And for every single view, it was another was another four. And so it you could clearly see the direct relationship between, you know, for example, if you having that graph, API went and took things that had five or six API's to get something done into
+
+Speaker 2  1:08:21  
+one, yeah, so, like, Who would want to Yeah, no one cuts the branch they're sitting on. Yeah, yeah. All right, okay, I hear Thank you. Yeah. Have a good weekend. There.
+
+Transcribed by https://otter.ai

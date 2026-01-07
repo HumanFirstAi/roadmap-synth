@@ -1,0 +1,448 @@
+Speaker 1  0:00  
+Well, been a busy morning so far. You gonna be able to actually end your day closer to five today or
+
+Speaker 2  0:08  
+No, I have, I have the pleasure of an 11 O'clock 11pm sko kick off call. Oh geez, it's all good, but I'm super interested. This is the highlight. I'm super interested. This is the highlight. I'm super interested in what you're going to show me. Awesome. I saw, I don't know if you saw that,
+
+Unknown Speaker  0:28  
+the demo that was done next generation, the
+
+Speaker 3  0:32  
+live coding or the cold pad demo that Shakir did, yeah, I did, yeah. I thought that was pretty cool. Yeah, it's cool.
+
+Speaker 2  0:41  
+I know there was, I know the background story, okay, but on the on the front, that was quite cool. And I think, yeah, I think what's really, what I was thinking about is, is, what share of mind can we capture in the business? And if you think about the destination, which, as I understand it, is that quote pad would be on par with quote studio at some point, maybe, maybe at a push 26 it feels like a pretty, pretty impactful product to me,
+
+Speaker 1  1:21  
+yeah, I mean, I don't know, Jonathan, can I be candid with you, please?
+
+Speaker 2  1:27  
+Is there any other way, otherwise it just gets lost, doesn't it?
+
+Speaker 1  1:30  
+Yeah, that's fair. Conceptually. I'm aligned that the idea of quote Pat, the idea of an agentic, you know, Quick Quote experience is really valuable and will be valuable. I've been at Zora long enough to know that we struggle with execution as an organisation, and we can dream up wild things and we prematurely discuss them with customers, and I know that we need to create excitement, right? I know that we need to show that we're working towards things, and I know we need to dream big. But at the same time, like I've always, been kind of
+
+Unknown Speaker  2:13  
+very tightly
+
+Speaker 1  2:17  
+integrated into the figuring out how to execute part, because everyone else just kind of doesn't, and then it's left to a few people to kind of actually put the bones together and make the skeleton and and where I struggle with the current path of our development and our focus is that no one's really worried about how to make the thing real. They're just worried about how to make it seem cool on the outside, yeah, or to Okay. And so, you know, I've spent five years building quote, Studio, you know, and took about a year and a half to get it from POC to, like, GA, ready, full, full time, right? Like, real. And I think that I struggled too, because I would have held back making quote studio GA for longer, and my leadership at the time is, like you, we just need to release it. We're going to learn on the fly. We're going to iterate quickly. And that was the right call at the time, right like, whereas I would have waited six months we put it out there, a couple customers got on it. They hammered us with like, issues and bugs and things, and we had to adapt quickly, and we did, and now we have 80 customers, 85 customers on it. But you know, I think that the other side of that coin can be very dangerous, where you go way too early, you put something out there that's just completely unusable, and you lose, you know, confidence from our customers on what we're doing, especially when things are business critical. And so where a lot of the company, I don't think, realises that CPQ is, some of the businesses that have purchased it and use it, is extremely critical. I mean, it's, it's like, do or die, where if you, if you using Zora and CPQ doesn't work, you can't use ora. So anyways, that's, that's my like sentiment right now. I'm, I'm eager to make it a reality. I'm eager to get into the weeds of it. But I haven't actually been bought into those conversations. It's very much been engineering driven by, you know, Siva and folks, and I've had, like, one conversation with SIVA and, you know, so I'm kind of a little worried that the direction of it is actually handy, heading into a place where it can be real and do real things in a in a relatively realistic timeframe.
+
+Speaker 2  4:24  
+I don't I don't disagree with you about how Zora operates. One of the conversations I had quite early with Satish was around vibe quoting, because that felt like what you've just described. Plus, right? So, yeah, okay, so how's the user going to use this? And how does it interact with compliance, for example, right? So I know I never got a really good answer to that. And in it, in addition to that, there was this problem that you have this, you have this three tiered engineering and product swim lanes, or three, three swim lanes of product development. And what was very hard to understand is, how do these things actually connect with each other? You know, how in the market, you know, if you put this in front of a salesperson, how are they going to understand the use cases? Is the boundary sales force, you know, is it headless? Is it solving for the spreadsheet? So I think there's a lot of those, you know. How is vibe quoting? To me, seems like you know, for someone that is relatively new to CPQ, sounds like a really cool idea. But when you go and talk to people about what's one of the most important things about CPQ, they'll talk of compliance, right? And and so on one side, you've got solving for the spreadsheet. And the argument is, well, the spreadsheet doesn't have any compliance, that's fine. Are we just building, you know, we're building a better spreadsheet. We're building a better spreadsheet experience. But if you're a fully blown CPQ, then you have to alter at some point answer the question, well, where does compliance come in? And some of the answers I got is, well, we'll push five quoting to CPQ, and then that's where the compliance will will live. Problem with that is when you actually think about the user experience. If every time you push something to CPQ and it says, hey, it's not compliant, you're very quickly going to stop using vibe quoting because it doesn't consume the variables that you need to tell you whether or not you're heading in the right the right direction. You know, am I? Am I vibe quoting something that's compliant or non compliant? Because if I keep pressing push the CPQ and it tells me it's non compliant, then I just becomes, I might as well just work in in a spreadsheet and then build it out and CPQ once with all of the compliance baked into it. So, yeah, I
+
+Speaker 1  7:01  
+mean and, and hope, right, that CPQ, the tool that I actually use, that follows the rules, will get better, so that I can do that more efficiently, correct, which is where our customers are today, and yet we're focusing on this, you know, thing that's probably, you know, far ahead of where we need to be focusing to create this kind of appeal in the market that I think is more superficial, yeah,
+
+Unknown Speaker  7:27  
+I think, I think there's um,
+
+Speaker 2  7:32  
+people, human beings are pretty simple things, right? So that the superficial bit serves a function. You know, it's, it's the fairy dust, you know, I came from selling AI in 2018 before it was a real thing. And the fairy, fairy dust matters, right? You can sprinkle about fairy dust, and people lean in and they go, Okay, tell me about that. The I had a conversation with a chap called Michael Belkin, who runs our PE sales motion, you know, Michael, right. And he was super interested in the focus on CPQ because it's a story he wants to tell to the PE firms, in addition to omni channel. And so he thinks of omni channel as, you know, the point at the kind of point solutions of self serve and sales LED. But he's really interested in the growth story of, how do you go from self serve to sales led, and how do you go from sales led back to self serve? And in the middle there's this kind of whether it's agent assisted or service sales assisted motion, which can be a version of or a degree of complexity around CPQ. Now for me, CPQ feels quite elastic when I begin. I don't need a very complex CPQ. I may never need a very complex CPQ, but equally, I may need, I may need that complexity at some point in the future. I guess the obvious question that I keep coming back to and again, this is with probably partial knowledge is, why do we think of quote studio and quote pad, as I often hear them as separate things, and I would have thought, well, quote pad is headless, you know, it just doesn't Live in CPQ. It could be in CPQ in Salesforce, but it could also be anywhere. It could be a standalone product. It could be dropped into any environment. CPQ is heavily bound in the way people think about it, to Salesforce, and I just, I don't know if you could maybe just give me a sense of of, did we? Did we take studio and say, Hey, can we? Can we make it headless and and it became quote pad, someone just put a name on it. Or did we say we need a different experience to Stu studio is the gold standard, but we just need a different way of customers interacting with it. How has it been played out to you? What's your understanding?
+
+Speaker 1  10:13  
+That's a really good question. I actually don't really know how we've gotten to where we've gotten my only assumption is that it's through a desire to appeal upper leadership in creating a marketable vision of CPQ that is better than what we have today. And so that means that, instead of because, I mean, look, I'll be honest, and I told this to Manfred into his face many times, like he doesn't know our CPQ at all. He doesn't know it backwards or forward. He doesn't know he very rarely can get in there and do anything and Satish much better. But he's also only been here a year, so he kind of lacks the depth of the pain that CPQ customers have felt for the last 15 years, and what we've done to alleviate that pain over time, and instead, what I'm seeing at least, is that there is a push of demand, both from, you know, Silver Lake and from Pete and obviously from teen to say, like, Well, look, if CPQ so important, why has our revenue not grown in CPQ for 10 years? Why has it stayed at 11 million? Why do we lose as many customers as we gain? Why can't we sell beat Salesforce More times than not? And it's and they're valid questions, you know, and maybe that ends up falling on me, since Manfred Institute haven't been here that long, because I haven't been able to really break through the glass ceiling. But what I think has happened is, instead of trying to deeply understand the things that we can do better and where we struggle to achieve those things, we've decided to take a new spin, because it's easier to build something that is completely separate from the thing we have. As you know, right? You're not dealing with old debt, you're not dealing with tight integrations, you're not dealing with all of the complexity that comes with this deep, deep historical knowledge of what our system does. And we can name it something different. We can make it flashy. We can say it uses AI. And we've solved three of the four problems, the fourth problem being, how do we make it real? And that ends up falling to me when we sell the dream, and then I have to figure out how to actually make it work.
+
+Speaker 2  12:21  
+But let me ask, let me ask you that question. So maybe, maybe to some degree, playing devil's advocate. In fact, no, let me go back and ask the question about Salesforce versus headless, right? Sure. So you have to have Salesforce to have cpqx Correct,
+
+Unknown Speaker  12:41  
+yes. And you also have to have Zor billing, yeah,
+
+Speaker 2  12:46  
+in in next generation, because it's headless, you don't need to be in Salesforce, correct?
+
+Speaker 1  12:55  
+But that's never been a problem. I mean, if you think about the amount of prospects and existing customers that we have in our pipeline, or currently, the vast majority use Salesforce, right? So it's never been a question of we will increase our market addressability by getting out of Salesforce. Yeah, right.
+
+Unknown Speaker  13:21  
+I agree. I agree with that. I think
+
+Unknown Speaker  13:25  
+again, this may be somewhat
+
+Speaker 2  13:28  
+reductive, because I am still learning. But if I was going to go and if well in building omni channel and being able to go to the sales team and say, you can now begin. Doesn't matter where you are in the world. You can now begin to sell self serve to $100 million SARS company. Or you can sell a bit of, you know, a sales agent assisted, or sales assisted, or service rep assisted cell, which is a light CPQ, or will grow you into a full CPQ, will take you through to sales. Led to me that would be done not best with Salesforce, right? Because the assumption is that you have to be in Salesforce. And a lot of these prospects, if we wanted to widen the net, would not be Salesforce. So I think I'm not looking much further for justification than forget what, what, what it does. But I'm not looking further than if you need to buy Salesforce or have Salesforce to use our Cbq, that feels like a limiting factor.
+
+Speaker 1  14:45  
+Yeah, and it is 100% and if you're thinking more broadly for omni channel, like 100% I agree with you, it is. It is much more of a broadening or widening of the net. If you can say that we have omni channel that does not rely on Salesforce. But I guess that's not the conversation that I'm really thinking about. It's more of the conversation of we have a CPQ. We don't consider it best in class, even though we could probably make the case for it if anyone at zord decided to learn more about how our CPQ works, and we get the marketing support for that. But what we need to do is optimise certain elements of CPQ in Salesforce, how it works in Salesforce, how it works today, I guess I should say. And the way to do that is to actually not build on the Salesforce platform, and then we have a series of services that can enable and inform a true omni channel experience, or a non sales sales force based voting experience, but they can still inform the Salesforce based quoting experience, which is where we've cut our teeth on learning what it means to quote for subscriptions. And so that's the piece that I'm really anchored in. Is saying we we know how to create an incredible voting experience for a multi year complex subscription, time based, order, activation based, sequence of changes, and then amend those and renew those, and do all of the fancy things that Salesforce constantly blunders. Yet we are not focusing on that. Instead, we are focusing on, how do we bring AI into creating a Excel based in upload, you know, quote, with no rules and no no restraints. And that's not what customers want, right? And so that's what I'm trying to focus on. Is like, how do we scale CPQ today with tooling that lives in Sora, so that we can build upon that tooling to it eventually and they become because there's so many components that we still need to do with product catalogue, with data access control, right? Just audit, audit trail of our actual like, what users, we're not going to be a CR, right? I think that ship has sailed. But if we're going to bring sales teams into the Zor platform, there's a lot of infrastructure we still need to build. And I think that that is one of the things Siva recognises, and what he's decided to focus on as as far as how much he's he's doing for vibe coding, he's like, Well, we need to build this infrastructure first, and I do agree with that part, then we can get out of Salesforce, because the brains, the power, the processing, is not in Salesforce, and it's easier, and we can have light coding tools in Salesforce, as well as in other CRMs, as well as the omni channel, API led, Product Catalogue based.
+
+Speaker 2  17:34  
+Support isn't, isn't, though, the work that's being done on the I the quote pad kind of comparative to that, though the pipes underneath, I would have thought, I mean, I'd be surprised if it wasn't the case. But the pipes underneath serve both CPQ and quote pad, or are you saying that there's two sets of pipes that are being built to set them?
+
+Speaker 1  18:06  
+At the moment, nothing that works for quote pad or next gen, or whatever you want to call it is anything that CPQ can or does use my CPU. Salesforce, right? They've been building next gen for a year. I don't know what it does. I don't know how it works. I don't know where the infrastructure is right. I think in theory now, that is the messaging that we're that engineering is at least trying to push, that we're building the foundation for things that eventually both source existing CPQ and next gen can consume. But this is where I kind of got on Manfred earlier this week saying, you know, where is the definition from a functional and, you know, product led standpoint of what that is, what those foundations are. And he said, Well, that's an engineering decision. And I was like, the decision part, yes, but what they choose to decide to work on should be us, and we had a bit of a disagreement on it. He said, Well, look, well, let's let them take a first pass, and then we'll assess. And you know, to me, it just kind of feels like, I mean, I've been in every architectural conversation that Zora Cbq has had for the last seven years. And from my experience, engineering makes architectural decisions, lacking functional understanding of the big picture. Without product present 100% there's apps, and then you're left with absolutely no damage gaps,
+
+Speaker 2  19:32  
+absolutely no doubt about that, absolutely I've seen that happen many, many times. Yeah.
+
+Speaker 1  19:38  
+So, so then, like, okay, in a month, I get a plan, and then I poke pin holes in the plan. I say, this is useless.
+
+Speaker 2  19:43  
+And then for another month, it's already baked. By then they've already built, already wants to go back and make the cake Exactly. So no one wants to exactly. So I agree with you 100% I'm I'm I'm much more engineering LED. I start with engineering. I start with the story, then I go and translate the story to the engineering teams I don't even get I typically want to. And as a product person, what you have to do is you have to get people, engineers lined up to the way you're thinking before they write a single TDD. And it's even before you write the PRD, it just they have to just think about the way you're thinking. And if the first principle is, what we build is universal, then that's the first principle. If the first principle is, we're not going to ever merge these, they're going to remain permanently forked or split. Not even forked. It sounds like they're just completely parallel engineering tracks. Then that's another way of thinking about it. My, my, I guess, my, my, if you were to land and think about this without any knowledge of CPQ, what you would, I think, assume, if you looked at the engineering investment and focus, is that at some point the business plans to, I'm not saying this is a fact. I'm just saying from an external perspective, view lens that you would assume that the business is planning to at some point in the future, sunset, CPQ inside Salesforce, if the investment is not there, if the joined up thinking is not there, if the if the strategy about what does CPQ in Salesforce look like when we have next gen CPQ? For me, what's what's happening is we're looking into the future with next gen, but we're not looking into the future with CPQ in Salesforce, both from an engineering perspective, and this is the business, not you from an engineering perspective, and also, from how do you communicate the differences to this to the field, between one and the other? For example, if I'm in Salesforce, and I have Salesforce CPQ, there is going to be a point, there's going to be a period of time where quote pad does not stand up next to quote studio. There may be a point in the future where quote pad is on par with quote studio. My question is, what do you tell a Salesforce CPQ customer at that point?
+
+Speaker 1  22:18  
+Well, that's, I think that that's the question that so far I have not seen engineer try to answer, which is, what's the path and the journey? And this goes back to what you said about getting everyone to think about the problems the way you're thinking about them. What's the journey for taking 380 customers with well over $100 million of revenue to Zora, right? Not necessarily Cbq specifically, obviously, but to Zora that says, like, they need this. They need Cbq. They've been using it for five to 10 years, and now we've got this whole new thing. We've stopped investing in the existing thing, and there is now no real clear understanding of what the migration journey is. There's not a quick switch over there never will be. There's not very even much a plan of the pieces and components that need to be translated and how, right? And then when you never really did that work. And so now we're left with, Okay, well, we can sell to the new market. Great, but now there's, you know, $8 million $9 million of CPQ existing revenue, plus however much revenue is impacted from zora's billing system that people are like, well, this, we can't use this. So we're going to find a different billing system that's, you know, this is almost like, it's almost like the flaws in what RCA has done, we are replicating with our mindset, or engineering mindset, to say, let's just build this new thing, because it's easier to think
+
+Speaker 2  23:49  
+about, Yeah, correct. It's like, lift and shift. You just go, okay with Let's Move the story over here. It's very it's not dissimilar to catalogue, not because we have, you know, we have this kind of legacy catalogue. And I've been in a number of conversations with customers recently because I just wanted to hear how this is sold. But they go, we've got the existing catalogue. How do we get to the new catalogue? No one has no one has an answer.
+
+Speaker 1  24:14  
+No one has a clue. I've asked that question 20 times in 20 different scenarios.
+
+Speaker 2  24:19  
+What there is, though, there is a there is a pattern, right? And I've been working with the data science team to build a playbook where we where we do have a very precise answer, but that it's that last mile. We build these two things and we make it EA or GA, seems to be the standard and a good demo, but there and there's, there's no gap. There's a gap between one thing and the other. So I think I It's been bothering me. So what you're saying to me does not surprise me. I think, I think, and I've said this to Manfred, I think Manfred probably has a
+
+Unknown Speaker  24:57  
+higher confidence in engineering decisions than I do,
+
+Speaker 1  25:02  
+very much more than I do as well, and it's one of the points of contention between me and him,
+
+Speaker 2  25:06  
+yeah, because I believe that engineering is at the service of product, agreed, but product has to understand how to work with engineering. You know, you have to bring people along on a vision. If you don't have the vision, then they will make it's like children. They will make decisions given the information they have, because it's not their job to solve the problem between CPQ in Salesforce and next gen. It's it's not their job to build that if that's not what they're asked to do. So let me just ask you a few other questions, because I do want to see the day. Want to see the demo, sure, and I've read most of the documentation on next gen and CPQ that that you share with me, so that's been super helpful. But I wanted to ask about the investment thinking on CPQ. My summary from what you told me, is that we are not investing in the way that you think we should in order to maintain best in class, CPQ inside Salesforce. That's number one. Part one of the question. Part Two of the question is, if Salesforce themselves, although they've bungled it. Are moving the conversation to RCA. Is there a risk that CPQ in Salesforce, the Zora CPQ in Salesforce, is tarred with the same legacy brush that Salesforce seem to have painted their own CPQ with,
+
+Unknown Speaker  26:45  
+yeah, I'll answer the first question. First,
+
+Speaker 1  26:49  
+do I think that our investment in next gen and in CPQ in general is not entirely, you know, being done the right way to kind of serve the existing customer base and the existing CPQ, the answer, short answer to that, yes. But I think engineering is a little bit of a black box right now, and I think that Satish having, you know, now, being pulled into the ear of a teen as well as Siva, like their their focus is very much more appeasing an unfounded dream, right? Versus figuring out what it's going to take to move 380 customers to a new CPQ that also solves some of the problems of the old CPQ in terms of how the performance and the scalability worked. And no one's really asking those questions or thinking about that, and I think that Manfred is also failing to position that as the first and biggest problem, like, if we're going to do this, the whole point of it is so that we can get better processing and performance and experience out of existing CPQ, as well as building a future that we can scale outside of Salesforce reliance, outside of, you know, Whatever that customer segment. So that was first answer. Second answer
+
+Speaker 2  28:03  
+is, I just want to go back to the first answer. Okay, in your opinion, you have eight engineers, or six engineers dedicated to CPQ Salesforce,
+
+Speaker 1  28:14  
+or no, there was, there was 18. Now there will be 15.
+
+Speaker 2  28:19  
+Oh, there's 15. All right, don't know why. Oh no, maybe, yeah. Well, so maybe
+
+Speaker 1  28:22  
+three of generation. They poke. They put three of them from our team, from Bay team, they move those three. So now we have 15 on to next gen. Okay, and now I think next gen has eight.
+
+Speaker 2  28:32  
+So, so core, CPQ, CPQ, x, what do
+
+Unknown Speaker  28:41  
+we call it? CPQ in Salesforce? Cpqx, course.
+
+Unknown Speaker  28:44  
+I just call it Zora CPQ, nothing else exists.
+
+Unknown Speaker  28:47  
+Let's do that. Sora CPQ, yeah, I agree with you. Okay, much easier.
+
+Speaker 2  28:52  
+Oh, we have 15 engineers working on Zora CPQ, what?
+
+Unknown Speaker  28:58  
+What do they do?
+
+Speaker 1  29:02  
+Yes, great question. So the last year and a half, and this is where I commend Satish, has been spent, and really honestly, the last four years has been spent slowly trickling forward with cpqx, right, quote, studio innovation, but really just getting hammered by the constant health threes, bugs, changes to Billing APIs that impact us, changes to the Salesforce platform that impacts us, Salesforce security review accommodations we had to make. And just like bugs of legacy code from features that are 10 years old, that maybe two customers use, or some mix of all of the above, where it's like we've done some customization using existing programmatic means with Salesforce platform and CPUs methods and something broke and we don't know what it is, and now we're just troubleshooting, and support can't handle that level of troubleshooting, and our engineers are dealing with stuff that they've never even seen because they're features that were built 15 years ago. So in the last year and a half, what I commenced to teach on is like building more rigorous testing and automation, you know, processes in the team to reduce some of that noise, and it has. And then what we're also been doing is basically putting less and less and less emphasis on fixing the sins of our fathers so that customers have recognised that they just need to start modernising and upgrading, because the stuff of the past will not work forever. And we fixed, we've our focus is to fix the stuff of the past in the new thing first. Even if it's not being complained about in the new thing, right, in, quote, studio, we fix it first. It's like, hey, look, there is an answer. It's there, but we'll, we'll see, maybe in a month, we'll get to fix in the same past.
+
+Unknown Speaker  30:47  
+So have we done
+
+Speaker 1  30:49  
+now too? With last part of this is we're in the last six months, there's been a huge amount of noise around building parity, to all of the billing things that are being done. And that noise has been amplified by a handful of customers who have had our roadmap in their pockets. Trade with gwilio, percent span commitments, dynamic pricing, right? Which some of the things align with what source should be doing, and some of the things are kind of, you know, dream state, single customer, items that haven't really been proven across the market, we're trying to address. And so when we spend as much time as we're spending on those kind of like your dream shot, like compatibility things with billing that billings doing, also as a dream shot, we're losing focus on building out, like, all of the things that could make CPQ a better CPQ, and instead we can say, Oh, well, we support flexible commitments. It's like, well, no one's using that, or one customers using that. What about the 100 customers who want a guided selling, or the 200 customers who want opportunity product syncing, right? Like, that's where we're just not prioritising the right things, in my opinion. So anyways, that's what the rest, that's what the other that's what the team is doing, aside from the L threes and the fires and maintenance, is building these kind of dream shot items,
+
+Unknown Speaker  32:09  
+where we slow trickle out the things that we actually should be building.
+
+Speaker 2  32:14  
+And is, there is the environment in Salesforce.
+
+Unknown Speaker  32:19  
+You talked about this, this idea of
+
+Speaker 2  32:23  
+an architecture that serves both next generation and CPQ, if you think about guided selling, is that a reality to today to focus on? What would the engineering team have to think about,
+
+Speaker 1  32:42  
+are they? Yeah? You're talking about as a solution that's held outside of Yeah, because
+
+Speaker 2  32:49  
+the pattern you just described is never going to go away. You'll have 15 engineers. And the longer life you know, the longer this goes on, the harder it gets. It never gets easier. So, so there are some decisions. They're almost unrelated to the to the CPQ as a product. They just wonder, what do we want to be as a commerce business, right? Do we want to be constantly doing this? If we do then we just keep, keep doing it till it becomes end of life. And then those engineers, yeah, those engineers,
+
+Unknown Speaker  33:24  
+one step forward, 10 steps back, yeah,
+
+Speaker 2  33:26  
+like, like, it doesn't feel like you can just continue going on like that. So I guess, I guess what, I guess what I'm interested in,
+
+Unknown Speaker  33:39  
+what I'm interested in is,
+
+Speaker 2  33:45  
+why would we not emphasise building a unified architecture, where what we invest in next generation also enables studio that I'm just struggling
+
+Speaker 1  34:01  
+so I think that's the I think that's the goal now, which it took us a year to some for someone to kind of get that. That's the goal. I don't know who. I don't know if it was P I don't know if it was nav, I don't know if it was Siva and nav. I don't know if it was Manfred and nav. I don't know. I haven't been involved, right? I got pigeon holed into being the guy who knows everything about the existing CPQ, so I'll keep fighting those fires, and then we'll hire a new director of CPQ, and he's going to do everything else, since he can't learn what I know in the next six months or a year, whatever. And so now I'm like, I'm not in those conversations, but for one year, they've been ongoing, and I still have yet to see any meaningful thing that will take us in that direction. Okay, I don't, and maybe they exist.
+
+Speaker 2  34:44  
+I don't. I don't understand that. So I'm gonna, well, I'm gonna take that away. I need to understand that. But that's not, you know, I've spent a lot of time with NAV, nav and I are trying to build this unified view of commerce to abstract out this intersection layer that I talked about, which is we've got this, this orchestration layer that we're trying to build that gives us the bones of omni channel. But what it doesn't just from a basic way of running a business, it doesn't make any sense to build in parallel. There is no value. There's not just, there's just no value in that. I mean, CPQ is in all of the names, right? Yeah.
+
+Speaker 1  35:38  
+Well, like, Look, if we, if we just stopped building completely, you know, erity features that are isolated to sell Zora, CPQ right, the existing solution, and we put everyone's focus on building, you know, What? What? Prior, first, prioritising, what are the biggest bang, things that can be built outside of the Salesforce platform that can be utilised by the existing source, CPQ, as well as by next gen at some point. And we just did that. And yeah, like, you know, we piss off a few customers, right? A handful of customers like zoom, BMC, trade web, we piss them off, and that those are very big customers to
+
+Speaker 2  36:18  
+piss off because, because they want because there is, because they want wall, because they want CPQ,
+
+Speaker 1  36:23  
+because they want stuff in Zor CPQ as it is today, because that's what exists, and that's what's being used, and that's what has the closest parity to billing anyways, right? So, and it's also like it, and this is why I do, I do want to show you it, right? It's not like, it's like this half baked, like scab of a product. I mean, like, if it is, then, like, fired me today. You know what I mean? I mean, they've spent six years working on this thing, and, you know, there's been a lot of brains behind it for the last 15 years in terms of getting us ultimate to where we are today. But the customers like it. Like, if you talk to zoom, talk to BMC, like, they're like, this is, this is absolutely great for the things we needed to do. Sure, there's always more things they wanted to do. But like, go to any other CPQ that Zoom, went to big machines, went to Oracle, did a million dollar POC because they were like, see, sales floor CPQ is kind of like, it's not it's not full bait, it's not fully baked. And they did a million dollar POC to find out that it costs them 5 million a year and still not meet all the things that source CPQ does today for 20,000 a year that they pay us for. And so they're like, Okay, well, you know, let's not lose our jobs in the sales ops and, you know, for this fight BMC, you know, same kind of story. They came from a homegrown tool, right? It's either homegrown or it's another CPQ out there that someone thinks it's going to be better and it's not going to solve us, or CPQ solves yet we are not thinking of ourselves as a first class citizen.
+
+Unknown Speaker  37:48  
+Well, yeah, but that's the data's
+
+Speaker 2  37:52  
+contrary to that. You know, you've got evidence that says these POCs were done. When the POC is complete, the customer comes back and they use the product that, that, that we've built. So I want to understand is, where does the story come around? Zora CPQ
+
+Unknown Speaker  38:14  
+not being a market leading product.
+
+Speaker 1  38:19  
+The biggest part of that story comes from when Gartner changed the criteria for inclusion in the CPQ Magic Quadrant. That happened about three years ago. And the primary piece of criteria that excluded us was that you had to have a native configuration element, which is the c part of CPQ. And we, I was told to go to London for a week to talk to Mark Lewis in a room. And the end of that conversation, after, after everything we did to try to convince him that what we are doing is configuration in the SAS subscription based world, he didn't see it as configuration, because his definition of configuration was really more based on hardware configuration, right, a bill of materials, creating a sequence of items that can be interchanged with each other to ultimately build out a plane engine or something. And you know, we lost that battle. We got excluded. And in the exclusion, we were like, okay, internally, Zora CPQ wasn't up to snuff, and now we need to do something to change that, and that's kind of where we've landed today.
+
+Speaker 2  39:24  
+Now, yeah, are we? Are we? Is there any investment in the sea, or is this just a structural problem that we're not interested in?
+
+Speaker 1  39:32  
+The part was the c part was product catalogue. You can't ask us the way we are tightly coupled to the entire billing ecosystem. You cannot ask CPQ to allow configuration if the building blocks that CPQ uses are entirely rigid, product, rate, plant, charge, you can sell. You can price the charge. You can't price the rate plan. You can't bundle things. You can't break them apart. You have to build them over if you want to sell them for a different price. Et cetera, et cetera, et cetera. And so we got charged with that failure right in CPQ, saying we can't Configure.
+
+Speaker 2  40:07  
+What about configurable bundles, though? Because configurable bundles seems to be talked about in the context of next gen, but I haven't heard it talked about in the context of CPQ. Cause or CPQ,
+
+Speaker 1  40:21  
+no, it will be, it will be supported in scores or so. So hard bundle is the first step right, and that'll be supported in q1 in existing CPQ. Configurable bundles is still being worked out as a catalogue, but it will also be supported in existing CPQ. How they use that to build configuration as a true C experience in next gen will is also, I guess, meant for somewhat thinking of that I've just been less in that picture
+
+Speaker 2  40:52  
+well, but how do you bring the C back to Mark Lewis's point with what, what this More With, with what the more flexible catalogue does.
+
+Unknown Speaker  41:03  
+How do you bring it back?
+
+Speaker 2  41:05  
+So, how do you be the sea again? How do you bring the configuration?
+
+Speaker 1  41:11  
+So once, once, the catalogue has constructs that let at the time of ordering or quoting right? Let you build them out right. Let you decide what should and should not be put together given some rules. And if you get into this arrows long term, dream of context rules, and you have a really true omni channel experience. But once you get to that point where there are constructs that can be configurably combined at the time of ordering, not just as a product catalogue managers job to do whenever right, then you bring the c into c, p, q, because then a sales rep, given some constraints played on him by his admin through configuration at the billing or, sorry, through setting configuration that CPQ lets you have right that sales rep can say, Okay, I want you know c1 c3 from over here, from another rate plan, and c2 from this bundle over here to be combined into this one thing that I'm selling, this offer, this package, this configurable bundle. Now I've just configured a three component item and given it a unique, you know, set of pricing for the three components, or if you talk about what customers really want from an ease of use standpoint, is like this magic, like bundle, line, price, and then I've configured it at the point of sale, so only this customer has that configuration, and we've sold it to them. Now that's true configuration, right? And you can elaborate on that, right? Obviously, when we get to the point of building out a plane engine, or even in a realistic use case, like an NCR ATM, where we struggle to do today, right? That's where you're really getting into, like, the configuration that would make us back, include us in the magic quadrant.
+
+Speaker 2  42:55  
+So how far? What would we need to do to get to that point, though?
+
+Speaker 1  43:00  
+Well, I think I've been very I've been I got a deeper into the hard bundles conversation with the with arrow and team and man for it, but mostly man for has been owning that. And hard bundles now is trending in the right direction. For q1 I have not been involved in the configurable bundles conversation, but if it's building off of hard bundles, I think it's, it's already heading in that direction, but they've given that a q2 timeframe, and that's something that Manfred, and Manfred is owning for CPQ, as far as what he thinks, what he's informing Errol and team that he needs,
+
+Speaker 2  43:33  
+yeah, I mean, I can send you what you've probably got, what Errol's written on merchandising, but, but why? Why would? Sorry, I've got more time, so I can't, unless you've got a hard stop, we can still do the demo. But, yeah, okay, why would we
+
+Unknown Speaker  43:51  
+not make see an objective,
+
+Unknown Speaker  43:55  
+like, just, just, if I just step back
+
+Speaker 1  43:58  
+a little bit, right? Well, we did, I think we did, but it, but it, but it took two years.
+
+Speaker 2  44:01  
+Yeah, but see is not we're out of the Magic Quadrant because, because Mark Lewis thinks we have no C, right, correct. So why don't we get our C back?
+
+Unknown Speaker  44:15  
+We are, I don't understand the question, because I guess what
+
+Speaker 2  44:18  
+I'm saying is we're out. That's what arrow got hired for, yeah, yeah, but
+
+Unknown Speaker  44:25  
+is that a if you're not involved in the
+
+Speaker 2  44:33  
+configurable bundles story, right? So, so there's hard and soft bundles, really, what they are is just pre configured and configurable. Right, correct. I don't understand why we use the words hard and soft, but they're pre configured or configurable. What you've just described to me is that if I have the substrate in the catalogue of pre configured and configurable, that is what I need to be. A true in Mark Lewis's language, CPQ. Is that accurate?
+
+Speaker 1  45:05  
+It's the first it's the first step. Yes. What would be the other things, features and entitlements, which is also on on the play out? Yeah, guided selling is the last piece.
+
+Speaker 2  45:14  
+Okay, so, so if we just take guided selling and put it to the left one second. Yep, we know that the the features and entitlements, which is, is rules, is also, well, rules we're building at the moment in this, in this, what we call this arbiter layer, which is a rules engine, slash orchestration. This is something that I'm seeing a POC on tomorrow. So let's just take the soup of what you've just just described, which is I have configured, pre configured and configurable bundles. I have rules, and I have features and entitlements, and then I have guided selling, right? So if, if I put guided selling to one side, it sounds like we have a four out of five package there that gets you back to the C right. Yeah. Okay, so that
+
+Speaker 1  46:11  
+totally once, once we deliver it in q2 if it gets in q2 then we have a strong story to get back included in the Magic Quadrant. Okay, so now it's a moving target, though, because then they change their criteria from year to year. They kind of build ad criteria. And so I think they might have added criteria in the last couple of years where they're saying, now a native e commerce, or, you know, non assisted sales solution, like, should be a baked in concept of CPQ, right? Like, where you should have an element to where you can create a commerce portal that drops in a quote, well, right?
+
+Speaker 2  46:52  
+That's being built on experiences. I think the problem in here is that
+
+Speaker 1  46:56  
+there are, well, it's not whatever is building built in experiences isn't going to create a quote.
+
+Speaker 2  47:01  
+No, it won't create a quote. It's but it will create the experience around the quote. So what I'm trying to understand is, you know, there are, there are probably these, these joins that exist somewhere across all of these road maps, right? 100% right? So my job is to try and find out where that connective tissue is. So if you said to me, Listen, what I would love to do is I would love at the end of 2026 to be able to say that we think we're ready for prime time again. In the context of Magic Quadrant, not the product. They just think about the share of mine there, right? So, we deliver next gen. We deliver this we I'll go, I'm going to have conversations with Satish and Siva specifically on the unified engineering principles. You know, give me a give me a use case. Go, give me an example. Why building without a universal framework is a good thing, right? Like, if I'm going to build a thing, it should serve CPQ, core CPQ and it should serve next gen. Why is that not possible? Is it that the managed packages, which is what I understand, is the thing that you need for Salesforce, such a limiting constraint that you can't do that, or is it, can you really go down to the the ground, you know, to the basement, and say, we build that, and then we have to, then we have to do some stuff on the edges for CPQ, and we have to do some stuff over there for next gen, and they're just slightly different. That's that that hasn't been explained to me, but, but I'm thinking that as a North Star, because, again, this is also an engineering principle. If, if we said we're going to get back in the Magic Quadrant, and we're going to get back there because of the C, because the, you know, the P and the Q is fine. I mean, guided selling, you know, putting to one side, because I don't have an answer for that right now. But why would we not? Why would we not do that?
+
+Speaker 1  49:09  
+Yeah, there's no reason why we shouldn't do that. I think it's I think the answer you're probably going to get from engineering is that we have been doing that, but it's taken longer than expected, because we've been dealing with tech debt in the catalogue. We've been dealing with architectural constraints. I think that the piece you're going to lean into, or that you probably should lean in, lean into, is, you know, if we're building anything, it should it should be supported. Should support the existing CPQ and next gen, right? But where I am struggling to connect the dots with the amount of you know, I guess visibility I've had into this, this kind of black box that is the CPQ next gen world is, are they even thinking about creating tools or processes or services or performance related improvements in core service, the core Zora service that can be used by Zora CPQ, or are they not thinking about it at all? Because what you said, it's too much of a sales force is holding it too tightly. It's too much of its own black box because we don't have access to the data, or we can't create the data. And I think some of that stuff we could probably figure out, like, I mean, realistically, like, we have global methods in CPQ today, right? The global methods that basically are internal APIs that can create bulk records. They're not perfect. They can definitely be improved upon. But ultimately, if we got some, you know, API call from the Zora core service that says, hey, build this construct, we could do that like that could be built out, right? There's the bones are there, you know, but I don't know if they're thinking about it that way. And I think that that's where I'm struggling to understand, is everything I've heard has gone for one year like this, to the point where now it's kind of somewhat getting closer to aligning to what I thought we were doing from the very beginning, which is, again, building services that store Cbq could use,
+
+Speaker 2  51:19  
+yeah, but, but there's a there's a way to kind of move people to this type of conversation. So first of all, I don't see any rationale for not having an answer to that. You not having an answer to that, even if the answer is we're not going to do it, you need to know why we're not going to do
+
+Speaker 1  51:41  
+it, that would be my preference. Yeah, the Yeah. What's the benefit of not doing it? Yeah?
+
+Speaker 2  51:46  
+So, like, what's the trade off? Yeah, exactly. At least you have a point, you know, something to focus on and say, Okay, I get that. It's a valid argument. I understand it.
+
+Unknown Speaker  51:55  
+The bit that I don't understand, though, is,
+
+Speaker 2  51:59  
+well, I do understand it. Let me frame this another way. If I was to say at the top of a conversation that I want us back in the Magic Quadrant, right? If you just think about that as a forcing function, I want us back in the Magic Quadrant, what I understand is that the majority of what would get us back into the magic quadrant is already in play, somewhere in the business, somewhere in the commerce business, guided selling, I think, is from memory, I'd have to go back and check, but I think guided selling is also a core part of next gen. But I'll let me not say that that's the truth. I mean, I think I just know,
+
+Speaker 1  52:40  
+I mean, that is something that Manfred has said is very important, but I will say that no one other than Manfred knows in the next gen team knows what guided selling is. So Zora CPQ has. Zora CPQ today has a guided selling. We go guided selling like seven years ago, eight years ago. The problem is we didn't get the bandwidth to rebuild it in the modernised, quote studio. So we did something else that was lighter. You've got it faster to build it there. We got a legacy, Legacy feature, and it can be used with the new feature, but it's kind of disjointed. And I can, I can walk you through that stuff that's a little bit more of an advanced demo. I can walk you through that stuff if you want to see it. But see it. But you know that. We know what guided selling is to our customers, right? We know what we need for it, but we have not prioritised it because of all of the chaos in what we've been told to do for billing support, of features for now, next gen support,
+
+Speaker 2  53:38  
+because now there's no North Star. There's no North Exactly.
+
+Speaker 1  53:42  
+Insert flashy feature here. Rally, yeah, people around it. No one else knows what they're doing.
+
+Speaker 2  53:48  
+But this is, this is my point is that if you think about the if you think about our next generation, CPQ, either you have to kind of make some, some, some very clear directional statements. Number one, we're going to build next generation CPQ. We're going to deprecate or we're going to not support CPQ in court. I'm not saying that's the truth. You just say that's what we're going to do. And that means we're not building any new flashy stuff. We will give it two years and we will retire. No one has mentioned that, but I'm just saying that that would be a way of framing it, right? Yeah, the other way of framing it is, we're going to build an underlying architecture when we build for next gen that enhances CPQ, because we know the Salesforce environment is as important as the headless, right? That's another position. And then you go, Well, if we have a really flashy next gen CPQ, why are we not in the Magic Quadrant in our core CPQ, right? Because the disjoint seems to be stark. How can you have a mature CPQ product and sales force that is not, you know, and no one cares about the explanation of why the sea doesn't work. It's just you're not in the magic quadrant. So if you're not in the magic quadrant over here, and I can see conga is, is in the Magic Quadrant, why is your next gen CPQ any better than your core foundational CPQ? I'd like, how do I
+
+Speaker 1  55:17  
+sell question, if someone was smart, right? Like, in terms of, like, a customer, whoever was asking that question, what I would ask is, how much parity does your next gen CPQ have around your existing correct? And if you look at it right now, that's a very, very scary answer.
+
+Speaker 2  55:35  
+That's a very it's a very good point. And then, because that, what happens is, that's the first question you ask is, is it is, is it better than next gen CPQ? And you go, actually, no, it's worse. Yeah, it doesn't happen, but it can do flashy things. Yeah, it's got this whole kind of AI thing, but it actually doesn't do what quote Studio does. Then the customer goes, Wait a minute. You're telling me this is next generation CPQ, but your core CPQ is better, and your core CPQ is not in the Magic Quadrant. Why is it not in the Magic Quadrant? Sales Team probably don't know that. They probably don't know that the nuance around the sea so that as a sales story, it falls flat instantly, right? Instantly. So what you've got is you've got a team of people who are building from an engineering led motion, which is, let's build this stuff right? And then we'll figure out what the sales story is. The way I work is, what's the sales story? Then what the engineering principles that you need to deliver the sales story? And then then you get to the middle and what flavour of the product you need is a function of those two things, right? You have to have the it's very interesting. Can we build the engineering so the question is, can we build a Unified Engineering strategy for CPQ? If we can't, then that is question number one answered, okay, if we can't What? What does it require? Well, it requires two teams. That's perfectly fine. We've got two teams. But when you've got those TT, two teams working together, when you've built next generation CPQ, which will not be as good as CPQ out of the box, how do you then explain that to the marketplace? What is next generation? CPQ, is it? Is it? It? So that this story does not stack up, and so my
+
+Speaker 1  57:29  
+question very interesting way to look at it that I appreciate, because I've never gotten that perspective of looking at a sales story first, although it's probably similar and it can come out in the wash, my first instinct is to look at what do the customers need and want to be able to use, yeah, and if you honestly, if you know that answer, you can sell that right. Like that could be the sales story correct, but it's, it's
+
+Speaker 2  57:50  
+often the sales story is often lost when the AE, who knows not that much about CPQ, right, cannot answer a very simple question, which is that story? Why is it better? Why is Why is CPQ, core, CPQ, better than next gen? CPQ is called next generation, right? We called it next generation, but it's not as good as the first generation. And then the other thing is, why are you not in the Magic Quadrant, which, which causes the whole with either of them, with either of them. So, so, yeah, looks brilliant. Good. So I tell you what I would like to do. So let me just tell you the way I would approach this is I'm not making any commitments because I need to kind of build this story arc with Satish and with Manfred, right? But I like the kernel of this, and if I was going to do this, I would focus people on one thing, right, like I would if I was going to go to Pete, and he says to me, what are you going to do with CPQ core? CPQ? I could tell him all the story about unified architecture, all that kind of stuff. I'm going to go and find out that story. But what I would like to say is CPQ will be back in the Magic Quadrant in the beginning of 27 then that's compelling, right? And that's it. And he compel, yeah? And he goes, how you gonna do that? And I go, Well, this is how we're gonna do that, right? So all this stuff,
+
+Speaker 1  59:31  
+not just the magic bathroom, but like the upper right corner, yeah, we want
+
+Speaker 2  59:35  
+to be if you want to sell everything. I'm sorry. I'm sorry. I'm just on this call kiddo. Let me just finish this up, right? They're stunning.
+
+Unknown Speaker  59:45  
+Kids. Having an 11 year old, you don't have kids,
+
+Speaker 3  59:49  
+do you? I've got a two year old so little different, still chaotic. Girl or boy, boy, okay? 11 year old girls, until I grew up, I grew up with three sisters,
+
+Unknown Speaker  1:00:06  
+is it? Yeah,
+
+Unknown Speaker  1:00:09  
+the dress sense and the hormones is just like insane.
+
+Speaker 2  1:00:13  
+So, yeah, I would like to be able to just focus on one thing, because typically, you know, it's like a Christmas tree, if you start with we know that we want to be in the top right. Magic Quadrant is a big thing, but you've articulated the things that you need to get there. None of those things are new. They are things that are being built in catalogue. There's probably not enough concept around what catalogue does and what next gen consumes from catalogue. Because the way I've heard it is, here's the things that I'm dependent on for catalogue, and they're the unlock for next gen, not what I've not heard is those things are also consumed by CPQ, and they are part of the problem which drove my, you know, the Gartner, to remove us from the from the Magic Quadrant, because we didn't have to see so that's the story that I'm going to internalise, and I'm going to battle test that I might have some time tomorrow, but then I'm on leave till January. But what I would love to do is, is embed that as the strategy for next year is make CPQ a Magic Quadrant contender again,
+
+Speaker 1  1:01:33  
+love it, appreciate it. And I'd be on board, yeah, to help in whatever way I can.
+
+Speaker 2  1:01:38  
+And then, and then what we do, and again, I have to talk to Manfred about this is then you start to cut, cull the noise, and say, well, in order to get to that objective, what's the resource that we require to get to that objective? And then that as an objective, is that a bigger objective than the stuff that we're doing elsewhere. So you have to build a case that says, if you want this, you can't have this at the moment this, this doesn't exist. And so that always wins.
+
+Speaker 1  1:02:13  
+I am curious, and I you know, I've told this to Manfred, and I'm pretty sure Manfred agrees and has told this, maybe, to you, definitely, to Shakir, is, we've been, we've got plenty of engineering capacity, right? But from a pm standpoint, it's basically, you know, 2pm to 18 engineers. Or if you think about it, with next gen two PMS to 25 engineers or so like we can't get enough breathing room to do anything other than survive. And so Manfred has been surviving in the space of trying to create the vision, trying to align the leadership. And I've been surviving in the space that I have been for six years before Manfred is just keeping up with everything. So the billing team, which we have to meet parity with everything they build, four PMS, five PMS, now, right? And every time one of them builds something, I have to go and ask them, Hey, what did you build? How does this work? Okay, I gotta build something to support that. Okay? And then now commerce Foundation is doing it, and then rating does something, and then tax does something, and it's like we're split in a million directions, right?
+
+Unknown Speaker  1:03:25  
+Yeah, but the the issue is, is there is no
+
+Speaker 2  1:03:34  
+it's very hard to push back on that, because parity is important. But it doesn't have a trade off. It is the it is an objective that doesn't cannot be argued against, right? Because that parity actually within seat, within zero generally ism is a major problem, right? If you, if you do stuff, it has to work everywhere, and it's probably especially in CPQ. But the question is resource, and the question is direction. And when I look at what Silver Lake wants, when I look at what the MBRs talk about, CPQ is one of five things where we expect to make significantly more money next year. Right now, part of that is we're charging too little for even the thing that we've got today, right? But imagine if you go to the board and you say, actually we can do three times what we think we can do by building CPQ into the Magic Quadrant by building foundational engineering principles that support both CPQ and next gen, by ensuring that when we land with next gen, before shooting, you know, going too early, that It is on par And effectively, then being able to go to market and say, Listen, if you want the Salesforce flavour, it's magic quadrant. If you want the next gen headless flavour, it's on par with with studio, we have a best in class, CPQ experience, wherever you want it, right? That's the That's how the story should play out. Now, I agree.
+
+Speaker 1  1:05:24  
+Yeah, I agree. I guess I I feel like all of those things also still need the pm support that we just kind of don't really have at the moment, unless I can completely stop focusing on any immediate demand from trade web, Twilio BMC, insert large customer here, right? And it's like, okay, well, look, we're not going to build that feature because it's parody. We're good. We're working on the big picture.
+
+Speaker 2  1:05:54  
+You need certainty, though. You need someone see. The thing is, when you get up in the morning, yeah, someone needs to tell you what is the job to be done, right? So if you go we're going to go north star, and that's the big strategy. Then we go in that direction, and then the trade offs are clear. We're making that that trade off in service of that trade off. If the business comes back to you, to me and says, Actually, we're just not going to invest in CPQ like that. We don't actually care if it's in the Magic Quadrant. That would be good for you to know right now, you might then go, well, actually, if that's going to happen, my career move is, I want to be more involved in next generation. Now, what concerns me is that you're not involved in next generation. You have a, clearly, a substantial amount of knowledge, and you articulate it super well. So I, what I strongly believe in is know what the real direction of travel is. And to do that, you have to force the leadership to make a decision. And so what you have to do is to present them with the sick. For you know, decisions that need to be made if we're going to have CPQ and in Salesforce, why would it not be magic quadrant? In order to get it to Magic Quadrant, it has to have these things. In order to have these things, we need a catalogue which we've got. But in order for that to happen, we need to be very critical about what the L threes are. What are the AOCs that we're supporting? What does parity mean? How do you know what is the support that we can get from the billing team to help us manage what parity, how parity is actually achieved, all of these types of things. So I think what's happening is, is the CPQ strategy has been fragmented across a whole bunch of different requirements. Not not not product requirements, but just, it's just demands. Yeah, demands, that's the word. It's been fragmented by demands. And so if this has been really, really helpful, I'd still like to see the demo I've got. Unfortunately, I've got a call in 20 minutes. I can give you 20 minutes worth of demo. Yeah, I'll tell you what. I've got a very good idea, direction of travel. I'll tell you so you're clear about what I'm going to do. Let's you and I keep this conversation between us right. Sure. I'm going to replay versions of this to Manfred and to Satish and to Errol as well, because I'd like his input, and then Siva. And I'm going to do that over the next two to three weeks, so probably take us through to the middle of or early part of January.
+
+Speaker 1  1:08:39  
+And you should also probably add nav to that
+
+Speaker 2  1:08:42  
+list, and I'm actually speaking to NAV tomorrow, so I'll include the some of these questions, and there'll be simple questions like, why are we not aiming for Magic Quadrant like that opens up a really useful can of worms. And then I think I'll be able to come back to you with a very precise direction, and I strongly suspect that it will be making magic quadrant an objective. But let's see. Let's see if. Let's see if I can get there because I tangible. I can't, I can't see why we shouldn't get there. Let's, let's have a look at the demo. I'm really interested. Okay, yeah.
+
+Speaker 1  1:09:21  
+Oh, so here's my Salesforce environment. So there's quite a lot to it. I'm going to just go basic flows, add a little bit of flavour on the basic flows, and then kind of go through some of the settings and extra pieces that, you know, we'll run out of time on, and we can decide if you want to take it from there, you can build a so you manage package Salesforce ecosystem dances natively with the native objects. So this is an opportunity. Nice Salesforce object. Here's a new Quote button. It's new because this is quote studio versus the new Quote button. That's legacy. We can rename the buttons however we want. This is how I enter quote studio. Very first page of quote studio is what is called, and I might have been logged out here, not good is what's called the billing account selection and subscription selection page. It is a kind of like an intermediary step. What? Where are you quoting? Right? Because your opportunity can have multiple billing or Salesforce accounts, and you'll you need to decide, and now we have organisation support, and you need to decide where, where you're going this Okay, so we, I want to mention just you're going to see some latency and loading times. I have not opened this environment up yet today, and the very first load of the day is generally the slowest. Not saying that we're perfect, right? We do have slow loading times throughout sometimes that's based on Salesforce platform latency, and sometimes that's based on us. But in general, the first load is always going to be the slowest, and then the more features you have on right like right now I've got multi organisation enabled, which is a new feature and that now we're trying to process. Okay, well, what organisations do I need to show before I then load the accounts? So I've got access to nine organisations in Zora, my billing you my sales user here, so that's where I see all nine. And I get to choose, do I am I creating a new or a new quote for a new billing account on one of these orgs. Or am I going to create a quote for an existing subscription or an existing account on one of these orgs? So I'll go and fpic Acme US Central is the organisation I want to quote for now, I see two existing billing accounts, right? And my two existing billing accounts will filter out the subscriptions owned by each of the two billing accounts. So I can choose to quote for this Zora billing account, and I can choose to amend, renew or cancel one of these three subscriptions owned by that billing account, or the other way around, right? So that's kind of what these three buttons do here. Multi subscription quoting is another very advanced feature. It's big. It's what big BMC uses is what some of our biggest enterprise customers that have been drawn to Cbq have found a lot of appeal in. That's where I can choose multiple subscriptions to amend at the same time, or I can choose to create a new subscription, or a new multi subscription quote for a new billing account and create 345, up to 15. I think we just are expanding it to 60, and it's going to grow from there that subscriptions at the same time in one single quote that's really appealing to your global customers that are building a, you know, multi subscription deal across multiple GEOS, multiple currencies, right, whatever that is to them. And they build all that into a single CLM, a single contract that, like JP Morgan global has, right? That's, that's the concepts of trade. Web was really appealed. Really appealed. Was really interested in this feature. Okay, so I'm going to go simple new quote for this existing billing account.
+
+Unknown Speaker  1:13:03  
+And then we'll circle back into amend if we have time.
+
+Speaker 1  1:13:08  
+So clicking the New Quote button takes me to what we call the quote studio. So the quote studio is your one stop shop for building everything that is required to get this to become an order in Zora and actually start bringing revenue in. You have at the top here, header level information, right? Just, you know, simply put, what you want to name, the quote when it's going to start. So I could decide that this is something that I want to actually create for January 1, right? Customers going to sign and they're going to be starting a new subscription on the first of the year, and that's what I'm going to align that date to. You can add any number of custom fields to either of these sections. You can change the names of these sections, and you can do all sorts of customization and configuration of how this looks right in terms of layout, not necessarily styling. The next section here, which I just expanded and so I can collapse this first one, if I'm done with it, is anything that you want to show your user in terms of what is required as information to input right terms and conditions. So simply, is this a termed or an evergreen, initial term renewal, terms period tight. You can automate the majority of this through default settings that we have no code needed. You just automate it so you can hide those fields, or you can restrict them to be read only in the UI, however you want it to be. So it's easier for your rep to fast, fast paced through things that are common, and then certain other profiles who maybe do uncommon things, they can have access to do these other things, right? I'm going to do a non ramp 36 month deal renewing for 12 months. And then, you know, this is just some of my basic account information, other field sets that we have for custom fields and different things. This is flexible billing support, all right, so being able to take attributes that are normally at the account level and bring them down to the subscription level, it's a billing feature we support, and that's your terms and conditions. Okay, so dropping down now I get to select my products. So product selection is either based on a, you know, search for the thing you want to add and add it right, or it's based on filtering the different items that you want to see and then selecting them. Now we have nested we have quick filters and we have product filters. Product filters are very basic, very simple. They're based on custom fields on the or standard fields on the product object in Zorro, and they just filter based on that. Now when you go and you look at quick filters, and I can show you the UI if we have time for configuring quick filters, but you have the ability to define filtering criteria, right? Conditionals, logic of how, what, what you're looking at in this, quote, everything, all the context. We have to decide what you want to see. So maybe you decide that you only want to see products for a specific geography, and you've got your products given a custom field you can have, you know, a geo based filter here that would say this product is the only product you have that we sell in this geography. Because of your custom fields, we have nested filters, which is a kind of next level of that, where you can actually say, well, and none of No, I haven't actually configured any so you're not gonna see anything. But I could say my first filter is going to take my product catalogue, of, you know, 500 items, and filter it to 50 items. And then my second filter is going to take me from 50 to 25 and then if I had a third, I could go from 25 to five, and I could kind of narrow my way down. So this is a flavour, a very like, basic, like, first step towards what guided selling is, which is essentially being able to say, I have a series of decisions that my sales user needs to make, whether they're answers to questions, right, actually written questions, or whether they're just like, you know, data tags that then ultimately lands them in a series of five to 10, you know, products that they can select From that satisfy that flow of that guided selling. What this doesn't do, what quick filters doesn't do in guided selling, is that the whole catalogue is wide open from the beginning, and then you filter down guided selling says, No, you're entering this guided selling flow. And so you don't have access to the whole catalogue. You have access to just these subsets of products given the information you've entered thus far, that's the big difference between guided selling and quick filters. Is one is wide open constraining, the other is guided constraining, so you never see everything all at once. We've actually had a lot of customers tell us that they prefer this mechanism if they want their reps to have a little bit more freedom, because it's much faster, right? Because if you think about having to go through three, five step guided selling flows to get to selecting three products, versus jumping in here and saying, Oh yeah, I want my $10 per unit charge, I'm gonna drop it in, oh, I want my BMC, you know, charge, I'm gonna drop it in, whatever, and then you're there. But if you've got 30,000 items, maybe your reps aren't that quick. So anyway, I selected two products. Can I
+
+Speaker 2  1:18:07  
+just ask a question on the new catalogue attributes? Why would? Why would? This is obviously off the old catalogue, right?
+
+Speaker 1  1:18:19  
+This is both off of old and new. So we do support dynamic pricing. But the this catalogue is being shown here, given the sinking, that's 360 sinks, sinking of the product catalogue objects in Zora, syncing them to Salesforce, then we take them and expose them here based off the Salesforce objects, so that you could see them and select them. We don't really allow modification and Salesforce of these objects because they're based on what's stored in Zora.
+
+Speaker 2  1:18:52  
+What if? What if someone created an attribute for a plan that did not live on the left hand side? Though,
+
+Speaker 1  1:19:03  
+if they created an attribute for a plan, there's a very there's a few ways they can create attributes that can be used in CPQ, basically a few objects, right? You can do it off of the billing account, or you can do it off of the Salesforce account. Or you can do it off of the rate plan level itself, or you can do it off of
+
+Unknown Speaker  1:19:27  
+the subscription. So
+
+Speaker 2  1:19:29  
+those three, yeah, go ahead, if I added an attribute in the catalogue, which was, let's say, to be really simple, currents, not, a, let's say I had a region, right? And I created a new region, which was a pack south, right? Sure. How would that region like I know it exists in the catalogue, which means I can filter the catalogue by that region. If I was to directly query the catalogue using the context service, what would, what would happen here? I would build a pack south as a as a region, or is that sinking, or what?
+
+Speaker 1  1:20:10  
+So you would build a pack south as a custom field on, I'm assuming either your product object or your product rate plan object, right, depending on what you want. Then every time you go and create a product or product free plan, you would stamp it with the value for that region field on the custom field. Then you would build a custom field called region on the Salesforce version of that object, and it would have the same API name. And then data 360 sync would ensure that it syncs the data to the 360 or to the Zora Salesforce objects. Likewise, we have custom fields that determine what values of custom fields get sent to Zora. And so if you include that field there, you would send the values to be sent on the subscription rate plan, charge or rate plan or product, right?
+
+Speaker 2  1:20:59  
+Yeah, so because so it is, effectively, there's a very simple level as a map, but there's a process to surface or map a new attribute exactly one place.
+
+Speaker 1  1:21:09  
+It's mapping, yeah, yep, it's mapping because we don't, we don't all speak the same object language,
+
+Unknown Speaker  1:21:16  
+Yep, yeah. Okay, I got you
+
+Speaker 1  1:21:19  
+Yeah, and so I can, you know, I can do filtering here to kind of expose what I want to see based on that. But like when you're talking about actual dynamic pricing, what's interesting in the way we built it is that it doesn't rely on 360 syncing of attributes. Instead, if I had a dynamic pricing based charge, it would call an API the second I hovered over it, right? And it would go and get the pricing information. And so you'd said, if this $10 which is a flat, flat list price, in the catalogue, you would see a little icon that says, this is, you know, dynamic pricing. So pricing ranges. And then when you add it, we would try to say where we look for where you're putting in that attribute, right? Are you putting in the Attribute just on a field, on the charge, or are we getting the attribute from somewhere else through, like, a kind of series of connections? We have a DSL that we use for, like account, you know, source, object derivation, object attribute derivation, and then we would kind of grab the price from the API. Based on that information we're sending the dynamic pricing API Got it, got it understood. Okay, little shopping cart here, just showing like, what we've added. We've added one rate plan for this, BMC, com, 1869 one rate plan for $10 per unit. I'm going to go ahead and add both. I know we're running low on time here, and this is where you basically just see the what you what you're mainly spending your time on in creating a quote. So you're going to do, and you know, a couple of things, right? This is right now a horizontally scrolling table, because I've added extra fields in here. The standard fields are just list price, quantity and discount and effective price. So four fields, no horizontal scrolling. But because I've added more, because there's more things I want to empower my sales reps to do, like I want them to say, Oh, you can actually change the billing period when you subscribe to this rate plan, right? Instead of, we're gonna, instead of US selling it to you or billing you for it monthly, we're gonna bill it annually, things like that. Now a lot of customers don't want that to be automated, or they want only that, or, sorry, they don't want the reps to be able to do that. They want to either automate it, or they want deal desk to be able to do it. So we have that power to be able to control kind of the granularity of, you know, access to these different kind of things. And we've recently added this new modal, which actually says you can take 90% of the fields out of here, and maybe you just have list price, quantity and effective price, cleaning up the table entirely, and then anything extra that you might have that specific users or more advanced sales reps would use, they can define in here. And these are just the fields that the billing system lets us define on a new subscription rate plan, charge at the time of quote creation or the time of order creation, right? And so that's kind of the gist of it. And then the last piece that I'll show you, just in terms of, like, you know, completing demo, I have a on demand preview metrics button enabled. If you turn this off, you basically get preview metrics updating all the time, which means this comes directly from the billing system. This is the invoice items that will be charged on the specific date ranges for this item, given the way it's been constructed. These are the metrics from the billing system. And we've got mappings for where these like where we're pulling these metrics from, and we've done some fancy things, which is a whole nother conversation that we can do around trying to interpret metrics that are billing centric into a quoting or sales centric experience. And we've had to do a lot of a lot of interesting things there, but so if I change this from one to five quantity now I preview my metrics again. This little spinner just means we're calling the preview API. We get the preview back, and now we get new metrics back, right? And that means we also get new metrics at the subscription level. That's very simple, adding a couple things. If I want to add a little bit more complexity, I could say, hey, maybe a month in we're going to increase my quantity again, because I'm, you know, having I need an extra licence, two extra licences in a month. Great. We can do that. We can premeditate it. You can build it in as an order action, and then, hey, maybe again, customers like well, and in six months, I'm actually not going to need that product at all, because we're changing. We're transitioning. Okay, cool, no problem. We'll remove it in six months, we'll say June, July, 1. We're going to just go ahead and remove that product. So now we get metrics for everything. We get metrics for when you added it at five units, one month later, changing it seven units, seven units until July 1, and then you remove it. And this is your total amount for the entire subscription. Last piece of functionality that I just want to show would be the ramp deal, which I think is one of the best things that we do, and that is where I want to create a 36 month ramp. 36 month term. That's rant annually. So now what we've done is we've created these three tabs here, 123, to show the three different years that would be included for the interval frequency defined for a 36 month term. What this lets me do is it lets me see the timeline of changes that I want to make against a single charge across this three year term, right organised by annual intervals. So let's say I added January 1 my customer tells me that the second year, or I tell them that, hey, we're going to increase your quantity because we're going to expect you to grow with us, and we're premeditating this into our agreement. And then the year three, right? We're growing it again. Now maybe this could be a reverse, you know, price change, right? So, like, you're going, Hey, we're going to decrease the price for you the longer you sign with us. We're going to do a five year deal, and by the end of the fifth year you're going you're having like a 10% discount versus like a 2% in the first so we can do all of those things. They're just actions. And so when we base these actions off of a rent deal, now you get interval metrics for each interval, which is a really cool thing. So a lot of our customers actually use this to create the semblance of what would be an annual contract value or an annual recurring revenue, since zord billing has no native metric for that in the previews, which is a huge pain point for customers. But so they'll do this to create kind of a hey, like, let me at least get the interval metric, which shows me that from Jan one to December 31 this will be an $1,800 term or $1,800 time period. This will be a $2,400 time period, and this will be a $3,000 time period, and that becomes really, really helpful. But the most important thing to realise about ramps is that you don't need a ramp to structure that right ramps just let us visually organise and capture metrics for date periods. But actions can be done anywhere across the timeline. And even when I turned off ramp, which is what I did by turning off that toggle, I still see the three actions that I meditated, right? And you can see that we're grabbing metrics for each segment of time, that that charge is behaving a certain way, right? Giving you a visual visualisation of the way your customer is growing with you, right? And that's what kind of is really powerful about CPUs and rent deals, is it visualises it for you.
+
+Speaker 2  1:28:29  
+So that's, that's interesting. We're gonna have to do another demo. I'd like to see a more complex case, because that's, it's really interesting.
+
+Unknown Speaker  1:28:37  
+But it's, I mean, I, as you're talking, I'm thinking to myself,
+
+Speaker 2  1:28:43  
+if next gen CPQ isn't going to be fully baked for a year, and it has one way syncing with CPQ, ie, you could take what you do in next gen and push it into CPQ. You can't push CPQ back out to next gen, which is fine. I think you could tell a joined up story, which is, you know, CPQ is going to be magic quadrant. Next Gen CPQ is a primary interaction layer that reduces the friction for sales people. You can still, if you're a Salesforce customer, use next gen CPQ because it gives you deal velocity, and you could push it in and then refine the deal inside. So you could build a story that unifies. What's that can I just have one minute, yeah, you could take, you could build a story that unifies all of that.
+
+Unknown Speaker  1:29:37  
+Because, as you say, the richness is there
+
+Speaker 2  1:29:40  
+and then, and then, as you said, the bit you're missing is the is the configurable. But, you know, hard bundle, pre configured, configurable bundles. And then, yeah, the distance to top right doesn't seem out of reach storage.
+
+Speaker 1  1:30:00  
+Not much else we're missing in terms of the Zora story, yeah, we've got it. It's just, is the UI sub optimal? I mean, that's subjective, lead debated. I mean, I think we can make it better, and we are, but there's definitely things about it that I think there's too much of a focus on the UI right now with next gen, like, Oh, we're revamping the UI because that's what's going to make it better. Going to make it better. Like, that's not what. Yes, it's a very UI centric piece of functionality. But like, if it doesn't build a quote that creates an order, you're dead. Doesn't matter how good the UI is.
+
+Speaker 2  1:30:33  
+Well, no, you'll just get to a block of faster. You'll just find out what the limitations of next gen are faster than than you would before. So I would say that the story has to be next gen, until it's until it's exactly on par with with the Salesforce CPQ, or or CPQ in Salesforce could be as a feeder to that. So you actually enhance the story of Salesforce, CPQ, of your CPQ, yeah, yeah, there's, there's a few ways to cut this. I'm gonna have to bounce to another meeting. I really value this. I need to do some homework for two or three weeks. Okay, I'm on leave next week, and so when I come back, what I'd like to do is a more complex walk through, where we put proper aside, and then I will, as I start to build this story out and hear what the responses are, I'll keep you updated.
+
+Speaker 3  1:31:27  
+Sounds great, Jonathan, I appreciate the just the time to talk and listen. Yeah, it's super interesting.
+
+Speaker 2  1:31:32  
+And I think there's a story here. I really do. I think unless I get any significant pushback, there's enough of a thread to pull out to try and work out if this is the way we should approach.
+
+Unknown Speaker  1:31:43  
+It plays out, yeah, let me know. All right, take care. Happy holidays. Take care. Man. Bye.
+
+Speaker 2  1:31:49  
+Why am I getting kicked out? This looks amazing. Okay, I'm going upstairs where I'm not being disturbing anybody i i.
+
+Transcribed by https://otter.ai

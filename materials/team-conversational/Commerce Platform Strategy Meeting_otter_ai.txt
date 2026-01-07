@@ -1,0 +1,310 @@
+Speaker 1  0:00  
+Channel directly through digital in the future, through agentic commerce, but in the near term, we're really focused on providing you with flexibility to package price and optimise your go to market. Thanks.
+
+Speaker 2  0:15  
+Harold, so I think the sessions be more of a technical nature, just so everyone's aware ahead of time here, but I think Errol's been a very busy man this time of year. But Maybe Ben, could you give us maybe a quick view of kind of what you want to get out today and some of your thinking, because I think you'll be best placed just to set the scene here,
+
+Speaker 3  0:40  
+of course. So I think as you understand we're looking to evolve our commerce platform, we believe that one of the well, the core weaknesses we've identified are around our product and pricing data model and how that is available to our sales channels at runtime. We've been partnering with a third party called Lineo for some time, as you're aware, who've provided the the the user experiences around acquisition and renewal. We've since moved those user experiences over to our own technology, and what we're looking to do is continue to use our own UIs, our own user experiences, but have it driven by a faster, more flexible Price Limit, packaging model. We also are looking at restructuring the way our subscriptions work. So at the moment, our subscriptions are effectively tied one to one with a product we want in future to move towards. The terminology is a bit mixed, but some combination of dynamic bundling and modular subscriptions we really want our customers to see, to be able to see their subscription as collection of things that they turn on or off, and have that complexity abstracted away from them. But we also want to be able to say here is the combination of products we think you should buy. So kind of a the most obvious example we have is the way we sell print. So we sell print as a bundle product. You can only buy a print product with our digital content access, our premium digital content access. Now, in another world, we would model that as either a true bundle, or we would model it as a modular subscription, where you turn on print, you turn on premium, you turn on premium video and things like that. So that's the direction of travel. What we're looking to understand is how we can go from your new product catalogue to having those products and prices visible on our website, and we tend to surface products in three main ways, as SEO landing pages, which you can then configure and purchase. We make a lot of use of red walls and pay walls, where we use in Zephyr. We intercept a request for content, and we need to select the correct product to show. We need to show the right product that's going to convert. And we also make use of banners, which are effectively internal ads. And it's in an ideal world, we would have a platform we could call fast enough at runtime from anywhere in the world that we don't have to build our own cash in layers and proxy in layers. We don't really want to have to say, Yeah, we have this great new price of the product catalogue, but actually we have to export it all to the Canada AWS region because it's too slow to call it a runtime from there. So what we're looking at is whether your products can help us do some of that stuff, and whether they're fast enough to work in the way we want them to work.
+
+Speaker 1  4:09  
+Got it. Thank you. Ben, that was a great summary in terms of some of the customised pricing. Well, we'll talk about packaging, but when you think about maybe dynamic packaging is as well as maybe even personalised package pricing. What are some of the attributes or conditions that you take into consideration, other than geography to determine the optimal offer?
+
+Speaker 3  4:36  
+Well, we don't, that's the problem. So effectively we have had to instantiate 10,000 permutations of schools to sell, and we can only sell at a price point to a target region for a particular customer segment that matches one of those pre instantiated constructs. I think what I got excited about when we had the session last week is you were talking in terms of rule, but what seemed to me to be talking in terms of rule and context matching based pricing, which is the model that I've been advocating for very long time, and it does distinguish you from some of your competitors. So what we want to do is pass in a context object which says, I am this customer with this tenure, I'm interested in this product for this term. I live in this in this geography, this payment method, and it's selected for it. It's almost always kind of a best offer model where we provide you a context you say, this is the thing to sell to that customer.
+
+Unknown Speaker  5:45  
+Got it. That's very helpful.
+
+Speaker 1  5:49  
+Okay, great. So what I'd recommend we do? I don't want to inundate you with slides, but I do want to ensure I just summarise some of the key concepts that the Zora team has already taken you through. So I know, obviously I've met with your team. Let me, let me jump in the time machine. When I joined Zorro, now over a year and a half ago, and when I first joined, I met with your team, and we've had a few meetings, and along the way, you've provided very good insights. And so I would say the first thing is, we've incorporated many of the insights that you provided us early on. So I think what you're going to see is the path that we're on again from previous meetings, aligned with where where you're going. And ultimately, our vision is to be, you know, the single solution provider that will support all of your different channels and eliminate the need for Le Mayo some of these other areas. So please keep that confidential, but it's probably pretty obvious where we're moving. So I'll just go ahead introduce a few key concepts and then jump into a demo, and in that we have 15 minutes left at the end where we could go through next Steps and details. If that works for you,
+
+Unknown Speaker  7:14  
+perfect. Do
+
+Speaker 1  7:23  
+everyone's fucking good, and I am going to jump a little bit around here so I'm not going to go in full slideshow mode. And if you'd like to record this session, please feel free to if we're not already recording and is being recorded.
+
+Speaker 4  7:43  
+He's got big workload and his PMS, he's got PMS who below can't do this level of demo. It's a problem. I'm trying to upskill myself.
+
+Unknown Speaker  7:54  
+It's not okay. It's not hard to do.
+
+Speaker 1  7:56  
+Is this working? Yeah, we got you. Okay, perfect. So again, as we introduce our objective is to give you the flexibility and a full stack with supported decision and capabilities, AI and optimization, that whenever someone arrives at any economist group surface whether they are working for your sales team online, looking up something, maybe via an LLM, and they pop right to a product detail page that you have the opportunity to engage them, pull them in with A compelling, personalised experience that converts so very simple commerce vision, of course, with Zephyr, many of the personalization elements, the firewall optimization, really builds upon the investment that you've already made. So what does that really look like? And we're going to take you through some key elements. So oops, jumped down. So later this year, we're rolling out we're really enhancing our storefront experiences and subscriber portals. So I know we've taken you through that we could hit that in a future meeting. But really, really the heart of what we're talking about today is when we think about personalization and delivering that right that right price and package really comes from understanding the conditions and the attributes of engagement. So we call this context. It's a new service that supports everything else we do, but it all begins with understanding who is the user, for example, are they a business, education, consumer, residential user? What's their geography? Or if they've already worked interact extensively with the economist, someone like me, then you know, you know how much, which products do I own, and potentially, which new products can you inspire with me or get me to upsell me with? And then, as we look a little bit further down here, of course, be giving you the flexibility, first to package, then to price, then ultimately, to improve conversion with highly relevant discounts and promotions. So all of these elements are either have either been delivered or are going to be delivered across our near term roadmap of February and May. So I'm going to jump all the way to the end, which is, well, what does this look like in the future, and so today, we're going to just briefly introduce a few different concepts. So we will answer all of your pricing questions and packaging. But there's also a new capability that we're introducing, which is our enhanced features and entitlements. So a feature is a product has features, and then the entitlement is really the quantity that you purchase. So again, let's think about the Economist. Maybe you have basic and advanced access. With basic access, the feature might be podcasts, and let's just say podcasts and pages. I know you don't licence this way, but you know here you would say basic would the entitlement might be 10 podcasts and 100 pages, and then advanced is 100 podcasts and unlimited pages. So that's the interplay between what a feature and entitlement is. But the reason I start here is you essentially have sell through many different contexts, you have location, you have industries, you may maybe have monthly recurring revenue or annual recurring revenue, and a myriad of other attributes that are really important to understand for each user, what's important to them. Now, using that the features, then we're actually able, in the future to actually track how many, for example, podcasts or pages or other entitlements that each user is you using, and our vision is by understanding exactly who that user is, what's important to them, we can then enable you to create the perfect product plan and charge and so this really is our North Star. So for example, if I'm a business professional and I'm on the go. So that might be what why one in blue is I'm in California? Why three is I'm business professional, and why five I don't spend a lot of time online? Perhaps, then you might know that z1 which is maybe snippets, podcasts and news summaries are most valuable to me as a result of knowing exactly who I am and what's important to me in the future, you can then propose the optimal product that best suits My needs, and you can essentially bundle together different offerings dynamically, as well as charge them and price them optimally. So I'm going to jump now. That's where we're going. But what have we delivered? So I'm going to jump right in to just a few key concepts. So as I introduced we and now I can go and slide show as I introduced in order to understand context. Hold on. We're still loading. There we go. So in order to personalise pricing and deliver the optimal outcomes. And again, package, price, bundle, etc. We use the Zora context service. And so if we go top down, the first thing we take into consideration is actually how you are structured. So business structure is perhaps, what region are you in? Are you selling directly? Are there other factors if you've got multiple papers, multiple properties, multiple formats, multiple sites, such as perhaps education, government, university, residential, all of those may have different offerings that are available different and different structures. So the first one is how you're how you sell, and then all of the rest of it is all about the customer. Where are they located? What channel did they come in? What catalogue are they browsing? And what's their context, maybe, what do they own? How much have they spent? Etc. And with that, we use that these different attributes. We synthesise these attributes together to determine what product you present, what price do you potentially calculate, and even what experiences do we deliver? Now we'll jump ahead and we'll just introduce the foundation for pricing. Now, with this information, we really have three different types of new pricing capability. The first is just simple attribute based pricing. Think about this as a lookup. So in this case, let's for a minute. Say, in North America, maybe you have 50 different prices for each state. First and foremost, it's still the exact same product. It's just priced a little bit differently. So for this, for California, maybe the price is annually $100 and for New York, it is 95 that would be attribute based pricing, pre Cal, pre computed, simple lookup. But the other way we could do this is we can compute the pricing, and this would be dynamic pricing. So in this case, what we want to do is take all of these attributes and configure into consideration and then compute the optimal price. So perhaps, and if you look in the bottom right, hopefully you can see that, but perhaps in California, New York, Hawaii and Connecticut, you actually maybe you're providing auto insurance, and those states maybe cost a little bit more to operate in. So if you're in these four states, you're going to do a 5% uplift. Oops, you're going to do a 5% uplift, and then you also, based on the MRR, the monthly recurring revenue, want to give different discounts. So if you're between 25 and 50, you could do a 10% discount, 50 to 75 15% etc. So we, we've given you almost infinite flexibility in the first version. If you can model it in a spreadsheet, we can execute it on your behalf. We have min, max, greater than, less than and other operators all as part of the core platform. Go ahead.
+
+Speaker 3  17:18  
+Ben, how do you want to handle questions as they come up, because I've got Sure. So firstly, is this deterministic? Am I going to get the same result if I pass the same context in twice,
+
+Speaker 1  17:32  
+always, and everything is audited all the way through a question
+
+Speaker 3  17:37  
+is the is the audit trail of the price attached to the subscription, if the customer converts.
+
+Speaker 1  17:44  
+So, yes, it is. So it goes through all of the attributes go through into the back office, or number one, Zephyr gets them. Number two, well, Zephyr now is Zora and number two, it is captured in the audit trail, so you know exactly what price was extended and why, and that is whether they've selected a price and condition online, or they went through our configure price quoting
+
+Speaker 3  18:11  
+solution, and is that then considered by your renewal processes? So if that's correct, so if I want to say, I want to continue to honour the discount that the customer got, an acquisition of renewal that will be handled.
+
+Speaker 1  18:28  
+There's two ways to set that up. Number one, if those conditions are still true, then the price will be calculated. So if I'm still a university student, I still receive the university discount. However, if I'm no longer a university student, and however you determine that, changing email, maybe the honour system, etc, then it will revert to the next appropriate price.
+
+Unknown Speaker  18:58  
+Okay, great. Thank you.
+
+Speaker 1  19:00  
+And we also, without getting too deeply into it, I can show you we have a price in waterfall. So also, when you're building these different SKUs, you can see the base, the adjusted price and all of the discounts.
+
+Speaker 3  19:14  
+And do the rules have any temple element? Can I say this rule only applies during this period?
+
+Speaker 1  19:21  
+Do so rules are associated that there are many ways to do that. So you can do promotion like discounting. Rules can have a term, but generally the product rules, pricing rules are associated. They have an effective date. So you can effective date everything, but they're associated with the skew itself.
+
+Speaker 3  19:43  
+So in this, this illustration we have here, I'm assuming that there's kind of like a cascade thing. So you go through the rules and tell you, either tell you match, or when you find one that matches most. The reason I ask is one of our big problems is price rise and being able to kind of future date rules to say, and this rule set only kicks in at this point in time, would be helpful. Even more helpful would be to be able to say, give me a quote for a point in the future, and to have it apply the rules that would be active at that point in the future. Don't expect answers now, but those are the types of things that are useful to us in our price rise conversations.
+
+Speaker 1  20:25  
+We do support effective dating. So each product and SKU can have a set of rules that apply to them to for example, support 2025 pricing. Obviously we're right nearing 26 so if I am negotiating a university contract for 2026 it will give me the 2026 pricing when I put that configuration into the system.
+
+Speaker 3  20:54  
+Okay, so we can do future data quotes effectively, correct.
+
+Speaker 1  21:00  
+Okay, perfect. I don't see where hands are raised. Was there one other?
+
+Speaker 5  21:08  
+Yeah, at the moment, we do. So just for context, we obviously using the standards or a product catalogue, which we do actually have effective dating in, but we just don't use it because the complexity of our platform is that a single rate plan. We don't allow for a different effective dated rate plans anywhere but in Zora. So we, the upstream platforms, don't understand the concept of an effective date for 2025, and 2026 they just notice a rate plan, and that's a rate plan they use. So just trying to work out what the difference is between the dynamic pricing and potential pricing using the new offering compared to the existing product catalogue.
+
+Speaker 1  21:49  
+So we use the same concepts of effective dates at a rate plan, and we'll want to probably talk in the following session exactly what the upstream implications are that you're mentioning to ensure it works appropriately in your scenario. And then just the other thing Ben you mentioned on the previous question is, the answer was yes. I didn't want to cut you off, but it looks for the first set of truths. And so as you build it out, it would just say there are three attributes, ABC. So you know, the way you could set it up is true, true, true, true, true, null, true, null, null. And so where ABC could be high monthly spend, high platinum segment, and I don't know some other discount University. If all three of those are true, it's a compound operation, and it'll do discount sequentially in the order that you determine 123, so then the second one could be true, true, null, and so discount, discount, nothing, or discount. So it does, based on the information that you give it, take that into consideration, which is how we synthesise context. So I'll do a few more, just quick slides, and then we'll jump into a demo. So this is the pricing element, and and this is just a very simple example of how we've used this to consolidate from 24 SKUs to two. So this is a hardware solution that's part of a hardware software. And so again, 24 SKUs on the left. And so what we've done is there's a feature, one which is bandwidth, three different tiers. There's an attribute. So this is a customer segment, advanced versus Foundation, and then there's high availability. And you know, you can essentially see how we how we refined. Numerically, it's three times two is 12 times two is 24 now turns into these two basic SKUs. So this would be an example of some of the simple things we solve for.
+
+Speaker 3  24:10  
+And when you return, when you return a price to the front end, hours, how do you add an identity to what you've calculated? So obviously there'll be an underlying school, which will be the base of products, and then there'll be a price. So is there effectively a receipt object with an ID? How do we kind of reference back to the data structure that was created for this price?
+
+Speaker 1  24:37  
+So the payload includes, so when we go through the order preview and we display the price, and then we check out, the payload includes all of that context. It's all it's time stamped. You can literally, it's a it's a very easily JSON readable API and but it's also in the system, so within order, in every with all these pieces, it passes through, so you know what the price is. So for example, go ahead.
+
+Speaker 3  25:12  
+So if you consider kind of an optimised route in for a customer, for us, they'll land on our subscription page from Google. They'll configure that product will be shown a price, then we want to check out and honour that price. So how do we say you gave us this price previously over it
+
+Speaker 1  25:30  
+that's yeah, so that would be part of the session context. And we then know what price we gave you, what the attributes are, and we check you out at that price, we can get into maybe a little more detail when we get into system design with your team on that if the attributes are true, this
+
+Speaker 3  25:51  
+is the this is the critical feature for us.
+
+Speaker 1  25:55  
+I completely understand same it's also the critical feature for every customer, and as long as the attributes don't change, then we will always return the same price with the audit trail.
+
+Speaker 3  26:09  
+Last question before I let you move on, how is Tax? Tax? Then, is tax included in the price objects?
+
+Speaker 1  26:17  
+Tax is at the bottom of the waterfall. Unless you want to do a surcharge, we do have surcharge capabilities. So if I pay Bibi cash first credit you after you calculate the actual charge, then you can maybe add in a 3% credit card fee, if you wanted to. So it's all with part of our order of operations for how, how we execute our pricing waterfall.
+
+Speaker 3  26:46  
+But I can make a request for a New York based customer and get New York taxes calculated correctly in my initial call, correct.
+
+Speaker 1  26:57  
+Well, tax would be, yeah, tax and that that comes at the bottom right using the current system that you use today.
+
+Speaker 3  27:05  
+Okay, so we don't have to wait for a longer preview call to get tax information.
+
+Speaker 1  27:20  
+So think about, you know, the first thing you do is you have a base and a personalised price. It's just like every other commerce system in the world, right? You have a base price, then you manipulate the base price with adjustments, then you factor in discounts or promotions, and then you have overrides. We have a pricing waterfall that predictably calculates those outcomes, after which, if you want to apply a surcharge, maybe based on payment type and or other DB doing business, fee, and then that becomes the extended price, right? That's that once, that's the extended price. Then from there you calculate tax and other fees. So we, as part of pricing, do not incorporate tax in there, because we don't have all of the other elements calculated tax computation comes in as part of the checkout process. We need to find no final bill to you know, and all of those specific terms at that point based on the extended price with factored and assimilated discount, promotion fees, surcharges, etc. Then we apply the tax code. We could get into it in more detail, but that was that's how we designed the system. Okay, so, features, entitlements, I talked a little bit about that again. The vision here is, as you know, Zephyr already has features, and so think about features as an extension of the Zephyr object being very specific and trackable down to product features. So this is, to us, incredibly important, because that enables to really understand what your customers find as useful, how they're consuming it, and ultimately enabling us to price with greater precision in the future. And then the last one, we talked upfront about bundling. So we have two types of bundles. So let me just say the pricing is currently GA as our context, we're going to be delivering entitlements and hard bundles in the February timeframe, and dynamic bundles later in 2026 so a hard bundle is a pre configured set of individual products, as you've articulated. So maybe product one would be print and product two is digital. And then, of course, you have plans. So maybe plan A and plan z is print for university and digital for university, and maybe charge 123, are additional entitlements that are part of that specific plan. So we're able to bring those together. And you can merge charges. You can uplift, you uplift charges or discount charges by percent and flat fee. And then you can exclude charges the way it works in the Zora system when you've created a hard bundle, is it essentially becomes a new SKU all of the features, entitlements, attributes are inherited, and then they are presented as a new offer to that user. And then at the back office, you have the ability for revenue management to account for how many bundles Did you sell, but you can then also have the component products and know that I sold, you know, 1000 print subscriptions, etc.
+
+Unknown Speaker  31:13  
+Then the final piece that I'll jump into the demo is, sorry,
+
+Speaker 1  31:19  
+there's a lot going on here, but it's really a configurable or a dynamic bundle. In this case, when you combine product a gold plan with over 100 seats with product B, silver or higher plan, then you're going to dynamically compute a price discount, et cetera. Now, as part of that, we of course, have not only triggering conditions that you put these two together, but you have different business rules. For example, in this case, let's say this is a instead of seats, these are users or readers. So both products have to include over 100 seats. To satisfy that requirement, you can say that we're excluding certain areas, such as Canada and basic plan, and then perhaps with offers and promotions, you're going to say offer stacking not permitted. So these are the types of terms and conditions we would use to constrain and guide a dynamic bundle. And then we'll essentially give you ability, the ability to compute that on the fly. Now, the way we're building this, this is coming in May and or later next year, is all of the same elements we've put in place, for example, hard bundle are now used for, for as a container for this new soft bundle. So it would pass through and it would say bundle. It would have the core products, and then for internal accounting purposes, it will include all of the associated rules that were fight rules and attributes the business user or the custom consumer never sees those rules, but now you at least know internally, why were these products brought together, discounted, and what was the structure of engagement? And so this is something that's unique to Zora in terms of many other platforms. Just they combine the bundle and they push it downstream, we provide that auditability all the way through, and it ensures, upon renewal, that all of the original terms and conditions, if they're still true, you can still honour and extend that same offering. So with that, I'm going to exit out of here and jump into a bundle. I'm sorry, a demo.
+
+Unknown Speaker  33:50  
+Ryan, go ahead.
+
+Speaker 5  33:53  
+Sauce asked this at these group last week as well. So when we start to bundle products together, particularly if they've got different types of delivery, fulfilment. So for example, print and digital, just by adding the two products together doesn't necessarily mean you're kind of like charging one price for print and one price for digital, then adding it together and saying, Okay, it's exactly the same apportionment. What happens in the door behind the scenes if you want to bundle a product and ensure that the revenue is split correctly, and also that has a dictation how the tax is calculated as well, because that's one of the challenges, and why we've actually bundled some of our products, or pre bundled some of our products now.
+
+Speaker 1  34:34  
+So I apologise I'm not fully tracking. So when based on business conditions, you either have, you either present a hard or a dynamic bundle, yeah, yeah.
+
+Speaker 5  34:45  
+We've got a hard bundle at the moment. So basically, we have a printed digital offering where the revenue apportionment is set higher on print because it costs more to deliver to the customer. Yes, but if we were to sell print separately and digital separately. They're not equal to what the post of a bundle is at the moment, you know, we probably sell them slightly differently. So when you start to bundle products together, it isn't as straightforward as saying, Okay, let's say the current print charge the current digital charge. Add them together, and it's an equal split. For example, it could be that, you know, we start to charge a little bit more on the bundle, or, you know, kind of proportion revenue and tax differently based on those, those combinations. Absolutely, your model works in terms of, like, similar products, you know, but when they're different mediums, like, then tax in particular has a different, different calculation.
+
+Speaker 1  35:45  
+Okay, so let me answer part one. So here you you would have it ultimately generates an extended price, but when we push it back up, you'll see Product A here was discounted 30 product B versus 20. So product B would be your print. Similarly, if we come back here and we just say, let's just say it's charge one and four, this could be digital and this could be print the way you treat you know, the markdown on charge for digital, because it's higher margin, you can do a steeper discount here than here, and then when you attribute it back to the original products themselves, you're attributing back. So again, the charges add up into the extended price. But when you for when for back office systems, you know that this was, let's just say, $100.75 was allocated to print, 25% $25 to digital. All of that cascades through and you have that integrity.
+
+Speaker 5  36:55  
+Okay, yep, so it deals with revenue from the centre and then tax. Because tax varies. If you bundle products together as well. So you know, if you sold it separately, you've got a certain tax rate. And then, in particular, we've, like, in North America, we have a blended tax rate. If you've got two components of print and digital, where they're sold separately, if we were suddenly separately, they'd have a different tax rate than when you put them together. They have a totally different tax rate.
+
+Speaker 1  37:22  
+I will be honest, this is the first time I've heard different tax rates for blended offerings. I know there are different tax rates for standalone offerings. We have not encountered that yet, so perhaps we'll have to work through that with you. As long as you have a blended tax rate table we can then support it, but I've, yeah, that's effectively
+
+Speaker 5  37:45  
+what we have. Yes, we have a blended tax rate table for that bundle product when it's bundled together and then everything else has its own standalone digital and print tax table.
+
+Speaker 1  37:56  
+Got it? Okay? We can handle that. So maybe jumping in the demo. Jonathan, I don't know if you wanted to jump in, and I know you said you configured your tenant, or I could just start with an empty tenant here and go just show a few things. Yeah.
+
+Speaker 6  38:16  
+I mean, I have, I think what I could do is I put a couple of, I mean, I want to, I'm just trying to think I've got attributes, and I've got the features in that probably are most relevant to the Economist. So I can have a go, and then we can talk through I was going to build out. I I've got some pre configured attributes. But I tell you what, why don't you keep going, Errol, and if we have to, kind of for focus on something that's more economist related, we can do that at the end. Let me not. Let me not. Let me not break the flow.
+
+Speaker 1  38:50  
+Okay, so to The Economist team. Well, if that's okay with you, I'm going to just do a completely cold demo, which will actually hopefully be helpful, because you'll see how we configured the system. So the first thing we're going to do is we're going to add the attribute again, these are conditions, and we're able to synthesise these together for your pricing. So I'm just going to use a simple one, like country, and so obviously that falls in the category of location. Now we can use standard objects, or it supports Zora custom objects, and then finally, that field can come from within Zora, or it can come externally, so it can be fed in through some other system. So obviously, when we're talking about location, that's going to be on the contact bill too. And so now, as you can see, we did country, and we're just going to come in here. And now you can see, because this is an existing field, it's already been pre mapped. And so we're going to make this offer available in Poland, Portugal, Romania, Russia. all of the Attribute filters are here. So if you wanted to filter, I don't know this is going to probably clear everything, but you know, whichever products have these attributes are going to be now displayed. So the other element we're going to show you is how to manage the features themselves and add a new feature. So we're going to come in here, we're going to add a new feature called economist podcast, and we're going to say it's metered each and we're going to say the default quantity is five, and then maximum is maybe 100 beyond the 1000. Beyond that. You want to talk to a sales rep. The other thing we'll do, oh no.
+
+Unknown Speaker  41:00  
+Oh whoops, that was my mistake.
+
+Speaker 1  41:08  
+So now we've saved podcast. Now we're going to come in and we'll just do say you're coming out with a new capability. Oh, let's just do articles maybe in the future, actually just do seats. And so again, this one will also be metered. These are each seat, all quantity, one, one. And again, we'll give up to 100 online. Thereafter, you want to talk to a sales rep, and we'll go ahead and save that. Now these could be either metered or they could be unmetered, and those would be things like service support, etc. So now we're going to come in here and we're going to just go ahead and create a new product. And so this is going to be a,
+
+Unknown Speaker  42:03  
+let's just say global
+
+Speaker 1  42:08  
+dynamic pricing. And so now as we coops didn't want to click there, so now as we come down, first and foremost, to the features, if you recall first you associate features
+
+Unknown Speaker  42:25  
+to the product. So here,
+
+Unknown Speaker  42:36  
+something has changed. Oh, add new
+
+Unknown Speaker  42:46  
+I apologise.
+
+Speaker 1  42:58  
+There we go. So we have economist podcasts. And then we're going to add another feature here. We're going to save that. We're going to add the next one, add an existing feature, and we're going to call it economist seats. So this one will make just very simple, and then attributes will come back in here. And again, we're going to go into location
+
+Unknown Speaker  43:29  
+under Customer context. And
+
+Speaker 1  43:46  
+sorry, here's the location, somewhere down here, just a little bit. We've got economist country. And then again here again, we can see these were the countries that we selected. So within here we're going to select four of these, because it's a European offering, and we're going to exclude Venezuela. Now, as we get into the plans themselves, we're just going to keep it simple. Now, you could put as many attributes. Everything now will cascade hierarchically, and so, of course, I've got, we'll just put in
+
+Unknown Speaker  44:24  
+today's date, we'll put in an end date
+
+Speaker 1  44:35  
+description, And then the category is, this is a base product.
+
+Unknown Speaker  44:49  
+I think you lost the description there.
+
+Unknown Speaker  44:55  
+Something's blocking me from saving this.
+
+Speaker 6  44:58  
+You have to, you got to save the Economist. Seats, Errol, oh,
+
+Unknown Speaker  45:03  
+thank you. There we go.
+
+Speaker 1  45:09  
+Okay, so now we have saved the core product, and now we're going to add a plan. And so the first thing I'm just going to quickly show you, we're just going to call this basic and as we jump into here again, as we mentioned, the features will automatically cascade, and now you have the ability to quantify those, and I'm just going to jump in here, and the attributes associated that we previously selected are now also showing up. So here we've decided that this is just for the EU so we're going to delete this right here, and now I'm just going to jump into pricing, just very briefly, and then show you essentially how this works. So now we're going to call this dynamic pricing, and you're going to go through, we're going to call this a recurring we're going to call it, just call it flat fee. So we're going to do this as
+
+Unknown Speaker  46:12  
+per unit. Let's just come in here,
+
+Speaker 1  46:17  
+and now we're just going to jump into briefly. Oh, you know what I did? I did make that okay. So now you've got your base price of 100
+
+Unknown Speaker  46:28  
+and we're
+
+Speaker 1  46:30  
+going to go into dynamic pricing. And so here's where you have the ability to incorporate all of your custom pricing. So the first thing we're going to go down here and reintroduce location. So now we have economist country, and as you come in here, you'll see these are all of the available countries. So we're just going to do you could obviously do equals, or you can do what within the range. But let's just say, for simplicity, I didn't enable all of the other sorry. I didn't enable all the other countries for Poland. We're just going to add an adjustment, and you can simply say, if Poland price equals 95 or you could actually name this as a price underscore discount, and it doesn't have to be underscore, and then you could do 5% and you know, then you just simply do equals P times one minus. And I'm sure I did this as an error
+
+Unknown Speaker  47:48  
+price discount.
+
+Speaker 1  47:58  
+So without getting into all of the details. You can add and clone as many different rows. You can put in as many different formulas and adjustments as you'd like. And you can again, come back into the system, and you can do you know, these are all different attributes that you can come in that have been previously predefined. So one of the things you will notice as I go through this, and I know these are just all sorts of random attributes, so EU one, eu two, et cetera. But now you can also start to see how we've factored everything in, and you can stack your adjustments and create all of your different pricing rules. So I'm going to pause just in the interest of time. I didn't go through all of the formulas and configuring all of the offerings we can go through and use your prices with Jonathan's demo, but I wanted to pause and make sure we have time for questions.
+
+Speaker 6  49:11  
+I think what we could do is we could also maybe Ryan, take some examples of the pricing that you've got, and create some examples of that in the catalogue, and then do a follow up call, where we where we walk through how we've configured some of the you know, how we compress the SKUs, which is obviously one of the key points that Ariel talked about, and then how those are actually built out in the existing product catalogue. I think a real use case would probably bring this to life quite, quite well.
+
+Speaker 5  49:48  
+Yeah, the arrow, just for context. So our product catalogue at the moment is really just about renewal prices in Zora, so we're just holding primarily like I mentioned, we do price zone. So that's really kind of like a currency behind a price zone or a region, and then it's just as many products and terms. So if you were not to have different pricing involved, you'd have 800 rate plans because of the 23 price zones, the number of terms and the number of products is just a multiplier of those. Where the complexity with the pricing is, is that we've got, like you've identified customers who are students, they renew on a slightly different price to a standard customer, then you've got legacy customers who are on a different pricing as well. So we ended up with maybe 900 and just under 1000 rate plans. The skew explosion really is on the offer. So the bit you were showing there, where you're giving 10% on one of those, or 20% on one of those, that's where we get to 10,000 but like Jonathan said, good to kind of work through the use case to see that. And obviously you're showing a bit of configuration there. But I guess our ultimate kind of goal was to get something dynamic so that, you know, once we've got those rules in place, then they can be shown to a customer without having to go through kind of that kind of setup to get there.
+
+Speaker 1  51:04  
+Yeah, obviously we started with nothing. First of all, once you can, once you configure the system, once it's done, it knows exactly what objects and fields to pull from, internally, externally, once you set up your base product that's done. And then within your plan, you could literally have an 800 if you have 800 different, say, attributes or rules, you could just put that into a very complicated table, or you can build out a more sophisticated row with stacking. I'm not going to tell you which one's the right one, but it's obviously, we're multi conditions fire. You want them all on the same row.
+
+Speaker 6  51:46  
+And I think just as a just adjacent to this, we have a an AI team that's built a very useful tool that is a way of ingesting your current catalogue and then compressing that and representing that in some across some bigger concepts. So, you know, how is, how is your current the 10,000 SKUs currently understood, you know, how are they grouped? How are they? How do they? How are they represented in, in kind of a way that is understandable. I'm um, and easily represented across, you know, all of the different permutations that you've got. So that's that would be an interesting process to run to begin with. You know, how do we understand the catalogue as it is today? And then we could then build out some of these use cases. Maybe give us a complex use case, something you know, similar to what you've talked about, Ryan. And let's see if we can then represent that you'll be useful to when we've compressed how we understand the catalogue, it would be useful to maybe take one of the more complex use cases, maybe, I don't know where you have 100 SKUs, and see what number of SKUs we can actually get down to, and I think that would kind of bring this to live, because I suspect that you've got the SKU explosion, but you also have, you know, how do you, how do you understand the catalogue today, and how do we then optimise using some of what Errol's talked About to build a catalogue that has has has an easier way of being understood, but an easier way of them being built out in the long term.
+
+Speaker 3  53:30  
+So I know that you want to give us an illustration of how things might look. I'm really keen that we don't embed past compromises in the new model, because I believe that the way we structure things was a way to get around technical process problems that may not exist in the new catalogue. So we are definitely going to take this as an opportunity to go back to first principles. And while it would be good for you to kind of ingest the catalogue for your understanding. There's concepts I just don't want to see replicated in the catalogue.
+
+Speaker 6  54:05  
+Yeah, I think, I mean, I think that's part. I've seen some interesting demos where we take more than 10,000 SKUs and kind of compress it down to 10 or 12 big groupings, right? So it's a way of, first of all, understanding what's in the catalogue. Then, then, what I'd love to do is take a complex use case, very similar to how Errol explained the 24 down to two. So, you know, how can we, once we understand what that looks like, what it's meant to do, is there a, is there a good way of composing that, give that to you? And then you may, as you say, Ben, go back and say, Listen, that's got too much of the legacy in it. We want to actually decompose that and rebuild it in this way. But at least what we'd have is a starting point, which would be the compression and a view on what those 100 SKUs or 50 SKUs would look like. What's the minimum number that we could get down to? And then give you that as a working model, and you can take the catalogue and say, you know, decompose that and then recompose it into something completely new.
+
+Speaker 3  55:09  
+So that's a great idea. And I think the complexity isn't just in the product structure, it's in the life cycle. So we have complexity around things like free trials, ramp pricing and then the price at renewal. So that would be as interesting to us would be, see how that how that product and its price evolves through its life cycle. Yeah.
+
+Speaker 6  55:32  
+I mean, I think, just as an aside, what I'd like to do anyway is, I think this will be a useful internal case study for some of the other people on Errol and my team, predominantly the Zephyr team, actually, what I'd love them to do is get a better understanding of what your catalogue looks like and exactly that. So why don't why don't we? I think we've unless there's something else you want to add, I'll capture that as an action let us know.
+
+Speaker 3  56:00  
+The only other thing I wanted to add is, Where can we see the API documentation for this?
+
+Unknown Speaker  56:05  
+Yeah, I think that's an easier thing to do.
+
+Speaker 1  56:08  
+We'll send that. Yeah, we have a new commerce endpoint, and it pulls everything together and every clean payload. So we also support the existing API. But you'll see the reason we've created this new endpoint is so we end everything off in entirety, so you know the context, the rule and the outcome.
+
+Speaker 6  56:32  
+Okay, so tell you what I'll do. I'm going to own and I'll work, obviously, get some guidance from Errol, and I'm going to bring in the AI piece as well at the top of the story. Let me own that Errol can handle the obviously, send you the documentation, but we'll own that we can then, because obviously the time zone we can put something together. Maybe is Ron, are you the point of contact for this? You and I work together as someone else on your team.
+
+Speaker 5  57:02  
+I mean, you quite welcome to customer made, Jonathan and I gave it to anyone internally.
+
+Speaker 6  57:07  
+Yeah, okay. Because obviously, yeah, we did the workshop together. So let me, let me kick that process off. I can then get someone to build this out. And I think very early in January, you know, first week or so back, we could probably get to a point where we deliver that thing to you as a starting point, and then, you know, you can then play around with the with the new catalogue, and see what you want to how you want to reconfigure and recompose stuff.
+
+Speaker 7  57:37  
+Yeah, it's probably an add on. And during the workshop, you mentioned about your add ons to Salesforce directly will be good to see what that looks like
+
+Speaker 6  57:49  
+some point the CPQ or the components embedded in Salesforce,
+
+Speaker 7  57:54  
+the components embedded into Salesforce, yeah, that, that is a that's
+
+Speaker 6  57:58  
+the experiences platform. We probably need a separate demo on that, which I'm sure we'd be happy to do. The product manager on that could do a demo, but that's really, that's really, that's more along. How do we represent the data that lives in Zora in other environments? And that's exactly what the experiences platform is
+
+Unknown Speaker  58:18  
+designed to do. Okay,
+
+Unknown Speaker  58:19  
+perfect use cases, sorry, Errol.
+
+Speaker 6  58:24  
+All right, okay, yeah, okay. So listen, we've got the actions Ben, I think we can give you a kind of a touch and feel experience in the first couple of weeks of January, and I think that'll fast start you on what the utility of the catalogue is.
+
+Unknown Speaker  58:38  
+Great. Thank you so much.
+
+Speaker 4  58:41  
+All right, Good. Thank you, Everyone. Cheers. Bye. I i
+
+Unknown Speaker  1:00:42  
+I and
+
+Unknown Speaker  1:01:02  
+then slowly, I
+
+Unknown Speaker  1:01:20  
+how To improve that.
+
+Unknown Speaker  1:01:42  
+Particular
+
+Transcribed by https://otter.ai

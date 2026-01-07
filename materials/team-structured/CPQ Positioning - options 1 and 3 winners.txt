@@ -1,0 +1,545 @@
+CPQ Positioning
+Version 1.0 / October 2025
+Zuora CPQ Companion Document
+
+2
+Our ICP Market Size (TAM/SAM/SOM for CPQ)
+1
+CPQ Alternatives Explained
+Justification of each Alternative
+3
+Recommendation
+4
+
+Churn risk
+General Risk
+all B2B SaaS customers
+Specific Risk
+Customers Currently using Zuora CPQ (active only)
+235 Total Customers
+$118M Total ARR (not just CPQ ARR)
+
+411 SaaS Finance Existing Customers
+$247M Total ARR
+
+Industry = High tech/SaaS
+
+CPQ Customers today
+Cleaned list of 200ish customers
+Customers per ARR band
+Quote generated per user ratio
+Industry POV
+
+ICP based on existing customers
+
+ICP Company Size 
+B2B SaaS companies with $100M-$1B in revenue and "simple HW" needs.
+Aim at the heart of the bell curve in Marc’s words
+
+CPQ Market Segments
+Segment/Use Case
+License & Modular SaaS
+PLG to Enterprise
+Hybrid Software + Hardware
+Complex Usage
+SaaS Channel Sales
+Description/Profile
+Traditional enterprise SaaS companies that primarily sell through direct B2B assisted sales channels
+Companies with a PLG and Enterprise motion. Important to note that the best fit is not companies that are primarily PLG, but rather companies that either use a PLG motion to support their enterprise motion or are actively shifting strategy from PLG to enterprise. Common industries include developer tools, productivity software, and collaboration tools.
+Companies generate revenue through software sales, but have hardware that they sell alongside. Industries include infrastructure
+
+Networking, Storage
+Companies with complex, multidimensional usage contracts. Typical industries include financial services, telco/cloud communications, observability platforms, and data platforms
+Companies that sell through partner networks or other forms of indirect B2B sales channels. Commonly found in IT infrastructure/ networking, cybersecurity, telecom, communication as a service, payments, fintech infrastructure, 
+Example Companies
+Zuora, Zoom, Xactware, Celonis, Salesforce, ServiceNow, Hubspot, Workday, Coupa, Anaplan
+Gitlab, Atlassian, Datadog, MongoDB, GitHub, Miro, Airtable, Figma
+Pure Storage, Nutanix, NCR Atleos, Palo Alto Networks, Fortinet, Cisco, NetApp, Zoom
+Tradeweb, Twilio, New Relic, Snowflake, Databricks, Splunk
+This category largely overlaps with a few categories
+Existing Customers that own Zuora CPQ (#)*
+137
+77
+13
+All Existing Customers (#)
+303
+184
+77
+Market Opportunity (non customer accounts, Tier 1)
+957
+3709
+794
+
+CPQ Market Segments
+Segment/Use Case
+License & Modular SaaS
+PLG to Enterprise
+Hybrid Software + Hardware
+Complex Usage
+SaaS Channel Sales
+Description/Profile
+Traditional enterprise SaaS companies that primarily sell through direct B2B assisted sales channels
+Companies with a PLG and Enterprise motion. Important to note that the best fit is not companies that are primarily PLG, but rather companies that either use a PLG motion to support their enterprise motion or are actively shifting strategy from PLG to enterprise. Common industries include developer tools, productivity software, and collaboration tools.
+Companies generate revenue through software sales, but have hardware that they sell alongside. Industries include infrastructure
+
+Networking, Storage
+Companies with complex, multidimensional usage contracts. Typical industries include financial services, telco/cloud communications, observability platforms, and data platforms
+Companies that sell through partner networks or other forms of indirect B2B sales channels. Commonly found in IT infrastructure/ networking, cybersecurity, telecom, communication as a service, payments, fintech infrastructure, 
+Example Companies
+Zuora, Zoom, Xactware, Celonis, Salesforce, ServiceNow, Hubspot, Workday, Coupa, Anaplan
+Gitlab, Atlassian, Datadog, MongoDB, GitHub, Miro, Airtable, Figma
+Pure Storage, Nutanix, NCR Atleos, Palo Alto Networks, Fortinet, Cisco, NetApp, Zoom
+Tradeweb, Twilio, New Relic, Snowflake, Databricks, Splunk
+This category largely overlaps with a few categories
+Existing Customers that own Zuora CPQ (#)*
+137
+77
+13
+All Existing Customers (#)
+303
+184
+77
+Pipeline (#)
+$420K
+Market Opportunity (non customer accounts in our existing TAM?)
+957
+3709
+794
+Common Capabilities
+Enterprise Extensibility, Scalability and Performance, CRM Integrations, Opportunity to Quote and vice versa sync, Solution Configuration, Hard Bundle (aka pre-configurations) and simple Product Configuration, Quote Rules, Agentic CPQ, Subscription Mgtm, Deal Assist (aka alternative automated deal strategy recommendations and goal seek), Quote & Account Metrics, Quote analysis & reporting, Order Broker, Deal Room, Quick and catalog search/browse/filter, Advanced Approvals, Auto-gen of Renewals, Opportunity update, Mix of New Amend, and Renewals in one Quote, Multi Subscription Quote (MSQ), Attribute-Based Pricing (ABP), Multi Currency, Price Promos, Tax Calculations, Price Waterfall, Deal Score, Cost of Goods Sold (COGS), Quote generation, Deal Room (interactive proposal negotiation), User Management
+Unique Requirements
+Pro Serv Effort Estimate (Configuration), Project Resource Planning, % of spend price calculation
+Quote request mgmt, Mobile UI
+
+Medium-complex Product Configuration, 1-level Sales BOM and Versioning, Install and Professional service configuration, Serial Number upload and assignment, Ship-to-Location
+Master Service Agreement (MSA) and Commitment management, Usage Price Negotiations
+Special Pricing Request (SPR), Product and Price export/import, 3rd party Catalog, Marketplace Integration, Quote Portal, 
+
+TAM/SAM/SOM (theoretical)
+MGI estimates CPQ market size for 2026 for private and public cloud-based CPQ solutions at:
+$8.9B
+
+Annual growth rate is estimated at:
+ 16%
+
+⅔ of the growth is driven by move towards subscription- based pricing (MGI CPQ TAM 2022-2026)
+
+Zuora relevant industries contribution to TAM:
+Technology Hardware, Storage & Peripherals 10% of TAM
+Application Software 100% of TAM
+Integrated Telecommunication Services 10% of TAM
+Biz Services 20% of TAM
+Calculation based on Analyst Prediction
+$ in M
+Reduce %
+2025
+2026
+2027
+2028
+2029
+Total
+TAM Zuora CPQ
+$228
+$265
+$307
+$356
+$413
+$1,568
+% of spend not driven by move to subscription and usage-based pricing
+-10%
+-$23
+-$26
+-$31
+-$36
+-$41
+-$157
+Geography impact (Asian, China)
+-20%
+-$46
+-$53
+-$61
+-$71
+-$83
+-$314
+Company Size
+-10%
+-$23
+-$26
+-$31
+-$36
+-$41
+-$157
+SAM Zuora CPQ
+$137
+$159
+$184
+$214
+$248
+$941
+Marketing and Sales reach
+-30%
+-$41
+-$48
+-$55
+-$64
+-$74
+-$282
+Competition
+-50%
+-$68
+-$79
+-$92
+-$107
+-$124
+-$471
+SOM Zuora CPQ
+$27
+$32
+$37
+$43
+$50
+$188
+
+Backup for Industry Data
+Report and Analysis:
+
+Products:
+541 accounts have CPQ SKU subscribed
+235 accounts are active in CPQ and making quotes
+
+ARR at Risk:
+$118M (from active CPQ accounts) 
+
+General Risk (based on GTM segmentation)
+445 Accounts are in battleground SaaS & FI is most likely also a SFDC account
+ARR of those is at risk
+
+Average Amount of Quotes per Month all active Accounts: 2800 
+Unique users managing quotes: ???
+Per seat pricing current: $8 per user per month
+
+Revenue generated from quotes 
+
+Average Amount of Quotes per Month all active Accounts: 2800 
+
+CPQ Options (multi select allowed)
+Reduce CPQ investment to min support of existing Customers
+Emphasize full integrated Q2C suite value
+SaaS being our  North Star 
+“Niche provider” analyst ranking for visionary in SaaS
+2
+No Investment in CPQ
+3
+Sell CPQ as Part of Suite
+4
+CPQ Differentiated
+Reduce/Mitigate churn
+Generate net new ARR?
+Invest into best in class connectors to 3rd party CPQs
+1
+Connector First
+
+Connector First: Investment Profile
+Develop connectors to 3rd party CPQs like SFDC CPQ and RCA
+Total Cost 3 years
+1 PMM, 1 PM (reduce over time)
+1 Contractor (reduce over time
+2 Engineers (reduce over time)
+
+Invest in defense strategy:
+Build SFDC CPQ and SFDC RCA connectors & will require GS <> product <> partner  investment
+Churn Risk prevention of $1M ARR (from 17 projected accounts)
+
+Expected Revenue vs. Cost next 3 years
+Why this is Good/Not Advised?
++ Low investment yields a high impact to prevent suite churn. Churn prevention effect will offset investment cost in Year 1
++ Increase YoY revenue generated
+- Competes with CPQ investment strategy (takes away focus on own CPQ, doing too many things at the same time)
+SFDC CPQ Connector presentation
+2026
+2027
+2028
+Total Revenue Direct
+$380,000
+$570,000
+$855,000
+Total Investment
+$1,230,000
+$865,000
+$720,000
+Win/Loss
+$ (850,000)
+$ (295,000)
+$ 135,000
+
+Connector First: add’l Materials
+Investment
+invest in 2026
+invest in 2027
+invest in 2028
+#1 Invest in Connectors
+Connector for SFDC CPQ (external, as needed)
+$150,000
+$25,000
+$25,000
+Connector for SFDC RCA (external as needed)
+$150,000
+$50,000
+$25,000
+PMM (1 US based)
+$250,000
+$250,000
+$250,000
+PM (1 India and 1 US based)
+$280,000
+$280,000
+$280,000
+Engineering (internal) (1 US based in 2026, 1 India based)
+$250,000
+$160,000
+$80,000
+GS and Partner enablement
+$150,000
+$100,000
+$60,000
+Sum
+$1,230,000
+$865,000
+$720,000
+Based on info in our Salesforce instance, ~50 current customers have Salesforce CPQ.
+SFDC CPQ Connector presentation
+SFDC and Zuora Insights
+
+SFDC CPQ Connector: Business & Customer Impact
+©2025 Zuora, Inc. Zuora confidential and proprietary information. 
+Current status
+Customers
+Live & Implementing
+Prospects
+Zuora Billing Connector for Salesforce CRM
+GA
+700 / 600+ are daily syncs
+Zuora Billing Connector for Hubspot CRM
+EA
+3
+6
+Zuora Billing Connector for Salesforce CPQ
+EA
+8
+10
+Zuora Connector for SAP
+Zuora Billing and Zuora Revenue
+EA
+2
+13
+Zuora Billing Connector for Netsuite ERP
+aka Netsuite Connector (Billing) aka detail-level connector
+GA
+50
+Zuora Billing Connector for Netsuite GL
+aka Configurable Summary Level GL Interface
+GA
+12
+3
+Zuora Connector for Workday Financials
+Zuora Billing and Zuora Revenue
+EA
+5
+7
+Zuora Revenue Connector for Microsoft Dyn.
+GA
+1
+2
+Zuora Revenue Connector for Netsuite GL
+EA
+12
+Zuora Revenue Connector for Netsuite ERP (Inbound Data Collection)
+EA
+2
+
+No Investment in CPQ: Investment Profile
+Reduce CPQ to support and some minimal investments possible with reduced team 
+Total Cost 3 years
+CPQ team reduced to support as of 1/1/2025:  
+5 engineers
+1 PMs
+
+No significant investment into CPQ:
+L3, some select smaller areas invested into CPQ, e.g., add most important billing parity items
+Why this is Good/Not Advised?
++ Allows Zuora to focus on backend app investments, focus attention to finance areas 
++ Aligns with the current decision maker and buyer (CFO, CAO)
+- Provides a fundamental product catalog risk for any CPQ, Billing, or OTC solution to replace Zuora
+- Limits Zuora sellers to showcase Zuora backend specific data (Zoom Shan G.: ultimately this is a fight about data and what is available to an (AI) agent in CPQ)
+- Slow decline (bad churn prevention) in Zuora CPQ revenue, e.g.: investment strategy does not allow to address biggest issue for customers (e.g.: system performance, full billing parity)
+Churn Risk prevention of $169M ARR (from 268 active CPQ accounts)
+
+Expected Revenue vs. Cost next 3 years
+2026
+2027
+2028
+Revenue of existing customers on CPQ
+$11,405,914
+$10,265,323
+$9,238,790
+Total Investment
+$2,080,000
+$2,080,000
+$2,080,000
+Win/Loss
+$9,325,914
+$8,185,323
+$7,158,790
+
+No Investment in CPQ: add’l Materials
+Current CPQ Investment can’t keep up with demands from Customers
+Roadmap Status
+SUM of Customer Count
+DO NOT USE - In design
+81
+DO NOT USE - In development
+119
+DO NOT USE - Partially Shipped
+300
+DO NOT USE - Ready to develop
+1
+DO NOT USE - Under consideration
+241
+Product - In Progress
+6
+Product - Under Review
+3181
+AOCs under Review
+6 accounts that are up for renewal are shaky due to CPQ issues (Jo Gray)
+
+16 accounts ($17M ARR) are noisy with ongoing performance, usability issues, and functional challenges
+
+Professional Services high effort due to missing functionality (16 areas).
+
+Sell CPQ as Part of Suite: Investment Profile
+Emphasize full integrated Q2C suite value 
+Total Cost 3 years
+20 engineers(current 14 +new 6), reduction in year 2 and 3 possible
+3 PMsreduction in year 3 possible 
+1 PMM
+
+Invest in CPQ:
+Table Stakes Functional Gaps (23)
+Billing gaps (9)
+Why this is Good/Not Advised?
++ Defends against current Zuora competition and retains product catalog ownership (good churn prevention) 
++ Allows Zuora sellers to show the entire value of Zuora upstream where revenue is generated “Tip of the Spear”
++ Allows Zuora to become integral to our customers’ revenue generating function (sales/GTM) vs efficiency/back office play
++ Has potential to increase new sales of CPQ, sell into Billing and SFDC install base and pull through new sales of Billing & Revenue
+- Does not align with the current decision maker and buyer (CFO, CAO)
+- Limits Zuora sellers to showcase Zuora backend specific data (Zoom Shan G.: ultimately this is a fight about data and what is available to an (AI) agent)
+Churn Risk prevention of $169M ARR (from 268 active CPQ accounts)
+
+Expected Revenue vs. Cost next 3 years
+2026
+2027
+2028
+Total Revenue
+$16,789,239
+$18,314,965
+$22,621,068
+Total Investment
+$5,766,000
+$4,942,800
+$4,284,240
+Win/Loss
+$11,023,239
+$13,372,165
+$18,336,828
+
+Sell CPQ as Part of Suite add’l Materials
+Emphasize full integrated Q2C suite value 
+Sell into existing install base of Billing: 400
+4 of 4 good fit, 3 of 4 ok fit 
+Customer business model: B2B
+Customer has Orders Harmonization enabled.
+Customer currently has Salesforce CPQ enabled.
+Customer currently utilizes 360 sync.
+ 
+Most Customers who have CPQ are on major release 10
+Increase in Sales Price
+Example AppSpace: 
+80 users in CPQ (30 new, 40 renewal, 10 sales ops) → $18 /user/mth
+CPQ ARR
+CPQ Users
+CPQ /user/mth
+$17,445.00
+80
+$18.17
+Release
+Active Customer Count
+Rel. 6
+3
+Rel. 8
+3
+Rel. 9
+16
+Rel. 10
+246
+
+Sell CPQ as Part of Suite add’l Materials
+Emphasize full integrated Q2C suite value 
+Example Nue.IO , success of selling a suite
+
+Nue.IO Number of customers : expect this to be around 90-100. Latest number in the CPQ Sales Report was 70 (that was in May ’25)
+- Growth Rates
+they claim to win ~70% of deals against Salesforce and Zuora
+they claim to see ~70% growth rate in Europe
+At the time of the CPQ Sales Report their number of employees was 90, now only 5 months later it’s 134 according to LinkedIn!
+their previous customer target (ICP) was from $20M - $100M, longer-term (which has already started) is $100M - $300M
+
+Total Cost 3 years
+20 + 7 engineers
+3 PMs
+1 PMM
+
+Invest in CPQ:
+Table Stakes Functional Gaps (23)
+Billing gaps (9)
+Plus Add’l functionality (15)
+CPQ Differentiated: Investment Profile
+“Niche provider” analyst ranking for visionary in SaaS
+Why this is Good/Not Advised?
++ Become a niche leader in the SaaS CPQ space
++ upside ARR growth, land and expand motion, up-sell Billing and rest of Zuora backend
++ opens up CPQ TAM to standalone use cases
+- no current GTM (sales and marketing) to support, 
+- CPQ is not company DNA
+- cedes product catalog 
+- eliminates core differentiation of Zuora suite
+- High Risk due to fierce competition in CPQ market, hard to make case why Best in Class differentiation if smaller niche players and large CPQ vendors are good enough
+2026
+2027
+2028
+Total Revenue
+$17,719,381
+$20,175,249
+$27,540,455
+Total Investment
+$5,766,000
+$4,942,800
+$4,284,240
+Win/Loss
+$10,898,981
+$13,875,115
+$21,520,215
+Churn Risk prevention of $169M ARR (from 268 active CPQ accounts)
+
+Expected Revenue vs. Cost next 3 years
+
+CPQ Differentiated: add’l Materials
+“Niche provider” analyst ranking for visionary in SaaS
+
+Big investment into lead generation
+Lead-generation $1.6M per year
+2PMMs
+Search Engine
+Partner referral
+Tradeshows
+Publications
+others

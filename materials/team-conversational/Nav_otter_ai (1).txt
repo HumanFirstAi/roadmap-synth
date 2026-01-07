@@ -1,0 +1,250 @@
+Speaker 1  0:00  
+How are you? I'm good. Appreciate the follow on from our last check.
+
+Unknown Speaker  0:09  
+So I've since we spoke,
+
+Speaker 1  0:12  
+I've done a spoken to a lot of people. Had some really deep conversations with Errol, with Manfred, with Stephen Boone, with Satish Shakir. I've got Emmy. I'm going to meet with the European team, etc, etc, generally, everyone, well, in fact, in all cases. What you and I have spoken about is people buy into in different flavours. You know, Stephen is kind of listen. You know, what I need is the product roadmap to give me the B to B, SARS, complex story. But I completely buy the this, the the spectrum, you know, self serve sales, assisted vendor for life story. Errol has a view. Manfred has a view, but it's all the same view. Satish has a view. So it's all lined up. So what I wanted to to spend a bit of time with you on is the to
+
+Unknown Speaker  1:19  
+on that skeleton
+
+Unknown Speaker  1:21  
+is to put a little bit of tissue.
+
+Speaker 1  1:26  
+You drew out a chart. This is not written in stone, by the way. It's just kind of direction. But you talked about, you know, Errol's. Errol and I were talking about BCS. Who should own BCS? You talk about rules. You started to talk about some of the intersections, these kind of architectural principles, you know, what is a shared service? What, you know? What do we mean by intersection? I wanted to try and give it some substance with Not, not fully baked, but just kind of, you know, what do we think those things are, because around it is, you know, how do we interact with product teams? How do we interact with engineering teams? Everyone complete. In fact, I think was all but one call said to me, you're going to need a really strong architectural partner on this. And I said, yeah, we've already had that conversation, right? So we definitely in there. So I don't know if you want to, just maybe, if you if there's sketch it out, but what I ahead of the Tuesday thing, I want to make sure that that I've captured what you what is in your head, around the things that we might touch, that might change, but I'm just going to leave that open then, and just ask you what you thought about before and some of the things that you think we should be thinking about,
+
+Speaker 2  2:55  
+like in what form do you think that is because we can talk about these things, do you want something to be drawn out and then talk about it? Because I know Monday, Tuesday, Wednesday, we're going to be all packed. Yeah, when are you arriving
+
+Unknown Speaker  3:12  
+here? I'm here arrive on Saturday.
+
+Speaker 2  3:15  
+Are you arriving on Saturday? I'm on a road trip until Sunday midday. I'm coming back on Sunday. I'm leaving after today, like late evening today, sure. So tell me what we need to do. I mean, I can make myself available the moment I'm back Sunday night. We can talk on Sunday night as well. Where are you staying?
+
+Speaker 1  3:35  
+Mountain View, just near the Shashi Hotel, near about 20 minutes, 15 minutes from from
+
+Unknown Speaker  3:42  
+the office. Tell me again, we're
+
+Speaker 1  3:43  
+in Mountain View. It's, I'll give you the details, because I'm
+
+Speaker 2  3:48  
+in Mountain View myself. Maybe I can come over and meet up, and
+
+Unknown Speaker  3:52  
+that would be super cool.
+
+Speaker 2  3:55  
+We can do a pen and paper, and then we can craft something out from there.
+
+Speaker 1  3:58  
+Yeah, it is what a, what's the address here? It's 1625, North
+
+Unknown Speaker  4:06  
+shoreline, Boulevard Shashi, sh, a, Shi,
+
+Unknown Speaker  4:14  
+oh, that's Palo Alto. I mean, it's,
+
+Speaker 2  4:18  
+oh, is it? How did you get this hotel? I mean, out of all the places,
+
+Speaker 1  4:23  
+it was a, it's got a kind of, it's got a good gym, it's got a good bar, and it's got a coffee shop, and it's a, it's like a working it's like, it's like a co working
+
+Unknown Speaker  4:33  
+space downstairs as well. Nice,
+
+Unknown Speaker  4:37  
+yeah, I just, I just need somewhere I can work. And they've
+
+Speaker 1  4:41  
+got, they've got, they've got all the facility there. So it's really cool, not far.
+
+Speaker 2  4:45  
+I mean, it's 10 minutes to drive from me. I can come over on Sunday night, evening, if you're, um, hi,
+
+Speaker 1  4:49  
+listen, if you, if you're prepared to do that, I'd be superb.
+
+Speaker 2  4:53  
+Yeah, why not? We can do that, because that way we can have a chart do a pen and paper. From pen and paper. It's not very hard to convert it into a visual. If we want to talk about the visual as well, and when you present it, you can probably say this is work in progress, but yeah, still, some concepts are are forming out in that.
+
+Speaker 1  5:12  
+Yeah. So what I that? Well, that's exactly what I wanted to do. Is I wanted to go progress the story through because, actually, because Manfred and Errol at zag, I've got the full 45 minutes. So I wanted to progress the story through, talk about all of the stakeholders, talk about all of the different lenses, but that as I get through the story, tell a customer story. You know, what do we mean? Manfred made a very, very good point. Few good points actually, that come up. Man made a very, very good point. Plg and SLG is, is overused, right? Just follow the customer,
+
+Unknown Speaker  5:53  
+right? Customer
+
+Speaker 1  5:55  
+starts at here. They don't want this. They just need this. And then they get over to here, and they need a little bit more complexity. And then they get over to here, SLG. Plg is just labels that we give it to so that we can have some kind of sales motion, right?
+
+Speaker 2  6:09  
+I agree with Matt, which is where we were actually going. I think so when we started talking like, extract the concepts out of it, extract the workflows out of it. When you build it, it's just the next flavour of that workflow, correct that SLG, permission control. So I agree with Manfred. He's right, yeah, it's we have to stay away from all those terminologies now, yes, plg, SLG, where it differs is plg has a pack motion because it's not the flow that is different. It's the go to market motion to plg from our site, that's going to be different. Hey, I'm packed. I'm already templated. Just get out there. Yeah, correct. Can have a little bit of a customization.
+
+Speaker 1  6:49  
+Correct? That's actually a very good point. There is a wrap that, yeah, when we call it self serve or sales assisted, or whatever it is, that's it. That's a, that's a that's another dimension. It's another way of looking at it. The I ran through a very interesting story with Errol to kind of bring it, you know, he has a man who tells a very good story about the customer journey. Errol and I were thinking about, you know, I asked him the question, you know, do we actually need Zephyr, right? Do we actually need this orchestration engine? And because I said to him, I said, let's just step back. You know, we know we don't want to be experienced cloud. We know we have to be very precise about where we start the journey, right? It's the Order, order presentation, or order orchestration, or whatever you want to call it, there's a very specific point at which we pick up the customer. And beyond that, we should not be playing. At that point, we should be playing. And I said, just give me. I said, Can you think of a story where Zephyr makes sense? And he actually said, Yeah, I can in plg, if I, if I land in a domain Omni, whatever channel it is, let's call it the website for now. And there's a series of kind of self qualification in order to get me to an offer to something to start me off. It might be, you know, did I come from.gov.uk or from something else? Right? So, what's the domain that I've originated from. Secondly might be, am I? No, I'm fine enough.
+
+Unknown Speaker  8:28  
+It might be enterprise size, right?
+
+Unknown Speaker  8:32  
+Talking, I'm just gonna get
+
+Speaker 1  8:33  
+something, yeah, it might be enterprise size. The other thing might be, you know, you're looking for software or hardware, right? So, I mean, these are very simple examples, but you can kind of see someone, you know, you can see a c1 building a very simple flow to say, Okay, well, you know, this is and then calling in an experience, which is a checkbox form, and that passes offer into context. So you're building up some context of the customer, and then that, that calls catalogue, and it returns, you know.
+
+Unknown Speaker  9:05  
+So basically, you're saying that Zephyr is used
+
+Unknown Speaker  9:09  
+as a journey builder.
+
+Speaker 1  9:11  
+Yeah, it's kind of, yeah, it's, I think we need to give it, and we need to, it's almost like a qualification engine or something like that, because in B to see media, you know, it is the whole journey. It's everything, it's everything, you know, it's very, very complex. But in the plg side, it's just the branches are just a lot less complex, right? And I think the question is, is what you don't want is to create a gap in the last mile where that has to be handled by another system. It's just like, why would I do that? You know that so
+
+Speaker 2  9:47  
+management would be where do we start from? Yeah, me and Alan spoke about this as well at length. I'll share a document with you, which I have started authoring with Alan. There's a document, yeah, you will see that it's not structured by any means, but I'm going to share with you, because for now, what I'm trying to do with that document is, once it is structured, we'll come up with a view. So I'm already going towards this in zoom chat. I guess just the whole idea being, how are all journeys going to be structured? And I think we should not, we should not discuss, or we should not even think about, what's the first role in that? We should think about, what is my end state, yeah, and then we can see what Zephyr. Can I just tear apart Zephyr and use the parts? Can I employ Zephyr? We can come to that focus on the outcome. The outcome is what you said, even builds a flow or a journey. And then we map how Zora plays in that somewhere the context will play. Who's the journey builder? Who's journey orchestration engine, those kind of things we have to map out. Sure, I think we, at least at the top level, we should not get carried away what's going to happen with Zephyr. I know people want the answer for that, but we'll say strategy informs what happens to Zephyr. But for all intents and purposes, let's set a target that we will not use the word Zephyr ever again in Zora from after that point in time. You know the capabilities are consumed. Capabilities are Zephyr exists in bits and pieces, but that's it. It's Zora, whatever you want to call it, experiences, Journey builder. I'll leave you to the image. That's where I'm at least, at least. That's what I'm driving my discussions with Alan with that. Let's get to the merit of Zephyr. And every single time I discuss and double check something, I double click. Go deeper. Alan comes to the point. Now, this is very Zephyr specific. Okay, so is it worth? What is the amount of effort that you feel that I have to put in it to make it what I want it to be? Versus me saying, Let's rebuild. Yeah, I know rebuild is easy, but that is also need something that we need to suss out. Yeah, the goal is goal still, so that's that goal is what I think we've got to align on. But there's a
+
+Speaker 1  12:12  
+very, very good example of the intersection, right? So if you think about the product, the product roadmap doesn't answer that question, because it has no concept of the other thing, right? So it that, and you would not expect the team to have that now you and I can evolve that, but the team, in order to do the job that they need to do, you need to insulate and this is true for manfred's team and for Errol's team, you need to insulate the core product roadmap because it's the thing that gets News Corp live, or it's the thing that keeps the New York Post ticking over manfred's Next Gen. You know is the thing that Boone wants right to enable his SaaS customers, but he also wants cpqx main, you know, stable. Errol needs to do bundling, hard, soft bundles, that kind of stuff, because that's what we promised the organisation. So, but the bit you're talking about that, that level up, that's the abstraction of the intersection, for me, that's the bit where you kill Well, what is that thing? You know, there's a whole bunch of variables that a product team shouldn't be thinking about, because they are they don't understand the concepts over here, and then they don't understand that bit over here. Because how does that bit connect up to CPQ? Is there people
+
+Unknown Speaker  13:36  
+like me exist
+
+Speaker 1  13:38  
+exactly? Exactly, right? That's the intersection.
+
+Speaker 2  13:41  
+I have a controversial view, and you can tell me now you're wrong. I believe more the PMs lives, live, live in JIRA, less they think so. Their job, their their payback to the company, is going to be thinking. And more you think like, Hey, should I use an arrow? Does this many times? Should I use this rule engine or that rule engine? Forget about it. Doesn't matter. You were my partner. I'll come to you, but first tell me what you want, and then let me come back with the options. And then, of course, you have industry expertise. Then you tell me, I don't like this. I mean, you can be a technical person as well. But the first thing is the holistic thinking, the next gen CPQ. It's a bad story, because I wrote down every single thing for next gen CPQ. Wrote down the vision, the strategy, the execution plan, the DSLs, the technical architecture, all of that when I was in India, not this time, the last time, three months ago, we have had just, I don't know, turmoil around it, Satish coming in, team coming in, everybody coming in. And last night, I got a call from Shiva and said, Now you know, you wrote next in cpqs thing, we are going back to that like I'm used to that in Zora. In last three years, I've seen so many things I've said, and we circle back to that, I'm okay. My only request, again, I'm open for feedback. I'm open to change how and where I get can help. But I believe that whole thinking where we want to be is more important. And then we see, can I use Zephyr or not? Let's leave Zephyr out. Unification will happen. I'm not saying tactically. We're going to go away from that. That's why the document I shared with you, I shared that's what we are doing. But what is it that my customer is going to be like, Wow, they're not going to be caring. Did you use that for or not? That's in the material, in the in the in the timeline that we're talking about,
+
+Speaker 1  15:31  
+the interest, but the, but that's exactly right. The intersection that I talk about is the story is that, if you think about the customer doesn't care, right? Yeah, they just want something that is covers the span of the use case that they need, where that begins and ends differs, right? It can start here and end there, or can. So I agree with that. But I think also one thing, there has to be a recognition of two things. Number one, it is it is not possible, I don't think, to find product teams that can live consistently outside of their own products, right? It's just too hard. It's just too hard. It's like it's you just got to think about one thing, right? There's very, very difficult to that. Second of all, we also have to acknowledge is, even if we have a strategy, the business will create conflict, because there will always be, if we just have this thing, we'll win a $500,000 deal, or we will a million dollar deal, or we win a $10 million deal, right? The thing about the strategy is that if the leadership understand what it's designed to do, which is long term versus very short term, when this, when the short term impact comes, you can just explain, yeah, we'll do that. But that's the impact on what you've just that thing you want to do now moves not just one product, but moves the whole strategy out, right? So that's fine. You pay the bills. If you tell us to do that, we'll do it, but we're moving it over here. And the other thing is, I guess, associated with that, is that if, if really the most important person in Zurich is Todd, because he's the financial engineer, right? And Silver Lake just want a financial engineer, then nothing that we do matters won't make any difference at all. Right? So those are the realities. But I'm absolutely convinced now that a part that you and I can do something, because I'll tell you something I've got people are very rare to get this, but everyone supports the thinking good. And I think
+
+Speaker 2  17:58  
+maybe something for me to learn, because when at least I was pitching the same thinking I did not get the support. Maybe I was not in the product org. Maybe people saw, I do not know. Or, more importantly, I think there is something in the way you pitch. Maybe I have to keenly observe you. That's probably where I got a lot of resistance when I was pitching. I'm not saying anything different than what I said two
+
+Speaker 1  18:21  
+years ago. Well, I think it, maybe it's the pitch, maybe it's just the organisation, maybe it's people. I don't know. There's a lot of nuance, but I think the most important thing is the thing that I I'll be honest with you without, without a good collaboration with you, it would not get done, right? Because someone described, someone also described you yesterday as an Errol whisperer, really? Yeah, who's that? I can't tell you, but what they said was that you, you have a very you have an ability to to connect with Errol in a way that it's hard for other people to connect, right? You're a deep thinker. He's a deep thinker. You're both technical. So you're also, I said this to you before, actually, I know I kind of this is reinforced. What I said is that you kind of bring muscle to this, to the story, because when someone goes, Wait a minute, yeah, but I know we covered that, and you know, that's been validated, and we've we've listened, you know, we've captured everything, but this is the direction of travel, and these are the principles behind that direction of travel. So that's super valuable. One thing I did say sorry, and I'll shut up in a sec. But one thing I did say to Errol and Manfred, and I think this is part of the sovereignty and even Satish, because I think they have to, you have they have to know where they are in this is said that they are both stakeholders and customers of this story, right? So they have an investment into it without their support. You don't get that investment. You don't get that you mean, Errol and Manfred, yeah, Errol, Manfred and also Satish. You know, as the engineers, the delivery kind of guy, they're also customers of it. You know, we have to be in selling mode all the time. Back to them. So if we can't sell, yeah, exactly, yeah, they have just got to internalise it. So I think it was a great idea to do face to face, because I don't think there's anything better
+
+Speaker 2  20:27  
+than that. I'm more than happy you tell them I'll be back, almost like I do not know delays are delays, but my goal is always to get back by no one, because, yeah, I'll
+
+Unknown Speaker  20:39  
+be working. Yeah,
+
+Speaker 2  20:41  
+yeah. If you can share your cell number, I do not if you use whatsapp or I message or whatever, I'll ping you if you don't read slack. Then let me
+
+Unknown Speaker  20:50  
+just do this now. I'll give it to you for forces.
+
+Unknown Speaker  20:55  
+That's my cell
+
+Speaker 1  20:59  
+with with dialling code. So, yeah, just hit me up on WhatsApp. I'll be around and then, like you say, we can kind of, in fact, what's really cool is there is a room there which I can book Scott. They've got two, three or four co working offices. We can whiteboard it out. Perfect.
+
+Speaker 2  21:16  
+Even better, they got that paper it up. Yeah, even one slide is enough. If you want to present something that this is how we build it up. It's okay,
+
+Speaker 1  21:26  
+I think aim for one slide, right? I'm very visual when I present so I think one said that says, Listen, this is kind of the mental model of what we think. Errol knows. Manfred knows that this is not baked in stone. We haven't pitched this to anyone, but what, what's what, what should care and Pete have asked for is, what's the strategic what's the strategic approach? What do you How are you going to measure outcomes, right, and what are the risks, right? So, super broad. I don't think they're expecting this, but, you know, sort of ask for, so that's what I'm going to give them.
+
+Speaker 2  22:03  
+I mean, either way, this discussion could be valuable, because obviously we can be Zora like, which is, just keep on executing a road map, and then you will fumble your way through. You will align some, you will not align others. You will deliver some, you will not deliver others. That's Zora. But if you can do it top down, if you can enforce and bring that rigour in this that, hey, this is a strategy, this is the architecture. This is what you're going to do. I putting myself in your shoes, you may have to do a little bit of rejigging of components and owners, because that way you probably isolate the common platform, commerce platform, things away from individual biases as well. That probably is one thing that I expect you may but another thing you should do otherwise. Things can be done. I know people will buy into it. I do know that because strategically, it feels right, strategically it has been right, even I validated back then was right. I just could not gather. I think it's a good thing that you're gathering support, which is, which is very refreshing for me.
+
+Speaker 1  23:07  
+Yeah, listen, first, capture everything, then we're lucky. It's been, you know, people are generally, as you say, they bought into it, yeah? Great. All right. Well, then I think we can give you half an hour back. I think Sunday afternoon, you ping me, I'm around.
+
+Speaker 2  23:25  
+Yeah, expect like 12, I'll be back. Expect like three, 4pm
+
+Unknown Speaker  23:33  
+I'll be Yeah, sure, perfect. All right, lovely.
+
+Speaker 2  23:35  
+Anything else that you want from me? Let me know there is this. I do not know if they are valid or they are just marketing vendors. Have you come across that get values or something?
+
+Unknown Speaker  23:48  
+Yeah, I met them.
+
+Unknown Speaker  23:50  
+I met them the other day with Manfred and
+
+Speaker 1  23:55  
+yeah, I mean, I don't think there's anything special there. What they're solving for is getting sales people off spreadsheets, getting them to enjoy quoting. You know, they're very focused on the UX. They also have analytics that help the VPS understand deal velocity. You know, best sales people, which discounting can, you know which discounts work best with which type of sales motions, that kind of stuff. So they've got, they're very good. I think we can have a second meeting with them. But there's, you know, we were kind of slacking in the background. It feels a bit like a hybrid of next gen and see and vibe quoting like it's designed to just make it a bit more usable. And also they, they, typically, they kind of fudged a little bit the answer, the answer on compliance, where they had some of it but not all of it. And they recognised that was actually quite a hard thing to do. They consume rules, but they but, but they also don't. I mean, they did talk about, yeah, we enforce them, or we alert them, and that kind of stuff. So it was, there was, I mean, listen, I just said to us, I know what it's like being a founder, so kudos to you. But we'll probably go back to them with a follow up. But I don't think there's anything there that that's, that's the sense I got from Satish and Manfred.
+
+Speaker 2  25:24  
+I mean, the other I expected as well when I looked at their website and looked at what they do. Yeah, they
+
+Speaker 1  25:30  
+were good guys, but I just don't I think they're in a very difficult space, because if the vendor moves that way to do that thing is super easy to kind of dislodge that, because they play a very specific part in the ecosystem. I mean, what I did do is I did read what's being written between
+
+Unknown Speaker  25:47  
+teen and Satish
+
+Speaker 1  25:51  
+in that, in his vibe, quoting doc, and he's basically just going just make it a playground, right? Once he wants it to go viral.
+
+Unknown Speaker  26:00  
+The documents I put together, I'll share some with you.
+
+Unknown Speaker  26:05  
+Yeah, I can share some. Have you seen
+
+Speaker 1  26:07  
+Have you seen the one? Have you seen the one that Satish and Tina sharing? Or not?
+
+Speaker 2  26:12  
+I haven't. I got a feedback on that document that says somebody told me that it seemed like that document is a stripped down version of where you are going. But I haven't seen that document. I've been told that it says, just allow the sales people to do whatever, if any.
+
+Unknown Speaker  26:33  
+Yeah, pretty much it, yeah. I have,
+
+Speaker 2  26:36  
+like, fine, it may fly, but Zora is Zora. I do strongly feel we should play to our strengths and hone in on what our strength is. If I say that I'm wanting to be a startup which says, Let me bring in all product catalogues anybody can code, I'm not super sure that's a very good value that our customers will recognise, or my target market will recognise, because you should be a mature thinker as Zora. And to redefine, I believe we got to bring in the concepts how people think about CPQ, not about, let me give you a playground. Sales people believe that's my read and my understanding from interviews that I conducted. Sales. People do not want to pay a playground. If they want a playground, they got Microsoft Excel, and
+
+Speaker 1  27:31  
+that's the point. I don't know if it's a better Excel. It doesn't actually solve a problem. Yeah, it makes the thing that you're doing easier, but it doesn't actually solve a problem, a real problem, because you've still got the last mile, and I think that's it. But teens obsessed with Vibe coding, he always, he always references that, like, that's his, that's his go to is, I built an app at the weekend.
+
+Unknown Speaker  28:02  
+Like, that's fine,
+
+Speaker 1  28:05  
+but then I think this is the intersection bit right the intersection, even in something like is what manfred's Gone is, listen, there's five quotes here. I'm not getting involved with that. That feels like a really bad pattern to me, like he focused on next gen CPQ, but it's like, Oh, they've taken that away, so I don't have to worry about that. Like, there's a join there
+
+Unknown Speaker  28:27  
+somewhere. Do you know what I mean?
+
+Speaker 2  28:30  
+Yeah, but I think so what? When I started with this, and I'm gonna find a document and give it to you, I was in India, so Satish wasn't involved. It was a 10x project. I was given the charge that go do it, and Manfred can be a pm when I thought of it, to me, and I do not get it, maybe I'm wrong here. To me, none of this has to be a separate project. This is not it's one freaking project. So we do the engine of the CPQ, which becomes an excellent CPQ on top of it that next gen CPQ exposes MCP tools or API's, I don't care, a graph, whatever it does. On top of that, the UI that exists, I can maybe make it wide coding. I can make, how does it even matter me? Yeah, when I visualise this project, that's why I sent you. I guess I sent you my lovable prototype, yeah.
+
+Speaker 1  29:24  
+Well, you did, I think you showed, showed me to be Yeah, yeah, we got a production version. Have you got a no, no, it's not production live. It's a local, is it? Yeah, you know you showed it to me. Cool. It looked really cool. Yeah?
+
+Speaker 2  29:38  
+So basically, in that, what I was just simply thinking is you got to have a dual experience. People can turn off one, people can turn on one. For me as a salesperson, to come up to only chat interface is never going to happen. And there's a reason I say never going to happen, and never means next six months to one you're not going to happen because quotes in the market we play are inherently complicated. If I'm only dealing with products, prices plus minus, sure, not a big deal. I'm going to start dealing with, Hey, can you co term it? Can you drag the term? Can you increase by six days, five days? Whatever those things are. You do need point and click as well? It's going to be there until such and such time, but my personal feeling, and I'm not going in and then advising that, because I'm not knowing you're not involved in that now, is it doesn't need to be two projects. Your UI can do wide coding.
+
+Speaker 1  30:34  
+Doesn't matter. I agree. I agree. It's, you know, run by the boss. Let the Boss Run it?
+
+Unknown Speaker  30:40  
+Yeah, I know, I know,
+
+Speaker 1  30:42  
+but the but it's at the intersection. Again, I'm telling you, it's the intersection. It's understanding what that's doing, understanding what next gen CPQ is doing, and finding the intersection, because they will cut, they will overlap, right? And no one will have thought about the overlap. So we'll, we'll see. We'll see. But that's the flexibility. I said something the other day. I said, which I kind of what I'm going to put in the deck, which is what you and I are doing? I said, in Zora, there are two there's two product there's a product motion, right? Build a road map. But there's a second product motion, which is, build the intersection, right? That's the platform. That's the platform, but build as the customer sees you, which is at the intersection. No one has typically owned the intersection. It's always been about the road maps. When you own, when the second everybody goes, yeah, yeah. But when you when you actually make the intersection a road map, that's when you build platform. So I think that's the kind of messaging we're gonna we can deliver.
+
+Speaker 2  31:50  
+Yes, I'm 100% with you. This is well well crafted. I think if I had to say that same thing, I would say sentences or statements that piss people off, which is, build, like, I would say, build a platform. And then people think like, oh my God, you're not delivering customer facing feature, but the way you are articulating it, it's like you're delivering customer value, but you've got to identify the hot spots and focus on that. See, I told you, I need to learn to pitch. Well, just good. Let's see.
+
+Speaker 1  32:20  
+Let's see how well the pitch goes but, but the input is super valuable. All right, look forward to see you and have a good rest. I'll see you on Sunday. Safe travels. Cheers, man. So you.
+
+Transcribed by https://otter.ai

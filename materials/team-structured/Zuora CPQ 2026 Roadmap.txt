@@ -1,0 +1,207 @@
+Zuora CPQ 2026 Roadmap
+
+Hitting all Areas to efficient quoting for optimized margins that win deals
+Transaction
+= correct config & price,
+scalable, and
+customizable
+Analytics
+= understand your customer,
+explain pricing and quote content
+Agentic
+= simplicity, guided selling, smart summarization, conversational deal strategy applied
+
+Transaction
+Transaction
+Bundling
+
+Hard Bundles
+Configurable Products
+Solution Configuration
+Soft Bundling (promos)
+Approvals
+
+Parallel Approval Tasks
+Line Level Approvals
+Approval Memory
+SFDC Integration
+
+Sync Product Lines from Oppty to Quote
+Sync Quote Products and Values to Oppty
+Auto gen Renewal Quote and Oppty 
+Billing Integration
+
+Percent Spend
+Set up Billing Schedule in Quote
+Flexible min/max Commitments
+Suspend and Resume a Subscription
+Place a Scheduled Order
+Omnichannel
+
+Self Service to Assisted Sales
+Deal Room
+Partner Selling
+Product and Price Exports
+Marketplace Integration
+
+Transaction
+Analytics
+Quoting Insights
+Account Metrics
+Consumption subscribed versus actual/projected
+Flexible Commitments subscribed versus actual/projected
+Payment history
+Spent history
+Product in use history
+Quote Metrics
+TCV/ARR/MRR
+BYO Metrics
+Metrics Visualization
+Quote Margin
+Deal Score
+Break Even Point / COGS
+Projected Revenue
+
+Transaction
+Agentic
+Quote Pad
+Start a quote with prompt
+Start a quote from a file
+Price inquiry
+Simple UI, interacting in natural language with the quote
+Great for sales reps with little training
+Quote Studio
+Run financial deal impacts
+Deep insights into accounts
+Remove approval blocks
+Advice on deal strategies
+Powerful UI, lots of functionality for power users offering also AI interactions
+Great for deal desk professionals
+
+CY26 NextGen CPQ Roadmap - internal
+Version 1.0 / December 2025
+NextGen CPQ Roadmap and Build Approach
+
+Roadmap over the next 3 Years
+Today
+CPQ-X
+Ramp, Amend, Renew, Doc gen, simple Approvals, etc
+MSQ
+Dynamic Pricing
+Legend:
+* AI driven or supported by AI
+# Built on NextGen
+Existing Functionality
+New Functionality
+CPQ-X
+Quote Pad
+Deal Room*#
+Finance Insight - Deal Score*, Margin, Account Metrics#
+Auto-gen Renewal Quotes and generate the associated Opportunity
+CPQ Add-on Modules
+Agreement Mgmt
+Deal Assist*#
+CPQ-XI
+Dual Mode (Advanced Quote Line Mgmt like grouping, filtering, mass change)#
+Z-CPQ Portal w/ widgets#
+Quote Audit#
+Quote Request (self2assisted)#
+Usage Estimation*#
+CPQ-XI
+Solution Configuration*#
+CPQ Add-on ModulesChannel
+Channel Mgmt (SPR) 
+CPQ-XI 
+MS Dynamics Integration
+HubSpot Integration
+Combine and Split Subscriptions
+CPQ-XI
+Outcome-based pricing models (HW + SW+ Services)
+Year 2
+Year 3
+CPQ Add-on Modules
+Vibe Quoting*#
+Advanced Approvals*#
+Additional Charged Add-on Modules
+Current CPQ-X
+NextGen CPQ
+New
+Commitments
+Address Billing Gaps
+Hard Bundle with optionality
+Configurable Products*#
+Auto sync quote to opportunity
+
+Additional Slides
+
+Vibe Quoting UI
+Vibe Quoting (Beta in 90 days for SKO)
+Not a CPQ
+Open access for any users and distribution
+Interaction in UI is primarily via prompting
+Allows file upload (e.g. XLS) to get started on a quote
+Like Excel with no compliance validations
+Does not require a catalog (or driven by entire world product catalog via Google partnership)
+
+Quote Pad UI
+NextGen Quote Pad (for Sales Reps)
+Goal: Replace current spreadsheets sales reps are using to develop quotes
+Allows basic quote interactions (CRUD, config bundles, goals seek, etc)
+Generates a pre-quote
+Works with Zuora CPQ only
+Interaction in UI is via prompting, buttons and direct user inputs 
+Allows upload of quotes from file 
+Validates against established catalog, compliance rules (as in CPQ-X)
+
+Quote Studio UI
+NextGen Quote Studio (for Deal Desk)
+Goal: Provide valuable information about account and the quote to a Deal Desk person to make financially sound decision
+Allows to simulate quote alternatives
+Provide workflow override functions
+Enable interactions between sales and deal desk on a quote
+Provide backend information about account
+Provide profitability information such as margin and estimated break-even-point
+Interaction in UI is via prompting, buttons and direct user inputs 
+Validates against established catalog, compliance rules (as in CPQ-X)
+
+
+Vibe Quoting - Quote Pad - Quote Studio Evolution
+Vibe Quoting (Beta in 90 days for SKO)
+Not a CPQ
+Open access for any users and distribution
+Interaction in UI is primarily via prompting
+Allows file upload (e.g. XLS) to get started on a quote
+Like Excel with no compliance validations
+Does not require a catalog (or driven by entire world product catalog via Google partnership)
+Jan
+Dec
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+NextGen Quote Pad (for Sales Reps)
+Goal: Replace current spreadsheets sales reps are using to develop quotes
+Allows basic quote interactions (CRUD, config bundles, goals seek, etc)
+Generates a quote
+Shows quote metrics from CPQ/Billing
+Applies the compliance rules as established
+Works with Zuora CPQ only
+Interaction in UI is via prompting, buttons and direct user inputs 
+Allows upload of quotes from file or start quote from prompt
+Validates against established catalog, compliance rules (as in CPQ-X)
+NextGen Quote Studio (for Deal Desk)
+Goal: Provide valuable information about account and the quote to a Deal Desk person to make financially sound decision
+Allows to simulate quote alternatives
+Provide workflow override functions
+Enable interactions between sales and deal desk on a quote
+Provide backend information about account
+Provide profitability information such as margin and estimated break-even-point
+Interaction in UI is via prompting, buttons and direct user inputs 
+Validates against established catalog, compliance rules (as in CPQ-X)
+Uses same UI, but has role-based access control to functions and data

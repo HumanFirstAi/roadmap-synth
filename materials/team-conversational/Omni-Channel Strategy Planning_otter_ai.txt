@@ -1,0 +1,265 @@
+Unknown Speaker  0:00  
+Yeah, gearing up for
+
+Unknown Speaker  0:03  
+gearing up for Christmas.
+
+Unknown Speaker  0:06  
+Yeah. Are you working on Monday, Tuesday? Are you off?
+
+Speaker 1  0:08  
+No, I'm I took Monday, Tuesday off, where I'm actually off to Norway tomorrow, up to see the very well, yeah, up to see the Northern Lights.
+
+Speaker 2  0:20  
+Perfect. Nothing better than that. Yeah, and
+
+Speaker 1  0:23  
+it genuinely doesn't have any Wi Fi up there as well.
+
+Unknown Speaker  0:27  
+That's the best thing. Completely, I thought
+
+Speaker 1  0:30  
+I'm going to go as far off the grid as my daughter and wife will allow me to go.
+
+Speaker 2  0:36  
+I want to do the same. Let's see. I don't have any plans, but I'm going to just randomly pick up my jeep and then go, brilliant.
+
+Speaker 1  0:42  
+I was, I was like that. And the America is a great place, especially the West Coast,
+
+Speaker 2  0:48  
+yeah, but the weather hasn't been great. My previous state, Washington, is flooded. All the routes that I used to travel, all the hikes that I've done, I was looking at it. It's all cut off road washed away, and where I was gonna go tonight and camp Yosemite is totally again, rain, not just rain. Wintery makes it's like I would go if it is snowing, if it is victory mix, which is like, like, I don't know, like a slur, you know, you get bit of a mixture of water ice and everything. That's not good. Yeah, that's slurry. That's not something that I go enjoy. You are slipping everywhere. You're not enjoying walking. You're not enjoying camping. So that plan may change. So I'll see. I'll probably go down south, somewhere nice.
+
+Speaker 1  1:43  
+I like that. That's what I like about the US, is you can find, you can find a climate pretty much anywhere, just depends how far you're prepared to travel. So that's good. Yeah, I just, I to be honest with you, I just wanted to get I just wanted to go off the career, go do something normal. I get one holiday a year that I'm allowed to choose, because normally, normally it's like beach holidays. And so when I choose a holiday, last year, I took them to Stockholm, which was a kind of to acceptable to everybody. But this year I said, No, we're gonna go north, and we're going north. So very
+
+Unknown Speaker  2:24  
+well, let's see. That's the one.
+
+Speaker 2  2:28  
+When you see the solar waves hitting the atmosphere, you can even hear them. I've heard
+
+Speaker 1  2:35  
+I'm looking forward to, I don't think my daughter's got any frame of reference, so she's just worried about the fact that we're out of contact, but it'll be okay. I said it'll be okay. Listen, thank you for sending me that that Doc, I speed read it. I didn't go through it in a huge amount of detail, but I will do while I'm away. I won one question, which was around the work that Tony's going into, yeah, on the arbiter and I guess what I wanted to position in my mind was how the document that you wrote, which is kind of the framing that we talked about, connects to the arbiter system and and whether that those two things need to come together, or how you're thinking about those two pieces, those two bodies of work,
+
+Speaker 2  3:31  
+I've been meaning to talk to Tony, so part of the work he has done on that is connected to the discussions I have had with him. But I know he has had discussions with Manfred and Errol and others as well, and he's just dumping everything in there as well. So for example, the framing of BCS wasn't right. Now I spoke to him. Now, framing of BCS is almost Okay. Me. I was supposed to talk to him today, and yesterday, he has been busy, but I'll try to find time with him. In any case, Errol has scheduled something for later today for me and him to talk with Tony. So but that discussion I'm going to be pretty much silent on knowingly, because I want to see what Errol and Tony discuss. At some stage, this document will be with Tony. I think whatever he's doing, we can pick bits and pieces of that and then get out. The problem with Tony is he's not very good at collaboration. He's not so you got to rein him in and tell him to stop sometimes and say, No, do this much. He can be super fast. The outcome is either going to be extremely useful or outcome is going to be extremely not useful. Still, well done, elegantly, architecturally, like technical architecture wise, he does good job. Yeah, but is it aligned to you or not? Is a question. So sometimes the PMs that he has worked with, they'll say, Just take what he gives you, and then, you know, slowly, slowly, slowly, morph it. Now he works well when he has one point of channel of inputs coming to him. That's how Tanmoy used to do with him. You guys give me the input. I'll tell Tony what to do. Now he's getting multiple channels, so he's trying to consolidate everything and then come up with something, which is the document he did is not very far from what I was actually white boarding with him, but the fact that he has added bunch of stuff has confused everyone, like that seemed like way too much complicated than we needed right now. So tomorrow or Monday, I'm hoping that I'll give him this document, whatever I have done, and then have a rational chat with him that, look, there is a reason. There's a method to the madness. Whatever you have done. Let's take bits and pieces and organise into this. So to give you a rundown of this, the way I'm thinking is there's one decision engine within that, there's an orchestration of decision and there are domain specific engines at the back. The reason I'm saying that we have to have domain specific engines is because your precision, your control, your governance, your tuning, cannot happen in one size fits all. It cannot happen in one place. So that's why domain engines are very much important. Domain engines will come together to form a plan. There has to be a plan compilation. Now, what Tony has done, technically speaking, the tech we may be able to use, and then we say, Yep, great. It still works within 50 milliseconds. The tech is reusable. Let's take the bits and pieces and run with that. We may have to reorganise some pieces so it's, it's okay. I guess there is, there is no, could he have done something else? I do not know. Did we lose the time that he spent on this? I don't think so entirely. No, he was, I think he's fast.
+
+Speaker 1  6:57  
+I mean, he delivered something fast, at least. You know, what is his frame of references? At least, at least we have a point of view that that was the main goal for me is that, you know, I'm not opposed to someone like Tony having a positioning statement, as long as when the feedback comes in, it quickly narrows down to some important changes. And I think Manfred has done that. I've tried to do that from a much higher lens. Errol's done that. You're going to do that. I think what that does is, at least it's a it's to be honest, it's a much faster start than I thought we were going to have. And I've got to a point reading all of the comments where I get a sense of what everybody's point of view is. And I think that's been quite useful.
+
+Speaker 2  7:55  
+Yeah, I think, yeah, it's good to do these things in a startup mode sometimes, then you can organise it. That's that's what it is. So I personally do not think what he's doing is an entire race. It's not I think we will be able to leverage a lot of it, a lot.
+
+Speaker 1  8:15  
+Yeah, we didn't spend a lot of he didn't spend a significant amount of time doing it either? Yeah, we own the idea of this middle layer, this intersection only came into being three weeks ago. Yeah? So here we are. We've got an architectural, you know, statement from you, and we've now got a body of work from Tony. Yeah, I think that's extremely good progress.
+
+Speaker 2  8:42  
+Yeah, we can. We can really quickly circle on this. I think if I wanted to talk to him today, if he's available after your call, I'll probably ask him if you are available for 30 minutes.
+
+Speaker 1  8:54  
+Let's have a chat. So what your your starting point with Errol is going to be, are you sharing? Are you going to walk him through the document? You're going to share it and open it up for commentary.
+
+Speaker 2  9:09  
+I haven't completed it just yet, so you would see towards the end the experience pieces just to open, yeah, but those are not heavy pieces. I'm just going to document some high level thoughts on that, and then I will open it up for everyone to read it. I expect that more or less people are going to be like, Yeah, okay, but if there is something, then we can refine through that
+
+Speaker 1  9:30  
+as well, on, on the while you were writing it, when you think about the effort needed to deliver this.
+
+Unknown Speaker  9:43  
+What I'm interested in is
+
+Speaker 1  9:46  
+does, what portion of this does falls to the individual road maps, and what portion falls to an abstraction of a group of people to build this layer or to build the architecture. I guess the one of the questions that's being asked by Silver Lake is to justify the commitments that we make against potential. ARR and so in to be open with you, if the if the teams remained as they were, and we were able to deliver this by, I think we, you and I talked about the idea of squads, so the teams remain where they are, but, but you have squads focused on that, has this changed in any way? Or are you still?
+
+Speaker 2  10:41  
+No, I don't think so that changes. I don't think so that changes. However, the decisions have to be, what do we do first? I'm just going to pull up some one of these architectural flows that I created that are reasonably high level, but at seven time gives us everything. Okay, let's work through this. Maybe not commerce, domain service. Commerce Domain Services. I need a detailed one decision engine. Forget about this experience. Okay, let's start with this. This probably helps. So if I go by the domains, my thinking is this is back end for the front end experience gateway. Right on top of it, you have experience element for CPQ, for partner portal, for self service, all of these things in there we need to figure out what is the common set as well, and who does what? So that is one squad, experience front end, and they own the experience gateway as well. Yeah, right. The experience gateway is everything comes to a same grammar and goes through this guy. Cool. That is good. Now this context layer is piece number two. Squad number two, right? This guy needs to talk to this guy and be like, Yep, I know what you have. I know what I need to give you and work through that. So now if I go down below or No, actually, not down below here, so
+
+Unknown Speaker  12:20  
+channels in Persona. Forget about it.
+
+Speaker 2  12:24  
+I'm actually drawing up something for the context. Let me see if I can pull that up right now.
+
+Unknown Speaker  12:32  
+Can you Google? Allow me?
+
+Speaker 2  12:42  
+We should be able to allow screen switching as well. But anyway, so this is what I'm really working on just now, to make sure that I can understand what the context is going to be. So I'm blowing up the contact service now, like in my head, at least that what work do we need to do in the context service front ends are okay? We got to feed Zoda services. We got to feed external sources as well. You got ingestion. You got schema, which is your control plane. Then you got your runtime as well. Now this is your context. That means this is a body of work by itself that needs to be in a squad. This diagram is not there. I'm just completing it now. I'll dump it back in the document as well, shortly. Okay, so this is literally what I told you is back then is literally what I'm trying to think of as well that, hey, what are the scores are going to work on it? So we got one squad working on this, one squad working on so one on the experience and experience gateway. Second here, then comes decision orchestration. Decision orchestration is a huge piece by itself. I believe why? Because I'm saying you are configuring your decisions here. These are your domain engines. Okay, I might abstract the UI of that, but these are my domain engines, where I'm configuring my decisions for pricing, promotion, packaging and time, whatever tomorrow. This allows me that if I have a new type of this domain, I can just do something here as well as an engine. Then there is a compiler, which is my which is which is sitting up on the top of all of this, and that basically gets stored here, policy and plan store. When the request comes, the router says in the execution engine, I just execute it. Great. So these individual pieces do not need to be same team. We can find how we bring these together and which team can take more than one. For example, approval is going to go to workflow team. I don't care, right? I may need to influence them, but Sure, but promotion pricing maybe can sit together. Maybe promotion pricing and packaging can sit together. These three, recommendation can go to a data science team that I'll feed you your data. You do the recommendation engine, but somewhere, architecturally speaking, they should know how they are built, so that they can start the work. We need to get to the point where we say we know enough about the second or third level of the detail of these domain engines that I can start working parallel recommendation team. You have this pipeline that will be delivered to you. You can build on that you can you can fine tune the feature set that you're going to look at and then the recommendation, but first, there is a work for deterministic engines as well, and that deterministic engine set can probably sit with one team, this decision orchestration, I would say, should also sit with that team, because it'll be faster. They will know that what I'm going to expect from domain engine and how I'm going to execute. So like, literally quite I see at least three, but maybe four to five scores working on these things. And now comes your experience. Probably some back end, dedicated pieces that are going to be CPQ has CPQ catalogue and has CPQ catalogue and has catalogue. So, yeah, going to back back to my point, five or six quads you will have in there, it seems,
+
+Unknown Speaker  16:13  
+yeah. So
+
+Speaker 1  16:16  
+assuming that we, we could arrange that team structure, how? Two questions, how far does this get us towards the vision of omni channel that we originally proposed back in Redwood City,
+
+Speaker 2  16:35  
+against us? Right there. It gets us there. Okay, so it's exactly there. Okay. Now it may be that when we talk to squads, and squad doesn't have to be, you know, three people per team. No, the squad could be that, for example, domain engine has three squads, one dealing with packaging, other, dealing with pricing and promotion, one dealing with policy. They're all under Tony, yeah. Okay, great, right? Experience, CPQ, experience. This is going to hurt CPQ team, but CPQ experience and commerce experience, let's bring them together and do the experience gateway as well architecturally, write one squad. Now what happens CPQ team is building their own experiences right now. You are able to leverage some synergies in there and say, No, I'm going to bring it together, and this is what happens. You guys have to deliver common elements as well. So the vision starts becoming a reality if we could force that. But if you can't, then they will just go on their own path, and then we'll have to force them to come together after the fact, doing it right sometimes also means taking a step back or slowing down to pace up. People may not be ready to accept that, but that's something that you got to force. I think Manfred is very much ready. Errol may have some reaction to that. You are slowing my experiences down, but I think, like, yeah, these two squads, and then you leave a catalogue squad, which is, hey, you got to deliver versioning. Let's say versioning is done, but I'm giving an example,
+
+Speaker 1  18:05  
+but there are two functions here. Behind this. Number one is Pete's commitment to delivering value, right? This is a pure value play. How do we take all of the assets that we have, mean individuals, and how do we create persistent value across as many touch points? This is what the intersection is meant to achieve. The second is that silver lakes lens is return on investment, right? If I invest this amount of engineering resource, do I get the maximum amount? It's a classic PE play. This year is going to be the year of pre sell, of to work day. You know, we're positioning ourselves up. This is year two of the three year plan. So if we're going to spend the dollar, you know, what's the ROI on that dollar and prove the ROI on that dollar. So this is a very thoughtful use of resource, because what we're saying is, you know, measure twice, cut once, deliver the maximum amount of value that you can for the effort that you're investing so and also to not leave any parts of the acquisition to order or behind. You know, not building for one piece and not the other and the other. So I agree. We're completely alive. So as I would expect, you've delivered what you said you were going to deliver. What are what? I think there are two things that need to happen now. Number one, I need to read it in detail and read it alongside Tony's doc. But then I think what I need in the in the beginning of the year next year, is an opinion from you and probably Tony, well, let's say from you about what your your assessment of Errol manfred's Manfred is quite What I've learned recently is Manfred is quite trusting of engineering, right? So he will say, Well, if the engineering team say they can deliver it and that's what I want, then I'm going to trust that decision. That's perfectly fine. Errol's more in the weeds around the the engineering decisions, but I guess the final assessment is going to come from you, where you go. Listen, I have consensus or not. First of all, I accept what Tony's bill as being a valid part of this, this view, and then I have consensus that this view that I'm presenting, which absorbs Tony's implementation of a portion of it, is the thing that gets us to omni channel, right? So if that consensus is then true, we will use that document and synthesise that for different stakeholders. And you know, some of it will be to the field, which will be very reductive and shiny. Some will be to Pete, which will be much more kind of robust and formulated, and then we will have to have a bit in the middle, which is, how do we prove to Silver Lake and to Shakir that the way in which we want to structure the engineering org in service of this is has got some value. And I think that omni channel. I mean, Omni channel is now very heavily baked into sko so the business seems to have completely accepted that we are acquisition to cash. We're still some distance from being able to actually do that, but the document that you've created is that. So, yeah, that's amazing. Let me. Let me. Then go away, read it, and then I'll
+
+Speaker 2  21:45  
+this is why I'm going to write one more section towards the end, which is experience I'm going to actually say this, which is, I wrote it, I removed it, because I was like, I'm going to share with you Manfred and Errol. And I was expecting Errol to not be happy with that, because that section, especially because he's very sensitive about experience. And my view of experience is, I'm not trying to break what you're doing. I'm saying, I want you to sit with man, Fred and John, and say, we're going to do this. Is it something that you would want to influence. Hence, by the outcome, because of your influence, I'm giving you, I'm giving you a leverage. I want a return on investment for the leverage, which is he will use the elements I do, and he will say that team did something that accelerated my piece, which means we need to bring CPQ engineering on this. I spoke to Shiva. He's away all the rest of the year. But I'm going to give this document to Tony and Shiva as well after I write experiences. So expect some back and forth where you are trying to enforce some neuro elasticity, where the plastic city has settled in. That will be some work over there. You are right. Manfred is always in for such things. And I'm not saying it's 100% reuse, but I'm saying, Have you done the work to say, look, I'm not going to be able to reuse anything, listen, or I cannot build it any way, the way you are expecting it to be.
+
+Speaker 1  23:13  
+You've created a point of view here, right? Yeah, and it's a point of view that's tangible and it has a very precise outcome at the end of it, which is true, Omni channel. So there are a number of things about that. The most important is, when we present it back to the business, the business has to make a decision. Do they want omni channel?
+
+Unknown Speaker  23:39  
+Right? And if they want omni channel,
+
+Speaker 2  23:42  
+good point, I see you're elevating that further.
+
+Speaker 1  23:45  
+Yeah, we, we entered this, you know, now, Vero, myself, Manfred, we entered the room, and we said, in a very simplistic way, we have to build an intersection in order to get us to a true omni channel. That was phase one. Phase two is the brains in the business went and built a view of omni channel from an engineering and architectural point of view. That's number two. So we have a we have a positioning statement, we have the substance behind it before we raise a single ticket, the we have to say, do you want omni channel, right? I know the marketing team want it, and I know the sales team want it, but Pete and Shakir, do you want omni channel, right? Because, you know, I heard another story today. So anirudd built this very interesting SKU compactor, right? So I've, I've tested this with customers. I went to The Economist the other day, and I'm trying to get them to migrate to the new catalogue. And they said, we've got 1000 SKUs. We don't even know what to do. So we ran this process. We took it down to eight products and 47 PRPs, right? So they're like, Okay, now we understand our business better. And then I go out and I say, Well, can we what's the pathway to get this to production? And then I realised that what happened was, is it never got past the demo stage. Which works? The back end works because the 10x team shifted their focus on revenue. The billing team don't want to touch it because they don't own it. The catalogue team Errol never, never agreed with it to begin with, right? Although it has very high value in a number of cases, right, even if you just as a
+
+Speaker 2  25:47  
+as a tool, it's a, put a plug in there and say, tool that,
+
+Speaker 1  25:51  
+yeah, it's a tool. It gives you a lens of something you didn't have a lens of before. And it, what it does is it creates a very useful argument for why or for how to think about the new catalogue, right? Yes, it's a very, very valuable tool, as you say. I mean, even if
+
+Speaker 2  26:13  
+it is one time execution, show it to the customer. You're not gonna lose anything. You're not doing any tight access.
+
+Speaker 1  26:18  
+And maybe there's something else. But the point I'm making is this was always going to be the so when I speak to Anirudh, who invested a lot of time and energy into this and now cannot get it to market, it's like and if you, if we don't persist and follow this through, it'll be one of those bodies that are buried across aura of things that were built but just never been. Think about the engineering hours. Think about the time investment that went into that. Think about the thought process, you know. Think about Anirudh, you know, mental process to kind of build.
+
+Speaker 2  26:57  
+I was there. I was the one who told Anirudh, don't do it one off. Do it recurring basis as well. That whenever you're creating a plan, it pops in and says, Are you going to associated with this plan because they're similar, or something like that? Then people get recurring value. But he told me that arrow doesn't see value in that arrow doesn't so he
+
+Unknown Speaker  27:16  
+doesn't because he doesn't because what?
+
+Speaker 1  27:21  
+What no one in the business today knows is, what conversation Do I have with a customer who has the legacy catalogue, and what AE is going to spend an ounce of time my talking about the new catalogue. There's no money against it. It's not even an upsell. So a see it. No one wants to talk. No one's talking about it. But it's the most important thing we have in the business today, and it's the foundation of omni channel, right?
+
+Unknown Speaker  28:02  
+So there's a lot of moving
+
+Speaker 2  28:04  
+incentive is internal and not external, exactly. Yeah.
+
+Speaker 1  28:08  
+Anyway, so listen, that's all amazing. I had a I wonder if I could just shot left a little bit and talk about CPQ. So I had a long conversation and a very interesting demo from John Burns the other day. Super guy really enjoyed talking to him, you know, he's got a view of of, you know, he's got a view which I particularly like, whether it's a general, whether it's an accepted view, I don't know, but he has a view. So we spent a lot of time, and I said that I would then battle test this thinking with with you. So I'm going to take a first pass at it, and then I'll send you a summary, a written summary of what I'm thinking, unless you completely kill it now, but I was told the story of how we lost the magic quadrant positioning right, and how we how we failed to deliver the C against the CPQ, right. And the basically, what happened was we didn't have configuration in the way that CPQ should have, we didn't have the C, right? So when I then look at taking one thing like configurable bundles
+
+Unknown Speaker  29:33  
+or improving guided selling,
+
+Speaker 1  29:38  
+and there were some other things, what was represented to me was that we could bring the C back into CPQ, and if we were to do that, and there's a bit other there's a bit additional stuff to this story, so I'll finish, and then I'll throw it back to you, is if we brought The C back in, and we defined what that C was, what we have in catalogue, what that enables in CPQ. Could we be in Salesforce? A magic quadrant? Contender, again, that's number one. Number two is this? This? This idea of next generation and CPQ, right? My understanding of next generation, and I've heard this a few times, I'm not even talking about vibe quoting. I don't even think. I don't even I think it's going to wither, because I don't think Pete wants it to survive, and I think it's a vanity project. But if we, if we talk about next generation, next generation is not going to be parity with with so quote pad will not be parity with quote studio for some time. Right? How engineering will be, yeah, so, so there is, there is a quote studio, which is, you know, could be better, but it's pretty good. There's quote pad, which is a great demo, but nowhere close to quote studio. And there's a trajectory, which is, we'll get quote pad to parity with quote studio, right? At some point, right?
+
+Unknown Speaker  31:28  
+Quote pad, the white coding thingy, or no
+
+Speaker 1  31:31  
+quote pad, is the quote pad is the next generation version, which is, you know, much more kind of natural language interface, etc, etc, right? So the story goes like this. In my head, quote pad is compatible with quote studio in that you can take a quote and push it into quote studio, but you can't take a quote studio quote and push it into quote pad. So quote pad is almost what vibe quoting was meant to be, which is, let's make it easier, but built with compliance and, you know, baked in which was vibe quoting was missing. Quote pad is a more substantive approach to a better experience with quoting, right? If it ever got to parity with quote studio, because it's headless, it would be a real contender. But until it has parity with quote studio, it becomes, you know, it's not a contender. Okay? So I don't know the distance between where it is today and where it could get to, but the way I was thinking about this is, if we were to take a year and say, Listen, objective number one is that we get CPQ in Salesforce back on the Magic Quadrant right. We bring the configurability that the catalogue enables. We bring guided selling in you know, we focus on that. We bring it we win back our position.
+
+Unknown Speaker  33:20  
+We also
+
+Speaker 1  33:23  
+accelerate quote pad to or find at least a timeline to parity, so that we have both a Salesforce environment and a headless environment for quoting and in the interim, if the worst thing that happens is that you can start on quote pad and end in quote studio, because you can push what you have in quote pad to quote studio, that feels a way of telling the story in a joined up way. Now the bit I'm asking you, and I will write it up, because I made a bunch of notes, is John's concern is that we don't, and this is exactly to the intersection. Again, we don't have a unified way of thinking about building for next gen and and Salesforce. And the bit that I was trying to understand is, is it because of the managed packages in Salesforce? Does the sales force environment just create this kind of insulated engineering pattern that can never be, you know, you can't build a thing that then is used in both places. You have to build for both environments independently. And that's the bit I don't understand.
+
+Unknown Speaker  34:40  
+Okay, this is going back six months, so I
+
+Speaker 2  34:47  
+part of this is accurate, but part of this is how you approach things. It's not really black and white that, hey, we're not going to be at parity. It's about the journey that we want to deliver to the users.
+
+Unknown Speaker  34:59  
+And there are some decisions we have taken
+
+Speaker 2  35:03  
+whilst catalogue from backward compatibility was impressive story, it was very difficult. So building something backward compatible versus building bridges are two different architectural design patterns. So the choice was, we will build bridges will not build backward compatibility, because backward compatibility will host, hold you hostage to so many design choices that were made, and then you were like, I can't do this. Because whatever I think, I did my groundwork on that, when I came down with the came down with the came up with a document of the next session, CPT and all that. I'm more than happy for John, who has been in the ecosystem for way too long now on this to take a stab at a document, six pager, no more six pager, should say, very high level front end supports these functionalities, these capabilities today, and these flows, just names and back end supports these functionalities, these capabilities. This is a tech behind that, and this is where it lies. Six pagers done. The exercise we should do from there on is what would be the minimal possible next generation CPQ look like with those capabilities. Now you are not talking you are showing that this is how the parity, as you say, you know the direction of travel towards the parity is going to look like, and this is hypothetically my timeline, right in next generation CPQ. I did that exercise based on my understanding of this, and I did say that day one, the UI of next gen CPQ will be in Salesforce iframe, not native iframe, yeah, which means you as a user will not have to go here in Zora and then come back to Salesforce. I don't want to do that, but you'll have to UI the way we would start is the first rollout would be the gap. Our CPQ today doesn't have C. I want to give C first, so there's a natural cognitive transition as well that I'll complete the C here, I'll submit and then I go and pull it back here. I can work with it, correct, done Correct. Or for simplest of use cases where you're not doing ramps, not doing commitments, those kind of things, you can use a new UI and finish it up as well. Sure. You can save it here. You can retrieve it here. I personally believe there is not a lot of complicated functionality in code studio. There is not the reason it is complicated is because we have implemented in a way that it is native into Salesforce. If I abstract it out and I say, I'm not never going to code for metrics that commerce needs, I'm going to configure the metric metrics that my flow needs, and then I have elements in commerce experience that will fetch me those metrics and render it for me. My job is lesser. This is what I'm pushing the guys for. Because if I want to do a Subscriber Portal, okay, or if I want to do a customer portal for, let's say zoom, where zoom can log in and do all these things for a given subscriber or for myself, when I log in as zoom into Zora Subscriber Portal. I want to see what is it that I'm paying to Zora. Like for Zora, that is MRR monthly, or ACV or ARR for zoom, it is a spin. So we should be able to do those elements in a way that I can reuse those things. Why am I repeating? And that's the same thing that the code needs as well. The card experience is the same. The C experience is different. That's why we should just build the c part first and say the new, next duration. CPQ brings the C to your life and works for those customers that have simple flow off of that end to end. If you want complicated multi subscription coding, parent child relationship, we don't have that here just yet. We'll do it here. Okay, focused effort and a good enough insulation will give us some velocity as well. The problem is the focus lacks and the insulation is just not there. Yeah, well, is now he was calling me. He was like, there are so many operational issues. I'm having to focus on this and this vibe coding thing as well. Teens project is vibe coding. I can't leave that next in CPQ. Now you're saying I need to talk to you. I When do I get time? Talk to Rodrigo. Talk to Manish. Yeah.
+
+Speaker 1  39:39  
+So, I mean, vibe quoting is a is a problem. I'm just trying to build a story, a cohesive story underneath all of that, and then and then give it some momentum. So what, what I wanted to understand from what you just said is, do you see the it feels to me like the bit that we know the market recognises is the peace in Salesforce, right? So it's tangible. Could we get that back to the Magic Quadrant by building the sea, right? So that we've got the catalogue which enables the sea? It feels to me that if I was to say, Listen, CPQ, we are going to get back core. CPQ is going back on Magic Quadrant. That is our 26th strategy, right? In order for it to be that we need configure it configurability. And in order to get configurability, we're going to leverage the catalogue, and that's going to be our focus, right? Anything else, you know has to, has to stack rank against that. I know the story with the with billing parity. You know, there's a lot of operational friction. You know, it's a large engineering team constantly fixing stuff, right? So I haven't even got down to that level yet, but what I want to ask you is,
+
+Unknown Speaker  41:10  
+do you think we can there
+
+Speaker 2  41:13  
+is some practicality to this that we need to think about. The thought process is right, the intent is right, but the practical, the practical approach behind this, Jonathan, is going to be very difficult to get there in time. I'll tell you why. And I'm making some assumptions. You tell me if the assumptions are right or not. Assumption one is, first of all, agreement. One is, C is important, and we got to put it out there. Sure. How is the question? I'm hoping you're not saying this is the assumption part, that you're not saying that we build it in the current stack. We build C outside, but we build it in a way that it works, like a bridge design,
+
+Speaker 1  41:56  
+a universal a pattern that works for both next generation and the CPQ in Sales Force. Yeah, yes, that's exactly,
+
+Speaker 2  42:05  
+that's exactly a bridge, bridge design pattern. I call it bridge because you cannot have it work equally well for both you will have it work amazingly well for one side and it works for the other side. That is why the bridge is important, right? Yeah, if it had to work equally well, then you're going to be forcing yourself native Salesforce code, which is not the right thing for us to do. So let's say we make it work
+
+Unknown Speaker  42:29  
+good, good check in that case,
+
+Speaker 2  42:35  
+if we are leveraging the work that we're going to do on decision orchestrator, decision engine optimizer, whatever we are saying for configuration and enhancing the product catalogue, they cannot start for next three to four months, or three months at least. So what are we giving them right now? What can they do right now? Is another thing. So I'm what I'm saying is the blocks of delivery for next six months. We have to arrange it in a way. This is where I was saying that we need a longer meeting. These all questions should come in that meeting and be like, okay, good. I got the commerce foundation and commerce piece. Let's lay it up at the top layer. And now John, you come and you say, this is what we want. And you go and you say, like, Jonathan is saying, I want 2026, magic warrant for CPQ, Jonathan, give me what you want for that. Manfred goes then we say the interdependencies are going to become complicated, and we will then rationalise that actually for next three months, let's focus on this in CPQ, and that this may be building the interface which are super simple for super simple codes, the backbone and the spine has a chat interface. There some sort of compliance that I can abstract out of Salesforce, because here are the things I don't need code in Salesforce for enforcing compliance. I can make a call to my engine. So let's pull it out. Let's lay the foundation for the next generation of the CPQ whilst we're getting ready for C, and by May, we will have a C and this whole compliance piece out and done 100%
+
+Speaker 1  44:06  
+and in fact, that's a very similar narrative to how John presented it in his mind. So he's completely aligned with that. My feeling was, is that we've got someone like John who is also not being leveraged in the right now, I don't know the history, right, so I've had a few meetings with the guy, but my gut tells me that if he if what he's telling me is true, he is unnecessarily isolated from the next generation. CPQ, right?
+
+Speaker 2  44:42  
+Is he? He was, I know he was, but I think that was by design that Manfred was chosen to run it, and John was. I went to John, by the way, myself, to engage him.
+
+Speaker 1  44:51  
+It's not, it's not his influence. It's his, just his understanding of it, right, right, and understanding of direction. So he as a voice in the room. The narrative that you just gave me requires us to have other voices in the room exactly the same motion that we're running now, which is have a very precise direction of travel, and then get stakeholders in a very managed way so that it doesn't become too many cooks to contribute to a very precise direction and North Star. And that's, I think, what you've just described, is we abstract the sea. The sea is built in a way that it has utility in both places, right? That's a great, great way to think about ROI. But the bit that the business can adjust itself to is we want to be back in the Magic Quadrant. And by the way, when we get back in the Magic Quadrant for CPQ core, the same configurability is available in next generation, which means when, when we go for that Magic Quadrant positioning with next generation, you know, let's, let's say you were to, let's say you completely killed CPQ in Salesforce, and you embedded next generation into Salesforce, right? So, some alternate universe. See, next generation should be, it should be a Magic Quadrant can take, in fact, it should kill the Magic Quadrant and create a whole bunch of new benchmarks and be way out on the, on the, on the edge of the top right hand part of that chart. So is, do you think that's again? I know sometimes I can be reductive about these objectives, but that, that I think, is I could get a lot of people behind that view. I think,
+
+Speaker 2  46:51  
+from a vision point of view, it's part of least resistance to get people behind it, but the credibility is going to lie on the plan of execution and how well the team comes together and gets behind the common objectives as well, which is why, like, it's not just going to be Manfred and John and CPQ team. We got to make sure that the Foundation team is an unbiased team, because as a foundation, team is going to be biassed, and CPQ might starve for what they need, and the natural inclination is going to be, I got to do what I got to do to deliver. Yeah, we're not. We're not going to allow that. We're not going to Yeah, so I do agree that the vision is right, and if I may, what's going to get us on the magic quadrant is not just C, it's going to be C. And there is something called S, which is scenarios. We don't support scenarios today, and there are not many that support scenario today. And if you are short of reading documentation while you are off the grid, then I'll send you this as well. I've written so much documentation that I should have my library of Laura. Now I just sent you that. So I just sent you the scenario piece out of that CPQ, DSL scenario piece. But that whole document has bunch of stuff and some evolving thoughts as well. I haven't touched it in last one and a half months, really two months, but you can go through that. That's I think you've got to have, see, you got to have scenario basics in there. And you got to be able to say, hey, you can go back and forth. You can play with the scenarios. You can push a proposal. We got to change how CPQ thinks. Not just I
+
+Speaker 1  48:30  
+agree with you. Listen, there's money, there's there's increased revenue against CPQ, but it's fairly basic in its assumptions, which is, we put a lick of paint on CPQ, we build some of the missing functionality and we charge more for it. No one has mentioned C, no one has mentioned Magic Quadrant to me at all. Not Shakir, not P, nobody
+
+Speaker 2  48:54  
+that hasn't been zora's goal. If you ask team, a while ago, we brought it up, and team was like, CPQ is not our play. That's just a catalyst.
+
+Speaker 1  49:04  
+Well, there's, there's an uplift in revenue against it. It's a core to omni channel, and it's a damn site more built out than vibe quoting. Vibe quoting,
+
+Speaker 2  49:14  
+I think, I think people haven't sold it well to him, including myself. Well, it's like catalogue.
+
+Speaker 1  49:20  
+You know, catalogue is probably one of the most important things Zora has today. It's the differentiator. It's the entry point for everything. So listen, I again, what it is is just about taking what we have and creating clarity, and then, as you say, working out what the practicality is of delivering that. I do want to get John into the into the room, just so that he has some voice. So what I'm going to do is I will, I'll write up what I understood from John, I'll include what I understand from you. I'll create a just a narrative, couple of pages, and then we can maybe bring that to the table at the beginning of next year as well. And you know, if Pete or Shakira or team decide to shoot it down, that's fine, but at least we'll know what's not on the table. That's what I also want to find out. What do I not have to think about? Cool? All right, listen, as always, really super, super helpful. And I genuinely appreciate the fact that you said you were going to do it, and you did it, almost, in fact, to the day you did it, to the day you said you were going to give it to me on Friday, last Friday you did, which I so appreciate.
+
+Unknown Speaker  50:39  
+There's some some open items, which I'll close.
+
+Speaker 1  50:43  
+That's fine. It's, it's, it's, it's substantive. So, yeah, I feel good about I feel good about it. Okay, obviously what we've got to do is got to get we've got to get all these heads in a room. We got to whiteboard it out. But we what we do now have, which is very different to before, is we have something documented, we have clear positioning. We have some positions that people are going to negotiate around, and that's a good thing.
+
+Speaker 2  51:12  
+And there is a bit of more work on this. I think I feel CPQ team, the next gen, CPQ team, has lived in their own path, thanks to delivery and thanks to org changes, Shiva is not around. I'll need to bring him around and say, look, let's do this. He will listen. He will listen. The only thing he will raise is, if I have dependencies, I'm taking on dependencies, then I need air cover that I'll wait. That's something that we got to like the team should feel the same. You and Satish are single Leaders Up at the top, but I think your role is going to be more important because Siva doesn't have that high respect for Satish. Errol doesn't have that high respect for Satish. I know that for a fact, I do not know how Manfred is with Satish, how John is no idea, but that's where I think you leading with PM, thinking in there and saying, outcome is this. Milestones are these? Now I need you guys to make sure you do your job by not duplicating the effort and work and calling out where you think we are better at duplicating as well. So and
+
+Speaker 1  52:27  
+think about it actually, what's really interesting is it, and again, the analogy keeps coming back to haunt me, but it is the burger, right? So what you and I have formulated is this top story. You're backing it up with muscle, which is the exactly what we said we were going to do. Right the bit in the middle is now we have to formulate and frame for the product teams. What it is, what is their direction of travel, what is the level of engineering and architectural support behind it, you know, and, and I think it'll come together. It, listen, it's, well, it's, it's, it's becoming more of a thing that I thought it would do at the end of this year. There's more substance behind it, which I'm really excited about. Well, listen, thanks. Have a have a smashing wherever you go, right? I'll take pictures. If I
+
+Unknown Speaker  53:18  
+get any internet and I see the Northern Lights, I'll send you a picture.
+
+Unknown Speaker  53:21  
+Absolutely Enjoy, enjoy your time zone, and thanks for
+
+Speaker 1  53:24  
+the time again. Really much appreciate it. Likewise. All right, have a good festive season. Cheers. Bye, bye.
+
+Unknown Speaker  54:35  
+Jonathan, yeah, what problem has it been done with Hannah's keys that have been there forever?
+
+Speaker 1  54:45  
+They should be hanging out. They're not. They might have fallen on the floor. Then I haven't moved them. I have not moved them. I haven't touched them. I wouldn't touch them. They may have fallen on the floor. Have a look underneath the like, I'm not the person who does that. No, because you were going to throw them away. You haven't thrown away anything yet. You You do
+
+Unknown Speaker  56:02  
+not you okay. The
+
+Unknown Speaker  56:37  
+blue one is grey. You
+
+Unknown Speaker  56:48  
+want to space. Oh, you know that the other ones are, they're Romans, okay, okay, no
+
+Unknown Speaker  57:01  
+wonder you are comfortable. Come here? So everything's there.
+
+Transcribed by https://otter.ai

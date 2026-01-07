@@ -1,0 +1,430 @@
+Unknown Speaker  0:00  
+Much. Thank you for what you sent last night. I read it again.
+
+Speaker 1  0:07  
+That's kind of almost exactly what I wanted to speak to you about.
+
+Unknown Speaker  0:12  
+So you which document,
+
+Speaker 1  0:15  
+no, no, you sent me a snippet statement around, oh yeah, around the gap in the market, right? And so, yeah, I there's no daylight between us on what that vision is. I guess the the bit that I was that I wanted to discuss was, how does this get represented, right? There's a, there's a there's a whole range of ways that we can get the business to internalise this, but there are some fundamental barriers to getting this. Sorry. Just one say sorry just one second. I got 10 out of 15. Well done. So I set an exam for tomorrow on the things I find. Okay, good girl. You chill out.
+
+Unknown Speaker  1:07  
+I'll switch it off in a sec, kiddo, you
+
+Unknown Speaker  1:20  
+I'm sorry. Sorry about that.
+
+Unknown Speaker  1:28  
+Were you kicked out of your office? I was
+
+Speaker 1  1:29  
+kicked out of my office because my daughter wants to watch some TV, and she's doing 11 plus exams, which is like a big Secondary School Entrance Exam, so she's doing a lot of hard work, and I'm trying to give her a break occasionally,
+
+Speaker 2  1:43  
+so I rest for the weary. Come on,
+
+Speaker 1  1:47  
+I acquiesce when I have to. So yeah, so I I agree entirely with you, but I guess there's a few things I want to validate, because the story I want to tell is not dissimilar from that, but I want to try and tell it in a way that we can do the two things which I said, which is, insulate the product leaders, so that there is no noise, get the right level of support, but at the same time, there's these kind of intersections which you described. So my starting point is that the story is at the intersection of the road maps. It's not the capabilities that product leaders need to be left to deliver. You know, things like bundling, these are non negotiable things. But at the edges, you know, you raise the question of BCS, you've got focus on zems. There's what Manfred is doing, there's what Jimmy is doing on experiences. And there are intersections that have kind of an architectural dimension to them. They have a platform dimension to them. So there's all this stuff around it, but the principle that you described is kind of, I that's what I believe in but there's been a couple of instances where, and I think this is what I'm trying to extract from you. You take Adobe Experience builder, for example, you've said, Listen, we don't belong in that space, right? That that's we don't want to go that into that place. And, you know, there can be reasons for that. I agree. You don't want to be driving leads. You want to you want to be the point at which the lead has arrived, or the prospect has arrived, or whatever, or the visitor. And then there's something that happens. There's the implementation differences, which, you know, if we're a true platform, we should be able to deploy quickly, you should need to code anything up. All the intelligence lives in the in the platform, etc. So there's that. So you've cautioned me on that, and I listened to that, and then on the other side, what we've got is this B to B complex sauce thing from Silver Lake. Right? That's our battleground. But when I when I then look at what Shakir wants on his 12 big bets, and then when I go over to the EMEA team, or the APAC team, EMEA, for example, only has 20% of his business in large B to B, complex arts, the rest is B to B. Plg, it's B to C. Same in a pack. They're more B to any with brands like Canva. And so it feels like what you're describing. It feels like everything we do is on a spectrum, right? It's a it's from the least complex thing that you want to do, but we can still do that all the way up to the most complex and one of the one of the and again, this is slightly reductive, but one of the things I'm thinking of is, you know, if we put B to C to one side, because I don't think anyone's a big buyer of that at the executive level, B to B, they are. But the question is, can we be a business that goes from, takes you from 50 million to a billion, where you can go from self, you know, B to B, Pl G, up to B to B to B complex. SLG, I mean, if such a spectrum exists, but just at the two poles. And can you self serve and get the intelligence when you don't need to fiddle with the engine. You know, I don't need complex CPQ. I, in fact, I don't even need CPQ now, but I'm kind of thinking I might need it and I need something simpler. I don't need full blown CPQ. Maybe that's the vibe, quoting whatever it is. You know, I haven't really worked with it. I don't need a complex catalogue, but I do need an intelligence, intelligent catalogue.
+
+Unknown Speaker  5:45  
+I do have some AB testing I need to do,
+
+Speaker 1  5:48  
+because we just, we kind of at that stage in the business, and then you go all the way up, which is, well, hey, I I'm buying something now, but I don't want to rip it out and have to replace it in three years time, because I do want to be a billion dollar business. So, you know, yeah, I could go with stripe, but then I know I'm gonna stripes not currently fit for complex B to B this, you know, we win more than stripe does in that space. So that's the kind of story. It's not dissimilar to what you're talking about. Because the you're saying, listen, everything has to a platform. Has to be a true platform. Things have to be connected. Journey that the intelligence is in the complete comprehension of everything, all the way from the first touch through to the retention, right? And so I guess what I want to know from you is, what are the boundaries of the story in your mind? Because I don't think the core of the story is different, but I keep falling over. I think I fall over you a little bit sometimes, because I understand the kind of catalogue core. Hey, it's not bells and whistles, but around it, we can build something really, you know, fantastic. And I understand the limitations. Now, I've also recounted the decisions against the catalogue that were limiting, right? That probably shouldn't have happened, right? But that's history. But so what I need you to do is, I need you to give me the boundaries. I need you to help me align with you as the first person in this story. Where are the boundaries? Can we be vendor for life? Can we be 50 mil to a billion? Or is that just a, you know, a nice way to think about it, not a practical way to think about it.
+
+Speaker 2  7:31  
+So there are many ways to answer this question, and I'm not going to sit here and bloviate. I'm going to make it very simple between two ICPs as well as strategic control and fit for purpose apps. So number one, at the low we're not going to be a vendor. We vendor for life within our lane and within the areas that we dominate, is a viable pursuit, going after contested ground by thinking we can play there is where many, many vendors have historically wasted money and gone
+
+Speaker 1  8:23  
+astray, agreed. What? So can you give me the contested ground because I want to get into because it feels like that's an I don't want to break your train of thought, but just give me contested ground for you. Is, where is that boundary? Right now?
+
+Speaker 2  8:36  
+It's the boundary. Well, there are many boundaries, right? But number one, saying we're a CRM, number two, saying that we are a an acquisition solution, when we don't do any of the other martech stuff at this point. And like, going back to the CRM, like we don't do lead scoring, we don't do progression, we don't do task management, we don't do deal and pipeline and sequencing, so going in and saying, you're gonna have a deal room, and I'm gonna be just really, I'm gonna do Jonathan and Errol, not Shakira Errol, because with Shakir, I'm a lot more focused on just the message like Jonathan Errol is, like, There are some narratives that are clearly coming from people that don't understand enterprise software and haven't analysed what has happened in the market for 30 years. If you want to be a deal room, you have to understand, first of all, Walter Tango Foxtrot is a deal room. Walter tango, Foxtrot is vibe quoting like, look at what we are. We are a window into a complex SaaS offering that is surrounded by systems of record and execution. So to go back and just leave that general statement out there hanging right. Enterprises have, are lucky if they can get down to 500 apps. There has been a further consolidation. But at the at the low end, you're going into a SaaS vendor that has, like, G Suite, a lot of things, and like we have a core competency, the same as the enterprise, as long as there is a logical and team is also really good around this right, as long as there are strong and logical and strategic control points, and when we go into contested ground areas, we have a dominant play. It's a worthwhile investment, and so from my perspective, now, without being overly academic, let's say so be a large vendor. Same, same answer. Can we be a vendor for life? Can we be, you know, own that piece, building off the $332 billion Billing foundation, right? So, number one, we could be a vendor for life and billing and revenue management. That's kind of what we do. The question is, for us, with commerce and zepper and sub x and all these other pieces where we're parlaying into the experience, what is uniquely Zora, and what can we be the vendor for life? And the way I would attack that is the same statement we made the other day, and then back into the market, which is my non tech term, when a customer gets someone to the website, we can then, we don't do the acquisition, but we can contextually when, when we open The when they open the door to that subscription evaluation and ownership experience, we can embrace and welcome them with open arms, and we can manage the product, the offering, the configuration, the comparison, the management of that asset, Whether it is a SaaS software or whether it is media, etc. And I know media is a push, but let's run with it for a moment. And so when you now decompose it one step deeper, what does that mean beyond just like because I think we can go after CMS, but we are going to be the CMS vendor of life. But we, you know, everything we've talked about, the in commerce. But let's take it one step further. What else can we own? Well, I think we can, in addition to the financial accounting, I think we can own the orchestration of the offering delivery elements. So in simple terms, entitlement, order, orchestration for subscriptions and fulfilling on those pieces and all sales and discovery experiences, end to end, I gave you a very abstract answer. So simply put back office, vendor for life, yes, no problem. How far up office? Up or to the front office, because there's front that, there's experience and martech, there's front office, middle office, back office. These are uncontested truths. That is how the industry defines it, right? So I'm saying stay generally, stay out of bar like stay out of martech, but within experiences, in front office, I think that's contested ground that we can we can go after, and then within middle office, I think we could go after orchestration.
+
+Speaker 1  14:00  
+So let me ask a question. If we were to say
+
+Unknown Speaker  14:06  
+we will not
+
+Unknown Speaker  14:09  
+consider Zephyr
+
+Speaker 1  14:12  
+in a non media beta, non publishing use case, right? So it is, it remains an orphan. Is experiences, BCS, zems catalogue, that is the sharp end to the starting point of that that offer orchestration layer, right? So do we actually need a yes, no engine in The mix.
+
+Speaker 2  14:57  
+I would it's, it's hard to answer because I think we have to look at now. We have to segment the industry. We as a company, do not acknowledge the success we've had in complex enterprise and the sophistication of many of the portfolio customer portfolios that we support so Trimble, Asana salon is zoom, buzz in simple, I'll say Zora, right? And that scenario, you simply can't achieve the task with a yes, no engine. But when, when we think about what this rules layer that doesn't exist should do. It should absolutely be sorry, orchestration layer should be able to utilise weighted decision logic constraints and rule and a workflow to orchestrate those experiences. And why that's important is not just for web, but human interactions as well as agentic interactions. And I know agentic, if you look at ACP and all of those, I know they operate differently, but I'm just going to say it is my thesis, not proven that that is especially when you look at the evolution of some of these high performing workflow engines. I do believe we need something in that space, hard stop media. Yes, no is fine. But I also believe for media, our success is predicated Well, sorry, do you need the workflow? Not necessarily. You could catch every click and you could just run it into rules. But I think it's a better human experience if I could type a whole bunch of stuff, but I can see it map out as a set of sequential processes. Can you give me
+
+Speaker 1  16:59  
+can you give me an idea of what a sequential process would look like in our and the ICP that would use that. So I'm trying to materialise what, what that actually looks like. Because, like, I think that the disjoint has been that when we talk about Zephyr, we talk about what it does today, right? But what we're kind of saying is, is Zephyr a fast start to this orchestration layer that then has utility in this longer story that we're telling? So I can how do I think about what Zephyr needs to do, Azure acquisition, or Azura orchestration, or whatever we call it. What does it need to do? Can you give me a simple example? You rattled off two or three things there. But when someone's dropping a node in and saying, I want the customer to go down this route, do you have an idea about how that would look or what that should be?
+
+Speaker 2  17:57  
+Yeah, this is kind of like 25 year old technology like Do you remember the company named easy ask and all those guided selling platforms, right? So if you think about it that way, and I don't even know what easy ask is called anymore, but you get it like I want to. I'm just going to throw two, three problems out there. I am Trimble or GM or pactar, right? I want I have a fleet, right? And I want to retrofit my fleet to be a smart fleet with, let's just say, an IoT, a smart drive, cruise control driver monitoring, right? And on the one hand, you could immediate. So just park that use case for a second. The next one say, med tech. I run a I run 10 oncology offices or dermatology offices, and I need a med tech stack. These are all very common scenarios that our customers procure for, or even like BMC, I need, you know, systems optimization solution for fill in the blank. So in this context, I have a business problem. And number one, I'm not ready to configure, I don't even know that you want to configure. You might have a solution already. So what you want to do is the ability to assemble all of the context. It's like a next best action engine. That's why I keep comparing what is what are these martech engines? Do they do and the next best action for content and email, and then on the other end, you have easy ask, and I'm sorry this, and I'm saying we should be here, but there's a lot of the same technology. So going back to your point within Media, it is, I know you looked at three cooking articles or three business you played three games. Now would recommend the Wordle, or what package in our world that's a lot more sophisticated, right? Which is why I get into constraints and fuzzy logic, which is I need the best first of all, guide me to, and again, not yet configuration. Guide me to the suite of applic of the suite of subscriptions and solutions that best solves my business process for the three problems I talked about. And it isn't going to be I'm going to take you right to the end and say you need seven controllers and five seats and whatever. It's that journey. And so my hypotheses, when I talk to customers, right? The way they do it today is they basically take you to, you know, this is like, if you think about elg, like, they take you down to the instead of products, they take you to solutions, right and the solution page, then they get one level deeper, and then they're going to basically, from that point, they take you right into configuration. But if you think about it, my agent is buying on behalf of me, or let's not even get into ACP right now, it's just taking you through those consecutive layers of the journey, and for a complex solution, being able to basically guide the flow from offer present, preliminary content, preliminary offer configured, offer configured, price Provo through transaction. That's the when you say
+
+Unknown Speaker  21:47  
+configured is both
+
+Speaker 1  21:51  
+optimised by something else, an engine, and also potentially optimised by the person, right? Okay, yes, so.
+
+Speaker 2  22:00  
+And I think, can I just say one other thing? This is the discussion we had the other day. I think you and I had this one. I've said it elsewhere, but it's like, I want to,
+
+Unknown Speaker  22:13  
+I'll use a simple example. I have $1,000
+
+Speaker 2  22:16  
+and I wanted off the OP, the best gaming laptop that money can buy. And so now you have to say, well, you have $1,000 etc, etc. But before I answer that, Jonathan, are you and I'm not a gamer, so bear with me. Are you like first person shooter where latency is important? Are you like robloxing where, like deep logic or something is important, I don't know you get the point. So even in an agent world, the agents the way, if you look at how agents are now being built and trained, the agent doesn't vomit it all out there. The agents go in and they actually do a sequential set of questions to another agent.
+
+Speaker 1  23:01  
+I see, I see, I see, okay, so when you talk about the B to B, because, again, this may be just about translation. In when you talk about B to B, are you saying that the the flow, whatever that is has to using the whatever conditional logic or constraints or whatever is effectively creating a visual map where A a c1, is creating a a series of pathways for which it will guide the customer through. So in the case of media, that's kind of, I read the articles, but what you're saying is, okay, well, you chose this, so we're going to send you down this route that is a, you know, and the next thing that we're going to do is is, I guess, I'm trying to just understand, what is the decision node, what is the node actually saying? I mean, I, you know, I understand AB tests and, you know, exclude this bit of content, and I can kind of get the configuration bit, but I'm lacking the clarity, because you probably know it, and I just don't on what the node would be. Is there a simple three node example? And you've kind of described it, but I just want to be very precise on my understanding,
+
+Unknown Speaker  24:31  
+yes, so could you so you give me a three node example.
+
+Speaker 2  24:37  
+It's just preliminary qualification. So that way, so, so
+
+Speaker 1  24:42  
+that preliminary qualification would be show a series of show this component that allows the customer to respond to certain things, right? Yeah?
+
+Speaker 2  24:54  
+So, let's, let's, let's do med tech. Yeah, I like that because this is QHR. Is a great company. They're very small, but they'll walk you through these nuances, right? So like the first thing, and let's just pretend they're in the US. They're Canadian, but the first thing is, I sell software, and this is your world. So you log in and you either hit like Sam collaboration of a generic software, but you hit me from a hospital, or you hit me from.gov or edu, I'm immediately going to filter, and even though I don't know anything about you, yeah, I want to start with node one. Let's make it relevant.
+
+Speaker 1  25:39  
+Yes, yes, got it. Okay, I understand that node
+
+Speaker 2  25:44  
+node two, let's understand what problem you're here to solve today. Got it? Node three, let's begin the let's begin offer presentation. And node four would be configuration,
+
+Unknown Speaker  25:57  
+where configuration might be 100%
+
+Speaker 1  26:01  
+you know, dynamic, or it might be dynamic with some hybrid, or it might be completely like a almost self serve, CPQ, in that you're not creating the quote, but you're basically configuring your thing in all and the pricing being interacts with the catalogue. The catalogue has all of these rules in it and and, you know, it has its own rules. Engine is returning the right thing based on that configuration, right? Yes, okay. Now, now I understand, now I understand that that that's been the missing piece for me. So I would imagine that there is a another series of branches, which is, if you, let's say that there was a free trial period involved in that, or some kind of paper trial that there would be, you could conceivably also include, because I think one of the things that's missed in Zor, and I want to share a deck with you, which been put together By the data my data science lead and with in collaboration with Anirudh, and it's entitled From fragmented billing and behaviour data to a single intelligence layer, right, which will probably give you a sense of where the direction is there based on some real stuff that's been built as a POC, I would imagine that if you had experienced some kind of trial paid or otherwise, that the other branch might be to a decision, an AI decisioning engine that says, Listen, you know you're getting near the end of your trial. This is the optimal thing that we've built for you, right based on your usage. And actually, what we'd like to do is everyone that uses this thing, tends to also use this thing. So we're going to give you that for 30 days to trial as well. You didn't touch it. So it kind of has all it. And again, that's all being built from the catalogue. But it's, it's contextual, because it has the long it has the the true usage of the thing that was bought. But the other thing might be that a customer might go, Well actually, and again, coming back to this very simplistic AB test, let me run this AI engine versus, you know, a very manual thing, which is, hey, you're at the end of the trial. You now need to upgrade to these, one of these three packages, right? And we're going to, we're going to build these packages using the catalogue, and we're going to make a kind of, very kind of rudimentary, you know, ABC, but on the other side, we've got a, you know, something that's a bit more dynamic, and then we've got something that's very dynamic, and we're trying to work out which pathway we should be using and which gives us the better retention rates and upsell and all this kind of stuff. So is that, is that a B to B, plg, that sounds like a, that's a, be a, plg, motion, right? Or a B to any B to any motion that's not a B to B, SLG, because SLG that just doesn't touch that space. There's a lot of first principles that are similar there, right in the configurability and and I think in CPQ, my I've been challenging, not challenging, but asking Manfred a lot about context. You know, we're building this BCS and maybe some other services yet to be decided, or AI, or whatever, is context. Is usage relevant when you're selling, creating a quote, you know, I'm going to sell you 100 seats. I know that 65% of those were really well utilised. 30 of those weren't well utilised and etc, etc. So there's lots of intersections, there's there's these things. So is that a? Do you describe that as B to B? Plg, in your view?
+
+Speaker 2  29:33  
+First of all, I'm going to say that's my dream. Second of all, I'm actually going to say it's B to B and B to C, B to any slash, any sales motion. And I know I'm literally disagreeing with what you just said on SLG, but it should guide you into that process, like the thing that I here's the thing that, what is the best sales rep do? They reduce friction, and without getting into it, I believe before you eat your sales rep even picks up the phone, it should be, Jonathan, you're coming. I'm your sales rep. Jonathan, like you're coming to me, and the minute I pull up CPQ, it should have the Jonathan dashboard of this is, why did that jump to the time machine that slide you and I built like, that's the vision. I've never forgotten that vision. I'm hoping we could figure out how to build it, right? So now Jonathan calls up, let's go back to bed. Tech, you're in oncology, because that's the example we always use, right? And we're like, Oh, I see you need a lot of imaging. I see you need a lot of collaboration, and you need a lot of deep data, synchronous, whatever. Like, Errol is a sales rep, but I sell software. I don't know anything about oncology. Like, that's where I'm saying this is B to any and any sales motion, like that engine. Call it the brain, whatever the heck you want to market it as you're a better marketer than me, but like that context, right for now, I'm calling it moves the multi, sorry, Master orchestration and optimization layer that should be turning and doing it all now, the beginning of your configuration process, your browse process, whatever it is, my upgrade, my renewal, it all starts with that. So the simple answer is, I agree with that vision. I don't know how to get there, but it sounds like you have some aces up your sleeve that you're thinking exploring.
+
+Speaker 1  31:47  
+Well, I think what I'm what I'm doing, we can't, we can't be, we can't be irrational about the market that that Silver Lake wants to be in, right? So any story that we tell has to connect in some way up to that. What I know from the field, after many conversations, and maybe you have the same view, is that there is a sense that winning deals earlier locks in revenue later, right? So it's kind of a logical, you know, get the customer at the right ICP, when they don't need a full blown billing system, or they need some of the billing system, and there's lots of complexity. And you know, what's CPQ, light, what's vibe, quoting, what's billing light, all this kind of stuff. I haven't worked that out yet. I've had lots of different views, but I buy the vision that you articulating. Is the thing that when I came into the business seemed obvious, I've made some missteps in kind of thinking that there was, there was easier pathways to get to it. But you raised a really important point here. So we take Zeph up. And if you think about this, let's so let's say you've got CPQ, you've got, you've got, you know, Zeph is slightly anomalous, because I still have to run that but, but it's not a complex thing. So you've got CPQ and, well, it's the whole commerce, but CPQ and catalogue, to be simplistic about it, right? You have this kind of, you know, you're going to deliver bundles. You're going to, you know, merchandising all that. That's kind of the 80 stack ranked items, right? So that there's, the first thing is, don't fuck with that, right? That That thing has to be protected. You have to deliver it. And that's the thing I'm talking about, a lot, CPQ, slightly different. Errol needs. Manfred needs to deliver CPQ. Satish is off five with team doing that, so there's a little bit of mess over there that I have to understand. Zephyr, though, has this roadmap for deeper integration into billing, right data, query approvals and workflows, making it kind of more enterprise grade. But the bit that was missing for me is what, and again, to be reductive, what is the node that you build, right? And I think I've just understood the note, what we're, what we, I think we can articulate this is there is a point I think you've, you know, we called it hand off. Or the point that, you know, the the CRM or the martech stack has delivered the customer to a point, right? There's a point in the journey where the up, the intelligence is in the off, is getting the customer to the right offer now that has a bunch of flavours to it right? It's, it's the nodes that you described. It's whether it's, it's the intelligence behind those, the configuration. It's whether it's entirely optimised or whether it's manually done. But it sounds to me that is Zephyr has any utility in this story. Its focus on the canvas must be, first of all, we're building a natural language layer over the canvas so that when you should be able to speak to this canvas in order to do the things that you want to do. So from a from a simple UX UI, it needs to be a first class experience right now, very kind of intuitive. But at the base, when you think about the DSL that gets generated when that, when a rule is, you know, built, it doesn't seem like a significant leap to me to start to bring these concepts into Zephyr and say, Listen, we have this canvas, the node needs to do this thing, right? It needs to, I think the example you gave is the POC, right. Can you? Can you build nodes that are capturing these decisions? And I wonder, Errol, and sorry, this is a bit rambling, but I wonder, I actually wonder, whether that's an easier thing to do, because, if you think about it in Zephyr right now, that we have to capture all of these very complex journeys through, you know, pathways and maintaining a B splits. I mean, it's not hard, but it's still comp, you know, still a bit more complex than what we talk about, but what you're talking about is I am, as the customer, going to respond to something that's presented to me in node one, or I know, first of all, first of all, we detect gov.uk, we do that. That's bread and butter for for or maybe you put in your email address, or maybe it's at the state level, anything, right? So that that's super easy to do. The next one is some table which is, which is the c1 might have put together from experiences, says, here's the, here's the, here's the check boxes that I want this customer to answer, right? Gives me some a bit more context. Maybe it's your title, or whatever, that is capturing that and then responding to that, because the capture is in the form which is super is super straightforward. The response to that is in in the catalogue, because that's context to what catalogue is then, or maybe that's stored in BCS right, as one set of attributes, you know, so that that attribute, that context, is built. Then it goes to the next node. And maybe, as you say in your medtech example, it's, I don't know, maybe it's hardware, software, whatever it is that's an additional piece of context customer gets then to the next node that then BCS is off digging around to write, to kind of find the right thing to present, or the right story to tell, or whatever, from the catalogue that those three nodes are not as complex and a series of nodes as Zephyr has to deal with currently. So is there something that I'm missing because it's very containerized, right? You know, it's action, response, call response, action, you know, response off, collect something back, or input something back. So there's a this conditional logic is not, I mean, I don't think, you know, Zephyr doesn't have the conditional logic, but to build that type of conditional logic is a very discrete roadmap item. So does the conditional logic explode? Do we need? Do we need very complex conditional logic? Do we start, you know, is it? Is that conditional logic? Does it need to be built by the customer? Are we? I'm trying to understand what the I don't think getting Zephyr. There is a problem. But I want to understand who is the engineering team, or what is the engineering talent needed to deliver that thing? Is there specialised knowledge that's needed? Would that come from your team? You know, where's that intersection of knowledge transfer, and what does that node actually how does it get built? If I go off the same, I don't know. Tie in. Say, listen, build me this conditional logic node. Is he going to go, I don't know how to build that, and I'll go, well, Errol, does. Or is it someone else in the business? Do we have those skills elsewhere? Sorry, that's an ill formed question, but it's kind of what I'm just trying to work it out.
+
+Speaker 2  39:17  
+So bear with me one second. I just fired up my roughly, and it's
+
+Unknown Speaker  39:27  
+it's give me one moment please.
+
+Speaker 2  39:41  
+So I know this is an absolute mess, right? But if you think about this, happens to be a merchant. Pretend this is not a merchandising flow, but this is downstream. What I envision is, let me, let me share what's here, and then let me back up. And then let's ask the question a little bit differently. Okay, so here you have inclusions. You have exclusions, by virtue of that, you have upsells. So first of all, these products are part of this bundle. So these are actually plans, if you will. Yeah. So the first thing is, I have layering. The second one is I have upsell, then I have inclusions and exclusions. And this is just very simple when I get into the bed tech example, if this stupid replica is going to work, of course, it's not, let me. Let me go back out here. So first of all, you should be able to generically and you see where I'm going with this. And for a moment, just bear with me, because we're having the same conversation, even though I went off at a different tangent, I should be able to put in my business objectives and parameters. I should be able to put in my business constraints and med tech, regulatory compliance. I should margin floors, etc. And then I write my rules, and it will look nothing like this. I like my other rule builder better, and forget about this graph. View what I actually envisioned, and hope we can achieve what nav envisions. And I'll jump out of this. What nav envisions is a graph. What I envision is more of a mind map. You could say, Why? Because a graph is very abstract and difficult. It's it's pretty and it's great for sales, but operationally, it's challenging. A mind map in my mind is, let's just do a two dimensional flow. You have all of the rules and constraints that that drive you to a node, which then takes you to your downstream options. Now the context and rules are where you start, and then when I jump to the next node, my entire world, just like in a graph, transforms itself. And now, because, let's just say, I went, I gave you an answer, or I looked at a product, now my upstream stuff changes, and it's all adapting. So I know you asked me question A and I answered question B, in my opinion, if we want to go to where the future is going, the vision you articulated 10 minutes ago or five minutes ago, like if we were to get there, I would say,
+
+Unknown Speaker  42:57  
+Sorry to be really candid.
+
+Speaker 2  43:00  
+Let's not try to build on the effort or Zora workflow, or any of the existing metaphors, and try to escape to where the puck is going, is moving. And let's try to create a new visualisation layer for a graph neural network that can is also our rule presentation layer. I feel that if you then decompose that into very granular epics there, it's not that hard, right, like it is the big order of operations we've discussed. And yes, under the covers, other things happen. But visually, I have my my inclusions, my exclusions, my business constraints, etc. You can throw them. I've played around this with this and lucid actually, to better success than red lit. But you have kind of imagine you you have all those swim lanes, like you do in a swim lane diagram, like here are my upstream, my context, my constraints, you know, whatever other rules. And now you have your your view, and now you create your flow.
+
+Speaker 1  44:12  
+And do you think the nodes? So when you talk about this dynamic nurse, if I, if I build, I wasn't entirely sure about the recomposition of whatever the the journey is, do you, how does the How does, what does the UI look like? It looks like what you showed me in, in replit, right? You've got this, you know, you can build the I. Like the idea of the swim lanes with these, with the with the, you know, each swim lane represents a thing you need to think about, right? So I think from a mental model that's really, really interesting in many ways, Zephyr has that in some way, because it's about anonymous, registered and customer. So the swim lane matters because you're doing it, you're in a different thought process when you're doing that thing. But when you talked about the graph or the or the or the flow, my feeling is that the all of the objects, all of the nodes, are present. Or are they in your mind, if you make, if you make a pathway, some of the nodes disappear. Is, is it meant to assist the customer and building. So basically, the conditional logic is in the Canvas as well as so your options to what you can bring in here might be driven by margin constraint or might be driven by HIPAA or whatever it is, right? So you only see the things that are relevant to the journey that you're building, or not. Is that? Is that how you thought about it?
+
+Unknown Speaker  45:42  
+Yeah. So a few things,
+
+Speaker 2  45:45  
+everything needs to be, needs to originate from templates and business objectives. So, yes, a user can start with an empty template. So number one, during configuration, there's no way around it. You're just going to have to create basic governing rules, things like HIPAA availability. I can't go under whatever 20% margin your every business is different. Those rules are associated with now I know it doesn't exist yet. The JIRA is there. I haven't talked to you about it, but you know now we have this flat list, but assume for a moment that products become multi dimensional and they have metadata tags, families, etc. So a group of rules can exist for a product family, a group of rules can exist for a node within your catalogue, so a category, or even around a set of customers, so group of rules for healthcare. So once you park that and then you know that there are templates that enable you. Hey, I'm if I'm creating a marketing campaign, the first thing I want to do is, I want to look at the cohorts that I want to pull up a cohort, right? Let's just keep using med tech. So I want Midwest med tech providers. So I have, let's just say, in my known database, I have 10,000 and that jumps to like 300 or, let's say it's 1000 and then you say, Okay, now I want to go sob and slice and dice it. And then you're, oh, wait now there's seven. So if it's a marketing context, the rules dictate marketing. If it's an offer context, they just dictate how many people qualify for an offer, a product or whatever? But in my, my vision, or our vision, like, it should be dynamic. It should it should be an evolving canvas.
+
+Speaker 1  47:51  
+It shouldn't be just this. Yeah, I completely get that so. But again, the engine to that is the catalogue, right?
+
+Unknown Speaker  47:58  
+The engine to that doesn't exist. No, no. But
+
+Speaker 1  48:00  
+I mean the, if you think about it, the filter like so we have the filter at each stage in the build of that journey, about flow, the conditional logic is, must be saying, Listen, I the act, the attributes, or the features, are the thing that live in The catalogue. That's the that's the master database, right?
+
+Unknown Speaker  48:25  
+I'm going, yes, and
+
+Speaker 2  48:29  
+let's jump to the future. There's going to be context. There's within context. You and I can debate. I don't have the answer. I'm just saying fun debate, in my opinion, is how much use. So what is context? I'll say the other one is usage and stuff that's locked in billing that I personally think we need to pull out because billing is non performant. But fun debate for later. Yeah, context, usage, product promotion and business rules.
+
+Speaker 1  49:00  
+Okay, so there is, there's a good portion in catalogue, but there's a there's some stuff elsewhere, right? So okay, we've got two more minutes. Let what is really fascinating about this is that the mental model that I want to give to the business, and I think I've said this before, is, and I opened with this is insulate the roadmap. Right? Insulate the roadmap for each team, they know what they're doing. Basically, don't fuck with it. Don't put unnecessary demands on it. Don't if you want to deliver something, insulate it. We need discipline elsewhere in the business. Toyota is a great example. We need discipline elsewhere in the business, right? Okay, that's number one. Number two is the at the edges are, the intersections are between all of these products, experiences, overlaps with catalogue. Catalogue overlaps a little bit. You know, it's a Venn diagram. It's a complex Venn diagram, right? So the platform story, or the sales motion that you've talked about, you know, where do, where can we play? And I think you've finally given me, I can visualise it now, is at the intersections, right? That's the, that is the, you know, you raise the question about, well, where should BCS live, right? Maybe that's what we that is an intersection. Maybe it's not. You talked about now usage and our journey flows. That's an intersection, right? So everyone has their own roadmaps, but there's an intersection. The hard part is, how do you operate the intersection? Because there's a few things, someone has to own the intersection. No one owns the intersection in this business, right? Second, secondly, the stakeholders, the customers of that intersection, are the product leaders, right? They are the stakeholders. They are the voice, but they are one voice along with the field, right? The go to market, there are the other voice is the customer, right? So my point is, is that owning the there is a third product motion. Well, there's two product motions. There's the product leaders, but the other bit is the intersection, and what I'm trying to work out with, you know, you've greatly helped me always, but more so in this conversation. And I think you've really helped me understand a little bit more about the possibility nav, I think shares, he kind of recounts a lot of the same language, because obviously you seem to be really well synchronised. And I'm kind of what I'm formulating in that my mind is, if is there a job to be done, to create a motion around the intersection that understands the stakeholders, of which the main stakeholder is the product leader, but to not call those intersections dependencies Right now, there may be dependencies in there. But typically where the problem occurs is that one product leader says to another product leader a thing, then that becomes a dependency in the roadmap. That dependency is not captured. It therefore has to get stack ranked, or forces something to go up or down. That then creates this ripple effect. And so I it's not fully baked, but I wanted to think about it, because maybe I want to just come back to you on Monday before I stand up and present it, because if you're not buying it, I'm not selling it, right? If I don't have buy in for the whole story from nav and you and the field and Manfred, I'm not Shakir, I'm I'm not asking, right? Pete, I'm not asking. I want to present this from the product, from the people I work with. So I don't need an answer now, but if you have any thoughts on that, you know, you've probably seen it tried and failed, but the intersection is where I want to focus, because I don't want to start talking about product leader roadmaps. They're they're good, they're solid, their bait. These are, you know, you've got more experience in in your roadmap than I will ever have. So touching that feels rather inconsistent with with, with what I think products should be, right? I don't want to, I want to understand it, but I don't want to influence it, because you know what you're doing. But the intersection is where I think I can make a difference. Does that? Does that make sense? That, again, perhaps not so well formed, but that's what I'm thinking.
+
+Speaker 2  53:29  
+It's very well formed. It is very so I'm going to say the deck has been stacked against us, because Shakir doesn't operate that way and and it has been my issue from day one, where he has siloed the org.
+
+Speaker 1  53:51  
+Do you have to go? I've got a call. I've got a call, but I just finished your thought, Okay, so number one, you're very good at reading signals, like, like I am, yeah,
+
+Speaker 2  54:03  
+so vision is there, but now with you and Ken, you could bring this together. Number two, this is what context was always supposed to do. And like, lifting all like, we're a back office app. So in order to lift this all out, so we could do better analytics and this and that. So Shakir intentionally siloed it. I'm going to say something really mean, and I have told it to him too. He doesn't know how to run an enterprise stack. He needs to rationalise technology decisions. He needs to force teams together. And every time I ask him for it, it's he's like, I'm so busy. I'm like, because you have fucking 30 minute one on ones all day, I agree be an SVP, bring us together against the vision. He doesn't have the skill set. So just to go back, that is something we have to do in an evolutionary way. Number two, I agree with, like, there's nothing I wanted when I came to Zora, the whole context service vision was exactly what we articulated. There is nothing more in the world that I want to do that deliver that I just feel like we have to position it in a way this, this layer. It's one of, sorry, it's one of many layers that need to come together to achieve the vision. Yeah, so I agree with you that. Sorry, it's so abstract. This layer we just talked about is for engagement. You need another layer, for example, that came up, if you recall during the offsite, I don't know if you're there around like, structure, Domain Driven computation service they call the calculator. But number one, like getting everyone to align around these central pieces so it's not wedged in their roadmap. And number two, finding these other synergies. I didn't answer your question. I agree with it.
+
+Speaker 1  55:59  
+You did. You did. So all right, I'm going to continue along the the hypothesis that I've got. Obviously, it's Thanksgiving coming up, but I'm going to try and snag you on Monday, because what I don't, I don't want to present something you haven't seen, right? So I'm going to try and polish it up. I think I have your narrative. I am going to say that, you know, this still needs to be battle tested. There's still a lot of conversation around it, but that's the direction of the story. All right. I super appreciate Cool. Thank you very much.
+
+Speaker 2  56:35  
+I'm happy to review, and I will send you my v5 deck, which is the new mega cover strategy deck as well.
+
+Speaker 1  56:42  
+Okay, I'd love to read that. Cool. Thanks, Jonathan, thank you.
+
+Speaker 1  56:55  
+Sorry, man, sorry, no problem. I was chatting to Errol,
+
+Unknown Speaker  57:02  
+and we got deep into it.
+
+Speaker 1  57:06  
+I wanted to, I wanted to get your, your input. I need some help from you. I thought that call, by the way, was really interesting yesterday. It says it's
+
+Unknown Speaker  57:20  
+nothing, man, they're
+
+Speaker 1  57:22  
+not but I learned what was really interesting. I learned a lot. I learned a lot about a little piece of the problem, which was quite cool, right? So that that was, that was really interesting.
+
+Speaker 3  57:32  
+I felt, I mean, that definitely know how to talk, to talk, that's,
+
+Unknown Speaker  57:37  
+yeah, they're good founders.
+
+Speaker 1  57:40  
+This, this, I wanted to run, I've got to do this, this kind of 2025, minutes before you and Errol do your roadmap stuff. And I wanted to kind of just run a thought process through with you. So what I what I understand at the moment in your org is you are solving some kind of these big CPQ next gen problems, right? So, there's a, there's a shopping list of those things, you know, CPQ better than anybody. That's, you know, there's, there's cpqx, the CPQ next gen. And then off on the side here, there's this, which we, I think we touched on this vibe, quoting thing, right? And teen is running that really hard, right? I think Satish is in meetings two or three hours a day. There's definitely no one's listening to the compliance story, definitely. The story is it's a playground that gets validated later, right? But that's, there's too much momentum behind that. No one's gonna, no one's gonna change that momentum. It's either gonna work or not work, right? So, like
+
+Speaker 3  58:48  
+the right. So it'd be we have basically these three streams, Yes, correct. So the existing CPQ exit needs to be served, and it has gaps and all of that. Then we have the next gen, which is also very similar AI, a lot of AI in there, and better UI and off of Salesforce, ideally, you know, performance is great and everything, yeah, and that we have by porting, which is not my problem,
+
+Speaker 1  59:12  
+yeah, exactly, yeah. That's kind of what I thought, right? So this the story I wanted to tell, because I think there's, I think I can, I'm validated with, you know, kind of talking to NAV, talking to Errol, going out to Maria Janson on the analyst I'm talking to, feel trying to just capture everything is that my opening kind of thought process is, don't, don't fuck with the product leaders, right? They know what they're doing. The most important thing is insulate those product roadmaps, right? So I've got a situation with experiences where, and you know, field has gone out, they've sold something that doesn't exist. All of a sudden, that roadmap is having to accommodate the thing that doesn't exist instead of doing the thing that should exist.
+
+Speaker 3  59:59  
+Once I can, Jonathan, I'm like, What is your session about?
+
+Unknown Speaker  1:00:03  
+Well, when is it? When is it
+
+Speaker 1  1:00:07  
+session is like, I think you got the, I think you got the you me and Errol are up at like, 1045 on Tuesday, or something like that. Okay?
+
+Unknown Speaker  1:00:15  
+Because on Monday, we have the Zach, right?
+
+Unknown Speaker  1:00:20  
+I'm not at this. I'm not
+
+Speaker 3  1:00:22  
+at this. Yeah, I will be on Monday. Let me just make sure.
+
+Unknown Speaker  1:00:39  
+I want to make sure.
+
+Unknown Speaker  1:00:49  
+Zang, thanks,
+
+Speaker 1  1:00:53  
+before you go. Yeah, I escaped that. Thank goodness.
+
+Unknown Speaker  1:00:57  
+No, no, no, it's okay.
+
+Speaker 3  1:01:00  
+Think it's on the third I have it. I have a Zach presentation I still have to finish.
+
+Speaker 1  1:01:05  
+Yep. So you, have you seen the Have you seen the agenda for
+
+Unknown Speaker  1:01:11  
+next week where you me and Errol are presenting?
+
+Speaker 1  1:01:15  
+No, so that's why, okay, that's a bit odd. Nick hasn't sent that to you. Let me just pull this up so I may have it somewhere. Now in the email, it's just so on day one, which I think is the Wednesday. There is
+
+Speaker 3  1:01:29  
+so on the third. I am a San Francisco on the second, okay, which is okay, that would be
+
+Unknown Speaker  1:01:41  
+Wednesday. And then,
+
+Speaker 1  1:01:43  
+okay, that's, that's odd that they've double booked everyone.
+
+Speaker 3  1:01:48  
+Okay, on the Thursday we end up from one to five.
+
+Speaker 1  1:01:55  
+So are you? That's really odd. Why would they
+
+Unknown Speaker  1:01:58  
+always eat that? That's with,
+
+Unknown Speaker  1:02:03  
+so, day one, day day one.
+
+Speaker 3  1:02:06  
+So once again, when is that? So, when is that? Session with you?
+
+Speaker 1  1:02:12  
+Well, day one of the P and T leadership off site is the third and on the third at one to 145 was acquisition to order, right? So I wanted to bring you in, but if you're not there, it doesn't matter you were breaking up. I didn't get there. So what I said was, is that one to 145 on that first day, which is the Wednesday, which seems you're not there, was this acquisition to order strategy. It's not, actually, it's not a requirement for you to present. I just wanted to give you the opportunity to present, right? Because there's a brief we have to, but that's fine, right? So you're not there. There's no harm, no family.
+
+Speaker 3  1:02:46  
+Aaron is also not there. He's with me. Then,
+
+Unknown Speaker  1:02:50  
+then it's gonna be me on stage.
+
+Speaker 1  1:02:54  
+Didn't tell you that. He didn't tell me that. So that's fine. It doesn't matter. I can do 45 minutes. 25 minutes makes no difference to me, right?
+
+Speaker 3  1:03:02  
+No, no. But I mean, like confused. If he doesn't say that, didn't he not realise that that we are maybe
+
+Speaker 1  1:03:09  
+let me speak. I'll drop him a text, a slack to find out. But the bit so I was, I wanted to just be equitable about distributing the time. So if I have to do 45 minutes because you're not there, that's fine. I'm not there, that's fine. I'm not going to talk about your roadmap or Errol's roadmap, but what I do want to do is I want to tell you what I'm thinking so I can, you can say to me, Listen, you smoking crack. You're off on the wrong angle. You're going to get burnt, or this is the right kind of direction, you know? I just want to get I'm just listening right now. So the bit that. So my thing is, right? We ever the product leaders, have their road maps to and I've been on the receiving end of this. Let the product leaders build their road maps. You know? Great. There can be some feedback. There's some can be some shaping of direction based on the battlegrounds, all the usual stuff, right? But when it's when it's done, it's done it's done. The the job, the job, then, is insulated. Don't, don't get pushed off track. That thing has a direction. And the capabilities that are delivered to, you know, feed into a larger story. But the story is that the intersection between a lot of the services or the lot of the products in this business. So for example, catalogue and experiences intersect. They don't have the same road maps, but they intersect experiences and CPQ might intersect. CPQ and catalogue intersects, the context service, Zephyr, our data science, all of this stuff intersects. So the problem in Zora is there's no road map for the intersection. It's just called dependencies, right? Yeah. So it's a dependency, right? And then one product leader goes to another product leader, I got a dependency on you, and the other product leader goes, well, I can't give you that dependency, because I've got agents that, you know, I can't do it right, right? And the reason being is that the intersection is actually what the customer is looking for. If you think about the real platform play, they want it joined up. They don't care about the individual things they want that they want, the whole what's the outcome? What's my business process that you're going
+
+Speaker 3  1:05:15  
+to give me? Right? Exactly. We are all about the intersection, like our value is that it works together. I mean, other than that, we would not have a justification. I mean, for CPQ, I will not sell otherwise CPQ, I mean, not otherwise sell a catalogue. Or maybe experience that I'm not so sure, but experience, you probably sell a lot. But my, my only existence is because we are integrated
+
+Speaker 1  1:05:37  
+Correct, correct. So I've spoken to NAV and kind of pitched the same thinking, and Errol and I've spoken to a bunch of other people have been around in sort of longer than Errol and you and I have right, and the business has been taught. I mean, this is where Pete's platform thing comes from, but there's no coordination of the platform, right? The intersection doesn't really exist as a as a dedicated process, right? For example, a
+
+Speaker 3  1:06:06  
+little bit of self organisation, right? Sorry, self organisation. It's a selfish
+
+Unknown Speaker  1:06:10  
+Exactly. Yeah, yeah, right.
+
+Speaker 3  1:06:12  
+I mean that, Maria, I don't know if you've probably ever been in these meetings, but so there are certain product management, technical product management leads like Amy's people, they organise meetings where everyone comes together, and then it's like a free for all, kind of a thing which is very unorganised. No one is really well prepared. Everyone is bringing up a topic, and then for the next hour, we talk about, actually, not important, right? And the real thing is not going to get discussed Correct?
+
+Speaker 1  1:06:41  
+Well, the first thing I cancelled when I joined Zephyr is the interlocks. There was these single interlocks. It was just 45 minutes of hell. So they just randomly talk
+
+Speaker 3  1:06:51  
+useless shit. I know I mean, because no one, I mean, this is a problem here, but product management and how you visualise things and talk about things, and that's a different story, but they're now trying to improve. But you could argue that the improvements they're now making, because I talked to my TPM, and he basically said, are your capabilities right, and your big bets? And you you haven't done your capability? Sure, I didn't. But how does it work? And then it turned out that everyone puts their own capability in place, which is already a proliferation of things. So now you have one thing, like you said, the intersection, or that thing that you want to try to build. Let's, let's name it assist from from self serve to assist itself. Okay? I had config, probably configurable. Product is a perfect example where almost everything is touched, right? And I have that. And then arrow capable, and who knows. Then also building will put a plane, hopefully have to do some stuff, and maybe even you, who knows. So then we have five capabilities, everyone in his own little project. So we have five projects, five capabilities in there. Who can ever understand what's going on there? No one, right, exactly. And I told him. I said, Look, guys, at least make one initiative called configure a product and put all of our capabilities underneath that. So we are in our own projects, but at least you have now one area where it can go and say, let me see what is actually in there. Now that doesn't help. I don't know if it helps you from a reporting point of view. Can you report cross project? I'm not a JIRA, you know, Guru, but maybe it does help, but it's still a self organisation, right? It's not like there is one product manager who has the overall view, because our TPMS don't work that way. They just work also in their silo.
+
+Speaker 1  1:08:48  
+Yeah, and there's lots of but the thing is, is also these people are generally they're experienced in the field of what they deliver, but they're not experienced in the organisational complexity to get those intersections working to create the platform. I can't speak for Ken's part of the business, right, but Ken shares so you know these views. I'm mainly interested in our commerce
+
+Unknown Speaker  1:09:14  
+capabilities, so
+
+Speaker 3  1:09:16  
+don't get it. Why is this your problem to solve,
+
+Speaker 1  1:09:21  
+because so I think of it like to be, be maybe simple about it. It's like a hamburger for me, right? The top piece of the button is the story. I need to know what the story is, right? And I'll tell you what I think the story is that I'm hearing right now from across the field. So there's the story. The story is the platform story, right? We want to deliver this thing, right? There's this. This is as a customer, this is what you're going to get Now, the story will be the story shapes a lot of the product itself. But I think the story that I'm hearing, and the way I'm feeling about it, is that in the space where we have the right to play, which is probably from the lead all the way through to the to the cash, right? So lead to cash, I call the acquisition the cash, but it's a bit bit fuzzy. Maybe it's lead to cash, or prospect to cash, or something like that.
+
+Unknown Speaker  1:10:16  
+Yeah, don't use lead. Yeah, fine,
+
+Unknown Speaker  1:10:20  
+but I don't have any
+
+Speaker 1  1:10:22  
+numbers yet. It's not, it's, it's up the funnel a little bit because there's
+
+Speaker 3  1:10:26  
+lead is all sales for CRM, yeah, I agree with you. You say lead,
+
+Speaker 1  1:10:32  
+yeah, I agree with you. Is there's a thing that, when the customer lands and you want to do offer configuration, right? That, right?
+
+Speaker 3  1:10:39  
+So that one self to assist itself. Perfect example, I would never call it a lead, right? So there's a code request coming in, right? They could place an order ideally, or they said, I need to talk to somebody that comes in as a quote request. That's not a code yet, but it's not a lead. I mean, you could in colloquial language, you would say, yeah, it's a lead. But because lead is so heavy with CRM and Salesforce is still doing lead management, it's like, its own area and complicated. Like, I agree. So that's why, like, I'm staying away from ever mentioning lead, because then they get confused, like our lead generation and all of that. No, it's not. It just, it just came in as a quote request, and that's it, right?
+
+Speaker 1  1:11:24  
+Well, I thought acquisition to cash was right, but when I've done the research, when I've spoken to other people, acquisition is has also this fuzzy boundary to it, right? So we have to be very precise. I don't know what it is yet, but there's the way I'm kind of thinking about it is, and it has relevance to CPQ. So I'll get to that in a second. But underneath the baseline is engineering. I started the at the engineering right? Not not not at the engineers, but at the architecture level, right? So I really want to understand how nav sees the business. What you know when Pete says, platform? What does platform actually mean to Pete? Right from an architectural point of view, and then in the middle is like the product, or, I don't care if it's lettuce or bacon or cheese or whatever, that's up to the product leaders. Everyone has that. I always think of the total story. The one of the main stakeholders, not the delivery teams, but the stakeholders in the story are the product teams, but there are other stakeholders. There's the field, there's the marketing teams, there's the C level, all that kind of stuff. But what I'm thinking of is can, and I'm validating this, I'm agnostic right now, can set Zora from the point that you know, agree, not lead, not prospect, maybe offer orchestration, or whatever that is, be the vendor for life from 50 mil to a billion, right? And what that means is there's light rules, light touch billing implementation, you know, solid use of catalogue. You know, beat stripe in that territory, from 50 to 100 mil. Then the customer goes, Hey, you know what? I need a bit of CPQ. I've never done this before, but I don't need the really complex thing. I just need something, right? And then, and it's the same with billing. I need a little bit more over here. And then, you know, we've got, there's a, I mean, our AI, I think, is the capability that we can absolutely RAM home, because we own that. We've built this graph of of engagement all the way through to to retention, right? So that's completely a lot of data. We've got a lot of it, and we can bring more of that data in, because we know how to do it through the sub x acquisition. But what I was kind of thinking is that isn't the pitch. And I don't know, because Boone's kind of 5050, EMEA is like, bought into this apex, bought into it. But you know, can we be the Can we take you from 50 mil to our billion? Can we? Can we create that story? It is what you're doing on next gen CPQ, the intersection for plg to SLG. But also you mentioned it. I think SLG back to peer, or maybe someone else did. SLG firms are going back to plg. They don't want on certain things, on certain deals. They either want customer to configure the quote. They don't want a salesperson in the mix all this kind of stuff. And to me, that feels like where the intersections are, so that you're building next gen CPQ, right? And maybe vibe quoting lands, maybe it doesn't, but that feels like a very plg thing to me, like more AI, more intelligence, less need for a sales person.
+
+Speaker 3  1:14:42  
+I mean, look, I'm like, maybe missed the train somewhere, but plg, what is actually? Plg, really, when you break it down,
+
+Speaker 1  1:14:52  
+someone comes to, someone comes to, let's say, a med tech site, right? Buying some medical technology. Errol gives this example. I think it's quite useful. The journey is, they come from.gov.uk so, you know, they go down one pathway. We do some orchestration through the Zephyr engine, or whatever it's going to be. Then they say, you know, kind of business size, or whatever. That's another bit of context. And then at the end of that, there's, they want software, right? They choose software. So they've got to a point where we've got some context from them, and what they want to do is they want to trial software for a particular imaging machine or whatever, and they buy that, they buy a number of seats. They're on a 30 day trial. Maybe they have to pay some money. Maybe they don't, whatever that is, that's plg, right? So there's no quote in the process. And when you're small, when you're small, that's how these cut. These businesses go to market, right? They don't
+
+Speaker 3  1:15:47  
+take it once again, size is another, another question, and we can then discuss what size these people are versus the other people. But from a from a delivery point of view, you don't care about size. You just want to make sure what you the story you deliver, and it's just a story you told me. I think that's the starting point for everyone. I mean that you need to start with, you know, tell them. Okay, here five different stories, and they all involve many of our products. And that's what I'm trying to solve, right? So, and some call it omni channel. Some call this plg. Some call it e commerce. It doesn't matter. The story matters. And story it here, Guy logs in from a small company or hospital. He's a he's a purchase or guy from a hospital logs in like name the user, very important. Who is that person, which organs he belongs to? He's trying to get some blah, blah, blah. And then you talk, talk them through, and this is how they do, no coding in place. However, there's an order that gets placed, and it ends up in billing and correct. Billing stock, correct. And there's delivery of software that we're not doing and never will do right? So, make the boundaries tell the story. Okay, that's Story number one. That's That's one example, very important example for us, and that's what we call PNG. But that's the story. Second story. Now the same person comes in, buys, maybe another software, whatever has issues. Do not sure if he can do XYZ, what he needs, right? What he's not going to do, he's going to ask for assistance. Now, in your world now it's not PhD anymore. Now it's something that's bullshit. No one cares about that, right? What now happens a small piece of small variation that I don't know what I'm doing. Okay? Now you're asking and who get and who gets him help? Could be a sales rep, or it could be just a service rep, right? Maybe it's just a guy you know on the phone who knows a little bit about all this stuff, and just get them over the hump. Maybe they have the authority to give a little bit of discount, but they don't know anything about the product. So that could be a variation of things. Could be different users. Now they picked this up, but in our case, we would like the sales person to pick it up, right? So it's like, and now it becomes a coding process, and now you're technically in the B to B world, right? I mean, before, it was also B to B, but now at this point, they basically get clarification, okay, a software can do it. I think you're fine. I would like to have a three months trial for that. Can I have that? Oh, sure, you know, I can make that happen for you and, you know, and I call you back when it's time to or when the trial is over. Okay, good, done.
+
+Speaker 3  1:18:46  
+Oh, make it more complicated. But now you have a contract in place, so you have already an established relationship. So third scenario like you get deeper and deeper into kind of complexity. Now, what is the contract saying? Well, it says I have to pay within 60 days. It says I have to I can buy that three products for that price. All other products are this price, so that maybe some prices are negotiated, others are not. I'm entitled to buy this. So there's all these different things that we as a company actually already doing very well, right? So payment terms, terms and conditions, all of that is already predefined. And now I'm executing as a procurement guy from the hospital, I'm coming in and said, I have to replenish something, right? So we had, you know, so I'm already referring to my contract. I'm placing an order on that right, not there is no need to go to a sales guy, but I'm gonna, you know, just buy something that I had a pre negotiation about it. Maybe I had that product for some hospitals, but not for all. So I'm not gonna expand it to the other hospitals, so that, why talking to a sales guy, right? I should be able to do that, right? I have already pre negotiated all this, this prices for these products, and that I can use them, and just a matter of for me to execute it. So next level up. Now you even further down, right? Maybe no contract is in place, but you want to have a contract. What I'm going to do now, I'm going to not even go on a website. I'm going to immediately go to the sales organisation say, Hey guys, we have a big deal if, like, we should spend 2 million a year on you guys, I need somebody show up here and help me figure out what we need. You know, new and you know, we are new hospital group, blah, blah, blah. We want to have this. Okay, good. Then, then you get into contract negotiations, and you start out with a quote, right? So what products are you looking for? What prices are you looking for? Now you basically start with a quote, then you have to negotiate terms and conditions, maybe, oh, what you 60? No, no, we only need 30 days and and the indemnification clause is not correct, and this is not correct. So now you're working on the contract. Now, after everything is said and done, okay, place, place, the board and the contract. So the contract becomes a real thing with commitments. You know, I'm promising that I'm using this much, and if not, I paid this much, so there's a lot of negotiations with it coming with it, right? So it's a bigger deal, right? And that is a, what is true, B to B relationship. Now you have that established. Now you have your frame contract. You have your first quote, getting it. So it's very low, like, very complicated, and from that point on, I don't know if it can get even more complicated, right?
+
+Speaker 1  1:21:40  
+What's interesting about that, so is there, I've got a response to that, and that's super valuable. The I'm assuming at some point in there, I mean, you mentioned it in one context that transition from, you know, the guy on the simple trial, then needing a bit of service support. Is there a bit in the middle, which is the self serve, CPQ, so, you know, completely, you know, I move levers up and down, I kind of get what I want. You know, I'm not really into speaking to a rep. Can that be peppered in anywhere, that that could live a difference, right? Okay, so what I think is really interesting is that it's that by saying, Listen, there is no B to there is no plg and SLG, there's the customer, right? Yeah.
+
+Speaker 3  1:22:28  
+I mean, I first heard of the term and, like, okay, what are they now talking about? Never heard about, yeah, it's
+
+Speaker 1  1:22:34  
+a way. It's a way of, it's a way of just delineating stuff, right, so that somebody understands it.
+
+Unknown Speaker  1:22:42  
+Was e commerce.
+
+Speaker 3  1:22:44  
+It was called E commerce. Everything you do on the website was an E commerce thing. And then in the B to B world, you then could transition to be, you know, now it's called assisted sales. I mean, it doesn't matter what you what you label it. What matters is really these scenarios, and I believe that's what you need to and that's your top bun, yeah, top button where you say, Oh, wow, really, all of this is happening, you know, like, and then all the light bulbs need to go on and billing and care. Oh, okay, I'm in, you know, impacted over there, and you are, you know, need to facilitate this whole experience and provide the right products, and then CPQ is in there, and the catalogue has its role. So now you basically on that story. You can see, where are these products hanging in, what function is needed in order to make this
+
+Unknown Speaker  1:23:32  
+the best experience in the world? That's the intersection. Exactly.
+
+Speaker 3  1:23:36  
+That's the intersection. So in our company, this story is not owned by one person. It's owned by many person. That's why it's not
+
+Speaker 1  1:23:44  
+working, correct, correct. There you go. Okay, that's my story, exactly.
+
+Speaker 3  1:23:49  
+That's why I'm telling you. You paint these different scenarios. I like it. That's the vision. I like it. It's the vision of, what should this company even do in terms of commerce or P achieves.
+
+Speaker 1  1:24:03  
+It's like Pete uses platform, right? I know what platform means, but I don't see platform thinking. But platform is the same thing that you're talking about. Platform is just a name for exactly the same thing.
+
+Speaker 3  1:24:16  
+That doesn't mean it's all on the same like Salesforce is all on the same big beer month. No, that's not what a platform is. Platform means I get everything from one vendor, and they can give it to me in individual services, like I can call them individually and maybe stitch it into my existing, you know, world, or I buy everything from them, right? But you just
+
+Speaker 1  1:24:39  
+described vendor for life there, right? You decide, yeah. I mean the first touch all the way through to the complex contract negotiation, exactly.
+
+Speaker 3  1:24:47  
+So if you start over here, yeah, you can easily expand, you know, into the back. Whether you start over here, you can easily expand to the front. It's all, you know, integrated doesn't mean it has to run on the same software platform. It's just that's, that's a sweet in the old days, we said sweet, but sweet. Kind of people hate it. I don't know why, but they didn't like the name platform. Platform has more also the idea of, I'm making changes to it, yeah, agreed, agreed. Or I can use half of it, or one of it, and not all of it. And it's also fine, that's my platform has more the openness and configurability in it than a suite. Sounds like you're gonna use this? You got
+
+Speaker 1  1:25:31  
+to take this, yeah? Because also the field likes platform, because there's a modularity to it. There's, you know, what do we lead with? What do we fast follow with? What are we up selling with all this kind of stuff? So do you think it, I mean, you've we've been here at the same amount of time. Do you think it is a pipe dream to sell that story? I can't think of another thing I want to do, right? Because it seems entirely logical.
+
+Speaker 3  1:25:58  
+This is what ties everything team. I mean, what invest in Zephyr? I mean, the otherwise, the investment is little, right? The little pay wall thing that I think you guys,
+
+Speaker 1  1:26:11  
+Zephyr has got to Zephyrs a sideshow. What I'm interested in is CPQ. I'm interested in the commerce thing, right?
+
+Speaker 3  1:26:20  
+So here is, I mean, I talked to Shakir because my my background, I always come from companies that do all of it, right? So even very small with some of the startups I was working with. But the vision was a complete vision, right? The complete vision is, how do you get from the front, like you mentioned, lead, but I would just say, the experience, the self serve experience, all the way to the cash, yeah, as a company, we are so close, you know, because we have so many moving parts already, we never really put them together. I think that's my that's the biggest challenge of putting them together than having these
+
+Speaker 1  1:26:57  
+parts so from a practical level, right? So if I kept stand up and say, Listen, enable the road maps, these things have the right direction of travel. There's no point messing with that. The story is in the intersection. Your narrative, I think, is extremely valuable, so I'm going to appropriate it. I will attribute it to you. But I think that narrative that you just, you know, told me, is exactly right. Errol gave a slightly different version of that. So fact, everyone's thinking around the same thing is important. There's another data story which I think I can tell. But one of the things that I am trying to do is also connect, yeah, yeah. I was,
+
+Speaker 3  1:27:40  
+I talked to him about it because of agreement management, right? We kind of, we didn't have the first one that whole, like, without an agreement. But when it starts to become, you know, contracts and agreements, I talked to him about it. We found four stories that you
+
+Speaker 1  1:27:55  
+can and use, okay, and nav, I think is bought into it. My question is practically right. The way I see this working is product leaders get on with the thing that they're doing. They you know that. You know. You know more. As I said at the beginning, you know more about CPQ, and I will ever know, although I'm learning, and I'm starting to see how it can, how it's where its value is right, and I can start to see why I think Silver Lake have put that, you know, it's one of the five things that's going to drive revenue, right? It's kind of obvious, but practically, the sales you guys are at the state, you're kind of almost the customer of this intersection story, right? Because it has to actually enable the story, otherwise you're just left with the same thing, which is just, we've got road maps and dependencies. And so I'm, I kind of see this intersection story as being, it has to, it has to have the stakeholders are yes, the field, yes, the sea level, but primarily the product leaders. I don't like the term dependencies, because I think dependencies live in the intersection.
+
+Speaker 3  1:29:02  
+It intersection the story. I think people would get excited about it. There's no question, right? Yeah. So if you tell them, you this, this story is like, yeah, that's what we should do. This is the real value. I want to know how to
+
+Speaker 1  1:29:14  
+how to do it, though, that right? That's all right. If you
+
+Speaker 3  1:29:18  
+are now saying, and I am know how to solve it.
+
+Unknown Speaker  1:29:22  
+Well, I don't, right, not
+
+Speaker 3  1:29:24  
+about but see, the problem is, you, you're in the Amy world. You know, Amy, our TPM, yeah, they are supposed to kind of helping with this problem. Now, the way how they do it is not adequate, in my opinion, because the way, how I used to see it, you know, in other companies was you have one person who is responsible for the story. You have one architect who is responsible with that product owner. You can call him or product manager for their story. These two guys involve all the others as needed, right? Because the architect makes decisions that if.
+
+Transcribed by https://otter.ai

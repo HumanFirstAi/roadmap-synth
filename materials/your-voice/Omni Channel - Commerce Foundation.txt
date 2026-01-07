@@ -1,0 +1,274 @@
+Building a commerce foundation
+P&T Offsite
+December 2025
+Becoming a “Vendor for Life”
+
+The commerce foundation
+What is it - right commerce experience, for the right persona, anywhere
+Business Objective: Deliver true omni-channel commerce across the entire sales spectrum—from AI agents and self-serve to sales-led
+The Opportunity: Zuora is the only platform that can serve PLG → SLG → and back
+The Solution: Build "an intersection roadmap" as a dedicated roadmap with composable architecture that delivers commerce foundation
+The Core: Leverage existing product investments (CPQ, Catalog, Experiences, Zephr) as the substrate
+This is your opening frame. Lead with what Sales and GTM already understand: "Customers want to package, price, and sell—give it to me." Establish that this isn't about building something new from scratch—it's about creating the connective tissue that makes our existing investments work together. The intersection is what transforms individual products into a unified platform. Note: The full spectrum includes AI agents on the far left (agent serves you), through web self-service and session switching, all the way to sales rep assisted on the far right.
+
+“Vendor for Life”
+ 
+This means any stage and the transition between stages
+Self-serve
+Stage 1
+Sales-led
+Stage 2
+Stage 3
+$50m
+$10bn+
+Revenue and complexity
+Weaker?
+Stronger
+Self-serve beginning, minimal complexity
+Sales-assisted growth, light CPQ needs
+Complex enterprise, full capabilities
+Agentic
+This is how Zuora grew - zoom
+
+NOAM focus on BTB Complex
+Focus on the core roadmap delivery
+Steven Boone
+SVP & GM GTM
+NOAM
+Bottom Line: Boone's Core Messages
+
+Focus on core products (billing, CPQ) for complex B2B enterprise deals. Don't dilute resources on journey orchestration or peripheral capabilities that customers aren't asking for. Build from the core outward, not from the periphery inward.
+
+Sales strategy should be driven by actual customer demand and conversations. What matters is what customers are buying today and what makes Zuora competitive in actual deals.
+
+Protect CPQ and core product roadmaps. Commerce and experience capabilities are valuable as add-ons, but only in service of the core billing/CPQ/revenue recognition systems.
+
+SaaS growth in EMEA is driving opportunities
+If we unlock self serve we drive 60% of EMEA’s business
+Sales Organization
+Paulo
+Baptiste
+SVP & GM GTM
+EMEA
+Bottom Line: Paulo’s Core Messages
+
+Our market is fundamentally different. EMEA companies are 1/10th the size of US equivalents. A $3B US SaaS company = $300M in EMEA. We need modular, self-serve, reference implementations. We can only win complex deals - Stripe beats us on everything simple.
+
+The platform story you're building? We desperately need it. Self-serve motion, modular approach, grow-with-us without rip-and-replace - this is exactly what EMEA requires to compete.
+
+We're not selling billing software…
+We're selling growth insurance
+Sales Organization
+Marc
+Gagne
+SVP & GM GTM
+APAC
+Bottom Line: Marc’s Core Messages
+
+Customers don't live in boxes - they dial capabilities up and down. Think of it as an equalizer with four knobs: Self-Serve | PLG | Sales-Assist | Sales-Led. Customers turn each up or down based on where they're at and what their objectives are. "The ability to turn them up or down depending on where they're at and what their objectives are, is our secret capability."
+The customer journey is NOT linear - it's dynamic. They start self-serve, grow into PLG, maybe need sales-assist for a big contract, then dial back to product-led when CAC gets too high. Or they run all four simultaneously - self-serve for small customers, sales-led for enterprise. This is the real motion: customers configure their own go-to-market mix using our platform.
+
+Commerce Foundation for True Omni-Channel Commerce
+
+The layers of commerce foundation
+
+Multiple Layer, Universal Use: Implemented once and consumed by all entry points. C2, C1, and Agentic all use the same action—orchestrator just provides different context and permissions.
+Composable UI - components that can be assembled differently for different customer segments
+The intelligence layer - determines what lights up for each user based on persona, permissions, stage, and history
+Orchestration - strings actions together into business processes
+Shared services - including unified rules engine, pricing, catalog, and commerce capabilities; Core domains: Package, Price, Promote
+
+How context drives composition
+
+How GTM will see it - Self-Serve Customer Experience
+Context defines the experience: A PLG customer's persona, permissions, and stage automatically determines what they see
+Right-sized capabilities: Only relevant experiences "light up"—no overwhelming complexity for simple needs
+Appropriate rules execute: The unified rules engine knows which rules apply to this segment
+DRIVES
+USES
+Friction-free journey: The result is a fast and simple experience appropriate for stage 1
+RESULTS
+IN
+
+How context drives composition
+
+How GTM will see it - Sales-Led Customer Experience
+Same foundation, expanded capabilities: Everything from self-serve PLUS advanced features for complex B2B
+Context unlocks complexity: The same components exist—elevated context "turns on" more capabilities
+Rules layer appropriately: Common rules plus segment-specific rules for enterprise customers
+DRIVES
+USES
+Full power when needed: Sales reps have access to everything required for complex deals
+RESULTS
+IN
+"The only thing that changes is at this point, more is lighting up and interconnected. Same core, elevated permissions."
+Complete the comparison. The same platform serves both a simple PLG customer AND a $100M enterprise deal. The difference is context, not a different product. This is the power of composability—one platform, many compositions.
+
+True Omni-Channel in action
+
+Customer journey from Self-Serve to Sales-Assisted
+"Touch point + Context = Perfect experience formulation. Both have slightly different views given the context, but they share a common view."
+This is your customer story. Walk through the journey step by step. Use the language "orchestrate and formulate the right experience"—this resonates better than technical jargon. Emphasize that today, this handoff often means starting over or losing context. The intersection makes this seamless because context is a first-class citizen of the architecture. The key insight: same customer view, context-appropriate representation.
+
+True Omni-Channel in action
+Customer journey from Self-Serve to Sales-Assisted
+Context preservation is the key: When a customer clicks "Talk to Sales," everything they did passes to the sales rep
+No starting over: The rep sees full history—products viewed, configurations made, pricing explored
+Orchestrate and formulate: The same components orchestrate and formulate the right experience based on who's using them
+Different views, same customer: Both experiences "have slightly different views given the context, but they share a common view of the customer just through different representations"
+Bi-directional: The customer can log back in and see the rep's work—true omni-channel
+
+Aligning how we design and how the field sells
+We deliver the sales spectrum
+Not different things: Self-serve and sales-led (and anything in between) aren't separate systems—they're different compositions of the same components
+Context is the selector: The context service acts as the intelligent selector that determines the composition
+Transition without replacement: Customers can start with 20% of capabilities and expand to 100% without changing platforms
+
+This also brings engineering efficiency: Build once, compose many ways—no duplicate development across product lines
+This is the "aha" moment slide. The insight that self-serve and sales-assisted are compositions, not products, is the conceptual breakthrough. Make sure the audience understands this before moving forward—it's the foundation of everything that follows.
+
+The core vision of “Vendor for Life”
+ 
+Take customers through their entire growth journey without requiring them to rip out systems and start over.
+Self-serve
+Stage 1
+Sales-led
+Stage 2
+Stage 3
+$50m
+$10bn+
+Revenue and complexity
+Weaker
+Stronger
+Self-serve beginning, minimal complexity
+Sales-assisted growth, light CPQ needs
+Complex enterprise, full capabilities
+Agentic
+This is how Zuora grew - zoom
+
+Composability in action for GTM
+Different customers, different compositions, same platform
+Stage 1 (Self-Serve): ~20% of blocks—simple needs, fast self-service
+Stage 2 (Mid-Market): ~60% of blocks—growing complexity, some sales assist (and different Stage 2 customers may need different 60%)
+Stage 3 (Enterprise): ~100% of blocks—full complexity for $10bn+ companies
+“Vendor for Life”
+Start anywhere of evolve from one point to another: Blocks compose as with change/growth—no rip-and-replace
+
+One Place, All Rules
+Why a Unified Rules engine is good for GTM
+No crafting rules in multiple places: Today, CPQ has its own rules, catalog has separate rules, experiences has commerce logic—all fragmented
+Conflict visibility: A unified engine lets you see conflicts before execution, not discover them in production
+Context-appropriate execution: Common rules apply to everyone; segment-specific rules layer on top based on context
+Channel-agnostic consistency: When rules execute in the same engine, decision-making remains the same regardless of channel
+"When the rules are getting executed in the same engine, I know the decision-making will remain the same regardless of which interaction you execute from wherever. Channel agnostic."
+This addresses a real pain point. Ask the audience: "How many of you have dealt with pricing inconsistencies across channels? How many have had bundle logic work in one system but not another?" The unified rules engine is the solution.
+
+The Burger Framework
+A focus on how customers see the value of Zuora
+How capabilities combine to serve customers
+Where the customer journey actually happens
+How customers experience Zuora as one platform
+The Strategic Shift
+"There's a core product motion: build a roadmap. But there's a second product motion: build the intersection. That's the platform. No one has typically owned the intersection. When you make the intersection a roadmap, that's when you build platform."
+This slide makes the case for why intersection needs its own roadmap. Be direct: previous attempts failed because coordination became dependencies, not patterns. The critical insight is that it can't be a dependency between teams (brittle, slow)—it must be a pattern that teams consume (stable, fast). This is Zuora's "one shot to put it right."
+
+Value flows to everyone
+How intersection benefits all stakeholders
+For Engineering: No duplicate development, unified components, architectural coherence
+For Product Teams: Deliver roadmaps faster by consuming intersection rather than building duplicate capabilities
+For The Business: Serve customers from $50M to $10B+ on one platform
+For Customers: Grow without ripping out systems, seamless experience across all channels and bi-directional
+
+How to talk about this
+Evolution, Not Revolution
+This is crucial for internal alignment. The framing that worked in the meeting: position as the natural next phase in a progression, not something new. Reference past wins to establish credibility. Be careful about billing/core system territory—"by staying out of that, we reduce friction." How you talk about this determines whether you get collaboration or resistance. Use this framing consistently.
+
+This is a strategy to solve for the anti-pattern
+One Zuora. Continuous journey. Zero disruption
+Current market reality
+Start with Stripe (simple, self-serve-friendly)
+Grow and hit limitations
+→ Painful rip-and-replace
+
+Build toward a Vendor for Life vision
+Start with Zuora (simple entry)
+Grow with Zuora (scales with you)
+→ No rip-and-replace required
+
+Three-layers, one outcome
+
+Can a customer go from self-serve all the way through to sales-sales, and back again? That's the intersection story. That’s “Vendor for Life”.
+The Story
+How we present to customers
+The lifecycle journey ($100M → $10B+)
+The sales narrative
+The Product
+Individual product roadmaps
+CPQ, Experiences, Catalog, Acquisition
+Insulated to deliver commitments
+The Architecture
+Foundational patterns and principles
+Shared services at intersections
+Technical foundation that enables the story
+
+Data as a new moat
+
+Subscriber data compounds - each interaction makes the entire system smarter and more valuable and accelerates go-to-market.
+The Data
+
+How it solves some of the stakeholder concerns
+
+What I heard across the organization
+Protect the Core - coordination means we treat product leaders as stakeholders and not dependencies
+Eliminate duplication risk - one thing serving all applications
+Have a clear architectural foundation (bottom bun) - with defined services and APIs before building features
+Capture missing upstream data—sales rep info, pre-quote context, behavioral signals
+Give me options - I want my sales team to be able to position Zuora at any point in the customer journey
+
+Strategic alignment to the sales reality
+Understanding constraint
+Reality 1: Disruptions will happen to product roadmaps
+"Even if we have a strategy, the business will create conflict. There will always be: if we just have this thing, we'll win a $500K deal."
+
+Strategy Response:
+Make trade-offs visible, not prevent disruptions. Strategy doesn't prevent disruptions. Strategy makes the trade-offs visible and manageable.
+
+Measurable outcomes - success and risks
+
+Success and risks of the intersection
+Enable the platform story by leveraging the core roadmap
+Success:
+Qualitatively
+Field sentiment
+Analyst feedback
+Customer conversations
+
+Quantitatively
+S2-S5 velocity in core ICP and adjacent ICP
+Deal loss analysis where we lose to stripe
+EMEA vs NOAM vs APAC deal pipeline
+
+Manage risks:
+Requirements must use the roadmap not create a new one
+Investment (time and materials) must be stack-ranked and validated
+Need to ensure we are not creating mis-alignment
+Ensure we do not stray into territory where we have no right to play
+
+Blockers or potential landmines and mitigation
+
+
+Blockers/landmines
+These are likely to be self-inflicted
+Blockers
+Resources
+Lack of focus and internal alignment
+Customer commits
+
+Landmines
+Unexpected new dependencies
+VFL creates roadmap expansion and dilutes core roadmap
+Divergence from the customer story
+Analysts push back
+
+ Mitigation
+3 C’s - Clarity, consistency and commitment

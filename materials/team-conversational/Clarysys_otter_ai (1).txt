@@ -1,0 +1,340 @@
+Speaker 1  0:01  
+A lot of the business leaders are so the so it's the obvious story, right? The obvious story is the stories at the intersection of all of our product capabilities. And you can take a customer, we have the capability to take a customer from 50 million to a billion, right? We can do that like someone just has to focus on it. But the bits of what I wanted to wanted to do, because this is CPQ light story is like, we, I'll tell you, we have a few things going on. We've got kind of cpqx, which, you know, we've got next gen CPQ which is like, what it's, what it says, like, bit of AI on it, fairy dust, improved capabilities, better analytics, all that kind of stuff. And then we got another thing which I can't talk about, which is happening. So there's a few flavours, but the most, the thing that I'm trying to get to in this call is this, if you think about vendor for life, take a met and just give me two minutes to give you the story. If you take a med tech company like 50 million, and we get, I think we get too hung up with B to B, plg and SLG, right? It's like they're arbitrary boundaries. So let's just talk about the customer. Customer comes in, they're small, they go through some kind of qualification journey, which is run by Zora acquisition. You know what? What? You know you from gov.uk, or you've not, are you? You know what's your, what's the size of the company, you interested in software or hardware, that kind of thing. So there's this kind of qualification engine, which or which Zephyr can handle. And you get to a point where customer goes, Okay, so what should you know? What's the right thing for me? And the qualification can be more complex than that, but it's all self service. And they get to a trial. Let's say they're buying software. Our hardware is obviously different. They're buying software and they get to a trial, they do something.
+
+Speaker 2  1:56  
+Jonathan, do you mind if we put on AI companion? Yeah, yeah, sure, sure. I think you might have to, I just requested, yeah,
+
+Speaker 1  2:03  
+that's no problem. So they, so they get to this journey, or they get to the end of this thing, and they, they, they, then they get into a trial, and they're okay, right? So it's all self service. Then at some point they go, actually, I kind of need this. I'm not sure if it's a service rep or a sales rep, but I need a little bit of something else, right? There's just something over at the edge. And maybe they do, maybe they and again, they self Configure. They get, they ask a question, do I need this or this? And they do a little bit of tweaking, and then they get to the thing that they want, right? So they're happy then, like, maybe, I don't know, six months or 12 months down the line, they go, Oh, I've got my first enterprise customer, right? Or, you know, I kind of, I need something a bit bigger. And they go, I don't need full blown CPQ, because we're not that complex, but I need something I can self configure, right? This is what I call CPQ light. It's like I've got some levers, some some I don't need all the compliance in there. I just need to configure a quote that I can then send to a customer. I don't want to do it in a spreadsheet. I just want to do it in something that helps me deliver, you know, really something quite quick. I don't have a lot of sales people, maybe even the CPO or the chief executive officer does it himself, and he sends out a quote that's CPQ light. Then he gets a few other sales people, and they using CPQ light. But then actually, they get to a number, 500 million of sales, and then they are like, well, actually, you know, and that's where the billing light thing comes in. And then they get to bigger, and then they need full blown CPQ or, or they've got 10 sales people, they need some compliance rules in there. And, and the story goes on right? And then they get big, and they need complex. Then they become a more complex business. So that's and the complex is where we start, and 50 million is where we don't start. But what I'm selling internally, and I'll shut up in a sec is we have CPQ catalogue experiences and acquisition, right? There's lots of services around those things, but the customer doesn't give a shit, right? They care about the story I just told, and the story is at the intersection of those capabilities, those products. That's how the customer sees us. Can I use an experience with CPQ that sits on top of catalogue that isn't that complex, you know? Can I use a set can I manage? Can I do a journey flow that has an experience at the end of it, and that's all they care about. So that's, that's what our customer that B to any, you know, it's B to B. Could be B to any, but B to B, what we call plg, self serve, all the way up to sales assisted. So the bit we're talking about today, and number one, you know, it's not, maybe an ill formed story, but that's, do you agree with that hypothesis? Kind of what we're doing the Clarice workshop on right, 50 mil to a billion. That's the story I want to build out. But secondly is the point positioning of what we call CPQ light. And I use that term loosely, right? So I'm going to pause there and ask and leave those two questions with you.
+
+Speaker 2  5:20  
+Yeah, because I guess, like, you already have Zora, CPQ, let's just forget that for a second. What I was thinking is, like you said, you can have, like a standalone thing, which is, I guess, some kind of life element of Zora, like you have to go into Zora or not TBD, but then you could work out a way of integrating that into Salesforce, or other sales application as well. But I think at the moment, you definitely don't necessarily need to worry about that, because you could just iframe it, to be honest, and then you need the API to send the data back to Salesforce like it doesn't have to be a, like, fully immersive experience in Salesforce, so, yeah, you could design it basically like it's a standalone thing that creates a quote. I think probably you need to think about some of the small customers who won't be so fussed about Salesforce. Might still want that quote to be signed, like, I agree to this quote. So there's some other functionality in there. I think it's not just add a bunch of products, tell me a price. You might need some like, add special terms, or like, a signature block type thing, and think about sending to E sign but yeah, I think that's good, because you'll get immediately, get a traction with customers. You don't really do CRM, like, instantly. So all of the plg firms are like, well, I should probably start doing sales instantly. Could just start using that.
+
+Speaker 3  6:37  
+It makes a lot of sense to me as well, because a lot of the power, actually, of cpqx isn't necessarily the deep, complex functionality you can drive. It's the it's an integration there. And you can, for the enterprise. You don't begin to press customers, you can say, well, you don't need to build an integration into XOR if you use cpqx, because it's pre built for you. And I think that's what, again, the Big B to B, big B to C, enterprise levels will already probably have a very complex e commerce platform, which they're more than happy to integrate into a Zora. But it's the, like you said, it's 50 to kind of 200 million, which will often say to us, what can Zora do? We say, basically anything. And they say, but how in the front end? Oh, we need to build an E commerce platform. And that just ends the conversation. So I think the power of like a CPQ light that could be rendered into a front end, like web page or E commerce platform, user facing experiences that it offers that integration into Zora and in a light, lightweight model, so they can just get started really quickly and not have to build a really complex, complex orchestration to use or as the back end. And I think you're right in that the next step of that would be to almost have the billing lighter weight as well for that journey of growing the organisation. So you can start with a lighter weight billing, with a lighter weight CPQ on their front end, and then they can grow into more of the full billing, and then they can potentially grow into more of the full CPQ side and end up with the full stack. But it does seem like that 50 200 million is where customers will often go to the competitors who can't offer as much, but they can offer it easier.
+
+Speaker 1  8:17  
+Yeah, I think that's a very good summary. And I The interesting thing about when you think about CPQ, light and or billing, is we think about the the the there are two parts to the platform, to this, to each of those products. One is the front end, one is the back end, right? So the back end does anything the front end, someone just chose to represent everything in that way, right? So it's like, you go into a candy store and all the sweets are all over the floor, instead of they're all in very discrete buckets, and you just go to the bucket that you want, right? And you and you build your bag in the way that you want to build it. And what I'm thinking is and what I want to get to is a definition of what CPQ Lite is, which I think Tom you touched on, and Matt, you were kind of alluding to there is that
+
+Unknown Speaker  9:14  
+you just count Jonathan,
+
+Speaker 1  9:16  
+sorry, what I was saying is that what I wanted to get to was, did I did? I give the sweet store analogy,
+
+Unknown Speaker  9:23  
+you cut a definition, yeah.
+
+Speaker 1  9:26  
+So the definition of what CPQ light is, right? So, like, I think we have to be precise. So I billing light, I think is another conversation. But let me just tell you how I think we get to CPQ light. First of all, if I go to the product leaders and what I'm selling internally is don't fuck with the product leaders, right? They know what they're doing. Insulate them, right? Don't do an immediate media on them, like insulin. Don't sell them. What's not there, right? Because we spent all of our time at the intersection, not at the products, right? So we spent a lot of time at the intersection. Don't sell an intersection that's not there, right? So insulate the product leaders, but let them go and build all the capabilities, right? That's what they're good at. They've got 30 years experience. They know what that that Manfred knows what he's doing. Errol knows what he's doing, right? So that's all fine. Those are our internal product leaders, but let's say you get, you get a sales team where you get Clarisse, and you go, well, actually, I don't need all of that right now for this customer, we have this experiences layer. And the experiences layer is both an external and an internal facing tool, right? So if I want to build a My Account page, you know when experience with the experiences thing would have made your lives a billion times easier with with immediate right? It is highly configurable. Yeah, anything you want to do you can do inside this new experience, completely different story. But my thing is, well, why don't we just take the things that you want in a CPQ light and abstract them away through the experiences layer, right? So it looks more sassy than enterprise. Do you know what I mean? It's like you just, why do you need to even touch the CPQ product? You just go, Listen, that's the CPQ product. Is just a front end that interacts with a bunch of API's. Yes, that's it. So, you know, this is what I think CPQ light looks like. So I'm genuinely saying, I could say to you, give me CPQ light, put it in a put it into a design like and tell me what your is, your perfect vision of CPQ light. And I'll give you that
+
+Speaker 2  11:38  
+as I wonder and I appreciate. It's kind of a bit complicated. But could you not just almost extract the how you add subscription or how you set up price plans and add subscriptions in Zorro, extract that, and then we basically made the UI a bit better. So I guess we can do the storyboard of like what a salesperson is likely to do, but in the same way, I want to add this amount of these products, this product's a usage product. I want to add a cap, like, what's the maximum we've got
+
+Speaker 1  12:06  
+to match. We've got all of that. We've got the engine lives there, right? But what we've got in experiences is these components, right? And you can build a component to do anything, everything that you said, I can build a component for right? So I can put a team of people, and I can say, see that thing there. Give me that page that is CPQ light. And they go in, and they go, okay, CPQ team. I want to consume that. I want to consume that, and I want to consume that. And that's the sweetie shop, okay? And then you go, actually, what we want is a signature block, okay? Or we want this, or whatever that is, yeah? And we go, yeah, okay, we didn't build that. We'll go off and build that now, right? And that's like a two or three day job, because it all exists. The back end exists. You just need to put a wrapper on it. So I think what I want to try and sell again, as a further extension of this is, well, what does CPQ light look like? That's what. Hey, this is our partner, clarissis. That's what they said it looks like. Then I go to the product guy, and I say, all of that stuff exists, right? And he goes, Yeah, that will exist. So I go, Okay, now that, because what I'm saying is we have another product in our business that no one knows about, and it's called the intersection, right? Someone just has to focus on cerebral well, it, but that's it. But think about it. What does the customer buy? Is the intersection? That's the that's the customer journey, right? So the intersection is taking experiences and the CPQ back end and creating CPQ light for a vendor, for a partner like you. And then you go, yeah, we know. No problem. We can build CPQ live. We actually built, we could actually build it for you. It's got this stuff out of the box. You want another thing, no problem. We know how to do that.
+
+Speaker 2  14:08  
+Yeah, nice, because this kind of would get us on to, like, what's in it for us. Ideally, it would be nice to have exclusivity, but doesn't have to quite get that far in, like, when customers want it, like we're the implementation partner, or we help it should be set up, right? And stuff like that. So, yeah, that would be good.
+
+Speaker 1  14:30  
+I can get you a demo. I can get you a demo from the product owner, right, guy called Jimmy Coniston, and you'll, you'll immediately see where you live, because you'll go, well, CPQ light doesn't have to be that thing. It's what CPQ light do you want?
+
+Unknown Speaker  14:51  
+Yeah, okay, that makes sense, yes.
+
+Speaker 2  14:58  
+So, yeah, what? What do we do next? Then some wire frames, or we can try and work out what the ideal experience or journey would be with your product teams, or a little bit more canvassing of No,
+
+Speaker 1  15:10  
+no, I. What I would love, this is a this is a big ask. What I would love is, if someone I've got to present this on Tuesday next week. Now, you don't need a full blown thing. Don't worry about it. But what I would love is I'm dropping in validation milestones. So I've spoken to everyone across Sora that everyone's buying this, right?
+
+Unknown Speaker  15:31  
+The product org, yeah.
+
+Speaker 1  15:35  
+So what I would love is, I would love to say, and listen. So, so, you know, I pitched this up to clariss, who's a implementation, part of us in Europe. And and when I said, Well, you know what, CPQ Lite, they kind of came back with this really simple page and said, well, actually, here's like, five things. Like, we call that six things, or whatever it is, just one page and it looks like they want it to look okay? And I said, well, listen, we can make a decision, should it always look like Zora, or can it be because of experiences? It can always be whatever the customer wants, you know, but the idea of you build it and you drop it right into something else, that's the principle. But the story is, if experiences doesn't have, if the if the intersection isn't the product I CPQ and experiences, then you can't do that thing. But yeah, the end. So the I'm selling you the intersection between those two capabilities. So if you gave me a and I say, this is what they want. And I know that the capability is there in experiences, and I know the capability is there in CPQ. So you tell me why we can't have billing a CPQ light. Yes, that. So that's my ask, is if I could get one thing with five widget, whatever basic it can be, look, it can look shit. It doesn't matter. It, honestly, it just something, yeah,
+
+Speaker 2  17:06  
+full disclosure, we're obviously not UI designers.
+
+Speaker 1  17:09  
+No, no, no. It's not. It's not. No, no. I don't want to UI. I want, I want squares on a on a screen, right? If you go, hey, I want this over here, and it's got these fields in it. You could even just put a, I don't know, PowerPoint slide together that's got a very rudimentary there'd be a block up here, there'd be something over here. So it's basically when Matt wakes up in the morning and thinks about CPQ, right? Most mornings, yeah, most mornings it's like in your mind, what is CPQ like to you? It just has to be nothing more than that, because what I want to do is connect the dots between, oh, we've got an experiences which is super flexible over here, and we've got a CPQ back end over here. So why can't I have CPQ light, right? Why do I have to? Why do I have to wait for next gen CPQ to land which has got everything in it, yeah, the 100 million dollar just going to sales assisted growth doesn't need that. Doesn't need all the bells and whistles. Just needs the thing that Matt wants them to have.
+
+Unknown Speaker  18:20  
+That makes, makes sense. Yeah, I
+
+Unknown Speaker  18:22  
+think that's good. I mean,
+
+Speaker 2  18:25  
+obviously the sky's the limit, so we will have, we'll do some absolute we could, what we could do is absolutely core, and then just some ideas of additional things that we would need. And obviously we'll go Agile on it, right? And you can build some of that stuff over time, but it'll be good that you can see some future stuff as well as just the simple stuff now to make the coast.
+
+Speaker 1  18:45  
+Because what I would do is I would say, Can I enable clariss as an implement implementation partner? Can I enable the sales team in their go to market? And if I can answer that yes, then that's, that's the story, right? With that. That's and that feels like one of these really simple things to do that just no one's focusing on, and it's an unlock. And then you do the same for billing light, and then you're, then you're telling this, then you've got, you know, Zephyr using experiences. That's the journey up to, you know? So it just makes perfect sense. But all of those are the intersections of the products, not the products themselves.
+
+Unknown Speaker  19:31  
+Yeah, because
+
+Speaker 1  19:32  
+then you've got things like, like, Errol's building, who's running catalogue, soft and hard bundles, merchandising rules, you know, really powerful stuff inside the catalogue. CPQ lives on top of the catalogue. So you've got this kind of abstract you've got different layers of abstraction, but it's super powerful.
+
+Speaker 3  19:54  
+Is there anything available on the experiences layer at the moment to read on, or is it still in its inception? It?
+
+Speaker 1  20:04  
+Well, we have a front we built the front end. We've got all the kind of first principles in place. We're rolling it up inside Zora. I'd be more than happy next week or the week after, to show you a bare bones demo of this thing and what it's it, what you will like is you as an implementation partner can go in, build the experience, but interact directly with the API's in billing, anywhere in billing, and compose anything, right? Anything you want can be composed. So, yeah, I'll arrange that, Matt. I'll get a proper demo done for you.
+
+Speaker 3  20:49  
+So it's almost a abstracted layer that sits it interacts directly with the API's, but it's not actually a user facing fit. It's in the
+
+Speaker 1  21:00  
+middle, but no the c1 can build our customer can build with it. They can build My Account page. We're going to have a suite of out of the box components, you know, if you think about it, like fully formed things that you can just drop in, but they're also editable. You can build objects from scratch, components from scratch. You can build, you know, a single item that does a very single thing, like, give me the total value of your subscriptions over the last 12 months. So you can put conditional logic into these things. You can build dynamic logic into these things, you can continue. Can Build A container around them so you can drop them in anywhere, so they can live. You could have an, you know, assisted service, for example, I want an agent, and they're in Zendesk, but I want them to have permissions to see the user's account, but they can't see the credit card details. So you can basically do what you like.
+
+Unknown Speaker  22:04  
+It's incredibly powerful.
+
+Speaker 3  22:06  
+And then the concepts of the CPQ light is that it would almost utilise this componentized functionality to be able to create
+
+Speaker 1  22:14  
+that product. And what I think is the boundary is that the CPQ light would have a hard skin on it, which is aura, right? So that when you do go back into Zora, you're not like, whoa. What the fuck is that? Like? I don't know what that is, right? It's, so it's, it's, it's UI, like CSS would be one thing, but its capability would be infinitely extensible to the boundaries of or not infinitely, but extensible to the boundaries of what CPQ does today and in the future. But you don't But what's really interesting is the implementation partner you'd own, what that looks like. It's not like, oh, there's CPQ. Ignore all of that stuff over there. Don't look at all of that that's too much for you. And the customer just goes, sorry, I'm not buying that. You just go, that, see that little thing over there, that thing that's perfect for you. That's exactly what you need right now,
+
+Speaker 3  23:13  
+the full features are what they need and what they use. There's no added confusion of Don't, don't, don't, don't click that button, because you click that button, it's going to cancel it at the wrong time. Then you're going to have to do reverse cancellation and all this stuff, because it is exactly built around, tailored around what their actual use case is correct. And what that
+
+Speaker 1  23:32  
+means is, Matt, is that the the complexity of this is, are you breaking patterns? Right? If you don't show that thing, does that put you into this kind of Death Loop that you've like, you've broken the you've broken CPQ or something like, you've done something you can never get out of it. So I think it's, it's a careful use. You know, it's like, be careful with that power. But I think the principle is right. And I'd love to say, Listen, this is, I believe the product, org needs stories, and then, hey, we have, here's an intersection, CPQ experiences, that's it. And so it's really easy for everyone to understand what that means. So if you want to put down on paper or jump on a call or whatever you want, but this is a chance for you to shape that like narrative. And then you're then I come to you and say, listen, here's our kind of baseline components. You can go to a customer, when you're doing a bigger implementation, use CPQ as a sharp end to kind of get in and also the extensibility of CPQ, right? So you'll, you'll be able to say, well, you know what, what is the, what are the things I have access to, you know, CPQ, super Well, Matt, and you go, Well, okay, we can, but you don't need to be front end designers. You just build the component tree that's needed to deliver that CPQ light experience.
+
+Speaker 2  25:06  
+That would be perfect. Yeah, that's yeah. All right, fine. So from your perspective, ideally. yes. What you mean in terms of enhancements that we would ask or make a Bill Well,
+
+Speaker 1  25:21  
+no about billing lights. Why? You know, is there a? I mean, I guess the question is, is there us? Is there a? Is there a world where billing light was always tried this, right? They tried to do billing light, this code in Zora, which is billing light. But if you go to the billing team and say, billing light, you won't. There's nothing, no one's going to buy that. But again, what I'm thinking about is, can you abstract a billing light
+
+Speaker 2  25:52  
+product to a customer I got you, yeah.
+
+Unknown Speaker  25:56  
+Is that? Is that even feasible? Do you think or not?
+
+Speaker 2  26:01  
+Yeah, I guess it's just weird, because what will happen is it will be fine being light, and then they'll want something else. So what you're really doing is just masking the features of the full product. I suppose that you only enable features when they request, which you kind of already do in billing today with some things. So make it slightly more extensible.
+
+Speaker 1  26:20  
+Tell me where the so. So there's two problems with anything that Zora does. Number one, implementing billing takes too long, right? So for a $50 million dollar B to B, plg company,
+
+Speaker 2  26:35  
+but, but it, yeah, but it doesn't, okay. It doesn't. If you're only configuring simple things, she has make a meal of it. But like, for some of our use cases, you can be doing the config in like three weeks. Matt, four weeks maybe.
+
+Speaker 1  26:49  
+So let's pause there. That's what I want to spend some time tell me about that story, right?
+
+Speaker 3  26:54  
+Yeah, to put into context, obviously this is not go live ready, but it took me and colleague, Ben Freeman, a day for SSG, and we're ready to demo a new subscription, new account, new payment bills accounted for, rev, rec. So for some businesses, it is very doable to set Zora up extremely quickly. Now there's all the bells and whistles that then around the business processes, like what email should go out when, and what events should happen when, and what other systems do we have to send data to. But the actual core journey of here is a new customer with a contact record, a payment method, and a subscription that's been invoiced, payment has been taken, recognised revenue, and the accounting is ready for the journals that can take a few weeks honestly to get ready if the business is in a position where they can accommodate more of the out of the box functionality, so we can definitely, kind of speak to that story and the types of guardrails that need to be in place for it to be that quick.
+
+Speaker 1  28:03  
+Okay, well, so, so that is a an additional, very valuable thing, right? So we've got a team of people, data scientists, working on, how do you take complex businesses from nine month implementations to six week or two, three month implementations? Right? Reference, architecture, LLM driven setups, all of that kind of stuff.
+
+Speaker 2  28:35  
+I don't think you need. Like, you're skipping the middle bit, though, of just delivering a project in a different way, which is probably just not using GS, for example. So yeah, you can do all of that. But like at the moment, right? You start getting a project, the customer doesn't really know what their requirements are. You start building some stuff. It's not quite right. You're doing testing, you rebuild stuff, and that whole process takes six months. Basically, that is what happens today, whereas, if you had a better thing, I guess, to your point of reference, architecture, just like we're going to build you either A, B or C, no variations, that's what we will build. Which one would you like? Then you negate all of that sort of back and forth and requirements and testing and stuff. So that's probably more than when you say billing light, it's the and Salesforce do this. It's like pre packaged conflict. So you buy automotive cloud or media cloud or something, and I'll be honest with you, it's a lie, though, that's all configured for you, but that's their sales pitch, right, that it's all configured faster your business. It's going to work as active as you want it out the box, no problem. That's sort of thing that we could have done with doing or want to do originally with the media, right, where a client doesn't actually know what they need or what the next evolution looks like, just put something in front of them and then tinker and tailor from there, rather than starting grounds up because he's getting to a quagmire of detail they don't understand asking for stuff they don't need. It's a different approach that we wanted to try and make work and meet it, but then they got hung up on nth degree of detail and acceptance criteria and stuff, which compromised it. But the original plan was, we'll just build something that fundamentally works your business model and then tweak from there. So if you've got those kind of reference points of this kind of business, this kind of implementation, and then you kind of retrofit that's gonna be a hell of a lot quicker to something that works. And also, ultimately, look at what ended up having with the media right is you go shooting for the exact thing that they think they want at the start, and they never end up getting it anyway. So why not accelerate towards a thing which is 80% there, and that's your start point, rather than that being your end point? Yeah, because you should do like, LLM config sort of style stuff, like, that's pretty cool. That's a good place to get to. But I think you actually have a way easier route of doing the pre configured thing, and then you don't even need that.
+
+Speaker 1  30:54  
+I agree with you. I think that's a very, very good point. So there's a difference between the concept of because CPQ light feels like it should be a configurable thing. It's contained. It's a container of ability capabilities, and you just want to use the capabilities you need, right? It's like pick and mix. But I think you make an extremely good point. Billing is a beast. Billing light feels like you could fall, you could fall over yourself many, many different ways, and never, ever have all of the widgets that you need but reference architecture in the 50 to 100 or 200 mil space, and obviously immediate is bigger than that, but reference architecture is the thing that we should be focused on.
+
+Speaker 2  31:46  
+Okay? There's like known there's known key variables, right? So as you start hitting like US tax, that brings a whole load of complexity. The invoice is going to be the same. It's like assume 50 200 million you're selling predominantly into one or two geographies, or you're under certain thresholds. Therefore you don't need to entertain that layer of complexity. That's a really good binary question you can ask a client that either opens or shuts down a whole suite of what exists in billing or doesn't exist in billing. In some instances today we, I mean, Matt, you've probably got a pretty good handle on what the fundamentals are of this means simple. This means hard, and you could get, you could piece together. This is the simple there that should exist within billing, but doesn't today.
+
+Speaker 1  32:28  
+I think that would be super helpful, because what's happened now is I run the acquisition, the order, and a guy called Ken Houseman runs, you know, no can order to cash, right? So we believe in the story. I pitched it to him. He believes in the vendor for life story, right? He calls it forever vendor, which sounds a bit like I should have a dragon, some kind of Starry Eyed dragon on the on the cover of that story, but he believes in that. And so what I would love to do is I'd love to go to him and say, Listen, I'm dealing with the CPQ light thing. But why don't we have these three reference implementations? Why, you know, is there something fundamental that we're missing here, because what you just said will makes perfect sense. You've got this, but if you want to open Pandora's box, then we can open it for you. But that's, here's the reference implementation. That's it. So I struggle to understand why that doesn't exist, like and you're a vendor, so if it, if you, if you haven't seen it, it probably doesn't exist, right? But it should now, if that enables and again, this is at the intersection, right? The the reference artist architecture is the intersection. It's the intersection story, rather than here's billing you're saying. I need to know. I need some things that connect up with each other, that tell an implementation story, right? So ask me for that. I'll put that up on the screen. I'll speak to Ken before the presentation, and I'll say, you know, we talk about billing light. Billing light, actually, to a vendor like clarissis, means reference implementation, right? Reference Architecture. Here's, here's, here's less complex. Here's middle complex, here's super complex, however you want to represent that, or just make it, make it simple and complex, right? So you just got two things to do, and I'll go, Well, you know, as a as a vendor who's dealing at the intersection of all of our capabilities this map, Matt, who's this guy, says I could get this up in in three weeks or six weeks, or whatever, like not. I think you should get it they they can get it up. That's what they do, right? That unlocks this kind of customer. And then Will, Will says, you know, for the complex stuff, using immediate media, because everybody knows about immediate media. In me, if we'd have had this, it would have been a fundamentally different thing. Now I won't even mention GS, because I'm i I'm buying what you're selling. Tom, right. Difference, that's a different story.
+
+Speaker 2  35:20  
+Yes, is purely there for some help if we need it, rather than implementation of any kind.
+
+Speaker 1  35:26  
+I agree with you, right? I agree with you. So what I'd love is, this is what Matt says, This is what will says, you know, and what it means is two slides that everyone immediately crystallises the story, rather than me. I don't want to Pitch Anything. I want it. I'm actually bringing all the views up to the business. And you're one of those views, because the other is the differences in Europe. Sorry to interrupt you. Is the difference in Europe is we are, we are partner led like this, right? But in America, it's all i It's all is, is, right? So, so they're, they're totally wedded to B, to B complex SARS. They need a reason for me to force them downstream a little bit. But Europe's already there.
+
+Speaker 2  36:16  
+Yeah, it's true. Okay, I think we're kind of getting to all we need at this point. Is there a possibility of like, we present with you to something? What is that meeting that you're in?
+
+Unknown Speaker  36:29  
+No, that's close to us, mate. You can't get
+
+Speaker 1  36:33  
+into that meeting. I'll put your logo up. And also, there's a way, there's a way to present it. You need to know the room, right? To know the room, but I can, this will be just the first step along the way. And if you, if you want me to make a point, or, you know, listen, we've done it with Zora. We've been, you know, I need to know how long you've been doing it with Zora, since 2013, or 15 or 17 or whatever, we've done 55 implementations. We would give me the metrics. So this is who clariss is, right? And this is that. This is the, this is what they think of CPQ light. This is what they think of fast billing implementation. That's just one lens. It won't end there. It's just a conversation starter.
+
+Speaker 2  37:15  
+Yeah, okay, all right, cool, yeah. We'll do that. We can do a sort of little bit of, like, who we are, sort of slide. Then we'll do the our perspective is on CPQ, and then we probably also do a slide on, like, our perspective on, for those kind of customers who might buy CPQ Lite. You should also do pre packaged billing. I don't we're going to get loads of detail on that, but we can just make those points. So you've got in the slides just, I think that's the challenge, just in terms of storytelling element is like, we're only about to do so much by Tuesday, which is why appreciate, there's not the room for it, that at some point we can help bring it to life alongside you. I think Jonathan, it doesn't have to be in that first room, but in a subsequent session, because a lot of this stuff is quite nuanced, right? So points on the side won't necessarily sell it. You want kind of Matt in there, as I understand this stuff. This is how it works. This is what it means that kind of conversation. But it's fine for Tuesday. We'll get something light touch, yeah, Tuesday, and we can work out how best we help continue to kind of push the story.
+
+Unknown Speaker  38:18  
+Well, the story is the
+
+Speaker 1  38:20  
+master class that we're doing as well, right? Yeah, true. A lot of that's going to crystallise in that, yeah.
+
+Speaker 2  38:27  
+And maybe we make sure that off the back of that, we kind of play this is, this is how it went. This is where the story is what resonated.
+
+Speaker 1  38:34  
+Yeah, totally, yeah, we can do all of that, that there's loads of loads of different pathways we can go down. But I'm all about building alliances across this story. And I see Clarence Claris is important part of this alliance, like, to get this done. Because how many times has Zora tried this? Like Zora verticals, you know, I mean the channel strategy. It's just no one ever gets it done. So I think it can be done. Cool, all right. Really appreciate the time. Let me know if you need the input and like, you know, keep it light touch, but just make the point. You know, even if you want to scribble something down in a, in a, in a doc, and then I can kind of synthesise out of that, whatever, whatever, gets the story across. That's, that's, you've all made the point. Back it up with something, right? I just want to back it up with not, I don't be sucking thumbs. I want to back it up with a, with a, these guys have got cred. They know what they're doing. They said this, right? You don't believe me, that's fine, but these guys have done it. Immediate media didn't need to be that way if we'd had a reference architecture, reference implementation, so they just make that kind of stuff, right? Good.
+
+Unknown Speaker  39:46  
+All right, that sounds good. Nice one, right? Shelton, all right. Thank you. Thanks. All cheers. You. Like
+
+Unknown Speaker  40:52  
+You Know, are the other People
+
+Speaker 4  41:54  
+who might be Ronnie thing
+
+Unknown Speaker  42:52  
+This is
+
+Unknown Speaker  43:29  
+Jesus, we text
+
+Unknown Speaker  43:54  
+boxes. What?
+
+Speaker 5  44:34  
+You would you go with Ken pass, yeah, topic or
+
+Speaker 4  44:54  
+Kenny. Topic, yeah, but they're email mics in a village,
+
+Unknown Speaker  45:23  
+because we got a textbook.
+
+Unknown Speaker  45:36  
+Boom transformation.
+
+Unknown Speaker  45:41  
+I think it's in a competitive bid with European
+
+Unknown Speaker  45:48  
+if they're by the acquisition cash story.
+
+Unknown Speaker  45:53  
+So it helps lighten this game now deal and it helps me 10 year strategy.
+
+Speaker 4  46:14  
+Nice, yeah, but I just need to make sure that
+
+Unknown Speaker  46:24  
+they can't use anybody
+
+Speaker 5  46:31  
+else your journeys and everything separate And you
+
+Unknown Speaker  46:33  
+what you do want
+
+Speaker 5  46:52  
+is one, yeah, can check out.
+
+Unknown Speaker  47:12  
+This couple of The features.
+
+Speaker 1  48:32  
+I, by the way, the answer to Daily Mail is not an easy one, right? It's complex. So I'm gonna have to spend a bit of time tomorrow. I can't do it today, because there's commitments there, and I, if I feel like it needs to just do properly. Mate, yeah, go back to Lee. Our legal is a quick question. Then I'll have to, but just, it's like it touches on a lot of stuff there, it'll be fine. I just want to make sure they're just do I'd rather
+
+Unknown Speaker  49:05  
+do it properly. Didn't be done
+
+Speaker 6  49:07  
+tomorrow, because you try to help me get quickly. Yeah, we're just looking for a slot for tomorrow, just so me, you Stu and Rob, can have a quick debrief before
+
+Speaker 7  49:17  
+requesting first thing in the morning tomorrow, because I've got a team thing in the middle of the day.
+
+Speaker 1  49:23  
+Sure what time I've got some focus slots in so I can move those around nine, 913, I can't do that.
+
+Unknown Speaker  49:30  
+What else we got? I
+
+Unknown Speaker  49:32  
+can move. I've got blocked out some time because
+
+Speaker 6  49:35  
+I'm what else you got deck? I've got, oh, you've got some cooking thing. So I could
+
+Unknown Speaker  49:39  
+do 1030 to 1130 No, 1030
+
+Speaker 6  49:46  
+so basically you can't do from 11 to 230 see anything around
+
+Unknown Speaker  49:51  
+that I could do from 11 to 1130
+
+Speaker 1  49:55  
+or I could do 12 onwards for a couple of hours, 11 to 1115 let's do that. 11 to 1115 Yeah, 15 minutes, yeah. All right, so we're gonna get we'll just see move this meeting. Then, okay, let me move this meeting. Drop in 11 to 1115 and
+
+Speaker 6  50:14  
+what we're going to focus on is just the start the acquisition accounts, what Todd Jonathan needs from us in slides, and then I will do it. Yeah, that's fine. That's what I need. Okay, I'll drop a message meeting now. Okay,
+
+Unknown Speaker  50:34  
+thanks, man. Do to this meeting.
+
+Speaker 7  50:37  
+Thanks, man, dope problem.
+
+Unknown Speaker  50:42  
+Was it you? Was it you? Yeah, yeah.
+
+Unknown Speaker  50:49  
+That's like your grandfather goes,
+
+Unknown Speaker  50:54  
+Yeah, grandfather on your nose. I
+
+Unknown Speaker  51:17  
+Wednesday and Monday.
+
+Unknown Speaker  51:32  
+Understand
+
+Speaker 4  51:54  
+that fuse. Is The Last One.
+
+Unknown Speaker  53:26  
+Is changes and Harris, state,
+
+Unknown Speaker  54:34  
+district,
+
+Unknown Speaker  55:13  
+you're off. I Take five ish minutes before We Yeah, of course, Yeah. I
+
+Unknown Speaker  56:52  
+I was Thank You. You guys, you said, What about?
+
+Speaker 4  58:34  
+What? The River, what is The
+
+Speaker 4  59:34  
+idea? About yourself On I i
+
+Unknown Speaker  1:01:18  
+You Do him.
+
+Speaker 4  1:02:12  
+It mentioned how State Development and How to Read.
+
+Unknown Speaker  1:03:25  
+Can you I can't have it, Really, for some reason I Thank
+
+Unknown Speaker  1:03:54  
+you. Thanks again. Thank you.
+
+Unknown Speaker  1:04:30  
+So have you managed to have combos?
+
+Unknown Speaker  1:04:36  
+So from the killing one, yeah,
+
+Speaker 8  1:04:42  
+still, still need some time. Not weird, we've been Tom with Alex again to go through like system health stuff as well, but I've got the BRT basically ready for the SDK API, first stuff that's good news. Just.
+
+Transcribed by https://otter.ai

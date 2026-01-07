@@ -58,6 +58,24 @@ def count_tokens(text: str) -> int:
     return len(encoding.encode(text))
 
 
+def cosine_similarity(vec1: List[float], vec2: List[float]) -> float:
+    """Calculate cosine similarity between two vectors."""
+    import numpy as np
+
+    v1 = np.array(vec1)
+    v2 = np.array(vec2)
+
+    # Compute cosine similarity
+    dot_product = np.dot(v1, v2)
+    norm1 = np.linalg.norm(v1)
+    norm2 = np.linalg.norm(v2)
+
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+
+    return float(dot_product / (norm1 * norm2))
+
+
 def validate_api_keys():
     """Validate that required API keys are set"""
     if not ANTHROPIC_API_KEY:
@@ -2943,14 +2961,22 @@ class UnifiedContextGraph:
 
 
 def integrate_decision_to_graph(graph: UnifiedContextGraph, decision: dict) -> None:
-    """Integrate a decision into the graph with OVERRIDES edges to conflicting chunks."""
+    """Integrate a decision into the graph with embedding for semantic matching."""
+
+    # Generate embedding for decision
+    decision_text = f"{decision.get('decision', '')}. {decision.get('rationale', '')}"
+
+    if decision_text.strip():
+        embedding = generate_embeddings([decision_text])[0]
+    else:
+        embedding = None
 
     # Add decision node
     graph.add_node(
         decision["id"],
         "decision",
         decision,
-        embedding=None  # Could add decision embedding here
+        embedding=embedding
     )
 
     # Link to resolved question
@@ -3057,25 +3083,46 @@ def integrate_question_to_graph(graph: UnifiedContextGraph, question: dict) -> N
 
 
 def integrate_roadmap_to_graph(graph: UnifiedContextGraph, roadmap_content: str) -> None:
-    """Integrate roadmap items into the graph."""
+    """Integrate roadmap items into the graph with embeddings."""
 
     # Parse roadmap
     roadmap = parse_roadmap_for_analysis(roadmap_content)
 
+    # Batch generate embeddings for all roadmap items
+    items_to_embed = []
+    item_data_list = []
+
     for item in roadmap.get("items", []):
         item_id = f"ri_{item['name'].lower().replace(' ', '_')[:50]}"
 
-        graph.add_node(
-            item_id,
-            "roadmap_item",
-            {
-                "id": item_id,
-                "name": item["name"],
-                "description": item.get("description", ""),
-                "horizon": item.get("horizon", "future")
-            },
-            embedding=None
-        )
+        # Skip if already in graph
+        if item_id in graph.node_indices["roadmap_item"]:
+            continue
+
+        # Create text for embedding (name + description for better semantic matching)
+        embed_text = f"{item['name']}. {item.get('description', '')}"
+        items_to_embed.append(embed_text)
+
+        item_data_list.append({
+            "id": item_id,
+            "name": item["name"],
+            "description": item.get("description", ""),
+            "horizon": item.get("horizon", "future")
+        })
+
+    # Generate embeddings in batch
+    if items_to_embed:
+        console.print(f"[blue]Generating embeddings for {len(items_to_embed)} roadmap items...")
+        embeddings = generate_embeddings(items_to_embed)
+
+        # Add nodes with embeddings
+        for item_data, embedding in zip(item_data_list, embeddings):
+            graph.add_node(
+                item_data["id"],
+                "roadmap_item",
+                item_data,
+                embedding=embedding
+            )
 
 
 def sync_all_to_graph() -> UnifiedContextGraph:
@@ -3163,47 +3210,81 @@ def sync_all_to_graph() -> UnifiedContextGraph:
     except Exception as e:
         console.print(f"[yellow]Warning: Could not sync chunks: {e}")
 
-    # 6. Create edges between chunks and other nodes
+    # 6. Create edges between chunks and other nodes using semantic similarity
     total_chunks = len(graph.node_indices["chunk"])
-    console.print(f"[blue]Creating edges for {total_chunks} chunks...")
+    console.print(f"[blue]Creating semantic edges for {total_chunks} chunks...")
+
     try:
+        import numpy as np
+
         edges_created = 0
         chunk_items = list(graph.node_indices["chunk"].items())
 
+        # Thresholds for different edge types
+        SUPPORTED_BY_THRESHOLD = 0.75  # High relevance
+        MENTIONED_IN_THRESHOLD = 0.65  # Moderate relevance
+        OVERRIDES_THRESHOLD = 0.70     # Decision relevance
+
+        # Cache for roadmap item embeddings (avoid repeated lookups)
+        roadmap_embeddings = {}
+        for ri_id, ri_data in graph.node_indices["roadmap_item"].items():
+            # Get embedding from node
+            ri_node = graph.graph.nodes[ri_id]
+            ri_embedding = ri_node.get("embedding")
+            if ri_embedding is not None:
+                roadmap_embeddings[ri_id] = (ri_data, ri_embedding)
+
+        # Cache for decision embeddings
+        decision_embeddings = {}
+        for dec_id, dec_data in graph.node_indices["decision"].items():
+            dec_node = graph.graph.nodes[dec_id]
+            dec_embedding = dec_node.get("embedding")
+            if dec_embedding is not None:
+                decision_embeddings[dec_id] = (dec_data, dec_embedding)
+
+        console.print(f"[blue]Using semantic similarity with {len(roadmap_embeddings)} roadmap items, {len(decision_embeddings)} decisions")
+
         # Process all chunks with progress tracking
-        for chunk_id, chunk_data in track(chunk_items, description="Creating edges"):
-            chunk_content = chunk_data.get("content", "").lower()
+        for chunk_id, chunk_data in track(chunk_items, description="Creating semantic edges"):
+            # Get chunk embedding
+            chunk_node = graph.graph.nodes[chunk_id]
+            chunk_embedding = chunk_node.get("embedding")
 
-            # Link to roadmap items
-            for ri_id, ri_data in graph.node_indices["roadmap_item"].items():
-                ri_name = ri_data.get("name", "").lower()
-                ri_desc = ri_data.get("description", "").lower()
+            if chunk_embedding is None:
+                continue  # Skip chunks without embeddings
 
-                # Simple keyword matching
-                if ri_name and len(ri_name) > 3 and ri_name in chunk_content:
+            # Link to roadmap items based on embedding similarity
+            for ri_id, (ri_data, ri_embedding) in roadmap_embeddings.items():
+                similarity = cosine_similarity(chunk_embedding, ri_embedding)
+
+                # Create SUPPORTED_BY edge for high similarity
+                if similarity >= SUPPORTED_BY_THRESHOLD:
                     if not graph.graph.has_edge(ri_id, chunk_id):
-                        graph.add_edge(ri_id, chunk_id, edge_type="SUPPORTED_BY", weight=0.7)
+                        graph.add_edge(ri_id, chunk_id, edge_type="SUPPORTED_BY", weight=similarity)
                         edges_created += 1
-                elif ri_desc and any(word in chunk_content for word in ri_desc.split()[:5]):
+
+                # Create MENTIONED_IN edge for moderate similarity
+                elif similarity >= MENTIONED_IN_THRESHOLD:
                     if not graph.graph.has_edge(ri_id, chunk_id):
-                        graph.add_edge(ri_id, chunk_id, edge_type="MENTIONED_IN", weight=0.5)
+                        graph.add_edge(ri_id, chunk_id, edge_type="MENTIONED_IN", weight=similarity)
                         edges_created += 1
 
-            # Link to decisions
-            for dec_id, dec_data in graph.node_indices["decision"].items():
-                dec_text = dec_data.get("decision", "").lower()
+            # Link to decisions based on embedding similarity
+            for dec_id, (dec_data, dec_embedding) in decision_embeddings.items():
+                similarity = cosine_similarity(chunk_embedding, dec_embedding)
 
-                # Extract key terms from decision
-                dec_terms = [w for w in dec_text.split() if len(w) > 4][:5]
-
-                if dec_terms and any(term in chunk_content for term in dec_terms):
+                # Create OVERRIDES edge for relevant decisions
+                if similarity >= OVERRIDES_THRESHOLD:
                     if not graph.graph.has_edge(dec_id, chunk_id):
-                        graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=0.8)
+                        graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=similarity)
                         edges_created += 1
 
-        console.print(f"[green]✓ Created {edges_created} edges across {total_chunks} chunks")
+        console.print(f"[green]✓ Created {edges_created} semantic edges across {total_chunks} chunks")
+        console.print(f"[blue]Edge thresholds: SUPPORTED_BY≥{SUPPORTED_BY_THRESHOLD}, MENTIONED_IN≥{MENTIONED_IN_THRESHOLD}, OVERRIDES≥{OVERRIDES_THRESHOLD}")
     except Exception as e:
-        console.print(f"[yellow]Warning: Could not create edges: {e}")
+        console.print(f"[yellow]Warning: Could not create semantic edges: {e}")
+        import traceback
+        console.print(f"[yellow]{traceback.format_exc()}")
 
     # Save
     graph.save()

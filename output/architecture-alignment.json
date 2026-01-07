@@ -1,0 +1,480 @@
+{
+  "assessments": [
+    {
+      "roadmap_item": "Theme 1: Commerce Foundation (The Intersection)",
+      "roadmap_item_description": "Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted motions without context loss, system changes, or implementation rework.",
+      "horizon": "cross-cutting",
+      "architecture_supports": "partial",
+      "confidence": "high",
+      "summary": "The architecture strongly supports this with Business Context Service (BCS) and Unified Decision Engine, but the implementation appears incomplete. Key components exist but need full integration and deployment.",
+      "supporting_components": [
+        "Business Context Service (BCS)",
+        "Unified Decision Engine",
+        "Decision Orchestrator",
+        "Commerce Foundation shared services",
+        "Catalog & Offer Service"
+      ],
+      "required_changes": [
+        {
+          "component": "Business Context Service",
+          "change_type": "modify",
+          "description": "Complete implementation of context resolver and event ingestion pipeline for real-time context updates",
+          "effort": "L",
+          "risk_level": "medium",
+          "blocking": true
+        },
+        {
+          "component": "Experience Layer",
+          "change_type": "new",
+          "description": "Build unified experience components that consume Commerce Foundation services",
+          "effort": "XL",
+          "risk_level": "high",
+          "blocking": false
+        },
+        {
+          "component": "Decision Orchestrator",
+          "change_type": "modify",
+          "description": "Implement full decision routing and plan execution pipeline as specified",
+          "effort": "L",
+          "risk_level": "medium",
+          "blocking": true
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "Context synchronization latency between self-serve and sales-assisted modes",
+          "severity": "high",
+          "likelihood": "medium",
+          "mitigation": "Implement event-driven architecture with <15s freshness SLO as specified",
+          "owner": "Platform team"
+        },
+        {
+          "risk": "Decision Engine performance at scale with multiple domain engines",
+          "severity": "medium",
+          "likelihood": "medium",
+          "mitigation": "Implement caching strategy and request coalescing as outlined in Arbiter architecture",
+          "owner": "Commerce Foundation team"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [
+          "Arbiter Execution Architecture deployment",
+          "Apache Arrow integration"
+        ],
+        "enables": [
+          "Self-serve commerce",
+          "Next Gen CPQ",
+          "Omni-channel experience"
+        ],
+        "external": [
+          "CRM integration",
+          "Identity provider (OneID)"
+        ]
+      },
+      "questions": [
+        {
+          "question": "What is the current implementation status of the Context Resolver component within BCS, and what's the estimated timeline to achieve the <15s data freshness SLO?",
+          "category": "timeline",
+          "priority": "critical",
+          "context": "BCS is fundamental to omni-channel experience but implementation status unclear",
+          "component": "Business Context Service"
+        },
+        {
+          "question": "How will the Decision Orchestrator handle version conflicts when a customer moves from self-serve to sales-assisted mid-quote?",
+          "category": "architecture",
+          "priority": "high",
+          "context": "Critical for seamless transitions between channels",
+          "component": "Decision Orchestrator"
+        }
+      ]
+    },
+    {
+      "roadmap_item": "Theme 2: CPQ Excellence",
+      "roadmap_item_description": "Customer Outcome: Sales teams can close complex B2B deals faster with fewer errors, while Deal Desk maintains governance and profitability. Competitive Advantage: Return to Magic Quadrant.",
+      "horizon": "cross-cutting",
+      "architecture_supports": "partial",
+      "confidence": "high",
+      "summary": "Architecture provides strong foundation through Agentic CPQ design and domain engines, but significant gaps exist in configuration service and approval workflow integration.",
+      "supporting_components": [
+        "CPQ Engine (Quote Manager)",
+        "Pricing Engine",
+        "Configuration Engine",
+        "Approval Engine",
+        "Deal Room Service",
+        "Proposal Service"
+      ],
+      "required_changes": [
+        {
+          "component": "Configurator Service",
+          "change_type": "new",
+          "description": "Build full configurator service handling complex product dependencies and rules as specified",
+          "effort": "XL",
+          "risk_level": "high",
+          "blocking": true
+        },
+        {
+          "component": "Approval Manager",
+          "change_type": "modify",
+          "description": "Integrate with Decision Engine for policy-based approvals",
+          "effort": "M",
+          "risk_level": "medium",
+          "blocking": false
+        },
+        {
+          "component": "Agentic CPQ components",
+          "change_type": "new",
+          "description": "Implement Quote Builder Agent, Product Discovery Agent, and related AI components",
+          "effort": "XL",
+          "risk_level": "high",
+          "blocking": false
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "Apex code migration complexity for existing customers",
+          "severity": "critical",
+          "likelihood": "high",
+          "mitigation": "Implement Apex Adapter with transpilation approach as documented",
+          "owner": "CPQ Engineering"
+        },
+        {
+          "risk": "Performance degradation with complex configuration rules",
+          "severity": "high",
+          "likelihood": "medium",
+          "mitigation": "Use constraint solver approach with proper caching",
+          "owner": "Configuration team"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [
+          "Commerce Foundation completion",
+          "Rules engine consolidation"
+        ],
+        "enables": [
+          "Deal scoring",
+          "Goal seeking",
+          "Advanced configurator"
+        ],
+        "external": [
+          "Salesforce integration",
+          "CLM integration"
+        ]
+      },
+      "questions": [
+        {
+          "question": "What is the planned approach for migrating existing Apex customizations - transpilation, DSL conversion, or hybrid?",
+          "category": "architecture",
+          "priority": "critical",
+          "context": "Critical for existing customer migration",
+          "component": "Apex Adapter"
+        },
+        {
+          "question": "How will the new CPQ handle the version sprawl issue mentioned in the docs where customers are spread across multiple CPQ versions?",
+          "category": "feasibility",
+          "priority": "high",
+          "context": "Major adoption blocker for existing customers",
+          "component": "CPQ Engine"
+        }
+      ]
+    },
+    {
+      "roadmap_item": "NOW (0-3 months): CPQ X Stability",
+      "roadmap_item_description": "Stability improvements and critical fixes for existing CPQ X",
+      "horizon": "now",
+      "architecture_supports": "full",
+      "confidence": "medium",
+      "summary": "Current architecture can support stability improvements, but unclear how new architecture components integrate with legacy CPQ X.",
+      "supporting_components": [
+        "Existing CPQ X infrastructure",
+        "Salesforce platform"
+      ],
+      "required_changes": [
+        {
+          "component": "CPQ X",
+          "change_type": "modify",
+          "description": "Apply stability fixes and performance improvements",
+          "effort": "M",
+          "risk_level": "low",
+          "blocking": false
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "Investing in legacy while building new creates resource conflicts",
+          "severity": "medium",
+          "likelihood": "high",
+          "mitigation": "Clear team separation between maintenance and new development",
+          "owner": "Engineering leadership"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [],
+        "enables": [
+          "Customer retention during transition"
+        ],
+        "external": [
+          "Salesforce platform updates"
+        ]
+      },
+      "questions": [
+        {
+          "question": "How much engineering capacity is allocated to CPQ X maintenance vs. new CPQ development?",
+          "category": "capacity",
+          "priority": "high",
+          "context": "Resource allocation impacts both stability and future development",
+          "component": "CPQ X"
+        }
+      ]
+    },
+    {
+      "roadmap_item": "NEXT (3-6 months): Next Gen CPQ Concept validation",
+      "roadmap_item_description": "Validate Next Gen CPQ concepts and begin implementation",
+      "horizon": "next",
+      "architecture_supports": "partial",
+      "confidence": "high",
+      "summary": "Architecture provides detailed design for Agentic CPQ and integration patterns, but implementation complexity is high with many moving parts.",
+      "supporting_components": [
+        "Agentic CPQ components",
+        "Decision Engine",
+        "Business Context Service",
+        "Quote Builder Agent",
+        "Product Discovery Agent"
+      ],
+      "required_changes": [
+        {
+          "component": "Quote Builder Agent",
+          "change_type": "new",
+          "description": "Implement conversational quote building with LLM integration",
+          "effort": "L",
+          "risk_level": "high",
+          "blocking": true
+        },
+        {
+          "component": "AAPE (Apex Adapter & Policy Agent)",
+          "change_type": "new",
+          "description": "Build adapter for legacy Apex logic execution",
+          "effort": "L",
+          "risk_level": "high",
+          "blocking": true
+        },
+        {
+          "component": "Integration Layer",
+          "change_type": "new",
+          "description": "Build CRM-agnostic integration layer",
+          "effort": "M",
+          "risk_level": "medium",
+          "blocking": false
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "AI agent non-determinism affecting pricing accuracy",
+          "severity": "critical",
+          "likelihood": "medium",
+          "mitigation": "Strict separation of AI planning from deterministic pricing service",
+          "owner": "AI/ML team"
+        },
+        {
+          "risk": "Complex state management between agents",
+          "severity": "high",
+          "likelihood": "high",
+          "mitigation": "Implement proper orchestration and state management",
+          "owner": "CPQ Engineering"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [
+          "Commerce Foundation core components",
+          "AI framework selection"
+        ],
+        "enables": [
+          "Agentic quoting",
+          "Goal seeking"
+        ],
+        "external": [
+          "LLM provider selection",
+          "OneID integration"
+        ]
+      },
+      "questions": [
+        {
+          "question": "Which LLM provider and framework will be used for the conversational agents, and how will we ensure response latency stays under 2 seconds?",
+          "category": "architecture",
+          "priority": "high",
+          "context": "Critical for user experience in conversational interface",
+          "component": "Quote Builder Agent"
+        },
+        {
+          "question": "How will the system handle Apex logic that relies on Salesforce-specific APIs (SOQL, triggers) in the new architecture?",
+          "category": "feasibility",
+          "priority": "critical",
+          "context": "Major blocker for customer migration",
+          "component": "AAPE"
+        }
+      ]
+    },
+    {
+      "roadmap_item": "LATER (6-12 months): CPQ Magic Quadrant Features",
+      "roadmap_item_description": "Advanced features to compete with Magic Quadrant leaders",
+      "horizon": "later",
+      "architecture_supports": "partial",
+      "confidence": "medium",
+      "summary": "Architecture provides foundation for advanced features like goal seeking and AI recommendations, but specific implementations need definition.",
+      "supporting_components": [
+        "Decision Engine",
+        "Recommendation Engine",
+        "Intelligence Service",
+        "Pricing Engine"
+      ],
+      "required_changes": [
+        {
+          "component": "Goal Seek Module",
+          "change_type": "new",
+          "description": "Implement constraint solver for quote optimization",
+          "effort": "L",
+          "risk_level": "medium",
+          "blocking": false
+        },
+        {
+          "component": "Visual Configurator",
+          "change_type": "new",
+          "description": "Build visual/3D configuration capabilities",
+          "effort": "XL",
+          "risk_level": "low",
+          "blocking": false
+        },
+        {
+          "component": "Analytics Integration",
+          "change_type": "new",
+          "description": "Deep analytics and deal scoring capabilities",
+          "effort": "L",
+          "risk_level": "medium",
+          "blocking": false
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "Goal seeking solver performance with complex constraints",
+          "severity": "medium",
+          "likelihood": "medium",
+          "mitigation": "Use proven constraint solver libraries and implement caching",
+          "owner": "Optimization team"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [
+          "Core CPQ functionality",
+          "ML infrastructure"
+        ],
+        "enables": [
+          "Competitive differentiation",
+          "Enterprise deals"
+        ],
+        "external": [
+          "Analytics platform",
+          "ML ops infrastructure"
+        ]
+      },
+      "questions": [
+        {
+          "question": "Will the goal seeking solver be built in-house or leverage existing optimization libraries, and how will it handle multi-objective optimization?",
+          "category": "architecture",
+          "priority": "medium",
+          "context": "Build vs buy decision impacts timeline and capabilities",
+          "component": "Goal Seek Module"
+        }
+      ]
+    },
+    {
+      "roadmap_item": "FUTURE (12+ months): Full Platform Convergence",
+      "roadmap_item_description": "Complete integration of all commerce and CPQ capabilities into unified platform",
+      "horizon": "future",
+      "architecture_supports": "full",
+      "confidence": "high",
+      "summary": "Architecture vision fully supports this end state with Commerce Foundation as the unifying layer, but execution path is complex.",
+      "supporting_components": [
+        "Commerce Foundation (all components)",
+        "Unified Decision Engine",
+        "Business Context Service",
+        "All domain engines"
+      ],
+      "required_changes": [
+        {
+          "component": "Platform Integration",
+          "change_type": "new",
+          "description": "Complete integration of all services through Commerce Foundation",
+          "effort": "XL",
+          "risk_level": "medium",
+          "blocking": false
+        },
+        {
+          "component": "Legacy Migration",
+          "change_type": "migrate",
+          "description": "Full migration path from CPQ X to new platform",
+          "effort": "XL",
+          "risk_level": "high",
+          "blocking": false
+        }
+      ],
+      "technical_risks": [
+        {
+          "risk": "Data migration complexity for large customers",
+          "severity": "high",
+          "likelihood": "high",
+          "mitigation": "Phased migration approach with extensive testing",
+          "owner": "Platform team"
+        }
+      ],
+      "dependencies": {
+        "prerequisite_work": [
+          "All previous phases",
+          "Platform maturity"
+        ],
+        "enables": [
+          "True omni-channel commerce",
+          "Vendor for life vision"
+        ],
+        "external": [
+          "Market readiness",
+          "Customer adoption"
+        ]
+      },
+      "questions": [
+        {
+          "question": "What is the planned deprecation timeline for CPQ X, and how will we support customers who cannot migrate?",
+          "category": "timeline",
+          "priority": "high",
+          "context": "Critical for customer communication and support planning",
+          "component": "Platform"
+        }
+      ]
+    }
+  ],
+  "cross_cutting_concerns": {
+    "architectural_gaps": [
+      "Rules engine fragmentation - multiple teams building separate rule engines without coordination",
+      "Data layer ownership unclear between BCS, catalog, and domain services",
+      "Performance testing framework for sub-10ms decision latency not defined",
+      "Multi-tenant isolation strategy for Agentic CPQ not specified",
+      "Event sourcing and audit trail implementation details missing"
+    ],
+    "systemic_risks": [
+      "Engineering capacity split between maintaining CPQ X and building new platform",
+      "Integration complexity between Commerce Foundation components may delay delivery",
+      "Customer migration path from CPQ X to new platform unclear",
+      "Performance requirements (sub-10ms) may conflict with feature richness",
+      "Dependency on external AI/LLM providers for core functionality"
+    ],
+    "recommended_adrs": [
+      "ADR-001: Rules Engine Consolidation Strategy",
+      "ADR-002: Multi-tenant Data Isolation for SaaS",
+      "ADR-003: Event Sourcing vs State Management",
+      "ADR-004: AI Agent Determinism Boundaries",
+      "ADR-005: Performance vs Feature Trade-offs",
+      "ADR-006: Legacy System Migration Patterns",
+      "ADR-007: Catalog Hierarchy Implementation",
+      "ADR-008: Decision Engine Caching Strategy"
+    ],
+    "sequencing_recommendations": "The technical implementation should follow this sequence: 1) Complete Commerce Foundation core (BCS and Decision Engine) as these are foundational, 2) Implement minimal Agentic CPQ with basic Quote Builder Agent to validate architecture, 3) Build Configurator Service in parallel as it's needed by both current and future CPQ, 4) Layer in advanced features (goal seeking, visual config) only after core is stable. Critical decision point: whether to pursue full APEX compatibility or force migration to new patterns - this will significantly impact timeline and customer adoption."
+  }
+}

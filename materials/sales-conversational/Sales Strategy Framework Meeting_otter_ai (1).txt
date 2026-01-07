@@ -1,0 +1,871 @@
+Speaker 1  0:00  
+Stories, and it's order to cash and acquisition to cash. And so I think there's some come to, like, a consensus here on, like, is it one story, or is it two stories, based on who we're trying to sell to? Is it the B to B and, like, the complex enterprise,
+
+Speaker 2  0:16  
+so interesting? Yeah, I feel like, feels like my morning, I haven't
+
+Speaker 1  0:20  
+been able to, like, I'm still, like, digesting a lot of like, the feedback, but I think it's we need to come back to team with a pretty strong perspective from here. We need the same
+
+Speaker 3  0:30  
+question that has come up every meeting about sko for the
+
+Speaker 1  0:34  
+last month and a half. Great, yeah. And I think through the like, it's not just the demos are going to dictate that story, but it's like those those demos will enhance that story. And I think we just need to come back to team and say, like, one of his main takeaways was, like, Why do we exist at the end of the day? Yeah, yeah. Like, that was something he kept honing in, back in on of like, Zora exists because we provide the agility through, like, the continuous change that companies are like facing based on new go to market strategy, AI is throwing a wrench into the works, and it's like Zora has the ability to provide our buyers with the agility to be able to handle continuous change.
+
+Unknown Speaker  1:15  
+Can I give some more context on the light of the existing? Yeah,
+
+Speaker 4  1:19  
+what an existence has to be answered in the context of, like, other systems, right? So the question is, like, the easiest thing to do, if I'm a CIO CFO, is just to connect Salesforce to Oracle or whatever in the back end and call it a day. Yeah? Like, that's the that's the default. Like, why wouldn't you? Why wouldn't everybody just do that? Right? So why do we exist? Question is about, like, really bringing a life like you will kill your company if you make that decision and like that. So it's not, yeah, it's not just agility, but it's like, Look, if you don't put this thing in, if you choose to go the easy route, you die. And here's why, right? So you need to go through the steps of adding this third thing that you didn't doesn't necessarily make sense, yeah, initially, like, what that's the context?
+
+Speaker 1  2:06  
+The thing that I liked was like, you're choosing law. You're choosing Laura, because you should value long term adaptability, ability versus short term convenience. And many folks are taking the short term, convenient route of like the Salesforce plugin SAP, like that was one of his examples. And it's like, you need Zora because we provide that long term adaptability versus like,
+
+Speaker 2  2:33  
+all the time horizon is, I've got a self serve motion, and I'm not thinking about when I'll be sales assisted. How do I move along that spectrum?
+
+Speaker 4  2:44  
+Yeah, like, the you're always going to change. Yes, you could, no matter, you could hire Accenture to come in and connect your Salesforce thing to Oracle thing, and it would work great for the next 90 days. And then after that, like, it's going to start to break, it's going to start to break. And then two years from now, you're screwed.
+
+Speaker 2  2:59  
+And also, when you know, you what you want to what I've come to realise is that we, I was breaking down the our markets into plg and SLG, but they're too rigid that it's there's a spectrum. And you our sales teams can live anywhere along that spectrum. Our customers can live along that spectrum between sales assisted and self serve, self self service, sales assisted. And, in fact, there's examples of self sales assisted going back to self serve. Like, as the CAC, as a cost of the sales assisted motion gets too expensive. They want to go portion of their audience down to the self serve. Does that make sense? Is that this is that the spectrum,
+
+Speaker 4  3:36  
+I think, like, look, the biggest thing is we have to land on our what's the frame for this conversation and we have, here's the here's the different frames that exist out there that are confusing because they are similar, but they're all a little different. Yeah, battleground one, battleground two. That's one frame. The next frame is acquisition to cash versus order to cash. Yeah, that's the second frame.
+
+Speaker 2  3:59  
+I do think it's a position to order, order to cash.
+
+Speaker 3  4:02  
+That's how can you have acquisition to cash, order sits in the middle of that. Well, you introduce that
+
+Speaker 4  4:08  
+language, yeah, I didn't realise if I said it enough to become a thing. These are the these are the frames. There's like, you know the, I call it the server, like, maybe frame is battleground one, battleground two. Yeah, the DJ. Frame is order cash versus quote to revenue. Yeah, sorry, sorry, acquisition to cash versus quote to revenue. The new product management organisational frame is acquisition to order, order to cash, so we can't have those are, like, three different frames, each with two things that, like, don't quite line up, and then now you're using a third thing, which says that's one thing. It's just a spectrum. Was that your fourth thing? Vendor for life?
+
+Speaker 3  4:51  
+I will also say, like, there's a there's a standard industry terminology. If you go to Gartner practices and others, order to cash is a financial function, correct? Is it order? Is it quote? So there's, there's order to cash, quote to order, there's acquisition to order. Like, these are these are all standard terminals, and they all exist in the industry. And so I don't, I, I'm a fan of like, why would we recreate the wheel? Like, why wouldn't we talk the language. The question is our ICPs and who we're targeting. There's so many of these different like dictionaries out there, like, which dictionary do they look to? Who's our ICP What language do they use? And then we should align our language to that? Yeah.
+
+Speaker 4  5:36  
+The other one is like, B to B versus B to C. That's the That's where team goes.
+
+Unknown Speaker  5:40  
+Yeah, you have the problem is, I think that's a red hair. Yeah, I do too,
+
+Unknown Speaker  5:43  
+because it's B to C. Well, which one also
+
+Speaker 3  5:46  
+B to B any made, especially in the industries we focus on in a B to B Channel, there's going to be a B to any motion somewhere in there, which means you have to have some level of B to C context.
+
+Speaker 4  6:00  
+I think like, the company would be comfortable with any of these things, as long as, like, probably this group has conviction that, yeah, this is the story we want to tell right now. We might have to go,
+
+Speaker 3  6:10  
+like, Google's story. We can do all of these things that we could do so much which, which one do we want to focus on?
+
+Speaker 2  6:17  
+I agree with you. I think it may be, I don't know. At the right point. Now, I'd like to show you a diagram of what acquisition to order is, because I think that will address the what is our set, what sales motion are we building for? What ICP are we building for?
+
+Speaker 4  6:35  
+What is what? Guess like I know the product point of view is going to be how you all just reorganised, like, acquisition, order, order to cash or pick the pick the right language, like that, the business process view, yeah, Andrew, what's, what's your view of, like, a frame? Are you in the camp of, like, it's one platform, or it's like, how would you
+
+Speaker 5  7:01  
+we've been testing out just with talking to some customers about that. I don't know if you've seen the layer cakes, yeah, they've been waiting around, testing that out as a framework for talking about it. So for example, we're at nine Fairfax last week, who is media, but they're trying to consolidate everything, and they have both B to B and B to C plays, and we use that as a way of structuring the conversation always, or fits. What that was really good at doing was knowing that we're up against stripe and piano, for example. For these guys, it really highlighted that we can merge the world of B to B and B to C together, which was important to them. We know that's not stripe streams, channel and also for them, they were already thinking down to the cash level. They weren't thinking revenue. So we were able to bring that into a further conversation, into taking right one step further, because that's a something that we're very good at as well.
+
+Speaker 4  7:58  
+But your frame, your frame start, that your layer, click thing is built on A, B to B versus B to C frame.
+
+Speaker 5  8:05  
+It's a, it's a. We do both of them. It's like there's two different ways of acquiring one's a more a product, leg growth style, and one's more of your traditional quote, CPQ style. Or there's a combination of both.
+
+Speaker 2  8:19  
+Isn't that just sales self serve, or sales assisted, right? Yeah, right. Because I think, I think the if you talk about self serve, then you can cherry pick the B to C that you take self serve to, whereas, if we say B to C, B to B, pl, G, B to B, SLG, they're quite rigid, and it misses the nuance in the middle, right? Yeah, let me pull up. But that also, if you think about it, this the self serve to sell. The sales assisted is also the omni channel strategy, which is the commerce Foundation, which is actually acquisition to order.
+
+Unknown Speaker  9:00  
+Yeah, let me just pull this stuff up.
+
+Unknown Speaker  9:02  
+Also, whiteboard on the screen, Kyle, if you want.
+
+Unknown Speaker  9:11  
+As I hear this
+
+Speaker 1  9:15  
+acquisitional order, like, order to cash, like, these are stages, or these are particular traffic, or we have an end to end platform that if we want to focus a conversation, there's a specific like, step 12345, that, like we're talking to a specific buyer on it's like acquisition to order is just one part of the story. And like, we have solutions for supporting your challenges around acquisition order, then we have a set of solutions to your challenges around order to cash. And it's like, doesn't mean we have to change this top line narrative that, like Zora has it all for you, but we have a specific set of products and can focus the conversation based on, like, what your current needs are, and that's where we could say we're talking about acquisition to order right now. This means feature 123, like, Why? Why does, why does teen feel like we need to separate it into we have a completely different B to C story.
+
+Speaker 3  10:17  
+I had the same question. Because, to me, we have acquisition to cash. We have multiple entry points along that journey where you can enter the whole thing, you can enter one place and expand all this different stuff. Yeah, and it is channel agnostic,
+
+Speaker 4  10:32  
+but you just looking for a frame because you said, like, we do everything for everybody. You can't. It's not good,
+
+Unknown Speaker  10:39  
+right? No, I know that.
+
+Speaker 4  10:40  
+That's like, we're too configurable, right? So you need some framework to help people understand, okay, like, what does or do? That's why I think the layer cake thing is resonating, because it's like, hey, we can do all this, but it gives people a way to digest the information, right?
+
+Speaker 3  10:54  
+I just have a conflicting view, because I actually don't think the problem is narrowing in, like the product or process view of what we do. I think our problem is narrowing in which pain point in ICP are we best suited at targeting? And that's a product question, a marketing question, well, a sales question,
+
+Speaker 4  11:17  
+no, because look where the strategy conversation has gone is that we're there's really two things, right? One is, we're gonna have an intentional push into SaaS companies, and we're specifically going to be focusing on the finance persona at SaaS companies. So that's an ICP and pain point question. So that's an ICP pain point, okay? The next one is, we're generally going to serve complex enterprises as they come in bound for which I have
+
+Speaker 3  11:41  
+the same problem with that as I have a battleground to it's such a generic
+
+Speaker 4  11:46  
+but that's that's a that ends up being who we're selling to.
+
+Speaker 3  11:50  
+So but this is where we get into a problem, though, because complex si engagements, if they bring me a telecom deal, my product roadmap is dramatically and Jonathan's is too dramatically different than if they bring me a fence serve, than if they bring me a media company like, and I don't mean like slightly different roadmaps, they are dramatically different road maps.
+
+Speaker 2  12:16  
+Well, it's it's interesting, because
+
+Unknown Speaker  12:19  
+we sold, we sold
+
+Speaker 4  12:23  
+in q3 roughly 10 new logo deals, and like eight of them were other, other, yeah, meaning they weren't. They weren't like media, they weren't SAS. They were like other, yeah, but they were still judged to be companies that are a good fit for
+
+Unknown Speaker  12:42  
+our platform, where they si pipeline
+
+Speaker 4  12:44  
+size influence, like 80% of the source did or influence it. So, so,
+
+Speaker 3  12:51  
+yeah, it only takes one Twilio. So I agree that, like that eight, there's something in that eight that's that's meaningful, right? But it only takes one Twilio. I can't serve those eight because I'm servicing that one?
+
+Speaker 4  13:00  
+Yeah, totally. So there's this whole conversation that says, Look, we have to be really good about, like, not letting the one Twilio come in and blow everything up. But, like, we ought to be able to, there's enough. There's enough. This is the we do all this stuff, right? You're saying yourself, we do all this stuff. There's a lot of companies that fit in the spot of this. I think that's the realisation from the strategy exercises. Like, we're not just going to pick just going to pick telco, we're not going to pick, meaning, I think a vertical, we're not going to pick a vertical because, like, you're all saying, like, we do this with everybody, so
+
+Speaker 2  13:30  
+sales teams will pick the vertical, right? So I spoke to, I've done a lot of kind of talking to people like Paulo and Mark gagne and DJ and Boone. Paulo made the point to me that 60% of his business is not complex B to B, it's other it's B to B, it's plg, it's B to C, correct. It's not B to B, complex. So he wants so, but he also has complex. Boone wants complex. DJ wants plg. SLG wants to go up and down the slider at will. Mark gagne, brute forced B to any by doing deals with, with, yes. So we do all of that, so that, so that, so that, I guess the two maybe something we're going to talk about. The two lenses are slightly different, commerce, commerce Foundation, acquisition to order is a different problem set to what to your problem set, which is fundamental, where we join is probably payments, right? It's like, that's the little bit in the middle, and maybe some of the interactions between the experiences and the back end, but largely my problems and are I don't I think I can solve for the spectrum. Yeah, I don't think I have the same problem as you do. I solve for the spectrum because I what we want is omni channel. Omni channel is sales assisted to self serve. Don't have to say P to C, B to B, pl, G, complex. It's just, where are you on the spectrum? And the thing I'm doing is creating, finally, the commerce Foundation, by ripping it out of the product and making it a unified layer that enables true omni channel. So I can do that. I can build for any, any use case, so I don't have the same constraint.
+
+Speaker 3  15:10  
+Would be like, based on that, what we decide here, though, yeah, like, what if we decide to go all in on the B to B SAS piece, because that then indexes it maybe doesn't, it it doesn't nullify anything, but it dramatically shifts your product focus to be more CPQ focused and deal desk focused.
+
+Speaker 2  15:28  
+Well actually, so that's a really good point. What I'm trying to do is abstract the A to O away from that problem.
+
+Speaker 4  15:35  
+We're saying the strategies we are doing all of it. We're not picking one of these things, yeah.
+
+Speaker 6  15:42  
+But then what is it? Is this strategy? Know that we're going we're going to do B to B fast outbounding 10 times better, and we're going to be better at serving all the other customers when they are inbounded to us like that, seems to me like the most discernible changes the inbound outbound balance.
+
+Speaker 4  16:02  
+Yeah, that's, that's, that's a, that's a pipeline strategy, right? But we're talking about our platform. The platform has to serve like all four of these.
+
+Unknown Speaker  16:12  
+I can tell you, as a customer,
+
+Speaker 3  16:15  
+when I come to Zora and I say, Hey, I'm RFP for this problem, yeah? And Zora goes, we got that problem because we do everything. It is less compelling than a vendor who comes to me and says, I do that problem.
+
+Speaker 4  16:27  
+Really, I'm saying the same thing as you. Man, that's why I'm trying to say, like, we need a framework that allows us to chunk up our everything into pieces so that it drives relevance, right? And you, the way you chunk up your story, just needs to be a framework. Like, we have this, we have this massive, complex platform. What's the logical way to break it up that helps our fields? Grok, like, I'm going to put this piece with this customer that helps the marketing team go Got it? Like, I'm a position this piece in this way.
+
+Speaker 3  16:55  
+I think you called the first 1b to B SAS. Is it B to B SAS, or is it early stage SAS?
+
+Speaker 4  17:00  
+It's just, it's just SaaS, not early stage.
+
+Speaker 3  17:02  
+So here's so I'm going to index on this one, because I still have an issue with the generic size side of things. I actually think that that's a good framework to, like, lock in this until I figure out, like, if we say that's our ICP and we can do everything, like, how do we reframe the story around everything that we can do for that ICP. The problem, though, comes back to like, if we want to focus on SaaS, some SaaS customers are going to sell their product at $50,000 a pop, in which case there are things like E payments that just doesn't matter in our portfolio. And then there's customers who are selling widgets at $10 a month, and then, in which case, I have to have my E payments. So this is where we get into the plg, SLG, the B to B, B to C, B to any like, when you say, SaaS, it depends on the price point and the product that they're selling. And I think that's there's something in that around us telling our story of, like, it doesn't matter how you go to market, because market, because you're gonna go to market in different ways over the next 10 years.
+
+Unknown Speaker  18:06  
+Yep, we're always going to be there for you. This is the vendor for life
+
+Unknown Speaker  18:09  
+story, yeah, yeah. To me, that's that's a value.
+
+Speaker 2  18:11  
+We scale. We scale as you scale. Yeah. I meet you where
+
+Speaker 3  18:15  
+you're at today. I have options for you tomorrow. Can I
+
+Unknown Speaker  18:20  
+do this. Let's just pick two ends of the spectrum, right?
+
+Speaker 4  18:27  
+Pick a complex B to B scenario, and pick a high volume B to C scenario, and just run end
+
+Unknown Speaker  18:33  
+to end for both. But I think that that's what Andrew's model
+
+Speaker 4  18:37  
+is, right? So that would be, that would be a good framework, right? To say, Look, we do all this, but
+
+Speaker 3  18:40  
+that's the model that team is throwing rocks at. No team
+
+Unknown Speaker  18:44  
+likes him. He likes the two things. May
+
+Speaker 5  18:46  
+I just chuck something in here? So one of the big things I've seen a shift that I've been trying to get CSEs across the company to do, is essentially, when they talk to a customer is following the money, right? So it's like, start at acquisition. I don't care what they're selling or what they're doing, somehow they're they're acquiring, right? Take, follow the money through the process and take them all the way to the end. So yeah, funnel, yeah. I think the story, the overall story, needs to be getting people think about the funnel, because I see it so often where everyone just starts with billing, right? They go into a talk to a customer about billing, and then they start satelliteing out to go, Oh, we've also got some revenue. We've also can do some acquisition stuff. And I think the fundamental shift from an aese point of view has got to be, get them thinking that way. The first discovery question should be, how do you sell the customers start from there, yeah, all the different semantics of the different types of acquisition and different types of business model should run that because they should have the be smart enough to say, Okay, no, this customer, they sell this way, therefore we should follow this path.
+
+Speaker 2  19:52  
+Yeah, but that lines up with omni channel. That's the that's the elusive bit. And omni channel hasn't been delivered because the found commerce Foundation, which is the intersection between the things that deliver omni channel, the components have lived all over the acquisition to order space. So bring, what we're going to do is bring those all together in a single layer, the proper, the what commerce foundation, I think, was always meant to be, deliver omni channel. And omni channel is sales assisted and self service. So I think Andrew is right, is that the if you follow where the what the customer, how the customer wants to sell. We know billing, in its infinite complexity, can take care of any sales motion, whether you're doing B to B, plg complex, SARS B to C in car systems, whether, whether you know that one of the stories is like, I start off as a guided selling experience, and then I have to click Hey. I need to speak to a sales rep. In order for that to happen, context has to be shared between single systems so that sales rep can pick up the same view as the as the guided selling experience that's delivered through experiences context is universal, orchestration and actions is universal. That's omni channel. So I think what, I guess, what, what we're saying is acquisition to order is true. Omni channel, the billing system, which is order to cash, can cater for any channel, any type of selling experience, because you have the configurability. The only thing that we're missing, and I kind of it's a bit like a unicorn, is, I've heard about this elusive thing called reference architecture, reference implementation, seed billing. The only thing that the only blocker, is that full, fully baked billing is too big a thing for the B to B, plg SaaS businesses to consume. So that's something I wanted to talk to you about this afternoon. Is, how do you I spoke to Clarissa. They reckon they could get billing up for a B to B plg company in four weeks, but they don't have the reference architecture, the reference implementation. So that's the only blocker, but I think it's, how do we sell? To Andrew's point, and then billing is the engine that it doesn't matter how you sell.
+
+Speaker 4  22:07  
+So, so is it like you're saying it's really there's this, and then there's
+
+Unknown Speaker  22:12  
+two A and 2b
+
+Speaker 4  22:18  
+That's another frame, yeah, which is like, let me tell you the acquisition to order story, which is omni channel. And now let me tell you how that order turns into cash for a self service business. And let me tell you how that turns into cash for more like, A, B to B, yeah. So that that's, that's one way you
+
+Speaker 7  22:35  
+could do it. I think so. Or you
+
+Speaker 3  22:40  
+it's really only the payments and AR piece though, that is drastically different,
+
+Unknown Speaker  22:44  
+right? Or
+
+Speaker 3  22:46  
+two motions, yes, self service, it's E payments, so assisted, its accounts receivable.
+
+Unknown Speaker  22:52  
+Option two, is this where you go? Yes.
+
+Speaker 2  22:57  
+Is it? Well, it, sorry, is it the is it the, is it the complexity of the like rev rec, for example, that is also
+
+Speaker 3  23:06  
+not really, no, no. The complexity is making sure that the billing to rev REC is all integrated, which is a technical thing that we're working on.
+
+Unknown Speaker  23:18  
+Okay, so let me show you the three options
+
+Unknown Speaker  23:21  
+you guys are gonna vote.
+
+Speaker 4  23:24  
+Here's option one. We do everything. We're going to show you one demo, and it's going to hit on everything we do, yeah? Somehow, like, end to end. That doesn't get my vote. This is what team was throwing rocks at, by the way. Yeah, this could be called the everything bagel. Everything bagel strategy, yeah, nothing. Okay, that's option one.
+
+Speaker 5  23:46  
+That was my first day of the job, and I really didn't enjoy it.
+
+Unknown Speaker  23:50  
+Okay, here's option two.
+
+Speaker 4  23:53  
+Look, there's really two scenarios. Just to orient you, we're going to show you, like an end to end, acquisition to cash for a self service type company, and we'll show you an end to end acquisition to cash for like a more complex assisted sale company, acknowledging that there'll be companies that sit in the middle, but let's just show you the two ends of the extreme, just to get your head around it. That's option two.
+
+Unknown Speaker  24:20  
+Here's option three. Is this other one,
+
+Unknown Speaker  24:27  
+this one, which is something about, look the
+
+Unknown Speaker  24:35  
+there's something about, like, Omni channel commerce
+
+Speaker 2  24:38  
+up front, so I hear what you're saying. And then,
+
+Speaker 4  24:41  
+and then, like, let us. Let us show you what the world looks like for a company where this has to be automated because it's at scale and it's electronic payments and blah, blah. And then let me show you one where it's like an assistant sale.
+
+Speaker 3  24:51  
+Let's just talk to this guy. I think I'm, I think I'm leaning towards this one. Yeah, me too. But my the two a and the 2b in the order to cash. World is different. On the x axis, so like in just purely self service versus Assist is not delineated enough, because self service to a for a consumption based business, super complex, totally different billing implementation, but the payments and the revenue is all the same. Versus a pure subscription place self service, the billing is different, but the payments and revenues
+
+Speaker 4  25:29  
+or just pick, pick two scenarios that are like opposite ends of the spectrum, acknowledging there's always going to be companies that have something in the
+
+Speaker 3  25:36  
+middle, right? But that's what I mean, yeah, in the billing space, those two spectrums are subscription and consumption. I don't care if it's self service assisted or not on the front end. What I care about is your How are you calculating how much you owe me? Which is a consumption based calculation or a subscription
+
+Speaker 2  25:57  
+flat? So it's not delineated by self service.
+
+Speaker 3  26:01  
+You know, the billing complexity is delineated by, you're saying it was like product complexity.
+
+Speaker 4  26:05  
+There's like, another layer in here, which is, like the billing piece.
+
+Speaker 3  26:10  
+Yeah, you're the billing is the nexus of all of this. It can ingest the multi upfront, yeah, and then it needs to figure it out and, like, implement for whatever your business is, and then disperse it out to the back
+
+Unknown Speaker  26:21  
+end, right? But the flows, I mean, right.
+
+Speaker 4  26:25  
+But you would still, you'd pick a flow that says, hey, we want to show you an omni channel acquisition
+
+Speaker 3  26:30  
+thing, because, to Jonathan's point, like in that billing layer, if I had templatized models where it's like, Hey, I've got this reference architecture for a consumption based self service. I've got this reference architecture for a subscription sales assisted thing.
+
+Unknown Speaker  26:47  
+The front end and the back end fall into place.
+
+Unknown Speaker  26:52  
+Yeah. Andrew, isn't this at what you already have
+
+Speaker 5  26:54  
+marked, yeah, can I? Can I throw my story? This is just an idea, a story flow, and I kind of hits a lot of the points. And the way I was kind of thinking, if we could do it as one story, can I share my slide as much as I love your whiteboard? Can I
+
+Unknown Speaker  27:11  
+You gotta stop sharing before?
+
+Speaker 6  27:16  
+Before you share it. That will at least help ground me. So we started with like, what is team getting on stage and saying? And Chris, you started to say, agility through continuous change. You're choosing Zora because you need long term adaptability versus short term convenience. We talked about this like moving along the spectrum. If we had to say whether it's one story or two stories, Zora is for companies that X, Y, Z do we all have one answer to that question, like whether we have one two stories. We're not everything to everybody. There are companies we're not for.
+
+Speaker 4  27:52  
+Hold back Tara, we're just gonna take us in another direction. Okay?
+
+Speaker 6  27:59  
+My only thought is that, to me, like, until we have the centre of gravity, we're like, trying to get around the centre of gravity by figuring out, like, its parts. But like, to me, if I know, like we are for companies that x,
+
+Speaker 4  28:13  
+but you got to go. You got to go. You got to start with the parts. You can't start with the tagline and work your way down from that. You got to like the tagline as a result of like the product strategy.
+
+Speaker 6  28:25  
+Oh yeah, no, I don't, I don't mean like the tagline. I mean just like, like, what companies are we not for?
+
+Speaker 4  28:33  
+We're kind of saying, well, like, if you have simple, if you just started, like, simplistic monetization, you don't need us. Just hook Salesforce up to Oracle, and you're done simplistic meaning like, Look, I just so I sell widgets.
+
+Speaker 3  28:46  
+But there's a problem with that story, because that becomes the unicorn that grows into a more complex billing, and then we've missed out on the early stage, and we're trying to capture them as they grow, instead of growing.
+
+Speaker 4  28:59  
+We explicitly have said we are not, we have not, we don't have a strategy next year to go after low end SaaS companies.
+
+Speaker 2  29:06  
+What's low end in ICP, like,
+
+Unknown Speaker  29:11  
+companies with, like, less than 50 million,
+
+Unknown Speaker  29:14  
+you know, Y Combinator companies?
+
+Speaker 8  29:18  
+Are we for any company with, like, a recurring revenue model, like, is that what we it's that who we're I'm hearing, no,
+
+Speaker 4  29:25  
+we are not explicitly going after and trying to compete for, like, Y Combinator companies.
+
+Speaker 3  29:30  
+We're trying to catch companies as they're on the way up and complex.
+
+Speaker 4  29:33  
+If they come inbound to us, great. But, like, we're not going to go build products specifically designed for a six person startup. Yeah, nothing for a bunch of engineers,
+
+Speaker 3  29:41  
+yeah, we're waiting for companies to get frustrated with their existing platform because they've outgrown it, and then we capture them. That's I'm just reframing it. I kind of always thought I would think of it
+
+Speaker 2  29:51  
+100 mil 50. I mean, if you go to Europe, 50 to 300 mil is big right here. That's 500 mil to 3 billion.
+
+Speaker 4  29:59  
+Draw a line audio revenue number. That's why, right? But I'm saying, if you're, if you don't have a CFO, yeah, and you're six guys in a garage, and you just got Y Combinator
+
+Speaker 3  30:10  
+fund that I can get going, Yeah, because we know how to talk to a CFO. And if you don't have a CFO,
+
+Speaker 4  30:13  
+that's right. Why are we talking? That's right. If you have insurance, we're not going to win. You're going to use stripe. You're going to use so, like, Look, if you still want to use us, we'll talk to you. But like, look, it's going to cost you 100 grand. The reason you want to buy us is because, like, you know you're thinking about rev rack and shipping. If you're a Y Combinator engineer, you're not thinking about, right? Like, so, like, we're not focused on trying to sell those companies. Yeah, we're not trying to focus. We're not trying to sell to product companies.
+
+Unknown Speaker  30:41  
+Like, meaning, I sell widgets. Yeah, that's all I do. I think
+
+Speaker 3  30:46  
+this is clarifying, writing, these are the things, documenting these and getting aligned. These will help us
+
+Unknown Speaker  30:52  
+shape the story we're trying to sell the professional services companies,
+
+Speaker 4  30:57  
+right where you're like, 80% of the revenue service is based because we don't do like, time, materials like that.
+
+Speaker 3  31:01  
+We want to have some services billing capabilities when you're using services as part of your product station, right? But we're
+
+Unknown Speaker  31:07  
+not, we're not a professional service ability.
+
+Speaker 2  31:09  
+So you have to so that the ICP, that the revenue is not a big deal. But you have to have a CFO,
+
+Speaker 4  31:15  
+yeah, you a relatively mature finance organisation, but you could be a $50 million SAS company. Have that yet. So, yeah, I would say that, like, we don't have a lot of success in, like, super large existing companies, where it's just a little like bolt on thing in the side, you know, where it's like an unproven startup within these large enterprises, because it ended up being like, a lot of calories to sell. And oftentimes that turns, they turn anyway, right? So what else we don't want to Pete doesn't want to build a lot of industry specific functionality. So like, the media space, like, we don't want to get into like, add, you know, content. We don't want
+
+Speaker 3  32:02  
+to go into like Finn serve resource management, for Project billing, and
+
+Speaker 4  32:06  
+as long as it's if we're building a capability that only exists for like an industry, yeah, then we don't want to build it. But if it's like, I
+
+Speaker 3  32:13  
+like this even more, because this now starts to put boundaries around the size, right? Exactly? You're going to bring us a deal. Here's what we're going to be able to do within
+
+Speaker 4  32:22  
+that deal. Yeah, now, now, like, where we have a more strategic advantage and where we have a right to win is where the larger percentage of your revenue pie is made up of, like, sophisticated pricing packaging, right then we have a higher right to win. So, like, that's, that's what we want Tara is like, if you, if you think that you're going to win and compete in the marketplace, because a part of what's going to make you successful is your ability to react and change your offerings and, you know, add more consumption stuff, or, then, like, then, then, yeah, that's, that's where we want to play. If you're just shipping widgets, like, we don't want to talk to you. If you're Y Combinator startup without a finance person, we don't talk to you.
+
+Speaker 2  33:09  
+And what about, what about the idea of some of the $50 million I just put a number for the sake of it, relatively mature finance organisation, predominantly, exclusively. Plg, are we selling the story that you'll become more complex, so you'll need a CPQ light, then you'll need full blown CPQ. So is that vendor for life along that spectrum, right? Yes.
+
+Speaker 4  33:36  
+Okay, you will. You don't know what's coming next. We do that. We do, yeah, almost 20 years.
+
+Speaker 2  33:42  
+Yeah, right, and so, so we scale your complex, or scale with your complex.
+
+Speaker 4  33:46  
+That's right, you will never have to buy another one of us again, because, like,
+
+Speaker 2  33:50  
+that's my yeah is, is it? Because that's the anti pattern. What we do is, we, we, we strike beats us in that market, and then we sell the rip and replace strategy. If we sell rip and replace as a thing to avoid, and we can deliver omni channel with the faster implementation,
+
+Speaker 3  34:09  
+two or three business cases where we've been the Replace and the RIP and yeah, yeah, that backs up our entire message. Yeah. Here's where we did it with stripe. Here's where we did it with CHARGE B. Here's where another customer came to
+
+Speaker 2  34:20  
+us with NetSuite. Do we win in that? I mean, have we got those case studies or not?
+
+Speaker 4  34:24  
+Yeah, we could. We could come up with those. Like, I'm sure just to land this thing right, because there's only a few 10 minutes left or so. We just need a frame. And then next to this frame, we need to list out, like, what are all the cool products we want to talk about? And then we need to, like, hang those things on the frame.
+
+Speaker 3  34:39  
+Andrew, can you show your frame like, how close is it to this?
+
+Speaker 5  34:43  
+Well, the idea, what I had for the story, what else has
+
+Unknown Speaker  34:46  
+started not to work
+
+Speaker 5  34:50  
+is, and, look, this is total, just throwing ideas out here, right? So the story I kind of had, I was trying to get this. How do we get the balance between a a product, led growth through the way this sales assisted, right? So what I was thinking is a scenario where, let's say there's a company that's selling AI assistance, and there's a person who works at a bank, a senior person who goes in and essentially subscribes to it. Just try it out herself, like she gets one seat for herself, and she goes through a product lead, sales, self service. She then loves her, and then she goes and either does a call sales or a sales rep will see that she's somebody worth contacting. And then they go in, and she buys 5000 seats through a CPQ process for the bank she works at, and then we have a consumption, usage type scenario. So we've gone from a individual subscriber, but then that's grown into a more complex sales assist type scenario, and then we can go through all the rest of the steps. But I was just trying to work out, because at that time, I was thinking, how do we address that plg motion as well as A, B to B, more traditional motion. And this is almost like the you could for somebody where plg is not even relevant. Skip the first scene, and then you're just following the normal flow from scene two onwards.
+
+Unknown Speaker  36:18  
+And that's that is omni
+
+Speaker 3  36:20  
+channel and yes and Andrew, just a quick feedback and request, please don't reference collections and Cash App. It's payments and accounts receivable Cash App and collections are features within accounts receivable. We have got to start getting the sales team to shift away from this feature based collections Cash App.
+
+Unknown Speaker  36:39  
+Have we made that shift yet? Though? I mean, I
+
+Unknown Speaker  36:42  
+agree we made the shift. Yeah.
+
+Speaker 3  36:47  
+Scene wants us to share, no. Market wants to shift. Wants us to shift totally like they give me the language. What was it? Again? It's payments and accounts receivable.
+
+Speaker 8  36:57  
+We have made a shift in terms of any enablement that's so that can be we should talk about what the AR session at sko is, because there's still an opportunity to lean heavily into our existing customer base and sell them collections.
+
+Speaker 3  37:12  
+Yeah, Cash App, Oh, you think you have AR collections? You do have ao, yeah. Did you know we have this new Cash App feature? Yeah?
+
+Speaker 8  37:18  
+Well, we have advanced collections now, which is going to be much more, which is going to do all things that's awesome.
+
+Speaker 4  37:23  
+You're saying, like, I agree with you, just in terms of Tommy and language, like, you two need to be on the same like, timeline. Yeah, yeah, Emil, you care about
+
+Speaker 5  37:41  
+candy. About if you followed your option to their Carl, where you've got the two motions from a on stage demo perspective, you're going to get very repeated, yeah, because the acquisition bits different, and then the payments and AR bit's different depending on if you have one or the other. And yes, you know, there will be more complexities of the billing stage, but the reality is, if you're talking the story, you're still going through those steps. I was just
+
+Speaker 8  38:13  
+going to a little bit more context for everyone just to think about this. For sko Our recommendation is for the breakouts to allow reps to go through the different types of story structures for different types of customers. So be is it like if we did the core story on the main stage? Reps are going to be invited to come and see how that plays out for media company, or for a B to any or for like, for B to B SAS as part of the breakout experience based on your portfolio, choose your own adventure based on your portfolio. We're going to make everyone learn the core story, like our thinking, and we're getting ahead of ourselves a little bit. Our thinking was like, there's, there's a core story that it's delivered on the main stage that you come and you relearn and you practice as part of a breakout. Then there's a next breakout, which is to choose your own adventure, which is, how do you adapt that core story? And that core story is really for our B to B SAS Customer. And then the breakout is, maybe it's, maybe it's more of like the be the media story. Maybe it's more of, you know, maybe, like, an AI forward company, where it's really about, like, Okay, how do you, you know, how do you reconcile, like, all this, like, usage, data and mediation, and get that through revenue recognition, because we're going to see that more of that now, like, so, so anyway, we have to figure out what those look like. But that's, that's the concept. So we are all aligned that the story adapts depending on who we're talking to. And I think the question is, what, what is the core message and that we think we can get people excited about as we're walking through the product?
+
+Speaker 3  39:52  
+That's why I like Andrew's story flow, because to me, it's all if we we build Andrew's story from a B to be SaaS omni channel, company perspective, it hits most of our key product areas. It gives you a streamlined like storyline all the way through. It talks about, well, you know, you're selling to a customer who, on one day, is selling this motion, the next day, they're selling this motion, and they never have to change, because we're there with them all the way through the journey. Like to me, I think that makes a lot of
+
+Unknown Speaker  40:25  
+sense. The primary frame is
+
+Unknown Speaker  40:27  
+they can't see it also,
+
+Speaker 9  40:35  
+sorry to interrupt your flow. Hopefully doesn't erase your board. I know yay.
+
+Unknown Speaker  40:44  
+Yeah, so it's something more like that, right?
+
+Speaker 8  40:53  
+Well, yes, and no, it's more like that. Like, I think like that, this is the whole thing, right? Like, it's it for some companies, it's gonna look like that. The demo, oh, the demo, the demo
+
+Speaker 4  41:04  
+where we're teaching people, Look, we have a platform that,
+
+Unknown Speaker  41:16  
+Omni channel acquisition cash.
+
+Speaker 4  41:17  
+Here's That's right, Omni channel acquisition to cash. Yeah, right. Those are the dimensions.
+
+Speaker 2  41:23  
+That's exactly, exactly my pitch tomorrow, right?
+
+Speaker 4  41:26  
+Okay, so we do omni channel, meaning like, whether you're self serve or your sales assistant, or either, yeah or both. We can manage the monetization process. The monetization process is acquisition to cash.
+
+Speaker 2  41:38  
+What's What's brilliant about this is the question is, do you even need the vertical line, right? What you actually do is, you're just plotting the customer. The only, the only difference is that acquisition, that, yeah, acquisition, the cash isn't temporal, right? Doesn't have a time dimension to it, self serve to self that can do right. That is us. That is a natural slider. The bottom the left at the the Y is a, is a flow. The right is a, the x or whatever that the top one is, is the, is the state of the customer.
+
+Speaker 4  42:15  
+This is a good tool. I can see companies, yeah.
+
+Speaker 2  42:21  
+Let's put plot somebody what? What is the Doesn't everyone just play devil's advocate? Doesn't everybody? I can see the left to right and back again. Why would someone stay self serve and only on acquisition is that what we're selling them. We're not selling them the orders again.
+
+Speaker 3  42:40  
+That gets into the second level story in practice, because in media clients, for example, like they don't often want to do a full acquisition to cash overhaul all at once. Their biggest problem is managing their funnel, and so they might want to start with the acquisition piece, but you're able to change the story of how we can eventually grow all the way through.
+
+Speaker 2  43:00  
+Got you So are you saying then that we would go to market with acquisition to order? Though, I don't believe we've done we do that.
+
+Speaker 3  43:09  
+I think that's that is a separate question we should answer. Because I does. Then that makes sense. Then I think the answer to that is no given our B to B or our SAS focus and SI,
+
+Unknown Speaker  43:20  
+yeah. And the CFO was like, then we
+
+Speaker 3  43:22  
+wouldn't do a media acquisition order, go to market movement. We wouldn't sell Zephyr. That's the, that's the we would accept it if it came in naturally.
+
+Speaker 5  43:34  
+This is how you frame the conversation at the start. Like, when you're going in to talk to a customer, you're going, right? This is where Zora fits, right? This is what we do, and this is all this today. We might be just focusing on this particular piece, but it's really important to understand that, you know, we've got them covered, and if you do decide you're going one way or the other, we can go with you. And it's kind of that Zora for life story,
+
+Speaker 3  43:57  
+and the key is written,
+
+Speaker 5  43:59  
+and then you get into the specifics, yeah. And we
+
+Speaker 3  44:03  
+can capture you at any one of these stages and meet you there, but we have all of these stages for you. Yeah? It's avoid people's
+
+Speaker 5  44:11  
+going in, like, right? I'm coming in to talk to you about billing. Let's just talk about billing and forget all the rest of the stuff.
+
+Speaker 3  44:16  
+Yeah, billing, I actually think, is a, it becomes like a backstory. Like, yes, we need to figure out which of these models you're in, and actually, we probably should build architectures for each of these models.
+
+Speaker 2  44:26  
+But yeah, is it? I may not be right, but I'm just, I'm just trying to think of a lot because I think you can pick that up. Maybe you can pick that apart, but if you've got that right, acquisition to cash here, self serve, to self assisted, isn't what we're actually talking about.
+
+Unknown Speaker  44:47  
+Yeah, I think that's a view too, that we should have in there.
+
+Unknown Speaker  44:50  
+Is that that central piece of the billing,
+
+Speaker 2  44:52  
+that's the order, right? That's the word billing, because it does like, if I'm a self self serve here, I might go down this route, or I might go down this route and this route
+
+Speaker 4  45:03  
+you're drawing a picture of, like, all the possibilities on one
+
+Speaker 2  45:07  
+Yeah, but I know this. I agree with you that my only problem is this is, I don't think we're ever, no one's ever going to live up here, like this person always lives down here. Maybe this person is always, it always ends down the bottom because we're selling to the CFO. So there's always a billing component.
+
+Unknown Speaker  45:23  
+In it, right? That's kind of what the examples
+
+Speaker 4  45:25  
+on the right. I'm trying to like, we have this framework, right? Then any particular customer you could, like, draw a picture for any customer, any of our customers. I mean, I think the principle
+
+Speaker 2  45:36  
+is, if we start to acquisition, you always end in cash. But you could add, you could start a quote or order and go to cash. There's never, ever going to be an acquisition to order on its own. That's right, yeah, unless you, unless you decide, like a lucky like, we're going to lead with that, and then we're
+
+Speaker 3  45:53  
+going to, but here's, here's, we got to narrow this down, though, because here's the problem.
+
+Unknown Speaker  45:57  
+These slides that makes sense.
+
+Speaker 4  46:00  
+Customer one, yeah, in my mind, is a pure media company where we do acquisition to cash. Customer two is a pure B to B Company where we do quote to cash. Customer three is a B to B Company where we just do order to revenue. And customer four is a media company where we just do same thing order to
+
+Speaker 3  46:21  
+but here's where, because you also have customers that will just go from here to here,
+
+Unknown Speaker  46:29  
+we're saying we don't want those.
+
+Speaker 3  46:30  
+I just want to be very specific, like, that's right, we don't want those. Need to be very clear that we are not going to go out. We don't sell, just acquisition, but also make sure sales knows. Don't put your energy and building a portfolio around those
+
+Unknown Speaker  46:42  
+customers. My only problem with this is, right? So
+
+Speaker 2  46:46  
+sorry. It's like, I think this has got to have some meaning to it. So I don't think this is a media company. This is a self serve company as my B to B, B to C, B to B, whatever it's, self serve goes to acquisition to order right
+
+Speaker 3  47:02  
+omni channel. Because I would actually argue media is more the left multi to multi. But this
+
+Speaker 2  47:06  
+one, I think if you're quote to quote to cash, and aren't you starting just in a slightly different place in
+
+Speaker 4  47:13  
+the acquisition to order flow, I'm just trying to give you guys, trying to give some toolkit, yeah, I think it's a good tool, right? That any any particular customer has got to have its own fingerprint. I think that's very, very powerful. And then we could use this as the tool that we like do a demo through. And then we go, look, we're a lot of companies like, let me show you an example of whatever Twilio. You show twilio's footprint, and then let me show you BMC.
+
+Speaker 2  47:37  
+And you can have, let me show you you can have your thing, which is, you see that one there? We don't do that one where the line stops in the middle.
+
+Unknown Speaker  47:45  
+It's not a customer that we have on site.
+
+Speaker 3  47:50  
+Here's the story of a customer who started with this footprint with us, and then they changed to this fingerprint with us. Yeah, that's good. We're there the whole time.
+
+Speaker 2  47:59  
+That's good. Yeah, that's really good. And then this is really good framework.
+
+Speaker 4  48:02  
+The demo you're using is just showing, like, somebody who's kind of doing a lot
+
+Speaker 3  48:05  
+of cool shit. Maybe that's a better demo. Say, here's a demo of a customer who started with this fingerprint. Oh, and then a year later, they changed to this fingerprint. And here's a demo of how we adapt.
+
+Unknown Speaker  48:17  
+Yeah, that's good. And this is really easy
+
+Speaker 1  48:19  
+to connect with. The DJ, he had this vision of, like, how are we presenting the end to end story? And then when we get to a specific, you know, let's specific example, like one of these here, we flash up like a customer and say, like, hey, this demo that we're presenting here is really relevant for, like, a self service like, company, or this one's relevant for a B to B Company. And like, how can we show the end to end story? But like, through a customer example, it's like, Hey, this is why this feature is very important to this particular
+
+Speaker 2  48:46  
+this is powerful because you could, you can tag every bit of content that talks to
+
+Speaker 3  48:51  
+the breakouts. The breakouts, yeah, yeah. Exactly media customers are this fingerprint, yeah, yeah.
+
+Speaker 2  48:56  
+I love it. You can have this really good
+
+Speaker 5  49:00  
+idea that, like that centre diagram. If the reps and the essays start thinking in that way, like every time I joined a customer, what does the path look like? Yeah, and it's a spectrum
+
+Speaker 3  49:10  
+tell the right story. Yeah. I actually think the diagram all the way to the left is the meta diagram. Yeah, the one in the middle and the four on the right are each individual, ideal fingerprints that we were after.
+
+Speaker 5  49:22  
+Yeah, thanks, brilliant. And then when we tell the demo story on main stage, it's almost like, bang. That's, let's say it's the middle one story.
+
+Speaker 2  49:30  
+And we can get, we can, we can get away from B to B and B to C. Yes, just get kill that self service, sales assisted. And then acquisition, the cash. The only outstanding is that, if you actually does research. I sent you an acquisition of cash acquisition. The cash is probably quite an expensive thing to build a market position in. That's the only, that's the only drawback. So it just doesn't exist.
+
+Speaker 4  49:52  
+I wouldn't, I wasn't positioned as an acquisition the cash thing, I'd say, like, we do monetization, and then within that, I like your suggestion can, let's, let's snap to the business processes that actually okay.
+
+Speaker 2  50:04  
+That's, yeah, I agree with that. We put our like, marketing label on the floor, yeah, okay, yeah, all right. So it's, it's a sub, it's a it's a narrative underneath the
+
+Speaker 8  50:13  
+Agile monitor. So you're just saying really quick, just to capture that back, like we do intend monetization, and then, depending on who we're talking to, that includes acquisition, or that really
+
+Speaker 4  50:21  
+starts with your quote. I think we should break up the monetization. What do you mean by monetization? Well, it's a full spectrum. It runs the gamut acquisition to this, to this, to this, to this, to cash, yeah. And then, like, we could talk about any part of that process where your problems
+
+Speaker 2  50:34  
+are, and then across the omni channel, then you've got the omni channel across the top, which means we sell where you sell in a unified way,
+
+Speaker 3  50:41  
+yeah, part of the breakout. So you're like monetization for this segment means these things, yes, this fingerprint. It means using these processes. It means using this language. You could
+
+Speaker 2  50:53  
+give the reps cards right and on the back it says, that's what you selling, right here, that card all the way to the left, that goes all the way down.
+
+Speaker 3  51:01  
+And by the way, Stripe only fits this.in the fingerprint. Yeah, brilliant. Charge me only does this dot. I love it. And stripe might do this fingerprint, but when you move to this fingerprint,
+
+Speaker 2  51:12  
+they're not going to be Yeah. That's a very powerful way to view the business, I think, because it's super easy to get instantly.
+
+Unknown Speaker  51:21  
+And then you can also use these to say, look,
+
+Speaker 4  51:25  
+here's here's how these three companies evolved over time, yeah, and that's why you need a platform like this, because you think you're just starting, you know, here is all you need, but eventually you're gonna do this. Yeah, totally this. Like, let me show you five companies who
+
+Speaker 2  51:37  
+did this that captures the SLG to plg. The other way. That's really powerful.
+
+Unknown Speaker  51:47  
+So then the question is, all right, so
+
+Speaker 4  51:50  
+to firm this up, I think we probably need a unified definition of these process names. Yeah, on the left here, you know. So we stop confusing ourselves. We should say this is these are the labels. I think there's a question maybe separate conversation around the word acquisition and like heavily. Do we want to lean
+
+Speaker 2  52:11  
+into it? I think it's a sub. Sorry,
+
+Speaker 3  52:15  
+sorry. I just seen on the labelling of the things on the Y axis. I want to make sure this is aligned on a marketing perspective. Because I think that this should be a combination of like, what we call the products in there, but also like how we want to position the marketing on our website. Because ideally this same flow would be our products
+
+Speaker 8  52:34  
+that we talk about, like from acquisition to so like order. Like, we don't have a
+
+Speaker 3  52:38  
+product that is order. We don't have a product that is in pricing. We have a product that is have a product
+
+Speaker 8  52:43  
+that is billing, right? And billing has a whole bunch of stuff within it. That's right, yeah, that's right. And then what we're thinking we're talking about is breaking out some of the stuff that's in billing today into its own product areas, which includes payments as well as accounts.
+
+Speaker 3  52:57  
+When you're talking to this type of customer with this fingerprint, yeah, billing means these things to them, but this one over here, billing means these other things. The The
+
+Speaker 2  53:07  
+other thing on acquisition is you can choose the counter which is, what is not acquisition. It's not prospect, it's not lead, it's not discovery. You know, acquisition is the point that you be that the customer needs orchestration to get to the offer right.
+
+Speaker 3  53:26  
+It's also not resource management, which is addresses the profession or the Correct, correct.
+
+Speaker 7  53:33  
+What's the group that figures out? Like, I think it's me and
+
+Speaker 3  53:39  
+Ken, because ideally I'd like to whatever we decide here and push it sko I think needs to turn into our website. I agree, yep.
+
+Speaker 4  53:45  
+Well, this, I this fingerprint framework can be really powerful for the year. I agree. So it's more than just the website, right? This could just, we can print up, like
+
+Unknown Speaker  53:53  
+you said, deck of cards to give it.
+
+Speaker 2  53:55  
+Yeah, every sales rep has a deck of cards, and on the ring, on the back, is the playbook for that.
+
+Unknown Speaker  54:00  
+Yeah, it's very that's actually very powerful visual as well.
+
+Speaker 8  54:06  
+Or they it's like a matching game where you have, you have your playbook, and then you have to find someone with a card that is like a customer that represents that playbook.
+
+Speaker 2  54:13  
+Yeah, that's cool. I like that. I like that. But I think the customers will get it as well. And the bit where you go, Listen, here's you. There's like the current story, which is your plg. You've gone out towards the edge. You've gone SLG is in this new AI world where the cack of SLG is high. You can, you can edge back into a plg motion. So you can represent the business life, the life cycle there as well.
+
+Unknown Speaker  54:44  
+It's almost a choose your own adventure though scenario. Yeah, I love it.
+
+Speaker 4  54:48  
+Okay, so, so there's that group, then there's this actual story we want to be telling you. You've got a good, like, sketch of the different components. I think the piece that's missing or something around, what are the cool product? Big things, one, right? Like, what's new? How far outs we want to think,
+
+Speaker 5  55:11  
+and we may not need to solve that today. I mean, we want to solve it as soon as possible, but what I can do is that story flow. How about I just flesh that out a little bit more. And I've kind of got a slide for each, and I roughly just chucked in the types of areas of product that we want to talk about. If you guys want to start looking at that and slotting in. Here's the feature we want. You know, I know Shakir wants to show his homepage somewhere. We want to put some MCP stuff, probably somewhere, etc, etc. We can flesh it out using that. I guess you know this, this is all great. I think this is what you're going to be leading the discussion at, and setting the scene around the whole fingerprint. And then when we get to the demo, it's like, right? Here's an example of one that's probably almost that centre one there.
+
+Speaker 2  55:55  
+Do you know what's really interesting, though, that you asked the question that beginning, why?
+
+Unknown Speaker  56:01  
+Why does or exist? Because,
+
+Speaker 2  56:04  
+yeah, because your business is going to evolve. It's going to scale one card, it's going to adapt. That's why we exist. That's why we have so much stuff. And you want to abstract away pieces that aren't relative relevant to you. I mean, it's like the CPQ light thing. We use experiences to create a configurable CPQ, just what you need at the point that you need it. Other stories all there.
+
+Speaker 3  56:27  
+Andrew and I may be, I don't know that everyone thinks this way, but like, yeah, I want to make sure we don't position AI as a thing we sell. We sell a story of solving business problems. Ai happens to be one of the latest tools that we have developed to solve your problem. Absolutely. Yeah, so
+
+Speaker 8  56:49  
+and so, I think, like, we need to weave AI into this story that we tell, as opposed to having some, you know, broken out.
+
+Speaker 5  56:57  
+That's why the MCB story is really good, because we're not saying we're selling you a widget, like our competitors are. We're not selling you an agent,
+
+Unknown Speaker  57:04  
+force, yeah, platform component.
+
+Speaker 2  57:07  
+It's just ready to go. Yeah. That also ties into the acquisition to order story. So in this, in this intersection, which we're breaking out as its own roadmap, the we have this, we have this orchestration engine, which we call intelligent orchestration, which is a it's either what it is today or it becomes an agentic system that that carries the customer through from one experience to the other. So I agree with you, weaving it into the product, as opposed to it being some separate thing.
+
+Unknown Speaker  57:37  
+The AI is the thing that helps you
+
+Speaker 5  57:41  
+move down. We tested that with nine last week, and Shakir did a great job talking about positioning MCP, because when we first initially talked to them, they kind of laughed when we mentioned AI. It's like, oh yeah, everyone's got their AI story that they're going to show. But when Shakir actually said, This is how we build the platform, so whatever you wanted, whether it's read to go, they actually really lapped it up. So it's, it's just a foundation makes, it's not a, I
+
+Speaker 3  58:08  
+don't think, yeah, I just, I know that we, I've seen our AI agents, or, like, our race to 50, like, each of those being sold as, like, a thing. It's like, no, like, none of that matters. The customer pain point matters. Yeah, agreed. UCP is our architecture that allows us to use AI to solve their pain point,
+
+Speaker 5  58:29  
+and we can show some examples of how it's used, but it's not a this is a that's right
+
+Speaker 1  58:35  
+in our conversation. Two weeks ago, it was like Tina was coming back to this example is like a paralegal like you. Ai assistants are like the paralegal that helps finance professionals get intelligent assistance that handles like the most complex tasks from forecasting, reconciliation, cash matching. So we provide that the paralegal,
+
+Speaker 3  58:56  
+we give you a council of context aware agents who help advise you on your order to capture. You have an AR specialist, you have an acquisition specialist, you have a billing specialist,
+
+Speaker 2  59:07  
+but within a year, it's going to be ubiquitous. That is just going to be commodity. Everybody's going to everyone. It's getting like that. Now, if you don't have it's why, that's why vibe quoting started off as a thing, but now it's just a wrapper. First.
+
+Speaker 8  59:23  
+That Tuesday, not tomorrow, that's Tuesday.
+
+Speaker 1  59:27  
+So our next meeting with team is next Tuesday, but we have a working team
+
+Speaker 8  59:32  
+Thursday, that's also Tuesday.
+
+Unknown Speaker  59:35  
+We have a meeting this group.
+
+Speaker 1  59:37  
+We have a meeting on Thursday with Shakir Emmy. You I can add you can and Jonathan, for Thursday.
+
+Speaker 4  59:44  
+Is it this group is getting together weekly between now and February? Are there enough meetings on the calendar in order to get to the finish line?
+
+Speaker 8  59:53  
+I think if we can do some async work, probably, I mean, we can try to get together sooner. This week is tough, probably for everyone with travel and off sites, maybe we need to divvy up who's doing
+
+Unknown Speaker  1:00:09  
+what I think. I don't necessarily need to
+
+Speaker 5  1:00:13  
+know this bit. I just need to kind of know what I want to show and I can start putting together
+
+Speaker 3  1:00:19  
+because we move next weeks in early, like to Monday afternoon, because I'm following, yeah,
+
+Unknown Speaker  1:00:28  
+oh, so put it in the morning. Can we do like 10
+
+Speaker 8  1:00:37  
+to 11 on Monday? I went 24/7 is very early for you, Andrew, that's five in the morning.
+
+Speaker 5  1:00:49  
+Yeah, look, don't let Yeah, let's have me hold you up. I'm happy to do six in the morning I
+
+Unknown Speaker  1:00:57  
+can. So that's seven. Just keep
+
+Speaker 5  1:00:59  
+running with it. Look, honestly, as I said, I just need no more product. Products you want to show. And I can mop things up, and then you can give me feedback.
+
+Speaker 3  1:01:06  
+We can keep the Tuesday one too. I can't make the Tuesday one because it's in the middle of something and it's late at night.
+
+Unknown Speaker  1:01:13  
+I can do the Monday 10 to 11. And then we can have a second one.
+
+Speaker 4  1:01:16  
+Is there a working document somewhere that says, hey, this is the flow.
+
+Speaker 5  1:01:21  
+I've got that one. That one I showed you because there's
+
+Unknown Speaker  1:01:26  
+a lot of it's irrelevant. Now I'll just clean.
+
+Transcribed by https://otter.ai

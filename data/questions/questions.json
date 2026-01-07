@@ -1,0 +1,633 @@
+{
+  "questions": [
+    {
+      "id": "q_eng_arch_000",
+      "question": "What is the current implementation status of the Context Resolver component within BCS, and what's the estimated timeline to achieve the <15s data freshness SLO?",
+      "audience": "engineering",
+      "category": "timeline",
+      "priority": "critical",
+      "context": "From architecture alignment analysis for: Theme 1: Commerce Foundation (The Intersection). BCS is fundamental to omni-channel experience but implementation status unclear",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "Theme 1: Commerce Foundation (The Intersection)"
+      ],
+      "related_component": "Business Context Service",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335085",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455218",
+        "times_refreshed": 3
+      },
+      "validation": {
+        "validated": true,
+        "is_accurate": true,
+        "validated_by": "Jonathan",
+        "validated_at": "2026-01-07T09:19:33.355856",
+        "feedback_note": ""
+      }
+    },
+    {
+      "id": "q_eng_arch_001",
+      "question": "How will the Decision Orchestrator handle version conflicts when a customer moves from self-serve to sales-assisted mid-quote?",
+      "audience": "engineering",
+      "category": "architecture",
+      "priority": "high",
+      "context": "From architecture alignment analysis for: Theme 1: Commerce Foundation (The Intersection). Critical for seamless transitions between channels",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "Theme 1: Commerce Foundation (The Intersection)"
+      ],
+      "related_component": "Decision Orchestrator",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335455",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455224",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_002",
+      "question": "What is the planned approach for migrating existing Apex customizations - transpilation, DSL conversion, or hybrid?",
+      "audience": "engineering",
+      "category": "architecture",
+      "priority": "critical",
+      "context": "From architecture alignment analysis for: Theme 2: CPQ Excellence. Critical for existing customer migration",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "Theme 2: CPQ Excellence"
+      ],
+      "related_component": "Apex Adapter",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335461",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455230",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_003",
+      "question": "How will the new CPQ handle the version sprawl issue mentioned in the docs where customers are spread across multiple CPQ versions?",
+      "audience": "engineering",
+      "category": "feasibility",
+      "priority": "high",
+      "context": "From architecture alignment analysis for: Theme 2: CPQ Excellence. Major adoption blocker for existing customers",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "Theme 2: CPQ Excellence"
+      ],
+      "related_component": "CPQ Engine",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335463",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455233",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_004",
+      "question": "How much engineering capacity is allocated to CPQ X maintenance vs. new CPQ development?",
+      "audience": "engineering",
+      "category": "capacity",
+      "priority": "high",
+      "context": "From architecture alignment analysis for: NOW (0-3 months): CPQ X Stability. Resource allocation impacts both stability and future development",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "NOW (0-3 months): CPQ X Stability"
+      ],
+      "related_component": "CPQ X",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335466",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455237",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_005",
+      "question": "Which LLM provider and framework will be used for the conversational agents, and how will we ensure response latency stays under 2 seconds?",
+      "audience": "engineering",
+      "category": "architecture",
+      "priority": "high",
+      "context": "From architecture alignment analysis for: NEXT (3-6 months): Next Gen CPQ Concept validation. Critical for user experience in conversational interface",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "NEXT (3-6 months): Next Gen CPQ Concept validation"
+      ],
+      "related_component": "Quote Builder Agent",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335469",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455241",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_006",
+      "question": "How will the system handle Apex logic that relies on Salesforce-specific APIs (SOQL, triggers) in the new architecture?",
+      "audience": "engineering",
+      "category": "feasibility",
+      "priority": "critical",
+      "context": "From architecture alignment analysis for: NEXT (3-6 months): Next Gen CPQ Concept validation. Major blocker for customer migration",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "NEXT (3-6 months): Next Gen CPQ Concept validation"
+      ],
+      "related_component": "AAPE",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335471",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455244",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_007",
+      "question": "Will the goal seeking solver be built in-house or leverage existing optimization libraries, and how will it handle multi-objective optimization?",
+      "audience": "engineering",
+      "category": "architecture",
+      "priority": "medium",
+      "context": "From architecture alignment analysis for: LATER (6-12 months): CPQ Magic Quadrant Features. Build vs buy decision impacts timeline and capabilities",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "LATER (6-12 months): CPQ Magic Quadrant Features"
+      ],
+      "related_component": "Goal Seek Module",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335474",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455248",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_eng_arch_008",
+      "question": "What is the planned deprecation timeline for CPQ X, and how will we support customers who cannot migrate?",
+      "audience": "engineering",
+      "category": "timeline",
+      "priority": "high",
+      "context": "From architecture alignment analysis for: FUTURE (12+ months): Full Platform Convergence. Critical for customer communication and support planning",
+      "source": "architecture_alignment",
+      "source_type": "architecture_alignment",
+      "related_roadmap_items": [
+        "FUTURE (12+ months): Full Platform Convergence"
+      ],
+      "related_component": "Platform",
+      "status": "pending",
+      "created_at": "2026-01-06T10:33:19.335476",
+      "created_from_synthesis": null,
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "arch_alignment_001",
+          "source_name": "Unknown Assessment",
+          "excerpt": "{'assessments': [{'roadmap_item': 'Theme 1: Commerce Foundation (The Intersection)', 'roadmap_item_description': 'Customer Outcome: Any Zuora customer can move between self-serve and sales-assisted mo",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455252",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_competitive_20260106104646_000",
+      "question": "Should the 'Agentic Commerce' item be accelerated from Future (12+ months) given Stripe's concrete implementation?",
+      "audience": "leadership",
+      "category": "timing",
+      "priority": "high",
+      "context": "Raised by analyst assessment of: Stripe - Introducing the Agentic Commerce Suite: A complete solution for selling on AI agents. Stripe's 6-month integration timeline suggests the market is moving faster than anticipated",
+      "source": "competitive_analysis_comp_20260106104303",
+      "related_roadmap_items": [
+        "Agentic Commerce",
+        "Intersection Layer"
+      ],
+      "status": "pending",
+      "created_at": "2026-01-06T10:46:46.973984",
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "analysis_20260106104646",
+          "source_name": "Unknown Assessment",
+          "excerpt": "Stripe's launch of the Agentic Commerce Suite represents a significant evolution in B2C commerce infrastructure, enabling businesses to sell through AI agents without extensive integration work. While",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455255",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_competitive_20260106104646_001",
+      "question": "Does the B2B complex focus adequately prepare Zuora for a market where B2C capabilities increasingly influence B2B buyer expectations?",
+      "audience": "leadership",
+      "category": "positioning",
+      "priority": "high",
+      "context": "Raised by analyst assessment of: Stripe - Introducing the Agentic Commerce Suite: A complete solution for selling on AI agents. The roadmap acknowledges 60% of EMEA business isn't B2B complex, yet investment remains concentrated",
+      "source": "competitive_analysis_comp_20260106104303",
+      "related_roadmap_items": [
+        "CPQ Excellence",
+        "Experience Templates"
+      ],
+      "status": "pending",
+      "created_at": "2026-01-06T10:46:46.974017",
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "analysis_20260106104646",
+          "source_name": "Unknown Assessment",
+          "excerpt": "Stripe's launch of the Agentic Commerce Suite represents a significant evolution in B2C commerce infrastructure, enabling businesses to sell through AI agents without extensive integration work. While",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455258",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_competitive_20260106104646_002",
+      "question": "Can the intersection layer be designed with sufficient flexibility to support future AI agent protocols without current requirements?",
+      "audience": "leadership",
+      "category": "scope",
+      "priority": "high",
+      "context": "Raised by analyst assessment of: Stripe - Introducing the Agentic Commerce Suite: A complete solution for selling on AI agents. The 6-month window Nav describes for platform decisions may need to account for emerging channels",
+      "source": "competitive_analysis_comp_20260106104303",
+      "related_roadmap_items": [
+        "BCS Phase 1",
+        "Orchestration Layer",
+        "Rules Engine Consolidation"
+      ],
+      "status": "pending",
+      "created_at": "2026-01-06T10:46:46.974026",
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "analysis_20260106104646",
+          "source_name": "Unknown Assessment",
+          "excerpt": "Stripe's launch of the Agentic Commerce Suite represents a significant evolution in B2C commerce infrastructure, enabling businesses to sell through AI agents without extensive integration work. While",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455262",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "id": "q_competitive_20260106104646_003",
+      "question": "Is the Stage 1/Stage 2 product owner role sufficient to address emerging self-serve commerce patterns including AI agents?",
+      "audience": "leadership",
+      "category": "investment",
+      "priority": "high",
+      "context": "Raised by analyst assessment of: Stripe - Introducing the Agentic Commerce Suite: A complete solution for selling on AI agents. The roadmap identifies need for lighter-weight solutions but doesn't fund dedicated team",
+      "source": "competitive_analysis_comp_20260106104303",
+      "related_roadmap_items": [
+        "CPQ Light via Experiences",
+        "Experience Templates"
+      ],
+      "status": "pending",
+      "created_at": "2026-01-06T10:46:46.974034",
+      "source_references": [
+        {
+          "type": "assessment",
+          "id": "analysis_20260106104646",
+          "source_name": "Unknown Assessment",
+          "excerpt": "Stripe's launch of the Agentic Commerce Suite represents a significant evolution in B2C commerce infrastructure, enabling businesses to sell through AI agents without extensive integration work. While",
+          "relevance": "Similarity: 0.80"
+        }
+      ],
+      "lifecycle": {
+        "refreshed_at": "2026-01-06T15:35:32.455267",
+        "times_refreshed": 3
+      }
+    },
+    {
+      "question": "What is 'The Intersection' in the Commerce Foundation theme, and what systems or capabilities does it connect?",
+      "audience": "product",
+      "category": "scope",
+      "priority": "critical",
+      "context": "Theme 1 is labeled 'Commerce Foundation (The Intersection)' with unknown details. Given existing pending questions about the Context Resolver, Decision Orchestrator, and migration from Apex, understanding what 'The Intersection' encompasses is fundamental to architectural decisions.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820032",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "intersection_commerce_foundation_theme_systems",
+        "similar_questions": [
+          "q_competitive_20260106104646_003"
+        ]
+      },
+      "id": "q_20260106153532_13",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455065",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455100",
+        "refreshed_at": "2026-01-06T15:35:32.455103",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "What are the actual initiatives or features committed for delivery in the NOW (0-3 months) timeframe?",
+      "audience": "leadership",
+      "category": "timing",
+      "priority": "critical",
+      "context": "The NOW timeframe is labeled 'Committed Delivery' but has unknown content. Without knowing what's actually committed, stakeholders cannot validate resource allocation, assess risk, or plan dependencies.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820035",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "actual_initiatives_features_committed_delivery",
+        "similar_questions": [
+          "q_eng_arch_004"
+        ]
+      },
+      "id": "q_20260106153532_14",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455129",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455134",
+        "refreshed_at": "2026-01-06T15:35:32.455136",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "What strategic bets are being considered for LATER (6-12 months), and what success criteria will determine if they move forward?",
+      "audience": "leadership",
+      "category": "investment",
+      "priority": "high",
+      "context": "LATER is designated for 'Strategic Bets' but content is unknown. Given pending questions about Agentic Commerce acceleration and B2B complex focus, understanding what bets are under consideration helps prioritize architecture decisions and resource planning.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820037",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "strategic_bets_considered_later_months",
+        "similar_questions": [
+          "q_eng_arch_004"
+        ]
+      },
+      "id": "q_20260106153532_15",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455149",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455153",
+        "refreshed_at": "2026-01-06T15:35:32.455154",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "What is the Experience Layer theme intended to deliver, and who are the primary users it serves (end customers, admins, or developers)?",
+      "audience": "product",
+      "category": "scope",
+      "priority": "high",
+      "context": "Theme 3 'Experience Layer' is undefined. With a pending question about LLM providers for conversational experiences, clarifying whether this theme owns that work and what other experiences are in scope is necessary for technology selection and team structure.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820039",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "experience_layer_theme_intended_deliver",
+        "similar_questions": [
+          "q_competitive_20260106104646_003"
+        ]
+      },
+      "id": "q_20260106153532_16",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455163",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455167",
+        "refreshed_at": "2026-01-06T15:35:32.455169",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "What is the governance process for moving items from NEXT to NOW, and who has approval authority?",
+      "audience": "leadership",
+      "category": "ownership",
+      "priority": "high",
+      "context": "The roadmap has clear NOW/NEXT/LATER/FUTURE horizons, but no documented process for how items progress between them. This creates risk of misalignment between documented roadmap and actual work, especially given the 'Mismatches' category already flagged.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820041",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "governance_process_moving_items_next",
+        "similar_questions": [
+          "q_competitive_20260106104646_003"
+        ]
+      },
+      "id": "q_20260106153532_17",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455177",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455180",
+        "refreshed_at": "2026-01-06T15:35:32.455181",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "Are there active projects or commitments not reflected in the current roadmap themes or timeframes?",
+      "audience": "leadership",
+      "category": "alignment",
+      "priority": "critical",
+      "context": "The roadmap explicitly calls out 'Gaps (Discussed but not documented)', 'Mismatches', and 'Hidden Priorities' as categories with unknown status. Before generating new roadmap detail, it's essential to surface what's already happening but not documented to ensure roadmap reflects reality.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820043",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "active_projects_commitments_reflected_current",
+        "similar_questions": [
+          "q_eng_arch_004"
+        ]
+      },
+      "id": "q_20260106153532_18",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455191",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455194",
+        "refreshed_at": "2026-01-06T15:35:32.455196",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "question": "What technical or business constraints limit the sequencing of Theme 1 (Commerce Foundation) versus Theme 2 (CPQ Excellence)?",
+      "audience": "engineering",
+      "category": "dependency",
+      "priority": "high",
+      "context": "Two of three themes are infrastructure/platform oriented (Commerce Foundation and CPQ Excellence) but their relationship is unclear. Given pending questions about migration strategy and the intersection layer's flexibility, understanding if one theme must precede the other affects all timeline commitments.",
+      "generation": {
+        "type": "llm",
+        "source": "holistic_analysis",
+        "generated_at": "2026-01-06T15:35:25.820044",
+        "generation_run_id": "gen_20260106_153504"
+      },
+      "deduplication": {
+        "fingerprint": "theme_technical_business_constraints_limit",
+        "similar_questions": [
+          "q_eng_arch_004"
+        ]
+      },
+      "id": "q_20260106153532_19",
+      "status": "pending",
+      "created_at": "2026-01-06T15:35:32.455203",
+      "lifecycle": {
+        "created_at": "2026-01-06T15:35:32.455208",
+        "refreshed_at": "2026-01-06T15:35:32.455210",
+        "times_refreshed": 1
+      }
+    },
+    {
+      "id": "q_20260106_164132",
+      "question": "How will the new CPQ handle the version sprawl issue mentioned in the docs where customers are spread across multiple CPQ versions?",
+      "audience": "product",
+      "category": "direction",
+      "priority": "high",
+      "status": "pending",
+      "created_at": "2026-01-06T16:41:32.216819",
+      "generation": {
+        "type": "user_query",
+        "source": "ask_roadmap",
+        "generated_at": "2026-01-06T16:41:32.216825"
+      },
+      "context": "Based on analysis: Answer: The provided documentation does not contain specific information about how the new CPQ will handle version sprawl issues. This question is actually listed in the \"Pending Questions\" section itself, indicating it remains unanswered within the current roadmap materials. However, based on the available context, I can provide some relevant observations: What we know about the current situation: According to TEAM-STRUCTURED documentation, there is significant version fragmentation in the c...",
+      "synthesized_answer": {
+        "answer": "## Answer:\n\n**The provided documentation does not contain specific information about how the new CPQ will handle version sprawl issues.** This question is actually listed in the \"Pending Questions\" section itself, indicating it remains unanswered within the current roadmap materials.\n\nHowever, based on the available context, I can provide some relevant observations:\n\n**What we know about the current situation:**\n\nAccording to **TEAM-STRUCTURED documentation**, there is significant version fragmentation in the current state: \"Most Customers who have CPQ are on major release 10,\" which implies customers are spread across different versions. The **TEAM-CONVERSATIONAL source** confirms multiple CPQ products exist simultaneously: \"We've got cpqx... the next generation of CPQ, which is currently being built. Then we've got this new vibe quoting.\"\n\n**Potential strategic direction:**\n\nThe **ENGINEERING documentation** mentions a \"2 way sync (including data connect) will continue and may have to be enhanced. New sync adapters will be built to understand the grammar of various applications.\" This suggests the NextGen CPQ may use sync adapters as part of its architecture, which *could* potentially address version compatibility, but this is not explicitly stated.\n\nThe **Theme 2: CPQ Excellence roadmap item** focuses on \"Sales teams can close complex B2B deals faster with fewer errors\" but does not address migration or version consolidation strategy.\n\n**Gap:** There is no documented migration strategy, version consolidation plan, or technical approach for handling customers on multiple CPQ versions during or after the transition to NextGen CPQ.\n\n**Confidence: Low**\n\n**Reasoning:** The question itself is listed as pending/unanswered in the documentation. While there are references to multiple CPQ versions existing and some architectural components that might be relevant, there is no explicit strategy documented for addressing version sprawl.\n\n## Related Pending Questions:\n- What is the planned approach for migrating existing Apex customizations - transpilation, DSL conversion, or hybrid?\n\n## Suggested Follow-ups:\n- What is the migration timeline for customers moving from CPQ-X to NextGen CPQ?\n- Will there be a parallel run period where multiple CPQ versions are supported simultaneously?\n- Are there plans to consolidate customers onto a single CPQ version, or will version sprawl continue with NextGen CPQ?\n- What backwards compatibility guarantees will NextGen CPQ provide for customers on older versions?",
+        "confidence": "medium",
+        "generated_at": "2026-01-06T16:41:32.216849",
+        "retrieval_stats": {
+          "chunks": 20,
+          "chunk_graph_nodes": 810,
+          "decisions": 0,
+          "answered_questions": 0,
+          "assessments": 0,
+          "roadmap_items": 16,
+          "gaps": 0,
+          "pending_questions": 2
+        }
+      },
+      "source_references": [
+        {
+          "type": "chunk",
+          "count": 20,
+          "relevance": "Source documents"
+        }
+      ],
+      "qa_session": {
+        "query": "How will the new CPQ handle the version sprawl issue mentioned in the docs where customers are spread across multiple CPQ versions?",
+        "topic_filter": "CPQ",
+        "session_timestamp": "2026-01-06T16:41:32.216850"
+      },
+      "validation": null
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-01-07T09:19:33.356079",
+    "total_pending": 21,
+    "total_answered": 0,
+    "total_deferred": 0,
+    "total_obsolete": 0
+  }
+}

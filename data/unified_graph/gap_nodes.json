@@ -1,0 +1,23 @@
+{
+  "gap_analysis_20260106104646_0": {
+    "id": "gap_analysis_20260106104646_0",
+    "description": "No specific AI agent integration protocols or standards support",
+    "severity": "moderate",
+    "type": "competitive",
+    "identified_by": "analysis_20260106104646"
+  },
+  "gap_analysis_20260106104646_1": {
+    "id": "gap_analysis_20260106104646_1",
+    "description": "B2C self-serve commerce capabilities not prioritized",
+    "severity": "moderate",
+    "type": "competitive",
+    "identified_by": "analysis_20260106104646"
+  },
+  "gap_analysis_20260106104646_2": {
+    "id": "gap_analysis_20260106104646_2",
+    "description": "Real-time pricing and catalog exposure for external systems",
+    "severity": "minor",
+    "type": "competitive",
+    "identified_by": "analysis_20260106104646"
+  }
+}

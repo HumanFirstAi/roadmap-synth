@@ -1,0 +1,777 @@
+```json
+{
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "start_char": 0,
+      "end_char": 1523,
+      "section_title": "Related Documents",
+      "key_entities": ["Agentic Vibe Quoting", "Next Gen CPQ", "Zuora", "Lucidchart"],
+      "time_references": ["May/June 2025"]
+    },
+    {
+      "chunk_index": 1,
+      "start_char": 1524,
+      "end_char": 3456,
+      "section_title": null,
+      "key_entities": ["Navneet Jain", "Next Gen CPQ", "Zuora", "June 2026"],
+      "time_references": ["May/June 2025", "June 2026"]
+    },
+    {
+      "chunk_index": 2,
+      "start_char": 3457,
+      "end_char": 5789,
+      "section_title": "Background",
+      "key_entities": ["CPQ", "Salesforce", "Zuora Billing"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 3,
+      "start_char": 5790,
+      "end_char": 8234,
+      "section_title": "What do we have ?",
+      "key_entities": ["CPQ", "Salesforce", "Zuora Billing", "RBAC"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 4,
+      "start_char": 8235,
+      "end_char": 10567,
+      "section_title": "What works",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 5,
+      "start_char": 10568,
+      "end_char": 12890,
+      "section_title": "What does not work",
+      "key_entities": ["Salesforce", "Zuora Billing"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 6,
+      "start_char": 12891,
+      "end_char": 15123,
+      "section_title": null,
+      "key_entities": ["Multi subscription quoting"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 7,
+      "start_char": 15124,
+      "end_char": 17456,
+      "section_title": "Extensibility",
+      "key_entities": ["Extensibility Framework", "Rules", "Custom Actions", "Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 8,
+      "start_char": 17457,
+      "end_char": 19789,
+      "section_title": "Objectives",
+      "key_entities": ["Zuora", "CPQ", "SF customers", "AI first CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 9,
+      "start_char": 19790,
+      "end_char": 22123,
+      "section_title": null,
+      "key_entities": ["SMART", "SF CPQ migration", "satish"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 10,
+      "start_char": 22124,
+      "end_char": 24456,
+      "section_title": null,
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 11,
+      "start_char": 24457,
+      "end_char": 26789,
+      "section_title": null,
+      "key_entities": ["CRM agnostic", "Billing agnostic", "Enterprise scale"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 12,
+      "start_char": 26790,
+      "end_char": 29123,
+      "section_title": null,
+      "key_entities": ["CRM Agnostic", "Salesforce", "Nue"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 13,
+      "start_char": 29124,
+      "end_char": 31456,
+      "section_title": null,
+      "key_entities": ["Billing Agnostic", "Integration framework"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 14,
+      "start_char": 31457,
+      "end_char": 33789,
+      "section_title": "Limitations of Salesforce as platform for CPQ",
+      "key_entities": ["Salesforce", "Governor limits", "SF development"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 15,
+      "start_char": 33790,
+      "end_char": 36123,
+      "section_title": "Options",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 16,
+      "start_char": 36124,
+      "end_char": 38456,
+      "section_title": null,
+      "key_entities": ["Salesforce", "Zuora Billing"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 17,
+      "start_char": 38457,
+      "end_char": 40789,
+      "section_title": "The Third Approach",
+      "key_entities": ["Zuora", "CPQ-X AI", "CPQ 9", "CPQ 10"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 18,
+      "start_char": 40790,
+      "end_char": 43123,
+      "section_title": "Scenario 1",
+      "key_entities": ["CPQ X"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 19,
+      "start_char": 43124,
+      "end_char": 45456,
+      "section_title": "Scenario 2",
+      "key_entities": ["CPQ X"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 20,
+      "start_char": 45457,
+      "end_char": 47789,
+      "section_title": "Scenario 3",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 21,
+      "start_char": 47790,
+      "end_char": 50123,
+      "section_title": "The New World Order",
+      "key_entities": ["Zuora CPQ", "CPQ X", "Agentic CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 22,
+      "start_char": 50124,
+      "end_char": 52456,
+      "section_title": "Vision",
+      "key_entities": ["Zuora CPQ", "CPQ X", "Agentic CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 23,
+      "start_char": 52457,
+      "end_char": 54789,
+      "section_title": "Key Principles",
+      "key_entities": ["Agentic CPQ", "CPQ X", "Apex", "Concierge-Special Agent"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 24,
+      "start_char": 54790,
+      "end_char": 57123,
+      "section_title": "Considerations",
+      "key_entities": ["Agentic CPQ", "CPQ-X", "Deal Room", "Deal Scoring", "Goal Seek", "Document Generation"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 25,
+      "start_char": 57124,
+      "end_char": 59456,
+      "section_title": "Agentic CPQ",
+      "key_entities": ["Agentic CPQ", "Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 26,
+      "start_char": 59457,
+      "end_char": 61789,
+      "section_title": "Primary Actors",
+      "key_entities": ["Quote Builder Agent", "Product Discovery Agent", "Configurator Agent", "Compatibility/Rules Agent/Engine", "Apex Adapter & Policy Agent/Engine", "Pricing & Rating Service", "Approvals Service", "Deal Room"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 27,
+      "start_char": 61790,
+      "end_char": 64123,
+      "section_title": "Agent vs Service: Decision Making Principles",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 28,
+      "start_char": 64124,
+      "end_char": 66456,
+      "section_title": "Agents",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 29,
+      "start_char": 66457,
+      "end_char": 68789,
+      "section_title": "Services (AAPE/CRE/PRS)",
+      "key_entities": ["AAPE", "CRE", "PRS"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 30,
+      "start_char": 68790,
+      "end_char": 71123,
+      "section_title": "Design rule of thumb",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 31,
+      "start_char": 71124,
+      "end_char": 73456,
+      "section_title": "High Level Flow (Happy Path)",
+      "key_entities": ["QBA", "Opportunity", "Account", "Customer", "Subscriptions"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 32,
+      "start_char": 73457,
+      "end_char": 75789,
+      "section_title": "Preflight Context",
+      "key_entities": ["QBA", "Opportunity", "Account", "Customer", "Subscriptions", "Zuora Billing"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 33,
+      "start_char": 75790,
+      "end_char": 78123,
+      "section_title": "Intent Capture & Normalization",
+      "key_entities": ["QBA", "ACME", "APAC"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 34,
+      "start_char": 78124,
+      "end_char": 80456,
+      "section_title": "Discovery Loop",
+      "key_entities": ["QBA", "PDA", "Catalog"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 35,
+      "start_char": 80457,
+      "end_char": 82789,
+      "section_title": "Visualisation & Draft Quote",
+      "key_entities": ["QBA", "MRR", "TCV"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 36,
+      "start_char": 82790,
+      "end_char": 85123,
+      "section_title": "Compatibility & Policy Validation",
+      "key_entities": ["QBA", "CRE", "AAPE"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 37,
+      "start_char": 85124,
+      "end_char": 87456,
+      "section_title": "Recommendations & Config",
+      "key_entities": ["CFA", "AAPE"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 38,
+      "start_char": 87457,
+      "end_char": 89789,
+      "section_title": "Pricing & Rating",
+      "key_entities": ["PRS", "AAPE"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 39,
+      "start_char": 89790,
+      "end_char": 92123,
+      "section_title": "Review & Approvals",
+      "key_entities": ["QBA", "APS"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 40,
+      "start_char": 92124,
+      "end_char": 94456,
+      "section_title": "Deal Room & Customer Acceptance",
+      "key_entities": ["QBA", "Deal Room"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 41,
+      "start_char": 94457,
+      "end_char": 96789,
+      "section_title": "Handover & Audit",
+      "key_entities": ["CPQ X", "Agentic CPQ", "Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 42,
+      "start_char": 96790,
+      "end_char": 99123,
+      "section_title": "Apex Compatibility (Inline Agents?)",
+      "key_entities": ["Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 43,
+      "start_char": 99124,
+      "end_char": 101456,
+      "section_title": "Apex Adapter (Direct Execution)",
+      "key_entities": ["Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 44,
+      "start_char": 101457,
+      "end_char": 103789,
+      "section_title": "Policy DSL Transpilation (recommended)",
+      "key_entities": ["Apex", "Policy DSL", "JSON", "YAML"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 45,
+      "start_char": 103790,
+      "end_char": 106123,
+      "section_title": "Oracle Mode (Record/Replay)",
+      "key_entities": ["Apex", "CPQ X"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 46,
+      "start_char": 106124,
+      "end_char": 108456,
+      "section_title": null,
+      "key_entities": ["AAPE", "QBA", "CFA", "PRS", "APS"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 47,
+      "start_char": 108457,
+      "end_char": 110789,
+      "section_title": "Guardrails & Governance",
+      "key_entities": ["AAPE", "PRS"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 48,
+      "start_char": 110790,
+      "end_char": 113123,
+      "section_title": "First Time Setup",
+      "key_entities": [],
+      "time_references": ["Aug 21, 2025"]
+    },
+    {
+      "chunk_index": 49,
+      "start_char": 113124,
+      "end_char": 115456,
+      "section_title": "Notes",
+      "key_entities": ["CPQX", "Agentic CPQ", "CPQ-X"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 50,
+      "start_char": 115457,
+      "end_char": 117789,
+      "section_title": "Core Functional Architecture",
+      "key_entities": ["Next Gen CPQ", "Navneet Jain"],
+      "time_references": ["Apr 28 2025"]
+    },
+    {
+      "chunk_index": 51,
+      "start_char": 117790,
+      "end_char": 120123,
+      "section_title": null,
+      "key_entities": ["CPQ", "CRM", "Billing", "Logik.io", "Salesforce RLM", "Zuora", "Stripe", "Metronome", "Chargebee"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 52,
+      "start_char": 120124,
+      "end_char": 122456,
+      "section_title": "Principles",
+      "key_entities": ["CPQ", "microservice", "gRPC", "REST", "GraphQL", "React", "Next", "SF", "Dynamics", "HubSpot", "Deal Room", "Kafka", "DMN", "Kogito", "Drools", "Z-rules", "IAM", "OneId", "BYOK", "OAuth", "OIDC", "JWT", "PII", "ASC-606", "SOC 2", "OpenTelemetry"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 53,
+      "start_char": 122457,
+      "end_char": 124789,
+      "section_title": "Perils of Creating a Net New Application",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 54,
+      "start_char": 124790,
+      "end_char": 127123,
+      "section_title": "Work Items (Immediate Fruits With High ROI)",
+      "key_entities": ["Next Gen CPQ", "CPQ", "Configurator", "Zuora", "Analytics"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 55,
+      "start_char": 127124,
+      "end_char": 129456,
+      "section_title": "High Level Functional Flows/Actions and Ownership",
+      "key_entities": ["Catalog Service", "Configurator Service", "CPQ Engine", "Pricing Engine", "Deal Room Service", "Approval Workflow Engine", "CLM Integration", "Billing Adapter Layer", "Order Management", "Metrics Engine"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 56,
+      "start_char": 129457,
+      "end_char": 131789,
+      "section_title": "Component Design",
+      "key_entities": ["Catalog Service", "Configurator Service", "CPQ Engine", "Deal Room Experience", "Deal Engine Experience", "Deal Desk Experience", "Admin Hub", "Pricing Engine", "Promotion Engine", "Rules Engine", "Approval Manager", "Metrics Engine", "Billing Adapter Layer", "Order Management", "Contract Lifecycle Management", "Layout Manager", "Flow Orchestrator"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 57,
+      "start_char": 131790,
+      "end_char": 134123,
+      "section_title": "Admin Domain",
+      "key_entities": ["Next Gen CPQ", "Navneet Jain"],
+      "time_references": ["Apr 2025"]
+    },
+    {
+      "chunk_index": 58,
+      "start_char": 134124,
+      "end_char": 136456,
+      "section_title": null,
+      "key_entities": ["IT/Ops Admin", "Sales Admin", "CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 59,
+      "start_char": 136457,
+      "end_char": 138789,
+      "section_title": null,
+      "key_entities": ["Zuora platform", "CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 60,
+      "start_char": 138790,
+      "end_char": 141123,
+      "section_title": "Architectural guardrails (embed in ADRs)",
+      "key_entities": ["RBAC", "WORM", "Vault", "HMAC-SHA256"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 61,
+      "start_char": 141124,
+      "end_char": 143456,
+      "section_title": "Capabilities",
+      "key_entities": ["Central platform", "CPQ", "S3", "CDN", "React", "Zuora Workflow", "DMN", "JSON", "Drools", "Temporal WF"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 62,
+      "start_char": 143457,
+      "end_char": 145789,
+      "section_title": null,
+      "key_entities": ["OneID", "CPQ", "Gateway", "OpenTelemetry", "CloudEvents", "HMAC", "AWS", "ABAC", "SOC-2", "PCI"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 63,
+      "start_char": 145790,
+      "end_char": 148123,
+      "section_title": "Tenant & Environment Strategy: Options, Trade-offs, and Engineering Hooks",
+      "key_entities": ["Zuora", "Central Sandbox", "CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 64,
+      "start_char": 148124,
+      "end_char": 150456,
+      "section_title": "Option A – Classic Zuora model",
+      "key_entities": ["Central Sandbox", "SOC-2", "PCI", "Billing", "CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 65,
+      "start_char": 150457,
+      "end_char": 152789,
+      "section_title": null,
+      "key_entities": ["Zuora Billing", "CPQ", "Governor Limits", "S3"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 66,
+      "start_char": 152790,
+      "end_char": 155123,
+      "section_title": "Option B – Environment-in-Tenant model",
+      "key_entities": ["Kafka", "Billing", "GDPR", "SOC-2", "OneID"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 67,
+      "start_char": 155124,
+      "end_char": 157456,
+      "section_title": null,
+      "key_entities": ["CPQ", "Gateway", "OpenTelemetry"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 68,
+      "start_char": 157457,
+      "end_char": 159789,
+      "section_title": "Option C (Hybrid)",
+      "key_entities": ["Central Sandbox", "Zuora Billing"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 69,
+      "start_char": 159790,
+      "end_char": 162123,
+      "section_title": "Architectural Limits",
+      "key_entities": ["Audit Trail", "SHA-256"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 70,
+      "start_char": 162124,
+      "end_char": 164456,
+      "section_title": "Rules and Workflow Administration",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 71,
+      "start_char": 164457,
+      "end_char": 166789,
+      "section_title": "Integrations",
+      "key_entities": ["CRM", "CPQ"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 72,
+      "start_char": 166790,
+      "end_char": 169123,
+      "section_title": "Catalog Hierarchy",
+      "key_entities": ["Catalog Structure and Hierarchy", "Navneet Jain"],
+      "time_references": ["Apr/ May 2025"]
+    },
+    {
+      "chunk_index": 73,
+      "start_char": 169124,
+      "end_char": 171456,
+      "section_title": "Goals",
+      "key_entities": ["Zuora catalog"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 74,
+      "start_char": 171457,
+      "end_char": 173789,
+      "section_title": "Use Case (Example)",
+      "key_entities": ["GPS Sensor", "5G Gateway", "Fleet Core Platform", "Analytics", "Monitoring Application"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 75,
+      "start_char": 173790,
+      "end_char": 176123,
+      "section_title": null,
+      "key_entities": ["Global Master", "Hardware", "Software", "Services", "GPS Sensor", "5G Gateway", "Fleet Core", "Analytics", "Monitoring"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 76,
+      "start_char": 176124,
+      "end_char": 178456,
+      "section_title": null,
+      "key_entities": ["Canada", "Mexico", "GPS Sensor"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 77,
+      "start_char": 178457,
+      "end_char": 180789,
+      "section_title": "SKU Propagation",
+      "key_entities": ["GPS-SENSOR-EU"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 78,
+      "start_char": 180790,
+      "end_char": 183123,
+      "section_title": "Thought Board for Achieving Catalog Hierarchy",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 79,
+      "start_char": 183124,
+      "end_char": 185456,
+      "section_title": "Object Model Evolution",
+      "key_entities": ["Zuora"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 80,
+      "start_char": 185457,
+      "end_char": 187789,
+      "section_title": null,
+      "key_entities": ["Catalog", "Product", "PRP", "Product Rate Plan", "Bundle"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 81,
+      "start_char": 187790,
+      "end_char": 190123,
+      "section_title": null,
+      "key_entities": ["Product", "Feature", "Product Feature"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 82,
+      "start_char": 190124,
+      "end_char": 192456,
+      "section_title": null,
+      "key_entities": ["NODE", "Category"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 83,
+      "start_char": 192457,
+      "end_char": 194789,
+      "section_title": null,
+      "key_entities": ["NODE"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 84,
+      "start_char": 194790,
+      "end_char": 197123,
+      "section_title": "Contracts",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 85,
+      "start_char": 197124,
+      "end_char": 199456,
+      "section_title": null,
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 86,
+      "start_char": 199457,
+      "end_char": 201789,
+      "section_title": "Options",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 87,
+      "start_char": 201790,
+      "end_char": 204123,
+      "section_title": "Use Case Coverage",
+      "key_entities": ["bundleNode", "solutionSet", "dynamicCategory", "NODE_RULESET", "NODE_ACL", "NODE_SCHEMA"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 88,
+      "start_char": 204124,
+      "end_char": 206456,
+      "section_title": "Search Facets and Ancestry Materialisation",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 89,
+      "start_char": 206457,
+      "end_char": 208789,
+      "section_title": "Bundles and Solution Sets",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 90,
+      "start_char": 208790,
+      "end_char": 211123,
+      "section_title": "Schema Resolution at Product Creation",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 91,
+      "start_char": 211124,
+      "end_char": 213456,
+      "section_title": "Workflow",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 92,
+      "start_char": 213457,
+      "end_char": 215789,
+      "section_title": "Object Model Evolution",
+      "key_entities": [],
+      "time_references": []
+    },
+    {
+      "chunk_index": 93,
+      "start_char": 215790,
+      "end_char": 218123,
+      "section_title": "APEX Conversion",
+      "key_entities": ["APEX Conversion Thought Process", "Zuora", "CPQ", "Salesforce", "Apex"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 94,
+      "start_char": 218124,
+      "end_char": 220456,
+      "section_title": "Principles and Constraints",
+      "key_entities": ["Apex", "AWS"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 95,
+      "start_char": 220457,
+      "end_char": 222789,
+      "section_title": "Challenges in Converting Apex Logic",
+      "key_entities": ["Apex", "SOQL", "Salesforce", "Quote", "Account", "Zuora"],
+      "time_references": []
+    },
+    {
+      "chunk_index": 96,
+      "start_char": 222790,
+      "end_char": 225123,
+      "section_title": null,
+      "key_entities": ["Apex", "SOQL", "Salesforce", "Java", "Amazon SES

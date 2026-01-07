@@ -1,0 +1,565 @@
+Speaker 1  0:00  
+Did you say that? No, I was saying that we can have an argument that even rule engine should be in platform. The same time we got approvals, which is sure part of platform.
+
+Speaker 2  0:19  
+You opportunity, yeah, I wonder. I'm worried that we'll, we will end up overreaching, yeah, like the company, like someone will go, Wait a second, that's building another platform. Yeah, it's got to be rooted in a to, Oh, yeah. But I wonder if, I wonder if this is, I wonder if this is a problem. Slide though
+
+Speaker 1  0:45  
+this could be. This could be probably something that we share later, yeah, and say we're working through this. We'll take the environment share, and then we align people and then share. I think so.
+
+Unknown Speaker  1:00  
+Let me just hide that for now.
+
+Unknown Speaker  1:05  
+So this is, let me just do this here.
+
+Unknown Speaker  1:15  
+So this
+
+Speaker 2  1:18  
+what we're saying is here. So this is where we say the architecture tells the story. Architect the foundation to own the story in the organisational element. So that's the story, one platform. That's the filling of products, and then the intersections where the platform actually looks, context, orchestrates the actions, experiences where products connect customers, experience, always one platform, right? So that's what I try and tie it all together. I'll get to this later, because I've captured a whole bunch of stakeholder concerns. You know, I want to protect the core, eliminate duplication risk, have a clear architectural Foundation, capture missing upstream data. So big one for Shakir, by the way, is in CPQ. We don't have any CPUs this.
+
+Speaker 1  2:07  
+We need to expand our CPQ. That's a given. Our CPQ is not
+
+Speaker 2  2:12  
+let's kind of stuff exactly.
+
+Speaker 1  2:17  
+That's why context management is super Yeah. So I even told arrow that one day, not today, one day, if we capture enough data, we might even consider that as not CDP, but a new version of customer data that we have, and then buy everything that Zola has and make it zora's own monetization.
+
+Unknown Speaker  2:37  
+CDP, yeah, we're just not using words. CDP, no,
+
+Speaker 1  2:41  
+I won't. Everyone will free cash. It's more like customer data platform. It's a monetization data platform, something like that. I will
+
+Unknown Speaker  2:48  
+have, well, it's this. This is I gave this slide to
+
+Unknown Speaker  2:53  
+Ken. Let me show you what Ken put in.
+
+Unknown Speaker  2:58  
+I did this a while back.
+
+Unknown Speaker  3:03  
+And Ken's put it into his deck.
+
+Speaker 2  3:12  
+This one here, we built all of that so far. Yeah,
+
+Speaker 1  3:18  
+not catching that. Yeah. So my question is, acquisition to order and order to cash. Where does order sit?
+
+Unknown Speaker  3:28  
+Where does order sit? Is it
+
+Speaker 1  3:30  
+in order to cash or order to revenue, or is it an acquisition to order space?
+
+Speaker 2  3:37  
+Yeah, I think naturally, because it's as soon as you take a payment. Yeah, that's Ken's land, before payment is actually processed
+
+Speaker 1  3:47  
+somewhere, because
+
+Speaker 2  3:51  
+that's up in once the once the payment is transacting in, the account is being created, that's everything up to that point. So if a process hasn't started to generate an account,
+
+Speaker 1  4:07  
+the Apple placing an order, yeah, like is here after placing the order goes to that, okay, the video double click on that, because in Zora order is not the act of getting the subscription data or the customer purchase data into Zora order is a vehicle of creating those things, because it's very engineering LED. Data Model and architecture or design is without order. Subscription doesn't exist. So if the act of creation of subscription or the vehicle is ordered, then that lands in the acquisition to order space. Subscription lands in that space, but that overlap is I have to influence how that interaction manifests. But do you think this team has influence on that? Because then that, I think so, because the order is going to be the thing here, right?
+
+Speaker 2  5:10  
+I think that's the trend between, yeah, what we do in Ken's org
+
+Speaker 1  5:14  
+does, is it overlap somewhere? Yeah, definitely.
+
+Speaker 2  5:18  
+I mean, I'm super interested. I'm spending time with them tomorrow payments, how payments intersect it? Because I like his payment strategy. That's really good. But, yeah, I agree with you, alright, so that's the data bit. So the bit I was thinking is, you know, we like 20 slides here, so I don't have to rattle through these, yeah? But BCS, so there were two things. There was next gen, CP CPQ, though, how does that use? Everything that I would have just set up, and then BCS. And I wonder if we, I guess the question in the room is going to be, bring it to life. For me, what does actually an intersection mean? What does that represent?
+
+Speaker 1  6:06  
+If you think from your perspective, what would that look like bringing to life? Thing? Would you be able to visualise something and say, This is what it should look like? What do you think?
+
+Speaker 2  6:17  
+I mean? I think, I think, you know, you could do you. So if you think about the customer journey, it's there's two, two obvious points. One is the complete self serve customer that I think that's where BCS feels like, really powerful. Then there's the next gen, there's the abstraction of CPQ light, right? So if you think about those two things, that they're down here,
+
+Speaker 1  6:51  
+and maybe the third, the complex BDB, let's just throw that in complex bpq as well, because this is what happens then. Like you are saying, story comes to life that we paint. If I'm to stretch or take what you were thinking further, there are three types of interaction that can take place. If I map everything back to the strategy graph that you have, that we play here, we are weaker in and all that three type of interaction that can take place, which is self serve, like transactions from CPU perspective or proper CPQ enterprise transaction in every interaction. If I see what we need to demonstrate is this whole interaction layer stays the same and plays a part in delivering custom experiences to each of
+
+Speaker 2  7:41  
+these interactions, because then what you're doing is you're saying the effort that we're making doesn't support just stage one and stage two. Stage two, yes, it supports our story. Who will get? What a better thing? Yes, 100% yes, that's what. So what I'd like to do is I would like, I mean this, I'm dropping this on you now. So it's, it's kind of, can we pull it together tomorrow? If I do, if I, if we bring this out like you've got, you've got BC you've got stuff on BCS. There's a few bullet points you could bring out on BCS, right?
+
+Unknown Speaker  8:20  
+This is all about experiences.
+
+Unknown Speaker  8:24  
+Well, this is basically,
+
+Speaker 2  8:27  
+yeah, I guess the question is, is it next gen, CPQ, light, or how do we think about it?
+
+Speaker 1  8:34  
+I would want to take that opportunity. And I'm just throwing an idea. I'm not saying that you throw a grenade in there, that you subtly say, don't think of next gen CPQ, but think of it as a next generation of CPQ, through next generation of CPQ, the way the componentization, we are going to strategize and bring Manfred into support on that, because I do not know if he bought into what I was saying, because he's focused on B to B
+
+Unknown Speaker  8:58  
+complex right now. He's pulled into this.
+
+Speaker 1  9:00  
+Then it's good. Then I would say that, hey, he thinks the right 100% the right direction, perfect. Then all we got to say over there is next gen of CPQ, not next gen CP connection of CPQ is going to be supported by these intersection layer things, and the experience will automatically be personalised using BCS, because our experience there is also going to be contextual from where you are landing. That's the message that we got to give. Because what we are again and again saying is you're not building different CPQ here and there you are building the core components. And thanks to BCS, and thanks to our intelligent experience management, we can render what you want that and you can switch on and off the components that you don't want to show for B to B, you may want to show extra components, right?
+
+Speaker 2  9:49  
+So if I show, if I put a slide together that says next generation of CPQ,
+
+Unknown Speaker  9:57  
+does it reference guided selling or not?
+
+Speaker 1  10:00  
+It should reference guided selling for the complicated ones. I think the lighter ones probably don't
+
+Unknown Speaker  10:04  
+need, Alright, so next generate generation of CPQ,
+
+Speaker 2  10:09  
+I can say unlocking CPQ, light, yeah. And then we talk about how context? How would you describe context? I'm going
+
+Unknown Speaker  10:22  
+to give you this document first. Sure,
+
+Unknown Speaker  10:30  
+yeah, you sent me the BCS stuff.
+
+Unknown Speaker  10:32  
+No, not just BCS, the next gen CPQ. Next Gen CPQ. I'll just send it again. So
+
+Speaker 1  10:51  
+I just sent it to you again. So basically, where was my listed of this, if I can find that listed and maybe we can talk to them, the diagrams have to be simple. I we cannot have I've learned this way.
+
+Unknown Speaker  11:06  
+Yeah, my maid of what you and I showed up here,
+
+Speaker 1  11:13  
+people sometimes when I do diagrams like this, like flow diagrams,
+
+Speaker 2  11:18  
+people can't consume it, yeah? I that's in the background.
+
+Speaker 1  11:22  
+Yeah, I've lost people, several like this is how the full movie, and people looking at me. I learned it over time. But nobody an architect
+
+Speaker 2  11:30  
+in front of them, engineer, people can't challenge it, and therefore they just shut up, yeah, just or the ones that can speak up, yes, and then you go down a rabbit hole.
+
+Speaker 1  11:40  
+Yes, it's not that they won't, they will. And it goes, yeah, so All right, what I'm thinking about this, it does unlock next and CPQ, but the architect or the slide should not be an architecture slide should be a much more easily digestible slide is multiple types of interaction come from here and down here, we have our intersection things that we have built up and somewhere here, there is a first layer, which is my intelligent context manager or VCs. When it deciphers what needs to happen, it sources in the right components and the right flows to be triggered, and that's what the customers get per interaction, but it is completely abstracted from them. And this is where the front ends of the catalogue or the CPQ or everything sits, but this is a common layer.
+
+Speaker 2  12:39  
+So would you say so when you talk about, how would you configure a c1 seeing a CPQ light
+
+Speaker 1  12:50  
+the way I'm thinking about that you got somewhere in Zora.
+
+Unknown Speaker  12:59  
+Okay, so
+
+Speaker 1  13:02  
+step one, you bought Zora, and let's say
+
+Speaker 2  13:06  
+you sell using this is the CPQ light story, right?
+
+Speaker 1  13:09  
+I'm giving you overarching CPQ, and the way I'm going to go there, I feel it'll answer CPQ light and heavy to Zola. To play Zola. There is nothing in there. I go to my intelligent context manager, or BCS, whatever name sticks, and I'm going to just set up my context, because I know what my context
+
+Speaker 2  13:35  
+is going to look like the same. This is the c1 right? This is a c1 right? Yeah. So this
+
+Speaker 1  13:39  
+session attributes I've already suggested. There are some other attributes I've suggested you just set it up. Completely done. Okay, now what BCS does not have today is it doesn't have the smarts of interactions. It doesn't know that if interaction is product browsing, some context attributes may not be needed. That is in development on that the roadmap that we need to do, but imagine that it has tomorrow. Second, once I have it now, I need to visualise what my experience is going to look like. Let's say I got 2c ones, c1 here. This guy knows CPQ. This guy knows my self service. And they say they define a flow. They define I need product browsing, from product browsing. I need recommendations from recommendations. I need to go to check out. Okay, over here, I say I have a guided selling flow. This is my guided selling flow. There is product browsing, one to product browsing, two to product browsing, three. Okay, that then takes me to, you know, recommendations, guardrail checks, which can probably go here and then find the code
+
+Unknown Speaker  15:01  
+that's been configured by the c1
+
+Speaker 1  15:03  
+or is the flow? The flow needs to be ultimately told by c1 this is my sales reps want, right? It's like building my Commerce pages, my Commerce experience.
+
+Unknown Speaker  15:13  
+And that's the simple flow.
+
+Speaker 1  15:15  
+That's the way they want it, right? When they want this. Basically what happened is, I'm going to go to my intersection layer of experience that library, in that library, I'm going to bring it, sorry, I'm going to bring this from here, and I'm going to bring the same element from here, over here, right? This is the same element that, let's say, which is product browsing element. I'm using the same thing from here, but all I'm doing is passing different contexts. That's all I'm doing. Maybe this is also the same component. Quoting is something that I need here, but I don't need quoting here. Or maybe I do preview right, and the guardrails and all that is not here because, or maybe should be here because you are checking something, but I think you get the idea that this is my list of components that you can and you will shop the components from this. You will put it here, but it builds your flow. The flow cannot be built. You will ship the flows. You will ship some pre built CPQ from Zola, but you will have to allow the users to customise, and
+
+Unknown Speaker  16:21  
+that's driven by the context that
+
+Unknown Speaker  16:25  
+what's available to them is driven by
+
+Speaker 1  16:27  
+the context. What's available to you is driven by the context. What you can build over here, you have the library, but you can use course or standard, because ultimately, even here, I envision you will have a commerce experience that is out of the box so that you don't have to build anything. But if you want to customise, sure,
+
+Speaker 2  16:45  
+CPQ live, right? Yes, you have a out of the box version,
+
+Unknown Speaker  16:52  
+and then you can track in
+
+Speaker 1  16:53  
+additional and whatever you want. I don't have any problems in the complicated version. You can think that I need to throw in product configurator, which is complicated stuff over I exist that we just have to come up with a list. Once I have that list, you will see that there is a lot of commonality, and we drag it down and say this common stuff is
+
+Speaker 2  17:14  
+just so that. So that's that's context and experiences, yes. What else? What about the intelligent commerce engine?
+
+Speaker 1  17:25  
+The intelligent commerce engine is basically, again, when you did experiences, you did the widgets only. How do I pass the data from this to this? How do I pass from this to this? And basically tying all this together is somewhere I need a Flow Builder. Without the Flow Builder, experience cannot do this. Experience is just this space, this space, this space, this widget.
+
+Speaker 2  17:49  
+So is that what intelligent commerce is to you? Yeah, is a, is the a
+
+Speaker 1  17:53  
+flow orchestrator? Find a name for that. For me, that is a flow orchestrator, that I can bring your flow to life. I can bring your entire journey orchestrator, maybe.
+
+Speaker 2  18:05  
+And is that the thing that's connecting to the L threes?
+
+Speaker 1  18:09  
+Yes, that is the thing that talks to L threes.
+
+Speaker 2  18:12  
+And the L threes are actually experiences, also an l3 as well, right? Isn't it?
+
+Speaker 1  18:16  
+Which is, will have to be l3 Yes, yeah, yes. But this guy knows that I can go to rules now, I can go to product now. This is basically my major broker. What is happening here is I can't have this guy. I don't want this guy to go to the APIs directly, because I know what APIs are. This is plasmid. Case in point. We are building our own set of functions using multiple APIs in there, right? So I don't want to go to that level of detail, because that's exactly where.
+
+Speaker 2  18:53  
+And each of those things that you talked about there are actions. Check out,
+
+Speaker 1  18:59  
+yeah, check out could be action. Product browsing is action. Okay?
+
+Speaker 2  19:03  
+So that follows this flow that you've talked Yes, which is, I have the I have an experience at the beginning. I wonder what the experience at the beginning is that the interaction
+
+Speaker 1  19:15  
+is the super simple, vanilla experience I would think that we are sending but that experience is not like I don't see that experience as one experience component. We have tied together everything, and we have shifted this is Zona out of the box commerce, right, which is one of the flows versions of the flow, so templated flows, that if you're a media customer, we believe this works for you. If you're a SaaS company, we believe this works for you. So you you got a library of those things, that's how I think. And you got to choose what works for you, or you build your own. But we're not
+
+Speaker 2  19:55  
+when you buy Sora, we can't abstract all absorb, creating a whole layer on topic. So it feels like some things. It feels like this, like if you want complex you just get vanilla Zora at this stage. What we're really building for is the stage one and stage
+
+Speaker 1  20:15  
+two customers fine, because we can't bite the whole thing. Yeah, I'm okay.
+
+Speaker 2  20:19  
+So stage one is you want just a reference implementation. You want the, you know, self serve to check out. That's, that's all you need. Then, then you bring in the stage two, which is a little bit more as a CPQ ish bit to it, but again, that's abstracted away. Yeah, CPQ is easy to abstract away because it's containerized. That's all it is to box, right? Yes, you have, when you get to building complex, it feels like that's not a place you want to play.
+
+Speaker 1  20:53  
+I would say I'm still optimistic we can, but we can talk more about it, because I think that's a layer where I need, probably, I need to bring you on the journey as well, because I don't see B to B complex or CPQ complex for us to be that place where we have to be like big machine, kind of a CPQ, they're super complicated, but we don't need to be that. I don't think so. You're still going to play, and I hope so in complex SaaS space, or in you're not playing in, let's call it engineering design space that needs a CPU, that is way more complicated. You're in visibility study. You're bringing in engineering parts and inventory and all that we don't play with that. Yeah, so complexity is still limited. That's why I'm saying there is a way that we can make it happen. But you don't have to go to that point tonight itself.
+
+Speaker 2  21:59  
+So is the once I've set this up and I say, Okay, I want now up to bring it to life, what we're going to look at is the stage one and stage two. How do we unlock that? I agree with you. There's a stage three. I wonder if, yeah, I think, I think you're right. I think if you don't do all three of them, that feels like 10 or 15 minutes of talking. Now, are you prepared to do that?
+
+Speaker 1  22:26  
+I can talk through that right now. But I think in your conversation with Manfred, did he? Did he explain where he wants to target for complex? Because complex is just a word, but within complex, there is a spectrum.
+
+Unknown Speaker  22:41  
+Yeah, our conversation centred around
+
+Unknown Speaker  22:48  
+bringing CPQ
+
+Speaker 2  22:51  
+to a self serve customer, right? So self configuring that like, yeah, that's where he he I stayed away from the upper end, because I feel like that's baked into the road maps already. I want to unpack the road maps later, not now. So I said that, you know, he said to me, Listen, you know, I'm buying what you're selling, but your biggest problem is getting the organisation to buy it and to insulate it. He believes that from his product down is a huge opportunity, but he doesn't have bandwidth for that.
+
+Speaker 1  23:32  
+What I think you should sell is also that what we are building can be built in a way that it automatically caters to the people or other customers below that tier as well, because it should be composable rather than, hey, this is a monolith like architecture that you've got to have everything. Which is where the argument for building reference architecture comes. Give me everything I get it. Give me a reference architecture, what I should use and how I should use, because it's too much for me, right? Same argument will go for CPQ. Oh, my God, so much. No, no, I don't need it. Give me smaller version.
+
+Speaker 2  24:07  
+I think that's the story. Is to say, Listen, this, this has no impact on next, the next generation of CPQ. It's all about this abstraction, its experiences, its context. It's the intelligent commerce, orchestrator, all of that kind of everything that you just described to me up here is, is that thing? And it feels like what Pete and Shakir will be thinking in the back of their minds is who's going to build this stuff right that we will get to that's going to be a conversation.
+
+Speaker 1  24:40  
+But here is again a suggestion. The if they ask this question and I was in your place, I would say, don't forget that without this, none of what we're doing will exist or will be shaped. So technically in some shape we are formed. These things are being built, however, not abstracted, within the flow
+
+Unknown Speaker  25:03  
+stuff going on.
+
+Speaker 1  25:04  
+So what we need to do is, without impacting the roadmap, we need to isolate those things so abstract those things and give them enough air cover so that they are built properly and care of it. That's the exercise we need to do. And it's not an exercise that can be done in three days, agree? Well, yeah, my other answer
+
+Speaker 2  25:23  
+will be, he already gave this to you two weeks ago. Oh, okay, so I think we're like, we've got quite a way down the track, but there's still, you know, nav and I have only had four conversations. So this doesn't get built overnight, alright? So, So stage one, stage two, stage three is going to be your bit,
+
+Speaker 1  25:46  
+yeah, and then you tell me him, and we will chat again, okay?
+
+Speaker 2  25:49  
+And then what I'm going to do is I'm just going to finish off with some reality checking. Secures. Asked for land mines and road blocks.
+
+Speaker 1  25:59  
+Am I building any slide? Or I'm not required to build a slide.
+
+Speaker 2  26:03  
+Well, I'm not sure. I mean, I guess I can
+
+Unknown Speaker  26:08  
+think I can build one, but I just, I'm not sure
+
+Speaker 1  26:10  
+if it's going to fit your see where you go. I mean, we'll touch base tomorrow morning, anywhere. Yeah, we have to sit together and build something, and we can talk about what we can present. I would be honest, I will definitely look for your feedback on some of the presentations or some of the slides I've done. I'm very good at presenting to the technical people, like, this is the architecture visit, but I have seen that when I present it to like some shaky or others, people look at me and go like, this is deep. So I think we need to abstract it to a point where people look at it like, get the high level. That's enough for me. Now the next version, we don't have a Docker order here. We can build something like that. Yeah, I agree
+
+Speaker 2  26:51  
+with I think it's only three slides. Let's just put this in. You've got the bullet points in BCS. You sent me that Doc. I can extract the one side. It just makes sense. Stage two is what we just talked on, using experiences sure and context and intelligent commerce to build an abstraction of the next generation of CPQ. Correct, yeah.
+
+Speaker 1  27:15  
+Anyway, is happening hard? Not hard coded, but hard coded in plasmic we need to pull it out. Example of rebuilding the APIs,
+
+Speaker 2  27:26  
+I agree, although people won't know that it's happening in plasma. We just need to say, I think we just you and I in the background. Need to just shift how Jimmy thinks about and Taylor think about experiences.
+
+Speaker 1  27:38  
+I think I can convince Taylor, but Jimmy is very much like, No, give me this.
+
+Speaker 2  27:43  
+Yeah, spoken to Jimmy, and I've fallen out a few times. He's not collaborative at all. And it also doesn't see the bigger picture. He wants just that thing so he can deliver his thing. Well, that's fine, but there's a broader story here, so I'll deal with Jimmy. And then the lot, the bit I don't think I have enough of a handle on is, is how this enables the stage three story.
+
+Speaker 1  28:09  
+Find 15 minutes tomorrow, we can go deeper. And I'll give you my point of view so that you can synthesise,
+
+Speaker 3  28:15  
+because this is stage three, right? Yeah. Okay. Other is this? Yeah, and let's go clean.
+
+Speaker 1  28:23  
+Okay, what is stage three? Let's give me your definition of stage three, and then we'll start from there.
+
+Speaker 2  28:29  
+Well, stage three is, in my mind, stage three was insulated product roadmap, but you're throwing in the idea that what we build here supports B to be complex.
+
+Speaker 1  28:41  
+Yeah? So when you say it's the insulating product roadmap, but if I map it to your strategy, stage three is complex.
+
+Speaker 2  28:51  
+Yeah, I haven't, to be frank with you, I haven't touched that. I just thought, Well,
+
+Speaker 1  28:55  
+no, we don't need to. We're not gonna say, if you say that we're touching that, people are gonna click, oh my Yeah. They're all freak out. Yeah, we're not going to do that. So what we are seeing stage three, it catered to some person, some category of our customers, and that we are seeing is B to B complex, Isn't it correct?
+
+Unknown Speaker  29:15  
+Right? That's That's all
+
+Speaker 1  29:18  
+basically what is happening here. What are the things I'm building here? Let's say it needs my BCS for sure, from Arrow's perspective, yes, it needs merchandising as well, what arrow calls merchandising, which is basically bundling and stuff like that, which means it needs my advanced rules and constraints, right?
+
+Speaker 2  29:46  
+See, that's the bit we haven't probably touched on. Is that I again, where I'm slightly confused, is this idea of catalogue rules like that live? Okay?
+
+Speaker 1  30:01  
+No, that's I'll tell you my perspective. I do not some of the things that Errol says, I don't fight with him on you have your point of view. Say what you're saying right now. I don't care about mine.
+
+Speaker 2  30:12  
+Feels like something outside. It doesn't feel like something inside. The capital rules. It's, yeah, I mean, for me, I think a rule is, as I understood it, you know, greater than No, that's an attribute. Greater than 50 million is an attribute.
+
+Speaker 1  30:29  
+So rule is, if it is greater than 50 then market mark, the price of buy. That's a rule, right? That's a rule. Or the rule is, you buy this product, you cannot buy this product. If you bought this product and this product, you get 10% discount. If you bought this and this, then you cannot buy
+
+Speaker 2  30:48  
+three rules and constraints in your language.
+
+Speaker 1  30:51  
+Those are the rules and constraints. So they live in the catalogue. Today. This is where arrow believes and live. But I believe you can say that it lives. It needs catalogue.
+
+Speaker 2  31:02  
+Was it a service? It's not baked into the catalogue.
+
+Unknown Speaker  31:04  
+No, no, no, it is outside. It's a service,
+
+Speaker 2  31:08  
+okay, but that's like this BCS. When I realised BCS wasn't it's like, we talk about it, BCS is service, right? Yeah.
+
+Speaker 1  31:17  
+So, okay, let me, let me clarify this. This is why sometimes I don't go to the level of art nuance with Harold. Some days he'll get it, but what I learned with him is let him speak. Let him speak. Give him something, give him something. And here, give him everything. And I was like, yeah, that is all I wanted. Okay, so, um, so this is catalogue. What is the catalogue? Catalogue is nothing but a listing of products, plans. You can argue price should be in the catalogue, but fine, I can abstract prices out in the pricing machine, in the price books. Let's say, Isn't that the
+
+Unknown Speaker  31:59  
+price waterfall?
+
+Speaker 1  32:00  
+Price waterfall is, we spoke about right? Price waterfall is the outcome. For example, I applied discounts. I want to know that you started with $100 you apply. This is a waterfall that we need to come to. Okay? So this is catalogue, right? You got price books. You got pricing rules as well. What is the input to pricing rule? The input to pricing rule will be the data coming from context manager or BCS, and I can have additional data coming to this as well. Entitlements may influence my price as well. If you have these entitlements, my price may change, right? Where are the entitlements coming from? Entitlements are not coming from catalogue. Entitlements are coming from my subscription engine for now. Zens, right. So would you say pricing rules sitting catalogue, right? That's the point here, right? The fact that I, as a catalogue owner, and building the pricing rules, or I'm thinking about it, should not mean the pricing rules lie in catalogue. This is outside. Can take inputs from them's subscription account, catalogue context, I don't know, take any input, but this is the pricing group. Same goes for merchandising rules, because my product bundling decision may not be
+
+Speaker 2  33:28  
+just consumes what's available in the capital, right, right.
+
+Unknown Speaker  33:33  
+So, but then what is,
+
+Speaker 2  33:35  
+sorry, just to back up a little bit, what's the difference between a service like that. I mean, for example, where would pricing rules be? I know what it consumes, but whereas where it's where's this utility beyond the catalogue,
+
+Speaker 1  33:49  
+when you are in the product browsing experience, we need to give you the pricing for for that car or for that problem.
+
+Speaker 2  33:58  
+So you're calling that pricing rules service.
+
+Speaker 1  34:02  
+When you say, Get plan, yeah, the get plan or the preview card needs to ultimately go and execute pricing rules and also up to the dollar value and the pricing waterfall, gotcha at that time. Similarly, merchandising rule. Now, merchandising rules could be as simple as I'm only putting product to product rules this product can be upgraded to this or cannot be
+
+Speaker 2  34:22  
+upgraded to this. But, sure, but let me ask you a question. Would you all right? So at the moment, these things live in Errol's
+
+Unknown Speaker  34:31  
+Jira, right? Yep,
+
+Speaker 2  34:36  
+I kind of feel that we would shape, that's where we shape that roadmap. But we it's not an intersection. It's an itch. I mean, you're 100% right. You shouldn't build it for just the context of, you know, with that catalogue lens,
+
+Unknown Speaker  34:55  
+but it should be something that's obviously bigger.
+
+Speaker 2  34:58  
+Feel that that is all right, but that argument means it is an intersection. Yeah, I think the way to maybe do this is to say there may be other intersections. We're just covering three of them. Now, if I, if I throw that in tomorrow,
+
+Speaker 1  35:15  
+you can just say that we are working through the exam. This is, these are just the examples, but there are more. We don't want to overload you. This is the philosophy we are bringing in.
+
+Speaker 2  35:22  
+So we just talk about BCS, we talk about orchestrating, we talk about actions.
+
+Unknown Speaker  35:28  
+Yeah, you can actually take the rules.
+
+Speaker 1  35:33  
+Maybe not. Rules is too lower level to be discussed with that audience. You can say that rules and constraint is also interaction, basically an intersection thing.
+
+Speaker 2  35:42  
+We put it as an l3 originally. So yes, you and I get, it's an l3 but it's, it's also an intersection. That's, that's the stuff we got to work out. Let's get, let's, let's not get into the weeds. I think less is more.
+
+Speaker 1  35:57  
+So you know what we need, just one last thing, yeah, we should not talk about rules and constraints as rules and constraints. What does it serve is what become an intersection? Right? That's the guard rails is. What is an intersection? I can serve guardrails through hard coded FLS, or I can serve guard rails like custom functions all through rules. Rules is a means to it. That's why it is an l3 what does it serve and who controls it? Is compliance. Compliance is your intersection. That's what we should say, that it's basically
+
+Unknown Speaker  36:36  
+going to be needed in every commerce flow.
+
+Speaker 1  36:40  
+So rules by price waterfall, these are all compliance elements that need to be put in here.
+
+Speaker 2  36:46  
+Yeah, I think this is where you and I have to spend quite a bit of time, because it's, there's two lenses, right? There's the internal you just took something from my roadmap, and then there's the the logic that says this is an intersection and this is not an intersection, yeah? If we don't get that right, we'll lose people, yeah? So I really, I think compliance feels like compliance feels potentially so you were going through your stage three there. So, yeah, how are you going to frame stage three? Is we do one and two, but we're not ignoring stage three. Yeah.
+
+Speaker 1  37:27  
+So where I was going with this flow. You need this, you need this, you need this, and you need in CPQ, other stuff as well that we spoke about. Basically, you still need to build your experience. It's not that you can live without experience. Now, there are two ways to do that. One, CPQ builds its own, something that they're doing on their CPQ does this on its own. They don't care about BCS, let's say, hypothetically. Then stage three of CPQ does it on for me and your peak, let's say, or your Shapiro. What I'm telling you is stage three. Forget about roadmap as engineering roadmap, what is to be built. Think of the outcomes I need here. The outcomes I need is to facilitate the commerce of CPQ or through roadmap what we have. But if I break it down into outcomes, these are the outcomes I need, and if I map it to stage one and stage two. These are the same outcomes I need. So basically, what it means is I can start building my architecture. I can start building my intersections, and organise a team to deliver exactly the roadmap, but with a lens that I unlock stage one, stage
+
+Speaker 2  38:37  
+two as well. Does it? Does it enhance stage three. I mean, does it make we're not doing anything kind of foundational on stage three. It's just a better pattern, isn't it? You can say that do no do no harm is the first thing, right?
+
+Speaker 1  38:58  
+No harm. But would you call saving a harmful off later that's going to come later as a benefit? Yeah, it is definitely, that's what it is.
+
+Speaker 2  39:09  
+I think there's a there's an easy thing to digest, though, which is the road maps currently deliver stage three. We're focusing on stage one and stage two to build tender for life, but stage one and state, but everything we do for stage one and stage I'd love to be able to go, here's an example of what we do with experiences or with BCS. Excuse me, that helps stage three. That's the bit. I'm not sure we necessarily need it. It was just your point around. Well, it also helps stage three. So maybe that's something about
+
+Speaker 1  39:46  
+that is one way can we flip it and say our core roadmap is to deliver stage three, but we are taking the elements from that stage three and reorganising it around this battle, which is the worker pattern, let's say so that we unlock stage one and stage two through that, rather than saying we're going to build stage one stage two, which is going to make me feel like there is additional work, but we are taking that reorganising, that it's nothing. We are not losing anything. Yes, there will be tiny bit of additional work in reorganising, but what we end up having is stage one and stage two for 10% extra cost.
+
+Speaker 2  40:26  
+What I want to do is, I think that's a key part of your you have to make an impact assessment. So one of the slides is, I think we do stage one and stage two, but I think stage three is the the organisational ally. Organisational elegance that you've just talked about, right, which is, we're doing something and it doesn't have So stage one and two, you're going to cover,
+
+Unknown Speaker  40:56  
+and then then three,
+
+Unknown Speaker  41:01  
+your is kind of, you're leveraging,
+
+Speaker 2  41:07  
+yeah, you're leveraging, you're leveraging what we have already going on in stage three in a way that it's not, you've got to make that point. It's not new. This is kind of organisational focus. There is going to be some marginal effort, but this is, this is internal
+
+Unknown Speaker  41:29  
+coordination, not
+
+Speaker 1  41:32  
+Greenfield, yeah, yes, not Greenfield, yes, yeah, to make sure that everything goes through, let's say BCS. Those kind of things like more focus on architectural purity, that'll unblock our stage one, stage two.
+
+Speaker 2  41:48  
+You know what this means? That this also means that, like, in the end, you're in the NPRs, right? Monthly product reviews, yeah. NPR, yeah. This feels like it's gonna become its own section.
+
+Unknown Speaker  42:06  
+Let's see. I'm not
+
+Unknown Speaker  42:09  
+gonna count the chickens this year,
+
+Speaker 2  42:12  
+because if it, if we get it across, yeah, it will become its own section. But what I would has been going to deliver platform otherwise. I mean, platform is just a word right
+
+Speaker 1  42:22  
+now, monetization platform, or composability and all those things, that's
+
+Speaker 2  42:26  
+just word because there's not a single person I've spoken to. There's nothing that says we're coordinated enough to deliver platform.
+
+Speaker 1  42:34  
+Nobody's incentivized to do that either. Because the moment you say that, hey, you got 15 dependencies, the other people are like, Okay, I'll take your 15 and raise my 25 Yeah. Now when you bring with this, you're like, hey, l, you are only focused on that piece. Forget about dependencies. The intersection team is going to deliver to you. If they don't, then I get it that you're failing intersection team. This is what you live and die by.
+
+Speaker 2  43:00  
+So, yeah, the beauty of this is that if they don't buy the first part of the story, which is like, is, like I said, vendor for life is now being used. But everything that's in Ken's roadmap is about complex. CPQ is about complexity. So it doesn't really have any join this is
+
+Speaker 1  43:22  
+because that he doesn't need it. Payment is a payment, right? Billing, you can argue, I don't need commitments for the lighter weights, okay, don't use it. Then your reference architecture,
+
+Speaker 2  43:34  
+all right. Well, listen, either either buying platform or they're not.
+
+Unknown Speaker  43:40  
+So no,
+
+Speaker 1  43:42  
+you probably need an exercise to bring Shakir, Satish, Earl and Fred across this thing.
+
+Speaker 2  43:48  
+Well, in principle, all the interviews that I've done so the only, the only did, the only word of caution from Shakir is you have to fix CPQ, like the main stuff, the old CPQ. He wants a liquid paint on the old CPQ.
+
+Speaker 1  44:10  
+That's a separate you can't touch that. Yes, I let it go in a separate stream on, yeah, exactly.
+
+Speaker 2  44:16  
+So that's the only the unboon is. The only other word, of course, is don't, you know, don't not give me B to B complex, which is fine. We understand everybody else is on board. And Manfred even went so far as to he kind of made me think differently. We use these labels of B to B, plg and B to B, SLG. Actually, all it is is self serve to sales lead. There's no such thing, because you're not either be to be plg or SLG. It's a spectrum. And in fact, what I'm seeing now is people are going from sales led to set back to self serve.
+
+Unknown Speaker  44:52  
+So where are more AI, more longer?
+
+Speaker 2  44:56  
+Yeah, where are you on the on the spectrum? And you're right that actually, if you're going to be agentic, well, you can't, we've done any of this. You can't do any of that, all right,
+
+Speaker 1  45:05  
+the reason I say you got to bring them, I said, I mean, for this deck, what Pete won't like or appreciate is if Errol or Manfred or Satish stand up and say, Do you know this? Would you buy this? And then they would say, Oh, I have to sit with them. That's what we would go and explore. Like, oh, my God, you can't be showing me something that you all are not aligned. That's something that I've spoken to them at length, okay, but that's good.
+
+Speaker 2  45:34  
+Even has the companion mode on Zoom to prove it. Yeah.
+
+Unknown Speaker  45:38  
+Okay, yeah. I mean, listen, the other thing is, is that, yeah,
+
+Speaker 2  45:47  
+there's two weeks in it's a direction. You don't like the direction. Then I just wait, wasted 45 minutes of your time, and I'll go back to Jordan.
+
+Speaker 1  46:02  
+You don't think so. It's something that they won't like it. I've just got to think about
+
+Unknown Speaker  46:07  
+like the data bit is.
+
+Speaker 2  46:10  
+It's the last piece. People are super excited about all of that. Maybe there's a separate conversation.
+
+Unknown Speaker  46:18  
+People be okay if you
+
+Unknown Speaker  46:31  
+I really appreciate
+
+Speaker 2  46:39  
+you coming over so late. It's been super helpful. I'll catch you during the course of tomorrow. Thanks. Really appreciate it. Cheers. Now you
+
+Speaker 3  47:09  
+first class service in a lift. Yes, course, I.
+
+Transcribed by https://otter.ai

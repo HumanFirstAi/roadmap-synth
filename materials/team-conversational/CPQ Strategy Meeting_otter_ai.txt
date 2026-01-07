@@ -1,0 +1,142 @@
+Speaker 1  0:00  
+When I wanted to build a rule, I think the core people say, Yeah, we in CPQ have other priorities, other things. This is the best time to really build it the way that the core powers your opening channel, composability and everything. It will be a little bit more work. We should not say that won't be because doing architecturally right things has a little bit, but it delivers the same road map.
+
+Speaker 2  0:22  
+But that demo candy would be amazing if I could. I was telling John My dream is that I just jump into Zoro and I first start with defining my channel. I can create characteristics of that channel. Maybe it's a partner motion, maybe it's a reseller motion, maybe it's a mark AWS Marketplace. Maybe it's my SLG, maybe it's my plg. All starts with the channel, yeah, that's important for me, because I want source metrics, and I want to do AB testing
+
+Unknown Speaker  0:47  
+coming from and what have you Sure. And the next
+
+Speaker 2  0:49  
+step is to build my experiences, build my contacts, go through that middle layer, yeah, and then I just publish, and I can publish here, and I can publish there, and because identity is built into
+
+Speaker 3  1:00  
+it, and that's the world. That's That's exactly we have to put identity up here.
+
+Speaker 2  1:05  
+So you are the CPQ person in the room. So would you not add CPQ things to this list, which is the deal room? There's like, there are components that you're building in CPQ that are not in this list right now.
+
+Speaker 1  1:18  
+So what we are not, we're not going to the level of, Hey, these are the number of components. This is just the principle. So by saying this experience has some of the things that are not enabled here, but will be enabled here. One of these things is going to be deal room. The moment this guy logs in his persona and this context will tell me that, okay, you came in here for some task, I need to enable deal room based on that. Deal is just one part of the experience. It's not something that like at the level of concepts we're talking about. We're not going to that level. For example, I'm not talking about car over here, or I'm not talking about guided selling over here, but guided selling is another box over here, which is not enabled in self service, but is enabled here. Which would,
+
+Unknown Speaker  2:00  
+that's why, which is channelled with that based on channel?
+
+Speaker 2  2:02  
+Yeah, it's all that's why I probed there. Because if these are the four high level components, that's great. But if you find that you want to add other components, you should, yeah.
+
+Speaker 1  2:13  
+So we think we can categorise this in four. We spoke about recipes as well. What shaky is saying is based on channel, I have recipes
+
+Speaker 3  2:21  
+is that we haven't brought Pete, well, haven't brought Pete along. Haven't brought Errol along. These are these
+
+Speaker 2  2:29  
+so Pete knows, Pete knows what, what I want, okay?
+
+Speaker 3  2:33  
+And this is this, right? Yes, it's just, it's just what we're saying. Sorry, I didn't mean to interrupt, but what we're saying is that there's a there's an abstraction of the intersection that has to be owned as a road map, right? I haven't pitched that to Errol and I picked broadly to Errol and Manfred, but, but what this is why you and I have to have this meeting with Errol, because Manfred, I think, is less sensitive to it. Errol has to, you know, I need to say, Listen, this is a large portion of this is Errol's roadmap. If I use a that roadmap and make it my own, that's going to cause problems. But the big unlock is putting now in charge as a partner to me to deliver this thing.
+
+Speaker 2  3:19  
+So Errol will be upset if you take away his promotion roadmap, but that's where you need to get creative with Satish on
+
+Speaker 3  3:28  
+resources, meaning promotion roadmap.
+
+Speaker 2  3:31  
+He's like his catalogue roadmap, yeah, that's where he's immensely sensitive and experiences. He's flexible because but, but he's with arrow. It's never about you're not going to have an argument, but this is the right thing. Errol will completely pivot you towards resources. That's the piece that you will need to negotiate and figure out. Like the story is, you just saw the email this morning. Tony Zhang is your new blah, blah, blah. You've worked with Tony Zhang. Dave is going to be tightly involved. There's things you have to tell him in order for him to be comfortable. So from an
+
+Unknown Speaker  4:04  
+operational point of view,
+
+Speaker 3  4:08  
+if we say, if I stand up and say, intersection ism is a road map, if we don't focus on the intersection, we won't deliver omni channel. We won't deliver this right? It seems to be that's not up for debate. The question is, everyone goes well now is not going to deliver that on his own? Are you going to deliver all that?
+
+Speaker 2  4:26  
+So this should be the next gen team, because they should be, they, is, my humble opinion, because they got to have a blank sheet of paper to own to build an orchestration layer. They had a blank sheet of paper to start to think, I know they haven't started yet on what the experience the quote studio replacement will be at some point. Those are all kind of BCS they've been involved with, because that's going to drive the configurator. So there are pieces that they're actively thinking about and or actively working on. So we that
+
+Unknown Speaker  5:04  
+resource is just a TPC, right?
+
+Speaker 1  5:06  
+I would say, if I may, 1 on arrow, I think there's a way to bring him along. The way that has worked for me is just tell him we're not taking anything away from him. And actually, we are not going to take anything, yeah, his vision, whatever he wanted, whatever is in his roadmap, will be delivered. It's just taking pieces away and restructuring things and how and who delivers he will have a say stakeholders. Yeah, he's a stakeholder right now. He also needs to acknowledge there's a reason why we did not move at pace. We have had rule engine. He owns a rule engine. I mean, partially, this is the same thing that shaky did with how you own the extensibility now, he owned rule engine for a while. Still didn't move because there were push and pull. Cpk didn't want it. We wanted it. When I was in the catalogue as well, that whole team unblocks all of those things that I'll leave to you. Pete, you guys who will deliver as an engineering team, I don't have an engineering team, I can have a say, but if you give me an engineering game, I can work on it. But who in engineering will deliver this is a question that I don't have an answer.
+
+Speaker 2  6:10  
+Maybe that's where you four or five people with Satish coming tomorrow? Yeah, yeah.
+
+Speaker 3  6:16  
+Because it feels to me that if you dilute the direction, you'll never deliver this. This needs to be very, very tight and controlled and managed. And when i Next, Next Gen is fine, but next gen CPQ, everyone's going to have a CPQ lens. So the point is, is that also dependent upon that, but this is, this is trans my point,
+
+Unknown Speaker  6:42  
+these are those things.
+
+Speaker 3  6:44  
+But then is it just a case of taking that team and abstracting away a little bit that concept
+
+Speaker 2  6:49  
+is pulling in now to make sure that they understand how to upload. So this is the conversation that Manfred. Manfred comes from platform strong employers, meaning he got to come in and rebuild CPQ, or build CPQ from scratch, cherry picking shared componentry. So he's always been able to wear only a functional hat. That means he's dependent on folks like, yeah, and now you to make sure that the foundation is built in the right way. That's why he's not opinionated in this stuff, because he's like, approval engine, yes, I've always worked for the company that had approval engine work you don't have a workflow. He's confused.
+
+Unknown Speaker  7:28  
+He's never worked at an immature ish
+
+Speaker 1  7:30  
+company, right? For just wants an outcome to be honest. He says, Can you do this? Will you be able to deliver through this? Then explain me what I need to talk to customer and tell them how they will do it. And so is much easier to convince an arrow. To be honest, Pete's
+
+Speaker 3  7:43  
+gonna buy this because that's what you want. We get our arrow on side. This is concepts that everyone understands, which is the plg, SLG and omni channel. All we're saying is, the real difference is that that now becomes a very specific. It's almost like an NPR, how's, how's into whatever you call it, intersection, going, you know, there's also the other thing is that what we didn't draw is that the these things are services or components, but they also have to correct, you know, they also have to join up.
+
+Speaker 1  8:23  
+You will remember, Pete did say at one point he named this in commerce foundation. There was a reason. This is actually the foundation.
+
+Speaker 3  8:30  
+Is this commerce foundation? Does it come with legacy that though, no, so we just call it commerce foundation.
+
+Speaker 2  8:36  
+I mean, if you want to win Pete over right away, finally,
+
+Speaker 3  8:39  
+acquisition to order is commerce foundation.
+
+Speaker 1  8:43  
+No acquisition to order has commerce pieces as well. The foundation is this, would you
+
+Speaker 4  8:48  
+how much foundation you have the recipes? Recipes are not found. Acquisition order is this whole thing? Yes, commerce
+
+Speaker 3  8:53  
+Foundation, yes. So this is a two, and if a with a an asterisk, right, this is acquisition.
+
+Speaker 1  9:03  
+I think a recipe will be built for A to O, but recipe uses a foundation component that's better
+
+Unknown Speaker  9:10  
+recipes before,
+
+Speaker 3  9:12  
+yeah, great. Okay, I'm gonna rebuild my deck lens. Okay, good, okay, all right, that's brilliant. Thank you.
+
+Unknown Speaker  9:26  
+You happy with that? Yeah, I think this will end,
+
+Unknown Speaker  9:31  
+but we get caught out by anyone going,
+
+Speaker 3  9:34  
+Okay, listen, I think to me, it makes Well, I mean, what I like is a need to own something that's defined.
+
+Unknown Speaker  9:45  
+This is not opaque.
+
+Speaker 3  9:48  
+Property is proper owner, ownership to it, you know. And then it comes to those last sections, which is, you know, what are you going to measure it? How you're going to mitigate the risks? Like, when you know, when you see it like this, you know where the problems are going to be, okay, yeah, cool. You own
+
+Speaker 2  10:06  
+some of these pieces already. You own this one already. You own this one is the workflow, yeah, that's
+
+Speaker 3  10:13  
+all you own rules. Yeah, yeah, there's nothing. There's nothing, not new in there. Just, just,
+
+Unknown Speaker  10:18  
+how do you stitch them together? Yeah? Okay, cool. Thank you. Applause.
+
+Transcribed by https://otter.ai
