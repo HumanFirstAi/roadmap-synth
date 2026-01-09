@@ -1,0 +1,262 @@
+Unknown 0:00
+What You Hey, Jonathan, how are you? Hey, shaky, good,
+
+Speaker 1 0:53
+good buddy. Maybe I just want to give a little bit of a warning that the Wi Fi here is really bad in this office. They just went through some renovations. So if you can't hear me, just let me know and we'll turn off the videos and shit. Yeah, no, we could so far. Okay, cool, before we jump into the the chaos. Walk me through your sentiment, your general sentiment, how are you doing? Did you have a great holiday break? I just want to Yeah,
+
+Speaker 2 1:31
+no, I had a good I had a good break. I had a good break. I took the family up to a remote part of Norway and put them in and put them in a cabin for a week with no Wow. We always brilliant. If you ever come over, if you ever come over this part of the world, and you want to do a kind of remote, but not too extreme, Nordic experience, I'll send you the Airbnb. It was amazing. It was beautiful. Yeah, it was just fantastic. It's west of Oslo, frozen forests, glacial lakes, saunas, you know, completely remote, but not too far from the closest, the closest towns, like 40 minutes away. So forest, but then this eco, this kind of they have these different micro climates, so it's just like nothing you've ever seen before. I mean, nothing I've ever seen before anyway, so beautiful. And how about you? How was your Christmas? You managed to get some downtime?
+
+Speaker 1 2:30
+Yeah, yeah. I drove to Vancouver to go spend time with my with my mom and in family. And that was really, really great. I I'll be, I'll be fully transparent. This was the first break where I didn't work. I just, I was, you know, I went into the break burnt, and I just shut everything down and, and it was great. Necessary. That was beautiful. Necessary, yeah, my mom's doing great, and we had a lot of good times with her and building puzzles. She's, she's a, she's an avid puzzler. Now, really, yeah, which is good. You know, how old is she
+
+Speaker 2 3:14
+83 Oh, wow. Okay, yeah, I think 80s the puzzling age. Yeah, my mom started puzzles as well. She said to me the other day, yeah, she took a she I asked her what she wanted for Christmas. She said, can I get 1000 piece puzzle? Maybe 80, because she's 8084, I don't know. Maybe that's what we've got to look forward to. Puzzle again, 80
+
+Speaker 1 3:40
+1000 though that's impressive. My wife, we do once in a while, 1000 piece puzzles,
+
+Speaker 3 3:47
+yeah, big, big projects, yeah, yeah, that's lovely, lovely. I'm glad
+
+Speaker 1 3:54
+you had a good break. How was your team? I was, yeah, good. How's Errol coming along? Manfred is the general sentiment, okay,
+
+Speaker 2 4:04
+yeah, we're speaking the same language. I think Errol appreciates
+
+Unknown 4:12
+a translator,
+
+Speaker 2 4:15
+okay, yeah, I think he I think we're we've managed to establish a working process where I can extract, translate reform, and we get aligned, which is really good. CPQ, I'm working on a document now that I pitched it to Manfred and to John Burns Satish and I got Siva this afternoon to just align everyone in the business on what CPQ is, who we're building it for. What are the different components? I feel like there's too many streams. They're not connected. They don't have a North Star. They don't join up anywhere. We need to kind of position, what's this, what's this? How does it all create value for the business? So I think manfred's, Manfred is great to work with, because he's, you know, I think he likes to, I think he's trying to form something, and he can't form it. He's struggling to create a structure around it. So we're working quite well together. Zephyr teams solid. So experiences is good. We've, you know, think slowly, slowly, we're edging the people together. We had some issues with Jimmy still, but Errol's, Errol's leading the charge on that, but it's not blocking, so I feel pretty good about it. I'm my goal is, I've only got the readout next week. My goal is to kind of synthesise everything, all the conversations, all the direction, all the different perspectives, into a single positional doc that is the commerce business, right, which is acquisition to order, so that, you know, it's a single doc that if anyone wants to know what this thing is, that's it. And if we deviate, then we can put a kind of a, you know, in this kind of decision log context engineering world, where we can say, Okay, well, we went from here to here. Why did we do that? Because I think there's too many gaps. There's too much air between these the the interpretation of what we're doing. So I want to suck the air out of those gaps and compress it into one thing that everyone can align to. So, you know, we've got the wrapper, we've got the constituent parts, and now we just need to create some structure to it. So I think we'll get there this week, maybe early next week, and that's what I'm hoping to I mean, I'm not sure the roadmap readout is the right forum for it. Probably not, but for you and Pete, there will be a positioning doc, not a long read, but just says, this is this
+
+Unknown 7:06
+is everything, good, good, good.
+
+Unknown 7:09
+I'll be honest,
+
+Speaker 1 7:12
+there's one term I'm struggling with, and I've let Manfred know, this was pre we did a skip level, pre December, like pre break, and that is the terminology of quote pad. And great to be honest, that I don't know why it's triggering. I think, I think it's a very hard problem. So I think there's a challenge. So the challenge is by branding it as something else, it feels disconnected and or complex. And Silver Lake was very prescriptive. They don't want a next generation CPQ. They want CPQ to be enhanced. Now Manfred is trying to brand it because he wants to make sure that that piece is not under the CPQ traditional umbrella, because then it would, he wouldn't be able to charge for it extra, or he he would have to still pay Salesforce, the Salesforce commission, because they just care about this view. They don't really care about that. This is not built on Salesforce, so it's a juggle, okay? So I'm not, I'm, you know, I don't want to be prescriptive. I just want you to, like, dig in a little deep and really figure this out. Because there is we. We don't want it to feel like a third product. We. There's kind of two products in my head. And the first product is on a mission to build the most badass fucking Cbq in the world. That's manfred's mission. And then there's this side hustle thing, which is like, how do I disrupt CPQ altogether by not having a CPQ? And you could just vibe quote your way to a billing order. And that is like the team product. And those two should be in competition. And I know he's Manfred in his head is like, hey, I want to take the best shit out of this thing and fucking put in this thing. I'm gonna call that quote pad. And I struggle with that mentally, but, but I just want you to get involved and
+
+Unknown 9:35
+understand I'm there. Like, how to figure this out.
+
+Speaker 2 9:38
+We've had that conversation. So I think I agree with you on quote pad. Agree with you on quote pad, so that there's, there's a there's a couple of observations. Number one, I think vibe quoting could be called anything project. I mean, I don't even think it's got anything to do with CPQ. I think vibe quoting is just a team project. It's a disruption for the business, right? Can I create a new operating motion? So he could have taken anything, could have taken Zephyr, he could have taken payments. He could have taken anything and just said, I want to do, I want to prove that an enterprise business can operate like a startup, right? So in my mind, vibe quoting is, is the is a competitive motion, but there's no roadmap item, there's no TDD, there's no PRD, there's no commercial model for it. You know, it's a it's it. Could it go viral? You know? What does that mean? Are we ever going to bring those two things back together? There's, there's nothing there, right? And, you know, because he's the boss, I'm just going to let him do that. Go off and do vibe quoting. That's fine. If you do, if you build a better thing than we build, you proved your point. You're good, right? If you don't, then we'll all just move on, right? Yeah, the bit that I was concerned about is, what is the headspace of Siva, right? Because he's living across all three. So I got a meeting with him this afternoon and the whole team to for him to explain how he thinks about these how he compartmentalises these things. Because what I want to do is I want to make sure that when we compartmentalise, we're all compartmentalising in the same way on quote pad and quote studio. And so I think quote pads a bad name. I don't have the resistance to next generation CPQ or next generation quote studio, because I think there is a, you know, how are we going to charge for this thing? Right? The bit that I've asked so that there's two components that I talk about and which will be in this stock. Number one, what are the shared services between quote studio in Salesforce and quotes, sorry, the CPQ in Salesforce and the CPQ next gen. CPQ, right? If we're going to invest money, we should be building a service that services both, right? It's not, we're not building for cpqx or next gen. Where do we make investments? You know, configurable bundles is a good example. That should be an investment that we make that has value to both, right? So there's always going to be polish on cpqx, there's also, there's going to be a parallel engineering pathway on next gen. But when we think about those things, they're just flavours of the same service, right? So that in my mind, that's how I think about it. And I need to validate more of that with so I think Satish agrees. I want to hear what Siva has to say. The the other bit is the concept of parity, right? We have not anywhere defined what parity between quote, cpqx and next gen is right? So if we don't know what parity means, there's no way to say we built a better CPQ and we can migrate you from one place to the other place. So the bit that I've asked Manfred for is, what is the parity matrix, and what do we think if we were to say, Okay, we're going to migrate everyone from Salesforce, CPQ to next gen, CPQ. What is the level of parity that we need to do that with confidence, right? Is it 99% is it 80% I don't know that. And then, if we had a 90% parity, what would be the narrative, and what would be the commercial model for migration? You know? What does that actually mean to the business? So the problem that we've got the moment is we do have these three streams. We don't have a point at which they all come back together. And so my goal is, is to answer those questions. So leave vibe quoting off on the side, come back with an answer on parity and migration and shared componentry in the middle of shared services, and then, and then, I think the question that you're asking is, you know, there's a lot in a name, if we say next gen CPQ, then it's only next gen CPQ if we're going to make money out of it, if we're actually going to put, if we're going to bill it, charge for it, right? This is a disruptive CPQ. It's got all of this great agentic stuff in it, whatever. And we're gonna we're now going to charge you for it. And if you go from from Salesforce, CPQ to next gen, and we rip you out of Salesforce, or we reverse engine, we bring next gen into Salesforce, what's the commercial story around that? So that might be overly reductive, but that's what I'm trying to establish between all of the different people. And if someone says to me, listen, we're never going to charge for next gen. We're just going to increase the price on CPQ, then that's one flavour. If it's, yeah, next gen is going to be disruptive. It's going to be it's going to be a significantly new next generation CPQ that we'll put back into Salesforce. What's the migration plan and what's the parity story? So those are the bits that are swilling around at the moment. Okay, does that make sense?
+
+Speaker 1 14:49
+It does make sense. I Here are the two challenges you're going to get look, in my humble opinion, I think is it is too much cognitive overload to think of Next Gen. CPQ is a new thing because I'm a basic, basic bitch of a product manager. I just think of a world of we will just every time we have a flagship feature that gets rolled out into CPQ X, like advanced approvals, it'll be billed in your to your point, in this, in this service mentality that's out of Salesforce. It's a shared service now approval, advanced approvals, can be in workflows. It can be in CPQ. It can be it's now this badass thing that Zora owns as a shared component and and by the way, because CPQ X can now leverage this new service, all new customers are going to be having to spend 20% more on CPQ, and all existing customers on renewal will have to spend 20% more on renewal. Now that is where my mind is at. I will tell you where you and I will get pushback. You and I will get pushback because every time Salesforce charges us every time there's a renewal on paying Salesforce. It's about $2 million in commissions, okay? They keep. It's like an app store model, right? You know this, which, last time it was 2 million bucks, where we had to pay them, because they keep, we sold $20 million dollars in CPQ, they kept 2 million or something like that. So that is what triggers Pete, and that is what triggers Todd. So they overly index on, how can I save that money, versus versus actually thinking about what is easiest for the business to do and versus what is easiest for the customer. Because in this other world, if I build a new next gen CPQ, I will have to migrate all customers into this next gen CPQ model. That's not what I want to do. I want to build a world where you don't have to migrate your CPQ package. Going on the next release, Zora will your CPQ package will now call the product catalogue, and in the next version, the Zora CPQ package will now call advanced approval service, and now it'll call the bundling service. And now you're just extracting code out of the exist CPQ package, versus making people migrate to the next okay thing.
+
+Speaker 2 17:29
+So let me ask you. Let me ask you a question. So in the the user of so I agree with that, right? Why would you migrate? Why would you force any migration? There's an OP that migration is only relevant if it brings significant benefit to to the business, right? But if cpqx, if we have parity, then migration becomes moot. Because you're in cpqx, it has all of the functionality. Why would you want to come out of it? So I get that 100% so maybe migration becomes less of an issue, but we would still probably need some story around that. My question is the user of CPQ, right? So the user, my understanding, this user of CPQ in Salesforce, is predominantly the deal desk person, right? It's not the salesperson. And I think that the lens that Manfred has is that next gen is a universal tool that both the sales people, sales ops and the deal desk teams will use, right? And then what you've got on vibe quoting is it's just the light wrapper. It's kind of almost the lead gen tool. You know, if anything, it'll become a lead gen tool. You'll put it out in the market. Someone will use it. The guy that's really cool, you know? How would I use that with other you know? So then you have this other story. So I think the I agree with you that makes perfect sense around the migration, that feel that that does, that story resonates. You'd still have to have that. But is a world where we have parity on these. So one lives in Salesforce. What about the customers that aren't in Salesforce, right? Yeah, so
+
+Speaker 1 19:10
+that, so I agree. I mean, that would be the same model of eventually you're just going to have a light layer. This is what conga did. Conga refactored, extract all of the core out of the out of their Salesforce package, and literally all it is is a lightning UI that has API's and authentication back to the mothership that was their factoring that they did about five, four or five years ago. And then they went and renegotiated with Salesforce and said, I'm not paying you all this fucking money. This fucking money because you guys don't own anything. Look at my code. My package code is literally just a lightning UI component that calls my APIs. So fuck you guys. I'm not paying you. And I don't know how that worked out. I never worked there, but the the point is that they were able to then go to the dynamics ecosystem and do the same thing. You build a light dynamics UI layer that calls the same core APIs. Then they also did the same for other ERPs. I think Oracle and Microsoft and Salesforce are the only ones, because they're very complex enterprise. So those are the three markets they chased. Now, in your world, what's interesting in your world is you also own experience builder, right? So I also think of a even, you might not even need the UI layer for some from dynamics and things like that, because you could probably just I frame it in. I don't, I don't know, but, yeah, that's that. That's what, that's where my mind goes. Now, I don't, I know he's learned a Manfred has learned that a lot of sales reps aren't using quoting because it's super complex. So large customers in Japan, what they do is the sales rep is literally passing the quote requirements over the fence and email, and then the deal Desk Agent is essentially putting them in. But I don't know, but that's not how Zora does it. That's not how Red Gate does it. There's a number of customers where that's not true and but I don't know. Why do you know what I'm saying? Like, Manfred is, is obviously a subject matter expert, so I'm just hungry to learn. Like, okay, Manfred. Or if you're saying sales reps aren't using it, it's really deal desk that's using it. Like, why? Because? And how do we get sales reps to use it? And, or, or maybe we just rebrand this thing as the deal desk tool. And, to your point, then we do have a front product called the, you know, the the thing is, whatever it's called, we need to figure that out. Because, essentially, you know, in a traditional world, Cbq product includes not only the sales workflows, but also the deal desk workflows, right? Like, but
+
+Speaker 2 22:10
+do you, do you think, in principle, there there are two environments, there's the Salesforce environment and there's the environment outside of Salesforce. Because I think that's the primary decision, is that if, if there is a world where a set of users, whatever that set is, would want a CPQ out of Salesforce. So let's say, for example, if you believe in the omni channel, you're a two $50 million SaaS business. You don't want to climb into Salesforce for a whole bunch of reasons, but you still want CPQ. That's where next gen CPQ feels like it has a place. It has the omni channel wrapper, you know, it you don't have to be in Salesforce. That's the sales pitch, right? Yeah, you don't have to be in Salesforce. We've got a CPQ does everything that Salesforce does, that the Salesforce CPQ does. And, you know, sales teams love it, and deal desk people love it. I mean, that's the pitch, right? So do you see that as being a world where we should or should not be?
+
+Unknown 23:17
+We should be there, right?
+
+Speaker 1 23:18
+I do agree. Okay, there should be a world that we built. Yes, yes, I agree.
+
+Unknown 23:22
+I agree. So I think that
+
+Unknown 23:25
+we should be building towards
+
+Speaker 2 23:28
+a go on. Sorry, no, there's a lag. You go on. You go on. Oh, sorry,
+
+Speaker 1 23:35
+yes, I'm just reinforcing. I do think that there's a world where we are disconnecting with Salesforce, and we are agnostic to Salesforce, and the core is built on Zora. I even think of a world where you can do quoting in Zorra, you can run deal, you have your own deal desk experience in Zora. And the fact is, yes, you have these, you can download us in all these app stores, whether it's the Microsoft Dynamics store, whether it's the Salesforce app exchange, but that's literally just a light UI layer that makes it look and feel like Salesforce versus it has any Salesforce
+
+Unknown 24:25
+services? Yeah,
+
+Unknown 24:27
+I agree with you. And in fact, I mean,
+
+Speaker 2 24:30
+the the UI of any of anything is going to change over the next couple of years. Anyway, you might be asking for stuff, and the UI gets built on its own, specifically around the task that you want to complete, right? So there's a whole bunch of but I but I think that's the, that's the that's the defining concept is that we have an in Salesforce experience, we have an out of Salesforce experience, right? So, you know, it may be, it's CPQ in Salesforce and CPQ out of Salesforce. It's still CPQ, but you just don't have to use it in Salesforce. So this idea of next gen CPQ because if, if, if, what we're because the interesting thing about next gen CPQ is a name, because I agree with you, is that next gen CPQ, as it stands today, is subpar on CPQ in Salesforce. It just It does a few different things, and it has a different North Star, but we're talking about parity, which is not bringing CPQ up to next gen, it's bringing next gen up to CPQ. So I think the idea of CPQ in Salesforce and CPQ out, both of them have all the capability to your point, shared services that make both of them kick ass, right and and then, to some degree, the complexity in Salesforce becomes a front end problem. And to your point, what's the UI? Then? Does solving the UI improve the sales experience so that it's not just the deal desk person that's doing it using the CPQ environment? So, yeah, I think. But again, what we're, I think what we're saying is the same thing is that we have, we have too many different swim lanes in the way we think about CPQ. So what I said at the beginning, which is there needs to be a single thing, so I think you're right. Maybe it's CPQ in Salesforce, CPQ out of Salesforce, shared services, etc, etc. I think it's a much easier story for everyone to understand.
+
+Speaker 1 26:39
+Yeah, yeah, we. Manfred shares his implementation models to publicly. So you know what I'm saying? Like he will proactively talk about it as a quote pad or an X Gen, CPQ, or I, when I talk to the field, what I'm saying is no CPQ is CPQ? I agree. Now, over time, I'm going to remove the engine out of your CPQ product and call the mothership, because that means I can have faster iteration, faster life cycle. I can build more complexity. It's calling the catalogue real time, so you'll be able to manage your rules. It's a different sales
+
+Speaker 2 27:21
+you're right, you're right, you're right, you're 100% right. It's CPQ. And then what flavour of CPQ Do you want? Right? Where do you want it? That's all it is. So as a salesperson, you go, Hey, you got Salesforce? Yeah, we got CPQ. Is super cool. We've got a whole bunch of stuff underneath it. You want to out you don't want to use Salesforce. No problem. We got, we got this other product over here does exactly the same thing. You just don't need to use it in Salesforce. That's the sales pitch, right?
+
+Speaker 1 27:50
+Yeah, it's easier to digest. Okay, so
+
+Speaker 2 27:54
+that's the direction of travel, and then, and then vibe quoting. That's just the side hustle. Yeah, right. We'll work it out. When it lands and it does something, we'll work it out. But it's a wrapper, it's a lead gen tool, right? It's a, it's a, it's a project, right? Okay, I agree with you. So we, I think we came at this. I think our, our starting points were slightly different, but we've ended up in the same place in that, you know, there are, there are just too many narratives around CPQ. So I'm going to compress that, and I think that's the story. I'll speak to Manfred today and tomorrow. But I think as we build up to this roadmap readout, maybe that's the point. Let's just, let's just do it there, right?
+
+Unknown 28:40
+Yeah, yeah, run it by so I
+
+Speaker 1 28:45
+also get a little bit concerned not about Manfred, because here's the thing Manfred has. Well, how do I frame this right way? Satish is the one that teen is talking to all the time now, yeah. So I want you to really like, once you and Manfred have figured this out, I want you to really educate Siva and Satish. Yeah, speak, those are the ones that are communicating with teen, and it's creating some noise.
+
+Speaker 2 29:15
+We agree. We Satish and I agree, right? There's no problem there. I think that the bit I'm still debating, because I've got meeting with NAV this afternoon, and now said that he liked me in the meeting with with teen on on the vibe, quoting thing. But what I'm going to join one of those meetings. I don't know if you're in in that, in that meeting, but I want to hear the way teen talks about because the problem is we've got what we you and I just talked about, and then teen says, right. And then teen says, can sometimes shift Manfred very quickly in a different direction. So I want to try and understand that. But you and I agree, I'll get Satish and Siva on board. And then I think the only bit we have to handle is how we, how we I don't mind teen doing vibe quoting, but if there's a second voice in the room on the core CPQ, that becomes a problem,
+
+Unknown 30:12
+yeah, and he,
+
+Speaker 1 30:16
+we need to do a much better job at being passive aggressive, which is, teen is the product owner and manager of I've quoting, and his job is to solely disrupt quoting as a thing in this and but we shouldn't. Engineering should not be listening to him about our CPQ roadmap. No correct and nor does He want us to teen like, look, he's not trying to manage, product manage, CPQ. In fact, he gets upset when we listen to him so directly. He's trying to have the banter. He's a bantering guy. He's not trying to thrive. And we are frustrated because a lot of us personally aren't banter type people either I'm I don't like to I don't like to debate with the guy. Just tell me what the what to do, and I'll do it because you're the CEO. But he doesn't like it that way. And so he and I also tend to have some
+
+Speaker 2 31:16
+Well, I guess my my approach is vibe quoting is a side hustle we'll get on with CPQ, right? Yeah, if you if you disrupt us, that's our problem. If yours never makes the you know, never sees the light of day, that's your problem, because that's where you know, that's where five engineers went. So that's a different story. So yeah, you and I agree. I think the most important thing to come out of this is we have one CPQ in different environments. And that is a plus for the sales team. It speaks to the omni channel story. It supports it, and it improves the CPQ overall. Just one last question, I know we're out of time. Oh, do you do you think the the revenue uplift that Todd has in the MBR is right, right? So he's got a line there's a line item for CPQ, and there's a chunk of revenue sitting on top of that additional revenue over the next three years. I think, do do? Does what we've described, you think give us the muscle to increase the cost of CPQ in and out of Salesforce to the degree that's in that. MBR. I mean, do you have any concern about the uplift in revenue that he's predicting?
+
+Unknown 32:46
+I don't have a concern with that.
+
+Speaker 1 32:50
+I think the way I read your functional your manfreds, the functional slide, every single one of those enhancements, as soon as you put the fresh coat of paint on CPQ, increase to 20% every one of those milestones that you hit, you should increase CPQ by 20% got it. I don't want you to reimagine or reinvent the pricing. Last year, I changed the price of CPQ. I uplifted it 50% nobody in the sales team even understood, not one conversation of you, right? You guys raise the price. It is immensely undervalued, right? And you know, Manfred can tell you, right? It's $160 a seat at Salesforce. Every sales person that has an active licence, you pay $160 list price. Maybe it's 50% today, ours is $8 the sales a seat, right? Like it's just nowhere near so just keep adding 20% you get advanced approvals. You add, yeah. So I'm not concerned with where he's at. I just think we need to be super tactical and very proactive that every time a flagship feature is built, bundles is coming out in q1 I want you to go to Garrity and say, increase the price. Yeah, I'm taking, for instance, guys, I got bundles up. Gotcha. So Don't, don't worry about that. And we'll hit those numbers. Good, all right. Well, listen, I have, I have help I need from you, so I'm hoping you don't, do you have to drop?
+
+Unknown 34:30
+No, I don't have to drop.
+
+Unknown 34:32
+Okay, good. I
+
+Unknown 34:33
+thought you had, I thought you typically have to bounce. So
+
+Speaker 1 34:36
+No, no, no, I'm, I'm luckily on this time zone, it's nice, you know, this time zone means I've got bandwidth, but I do have, I do need a lot of help, and it's a fucking fire drill because I didn't work Over the brick. So on Monday, US Monday. Which is it is your Monday as well, but it's like 8am us time. Do you have an invite call roadmap?
+
+Unknown 35:17
+Yeah, the roadmap readout, yeah.
+
+Speaker 1 35:20
+So this roadmap readout presentation, I it's going to be framed in this way. It's going to be framed in a What did we deliver in q1 and what is coming next? So it's only an hour. I want to chop that up into three sections, and the first is a readout of acquisition to order, order to cash, and then core platform. And it's literally, let's walk through what was delivered and what what you are expecting to get out of q1 and then we each present that, and then we present what's coming next. Now what's coming next is a combination of we're working on these functional slides. So I would just take the functional slides that you've created for this silver like deck, right? Like, don't include the financials, but it would be like an external framing of that as a deep dive, yeah? Alternatively or not, alternatively, additionally, you've built the last quarterly all hands, sorry, P and T, leadership, you built that beautiful slide deck right that really talked around here. The course of services is what acquisition order means. So you have content, we just need to make it pretty for this external audience, which is sale, the sales team and and what I what I'm hoping you to you would help with is today and tomorrow is you help build out and send out like kind of a framework for us, and then we just throw our content in. I will send you the dashboard, the JIRA dashboard that has everything, all the epics of q1 so you don't have to run around and ask your team, Hey, what did you actually solve? You'll be able to see all of the epics that were delivered. Alternatively, of course, you can ask, hey Manfred, like, just give me a functional list of, like, what was delivered, what you what is coming out with q1 Hey, Harold, give me a functional list of what's coming out in q1 but I there's also you can just copy it out of that. So the ask is, partner with Ken and I on this Monday session. But I'm asking you something additional, which is, I want you to help design the scaffolding of the presentation, sure. The reason why is because if I do it, it'll look like every other roadmap presentation we've done in the past. And I kind of want something different and new. I don't know what I want.
+
+Speaker 2 38:16
+Yeah, yeah. Okay, so let me, let me ask you a question then, so just going back to my pit. We so we pitched, I pitched the omni channel. And then, you know, this acquisition order, we agreed that the direction of travel is, we want a true omni channel experience, right? Omni channel sells. We're going to pitch this at sko that's kind that's kind of in your mind, bedded down, is it?
+
+Speaker 1 38:46
+Well, the only reason why I'm nervous is this is supposed to be a what's coming in the roadmap over q2 and q3 and q4 versus visionary. Where are we going? Directionally, got you. So I think that's probably the more difficult thing of maybe it is a slide that says, Look, this is direction where we're going. This is what this means to us. Yeah. And then more important, let's get grounded. And what you're going to getting agree to for, I agree. And it's maybe it's one or two slides, but I want you to again. This is why I want last time when we did this P and T leadership off site thing, I did my slides, Ken did his slides, you did your slides. And remember, we regrouped the day before, and then we realised all our slides look different. Yeah, and, and I just don't want to have that happen. So this time around, I'm hoping like because you were very different than Ken and I. So let me
+
+Speaker 2 39:49
+that's fine. I got the brief, proactively. I can you do I got, I got the brief. I guess the bit I was trying to understand is what you just described, which is because we've got sko around the corner, because this is a roadmap readout. We have to have some connection between what we're saying today and that and sko. So if we, if we don't have that positioning slide that says, Listen, this is just the direction of travel, right. Here's what acquisition to order actually means to everyone in that org. And here's what. And then Ken can fill out. This is what order to cash means to everyone in the or there's two opening slides. And then, as you say, let's now, let's now drill down into the near term stuff, right? What are we delivering in in support of that story? Here's here's q1 and then this is kind of what you can expect in q2 and q3 and you can always then reference back to the, you know, it brings it, yeah, that's the kind of, so, that brilliant plan. Okay, all right, so let me, let me create a deck that has that kind of framework. Does Sakshi have a format that she likes? Or do I have kind of, can I just build to the narrative I've just given you?
+
+Speaker 1 41:03
+Build to the narrative we have? I don't want to listen to anybody. I want to do what we should do. There should be some branding like tied to Zork branding, but don't use the green. That triggers our friend Pete, he hates the green, so use a bit of the branding, but we have full flexibility in doing whatever we want. Okay, this is ours.
+
+Unknown 41:27
+And then do we at the level of
+
+Unknown 41:31
+just knowing what I don't know, right?
+
+Speaker 2 41:36
+I can talk through q1 q2 q3 I understand the epics, right? What I'm always nervous about as I continue to ramp up is someone comes in and says, Hey, you know, can you just go into that epic a little bit more? And then I go down, and then I get to a point where my knowledge is is limiting, right? So do we typically have Errol and Manfred in the room, or is this us?
+
+Speaker 1 42:03
+Yes, I don't, I don't have visibility if they're on the invite. But what we will do is, what I can do is, I'll kick it off. I'll make it very clear that, hey, we've got a lot of content. We only have an hour. Yeah, we're going to race this post your questions in the chat, we will regroup and get you specific answers that's easy, versus going very deep. So I'll kind of frame it that way, and then, just in case they're not on the call, then at least we'll have some follow up.
+
+Speaker 2 42:33
+Yeah, that's fine. It's just as I say, there's a, you know, I'm kind of, if you think I'm 50% depth, I need to get 100% depth. So I'm still, I'm still upskilling on some of these concepts. All right, that's good.
+
+Unknown 42:46
+Your percent and,
+
+Speaker 1 42:50
+I mean, that's, we won't frame it that way. We'll frame it as, like, we don't have time, yeah, like, we can't go deep with you right now. This is our first call. We're going to regroup every quarter post, the questions we're going to talk to you, we'll follow up with three lines and
+
+Unknown 43:04
+just one other question on format.
+
+Speaker 2 43:08
+Do you Do you want a slide? So if you think about opening slide, this is our positioning statement, and Ken's really good at that.
+
+Unknown 43:20
+This is what got delivered in q1
+
+Speaker 2 43:23
+do you want a anything that goes deeper into one or two to call out one or two of the things that really are kind of moving the needle right? Because there's going to be a shopping list of, here's our so people's minds are going to go, Okay, here's the big picture, here's this shopping list. And then there could be another slide that goes and we just want to call out some of these things, because they are meaningful, right? You know, like we launched the catalogue. Why is that such a big deal? You know, in q2 we've got, we've got hard bundles, configured bundles. Why is that a big deal? Do you want to go? Do you want to go? Do you want to call out stuff, or do you want to just keep them in?
+
+Speaker 1 44:04
+Yeah, I love i i love that strategy of we have the shopping list and either we bold a handful of those items that really trigger us to go deep in those items, or, to your point, we have actually deep two or three deep dive slides that highlight those things, like cash application is a big bet. Like, there's a bunch of things we did that were really huge. I that's, again, another brilliant strategy.
+
+Speaker 2 44:31
+Okay, all right, let me, let me build the deck around that, and then I'll send you something tomorrow. Cool.
+
+Speaker 1 44:38
+That is awesome. Awesome. I really appreciate you owning this and handling this, and then I will jump back online, and it's my evening, so tomorrow, and and then, yeah, we'll take it from there.
+
+Speaker 2 44:55
+Yeah, I've got some time today, and then I've got quite a bit of time tomorrow. Probably I'll get through some of it today. I actually quite interesting. I spent a bit of time thinking about, you know, Pete did that session on context switching, and I didn't pay a lot of attention to it, and I thought about it. And when I sat down and looked at my diary this year, I thought, You know what? I'm only going to do meetings on Tuesdays and Thursdays. I'm going to go back to back on Tuesdays and Thursdays, right? Monday, Wednesday, Friday. I'm going to do deep thinking. I'm going to build actually. Because last year, what was really frustrating is that you get these peppered meetings throughout the day. You never actually get to do anything, right? So, I want to build some stuff. I want to build stuff that's impactful for the for the way I think about the business, right? You know, how do I, how do I consume all of the knowledge in the roadmap and synthesise it and work with it, mould it, and, you know, to the point in when, when you when we need to do a roadmap readout. How do I kind of capture everything, all the knowledge that we've got? So what I'm doing on Monday, Wednesday, Friday, unless it's you or Pete or it's a really important meeting, I just don't take meetings on Monday, Wednesday, Friday. And what's really interesting is the rest of the business falls in line very quickly. So now Tuesdays and Thursdays get stacked up, but I'm in meetings all day, that's fine, and if I have a gap, then that's free time. So anyway, my point is is I've got some time today because it's still beginning of the year, and then I've got a full day tomorrow. So I think, if I'm being honest, I could probably get through a good chunk of it today, but I want to spend more time on it tomorrow and then send it to you so that what's the what's time? Is it 8am on Monday? Is your is the readout for is that when the roadmap readout is happening? Oh, on Monday? Yeah. Okay, so I have to get it to you tomorrow morning. That's fine. I'll get it to you tomorrow morning, because
+
+Speaker 1 47:01
+otherwise I know not worried about your content getting pixel perfect. I'm worried about getting the scaffold. That's fine. I can, I can do that. The scaffold done to Ken, yeah, and, and so that he can spend the weekend filling it in. No problem. But, but, but, you have until the morning of you, sorry, your evening Monday. Yeah, that's no problem, right? 4pm on Monday to get your content done.
+
+Unknown 47:32
+Let me get the data. That's fine, then I can get the deck to you. Cool.
+
+Speaker 1 47:36
+Yeah, thank you. I appreciate that. I'm thinking of Ken is probably in bed by now, I would suspect.
+
+Unknown 47:45
+So he's probably Yeah, so I'll probably,
+
+Speaker 2 47:54
+well, why don't I do this? Why don't I create this thing today, the scaffolding I'll in the thread between the three of us. I'll drop it in so that it's ready for you tomorrow morning, and then Ken will pick it up later today, but it'll have some either you can drop some context into that thread what you've asked me to do, or if you don't get time, I can do that myself, and then by tomorrow morning, you should have
+
+Unknown 48:23
+scaffolding and some feedback from Ken.
+
+Speaker 1 48:26
+Cool, okay, I'll summarise our combo right now. Okay, in our chat. Cool, cool, thanks buddy. I appreciate it. Thank you for jumping in and driving this.
+
+Speaker 2 48:35
+Yeah, no problem. And then just from your side, anything else that you want me to think about? Are you happy with the direction so far,
+
+Unknown 48:42
+I'm very happy.
+
+Speaker 1 48:45
+Look the the one thing I need to figure out is, obviously, yeah, I want you to be able to jump on a plane and come visit your people in the Bay Area, in in hopefully the February timeframe. I know you're coming back in the March timeframe, but it would be good to try and squeeze in another trip and try and do maybe two a quarter, if possible. But I know this quarter is rough because you're going to Australia,
+
+Speaker 2 49:18
+but I've got sko so I'm in San Francis. I'm at Napa, right.
+
+Unknown 49:22
+Oh, you're right. So you do have, yeah,
+
+Speaker 2 49:26
+I've extended my trip, so I'm going to be in the office Thursday and Friday. I think that's the fourth and the fifth of February.
+
+Unknown 49:32
+Okay, good, okay, okay,
+
+Speaker 1 49:36
+that's perfect. That's the only thing where I'm just like, because I get worried that your people are it's like out of sight, out of mind for your people.
+
+Speaker 2 49:45
+No, I've got weekly I've got weekly syncs with everybody. So that's already done, and I agree with you. I think once or twice a quarter is going to be the key. So I'll start to plan that. The only thing I was waiting for was budget approval from Wendy.
+
+Speaker 1 50:05
+Oh yes, yes. I know she's asked me to go try and get more money for your travel and Ken's travel, so I do have that on my plate.
+
+Speaker 2 50:16
+Yeah, so once you give me the thumbs up, I'll get all that booked in.
+
+Speaker 1 50:20
+But it's good to know you're also there for skull. Yeah, that'll be good. Okay, yeah, thanks, buddy. All right, cool. Have a good What time is it there?
+
+Unknown 50:31
+9:50am yeah, 950 Okay, have a good day. All right.
+
+Unknown 50:36
+You take care. It i.
+
+Transcribed by https://otter.ai

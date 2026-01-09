@@ -2,54 +2,34 @@
 
 **Review Date:** 2026-01-07
 **Reviewer:** Claude Code
-**Codebase Version:** commit 2dd1478 (Remove non-functional Answer button from Open Questions Tab 1)
+**Codebase Version:** fd057bc (Implement semantic edge inference using embedding-based similarity)
 
 ---
 
 ## Executive Summary
 
-The Roadmap Synthesis Tool is a strategic document processing and knowledge management system that ingests multi-source documents (tagged with "lenses" representing different authority levels), processes them into semantic chunks, builds interconnected knowledge graphs, and synthesizes persona-specific roadmaps using Claude AI. The system serves as a decision-support tool that maintains an authority hierarchy where strategic decisions override operational details, ensuring roadmap consistency with organizational priorities.
+The Roadmap Synthesis Tool is a sophisticated Python-based application that synthesizes diverse strategic documents into persona-specific product roadmaps using semantic search, knowledge graphs, and Claude AI. The system ingests multi-format documents (PDF, DOCX, PPTX, XLSX, etc.), applies lens-based authority tagging to organize sources by credibility, and uses vector-based retrieval with LLM synthesis to generate coherent roadmaps tailored for executives, product managers, or engineers.
 
-**Current State:** The system is operational with core functionality complete (V0.1.0). Recent work has focused on conversational Q&A capabilities, graph-based retrieval, and UI enhancements. The architecture is split into a Typer CLI backend (roadmap.py) for document processing and a Streamlit frontend (app.py) for user interaction. The system successfully processes 93MB of materials into 42MB of indexed data with 987 chunks and dual-graph architecture (chunk context graph + unified knowledge graph with 1,276 edges).
+The architecture demonstrates strong engineering practices with a unified context graph for relationship management, semantic edge inference for intelligent retrieval, and a comprehensive web interface built with Streamlit. The codebase is well-organized with clear separation of concerns between CLI (roadmap.py), UI (app.py), and supporting infrastructure. Recent commits show active development focused on improving graph-based retrieval and Q&A capabilities.
 
-**Key Findings:**
-
-1. **Robust Multi-Modal Architecture** - Dual-graph approach (ContextGraph for chunk relationships, UnifiedContextGraph for cross-type knowledge) enables sophisticated retrieval that combines semantic search with authority-aware graph traversal.
-
-2. **AI-Powered Chunking Innovation** - AgenticChunker uses Claude to intelligently segment documents based on semantic boundaries rather than arbitrary token limits, preserving context and improving retrieval quality.
-
-3. **Authority Hierarchy Implementation** - Seven-level authority system (Decisions > Answered Questions > Assessments > Roadmap Items > Gaps > Chunks > Pending Questions) ensures conflicting information is resolved consistently.
-
-4. **Missing Test Coverage** - Zero automated tests despite 10,092 lines of code and 164 try/except blocks. System relies entirely on manual testing, creating risk for regressions.
-
-5. **SSL Verification Disabled** - Multiple locations disable SSL certificate verification (httpx.Client(verify=False)), creating security vulnerability for API communications.
+Critical findings indicate the system is production-ready for internal use but requires comprehensive test coverage, better error handling, and scalability improvements before wider deployment. The "agentic chunking" approach and sophisticated authority-based retrieval demonstrate innovative solutions to document synthesis challenges.
 
 ### Key Metrics
 
 | Metric | Value |
 |--------|-------|
-| Total Source Files | 5 Python files |
-| Lines of Code | 10,092 LOC |
-| External Dependencies | 9 packages |
-| API Integrations | 3 (Anthropic Claude, Voyage AI, LanceDB) |
-| Data Stores | 3 (LanceDB, Context Graph JSON, Unified Graph JSON) |
-| Test Coverage | 0% (❌ CRITICAL) |
-| Error Handling Blocks | 164 try/except |
-| Data Volume | 93MB materials, 42MB indexed |
-| Graph Nodes | 1,041 (987 chunks + 54 other) |
-| Graph Edges | 16,248 (semantic similarity-based) |
+| Total Source Files | 6 Python files |
+| Lines of Code | ~10,260 (app.py: 5,617, roadmap.py: 4,513) |
+| External Dependencies | 9 major packages |
+| API Integrations | 2 (Anthropic Claude, Voyage AI) |
+| Data Stores | 2 (LanceDB vector store, NetworkX graph) |
+| Test Coverage | 0% (no automated tests) |
 
 ### Critical Findings
 
-1. **No automated testing** - 10K+ LOC with zero unit/integration tests creates high regression risk
-2. **SSL verification disabled** - Security vulnerability in API communications with Anthropic and Voyage AI
-3. **Large file architecture** - 5,617-line app.py and 4,430-line roadmap.py violate separation of concerns, making maintenance difficult
-4. **Hardcoded configuration** - Many constants embedded in code rather than configuration files
-5. **Limited observability** - No structured logging, metrics, or monitoring beyond console output
-
-**Notes:**
-- Issue #3 from original findings (887/987 chunks missing edges) has been **FIXED** as of 2026-01-07. All 987 chunks now processed with 16,248 total edges (up from 1,276).
-- **Semantic edge inference** implemented 2026-01-07: Replaced keyword matching with embedding-based cosine similarity. Results: 16,241 semantic edges, 1,746 chunk→roadmap connections (38% improvement), similarity scores 0.77-0.85+ for top matches.
+1. **Zero Test Coverage** - No unit, integration, or end-to-end tests exist, creating significant risk for maintenance and refactoring
+2. **Missing Error Handling** - API failures, rate limits, and network issues not comprehensively handled
+3. **Performance Bottlenecks** - Large file processing (5,617-line files) without chunking or streaming; synchronous API calls without batching
 
 ---
 
@@ -57,586 +37,492 @@ The Roadmap Synthesis Tool is a strategic document processing and knowledge mana
 
 ### Purpose
 
-The Roadmap Synthesis Tool solves the problem of **inconsistent strategic roadmaps** caused by information scattered across multiple sources (executive vision documents, team meeting transcripts, engineering assessments, analyst reports, etc.). Traditional roadmap processes involve manual consolidation where conflicts are resolved inconsistently and authority hierarchies are implicit.
+The Roadmap Synthesis Tool helps product leaders and strategists consolidate fragmented strategic information across multiple document types and organizational sources into unified, actionable roadmaps. Users organize documents by "lens" (authority level), and the system synthesizes them respecting a predefined hierarchy where engineering has veto power and conversational sources reveal truth over formal documentation.
 
-**Primary Users:**
-- **Executives** - Need high-level strategic roadmaps with business value and timelines
-- **Product Managers** - Need detailed feature roadmaps with metrics and user value
-- **Engineering Leaders** - Need technical implementation roadmaps with architecture and dependencies
-
-**Key Capabilities:**
-1. Ingest documents from 7 lens types (your-voice, team-structured, team-conversational, sales-conversational, business-framework, engineering, external-analyst)
-2. Chunk documents intelligently using AI or token-based fallback
-3. Generate embeddings and index in LanceDB vector database
-4. Build dual knowledge graphs (chunk relationships + unified cross-type graph)
-5. Retrieve context using multi-modal search (semantic + graph traversal + authority filtering)
-6. Synthesize roadmaps using Claude with persona-specific formatting
-7. Answer questions conversationally with cited sources
-8. Track open questions, decisions, assessments, and competitive intelligence
+The system addresses the challenge of scattered strategic knowledge across slides, docs, meeting transcripts, and external analyst reports by creating a queryable knowledge base with intelligent retrieval and LLM-powered synthesis.
 
 ### Architecture Diagram
 
 ```mermaid
 graph TB
-    subgraph "Ingestion Layer"
-        A[Document Upload]
-        B[Unstructured Parser]
-        C[AgenticChunker]
-        D[Token Fallback]
-        C -.fallback.-> D
+    subgraph "Presentation Layer"
+        UI[Streamlit Web UI]
+        CLI[Typer CLI]
+    end
+
+    subgraph "Application Layer"
+        APP[app.py - UI Logic]
+        ROADMAP[roadmap.py - Core Engine]
+    end
+
+    subgraph "Processing Layer"
+        DOC_PARSE[Document Parser<br/>unstructured]
+        CHUNKER[Agentic Chunker<br/>Claude-powered]
+        EMBEDDER[Embedding Generator<br/>Voyage AI]
     end
 
     subgraph "Storage Layer"
-        E[(LanceDB<br/>Vector Store)]
-        F[(Context Graph<br/>NetworkX JSON)]
-        G[(Unified Graph<br/>NetworkX JSON)]
-        H[(Questions/Decisions<br/>JSON Files)]
+        LANCE[(LanceDB<br/>Vector Store)]
+        GRAPH[(NetworkX<br/>Context Graph)]
+        JSON[(JSON Files<br/>Q&A, Decisions)]
     end
 
-    subgraph "Retrieval Layer"
-        I[Semantic Search]
-        J[Chunk Graph BFS]
-        K[Unified Graph Traversal]
-        L[Authority Filtering]
+    subgraph "External Services"
+        CLAUDE[Anthropic Claude API<br/>Opus 4.5]
+        VOYAGE[Voyage AI<br/>Embeddings]
     end
 
-    subgraph "Synthesis Layer"
-        M[Claude API]
-        N[Authority-Aware Assembly]
-        O[Persona Formatting]
-    end
+    UI --> APP
+    CLI --> ROADMAP
+    APP --> ROADMAP
 
-    subgraph "Presentation Layer"
-        P[Streamlit UI<br/>13 Pages]
-        Q[Typer CLI<br/>15 Commands]
-    end
+    ROADMAP --> DOC_PARSE
+    ROADMAP --> CHUNKER
+    ROADMAP --> EMBEDDER
 
-    A --> B
-    B --> C
-    C --> E
-    E --> F
-    F --> G
+    DOC_PARSE --> CHUNKER
+    CHUNKER --> CLAUDE
 
-    E --> I
-    I --> J
-    J --> K
-    K --> L
-    L --> N
-    N --> M
-    M --> O
-    O --> P
-    O --> Q
+    EMBEDDER --> VOYAGE
+    EMBEDDER --> LANCE
 
-    H --> G
-    G --> L
+    ROADMAP --> LANCE
+    ROADMAP --> GRAPH
+    ROADMAP --> JSON
+
+    ROADMAP --> CLAUDE
 ```
 
 ### Technology Stack
 
-| Layer | Technology | Version | Purpose |
-|-------|------------|---------|---------|
-| Language | Python | 3.13+ | Core implementation |
-| CLI Framework | Typer | 0.21.0 | Backend command interface |
-| Web Framework | Streamlit | 1.52.2 | Interactive web UI |
-| LLM API | Anthropic Claude | 0.75.0 | Chunking, synthesis, Q&A |
-| Embeddings | Voyage AI | 0.3.7 | Semantic embeddings (voyage-3-large, 1024d) |
-| Vector Database | LanceDB | 0.26.1 | Chunk storage and semantic search |
-| Graph Library | NetworkX | 3.6.1 | Knowledge graph construction |
-| Document Parser | Unstructured | 0.18.24 | Multi-format document parsing |
-| Token Counter | tiktoken | 0.12.0 | Claude-compatible tokenization |
-| Numerical | NumPy | 2.4.0 | Similarity calculations |
-| Data Format | PyArrow | 22.0.0 | LanceDB data interchange |
-| Config | python-dotenv | 1.2.1 | API key management |
+| Layer | Technology |
+|-------|------------|
+| Language | Python 3.13 |
+| CLI Framework | Typer + Rich |
+| Web Framework | Streamlit 1.52 |
+| LLM | Anthropic Claude Opus 4.5 |
+| Embeddings | Voyage AI (voyage-3-large) |
+| Vector Database | LanceDB 0.26 |
+| Graph Database | NetworkX 3.6 |
+| Document Parser | unstructured 0.18 (with all-docs) |
+| Token Counter | tiktoken 0.12 |
+| Environment | python-dotenv |
 
 ### Directory Structure
 
 ```
 roadmap-synth/
-├── roadmap.py              # 4,430 LOC - CLI backend (ingestion, chunking, indexing, synthesis)
-├── app.py                  # 5,617 LOC - Streamlit UI (13 pages, Q&A, visualization)
-├── main.py                 # 6 LOC - Entry point stub
-├── test_graph_diagnostic.py        # 13 LOC - Diagnostic script
-├── test_sync_and_diagnose.py       # 26 LOC - Sync test script
-├── pyproject.toml          # uv project config (9 dependencies)
-├── .env                    # API keys (not committed)
-├── .env.example            # Template
-├── .gitignore
-├── README.md
-├── prompts/                # Claude synthesis prompts
-│   ├── synthesis.md        # Master synthesis framework
-│   ├── architecture_alignment.md
-│   ├── analyst_assessment.md
+├── app.py                         # Streamlit web interface (5,617 lines)
+├── main.py                        # Stub entry point (6 lines)
+├── roadmap.py                     # Core CLI and processing engine (4,513 lines)
+├── test_*.py                      # Test/diagnostic scripts (3 files)
+│
+├── prompts/                       # LLM prompt templates
+│   ├── synthesis.md               # Master synthesis framework (529 lines)
 │   └── personas/
-│       ├── executive.md
-│       ├── product.md
-│       └── engineering.md
-├── materials/              # 93MB - Source documents by lens
-│   ├── your-voice/
-│   ├── team-structured/
-│   ├── team-conversational/
-│   ├── sales-conversational/
-│   ├── business-framework/
-│   ├── engineering/
-│   └── external-analyst/
-├── output/                 # 144KB - Generated roadmaps
+│       ├── executive.md           # Executive formatting (77 lines)
+│       ├── product.md             # Product manager formatting (108 lines)
+│       └── engineering.md         # Engineering formatting (146 lines)
+│
+├── materials/                     # Source documents organized by lens
+│   ├── your-voice/                # Strategic vision (highest authority)
+│   ├── team-conversational/       # Meeting notes, discussions
+│   ├── team-structured/           # Official team docs
+│   ├── sales-conversational/      # Sales insights
+│   ├── business-framework/        # OKRs, business strategy
+│   ├── engineering/               # Technical docs (veto power)
+│   └── external-analyst/          # Market research (lowest authority)
+│
+├── output/                        # Generated roadmaps
 │   ├── master_roadmap.md
 │   ├── executive_roadmap.md
 │   ├── product_roadmap.md
-│   └── engineering_roadmap.md
-└── data/                   # 42MB - Persistent data
-    ├── context_graph.json          # 987 chunk nodes, SAME_SOURCE/SIMILAR_TO/TOPIC_OVERLAP edges
-    ├── questions/
-    │   └── questions.json          # Open questions tracking
-    └── unified_graph/              # Cross-type knowledge graph
-        ├── graph.json              # 1,276 edges
-        ├── chunk_nodes.json        # 987 nodes
-        ├── decision_nodes.json     # 0 nodes
-        ├── question_nodes.json     # 28 nodes
-        ├── roadmap_item_nodes.json # 28 nodes
-        ├── assessment_nodes.json   # 2 nodes
-        └── gap_nodes.json          # 0 nodes
+│   ├── engineering_roadmap.md
+│   └── competitive/               # Competitive intelligence
+│
+├── data/                          # Runtime data stores
+│   ├── roadmap_chunks.lance/      # Vector database (7.8 MB)
+│   ├── context_graph.json         # Legacy graph format (28 MB)
+│   ├── unified_graph/             # New unified graph structure
+│   │   ├── chunk_nodes.json       # Chunk metadata (2.7 MB)
+│   │   ├── roadmap_item_nodes.json
+│   │   ├── question_nodes.json
+│   │   ├── assessment_nodes.json
+│   │   ├── decision_nodes.json
+│   │   ├── gap_nodes.json
+│   │   └── graph.json             # NetworkX graph (8 MB)
+│   └── questions/                 # Q&A storage
+│
+├── pyproject.toml                 # Project dependencies
+├── .env.example                   # API key template
+└── README.md                      # User documentation (320 lines)
 ```
 
 ---
 
 ## Component Deep Dive
 
-### Component 1: AgenticChunker
+### Component 1: Document Ingestion Pipeline
 
-**Purpose:** AI-powered document chunking that intelligently segments documents based on semantic boundaries, section structures, and content coherence rather than arbitrary token limits.
+**Purpose:** Parse multi-format documents, chunk intelligently, and index with embeddings
 
-**Location:** `roadmap.py:481-680`
-
-**Key Methods:**
-
-| Method | Purpose | Status |
-|--------|---------|--------|
-| `__init__()` | Initialize with Claude API client | ✅ |
-| `chunk()` | Main chunking orchestrator, returns verified chunks | ✅ |
-| `_parse_json_response()` | Extract JSON from Claude's response, handle malformed output | ✅ |
-| `_salvage_chunk()` | Fuzzy match to recover chunks that failed verification | ✅ |
-
-**Dependencies:**
-- Depends on: Anthropic Claude API, tiktoken, verify_chunk_integrity(), count_tokens()
-- Depended on by: chunk_with_fallback() (roadmap.py:735)
-
-**Data Flow:**
-```mermaid
-flowchart LR
-    Input[Document Text] --> Hints[get_document_type_hints]
-    Hints --> Claude[Claude API]
-    Claude --> Parse[_parse_json_response]
-    Parse --> Extract[Extract content by char positions]
-    Extract --> Verify[verify_chunk_integrity]
-    Verify -->|valid| Format[Format for indexing]
-    Verify -->|invalid| Salvage[_salvage_chunk]
-    Salvage --> Format
-    Format --> Output[Verified Chunks]
-```
-
-**Issues Identified:**
-- ⚠️ **No caching** - Identical documents get re-chunked every time (expensive Claude API calls)
-- ⚠️ **No retry logic** - API failures result in immediate fallback to token-based chunking
-- ⚠️ **Debug file pollution** - Saves debug_response.txt in DATA_DIR on JSON parse failures
-- ⚠️ **Character position validation** - Only checks bounds, doesn't verify content extraction accuracy
-- ❌ **SSL verification disabled** - Uses httpx.Client(verify=False) in roadmap.py:532 (inherited from global settings)
-
-**Strengths:**
-- ✅ Intelligent fallback to token-based chunking on failures
-- ✅ Salvage mechanism recovers from partial failures
-- ✅ Extracts rich metadata (section titles, key entities, time references)
-- ✅ Uses character positions for precise content extraction
-
----
-
-### Component 2: ContextGraph
-
-**Purpose:** Build and maintain a graph of chunk-to-chunk relationships based on source proximity, semantic similarity, topic overlap, and temporal references. Enables retrieval expansion beyond initial semantic search.
-
-**Location:** `roadmap.py:907-1098`
-
-**Key Methods:**
-
-| Method | Purpose | Status |
-|--------|---------|--------|
-| `__init__()` | Initialize empty NetworkX DiGraph | ✅ |
-| `build_from_chunks()` | Construct graph with 5 edge types | ✅ |
-| `_add_source_edges()` | Connect chunks from same document (SAME_SOURCE) | ✅ |
-| `_add_topic_edges()` | Connect chunks with key term overlap (TOPIC_OVERLAP) | ✅ |
-| `_add_similarity_edges()` | Connect semantically similar chunks via cosine similarity (SIMILAR_TO) | ✅ |
-| `_add_temporal_edges()` | Connect chunks referencing same time periods (TEMPORAL_OVERLAP) | ✅ |
-| `save()` | Persist graph as JSON using NetworkX node_link_data | ✅ |
-| `load()` | Restore graph from JSON | ✅ |
-| `get_stats()` | Calculate graph metrics (nodes, edges, density, components) | ✅ |
-
-**Dependencies:**
-- Depends on: NetworkX, NumPy, extract_key_terms(), extract_time_references()
-- Depended on by: expand_via_chunk_graph() (app.py:2113), rebuild_context_graph() (app.py:110)
-
-**Data Flow:**
-```mermaid
-flowchart TB
-    Chunks[Indexed Chunks] --> Source[Add SAME_SOURCE edges]
-    Chunks --> Topics[Add TOPIC_OVERLAP edges]
-    Chunks --> Sim[Add SIMILAR_TO edges]
-    Chunks --> Time[Add TEMPORAL_OVERLAP edges]
-
-    Source --> Graph[(NetworkX DiGraph)]
-    Topics --> Graph
-    Sim --> Graph
-    Time --> Graph
-
-    Graph --> Save[Save to JSON]
-    Graph --> BFS[BFS Expansion in Retrieval]
-```
-
-**Issues Identified:**
-- ⚠️ **Memory explosion risk** - Similarity calculation loads full embedding matrix (987 chunks × 1024 dimensions = ~8MB, acceptable now but won't scale to 100K+ chunks)
-- ⚠️ **Hardcoded thresholds** - Similarity threshold (0.80) is high and not configurable, may miss relevant connections
-- ⚠️ **No edge weight tuning** - All edge types have fixed weights (1.0 or similarity score), no learned optimization
-- ⚠️ **Limited edge types** - Missing edges for contradictions, dependencies, or causality
-- ✅ **Batch processing** - Similarity computation uses 100-chunk batches to prevent memory issues
-
-**Strengths:**
-- ✅ Multi-dimensional connectivity (source, semantic, topic, temporal)
-- ✅ Efficient NumPy-based cosine similarity
-- ✅ NetworkX provides rich graph algorithms (BFS, centrality, communities)
-- ✅ Persistent JSON storage with human-readable format
-
----
-
-### Component 3: UnifiedContextGraph
-
-**Purpose:** Cross-type knowledge graph that connects chunks to higher-level entities (decisions, questions, roadmap items, assessments, gaps) enabling authority-aware retrieval that surfaces strategic context alongside raw documents.
-
-**Location:** `roadmap.py:2859-3228`
-
-**Key Methods:**
-
-| Method | Purpose | Status |
-|--------|---------|--------|
-| `__init__()` | Initialize DiGraph with node_indices per type | ✅ |
-| `add_node()` | Add typed node with data and optional embedding | ✅ |
-| `add_edge()` | Add weighted, typed edge between nodes | ✅ |
-| `save()` | Persist graph split by node type (7 JSON files) | ✅ |
-| `load()` | Restore graph from split files | ✅ |
-| `get_stats()` | Calculate counts, edges, authority distribution | ✅ |
-
-**Dependencies:**
-- Depends on: NetworkX, sync_all_to_graph()
-- Depended on by: traverse_unified_graph() (app.py:2160), diagnose_graph_contents() (app.py:2870), retrieve_with_authority() (roadmap.py:3234)
-
-**Node Types (7):**
-1. **chunk** - Document fragments with embeddings (987 nodes)
-2. **decision** - Strategic decisions with authority level L1 (0 nodes currently)
-3. **question** - Questions (answered or pending) with authority L2/L7 (28 nodes)
-4. **roadmap_item** - Planned features/initiatives with authority L4 (28 nodes)
-5. **assessment** - Evaluations/analyses with authority L3 (2 nodes)
-6. **gap** - Identified gaps with authority L5 (0 nodes currently)
-7. **answer** - Legacy type (deprecated in favor of answered questions)
-
-**Edge Types (12):**
-- SAME_SOURCE - Chunks from same document
-- SIMILAR_TO - Semantically similar chunks
-- TOPIC_OVERLAP - Chunks sharing key terms
-- TEMPORAL_OVERLAP - Chunks referencing same time periods
-- SUPPORTS - Chunk/assessment supports roadmap item
-- CONFLICTS_WITH - Items in conflict
-- DEPENDS_ON - Item depends on another
-- ADDRESSES - Answer addresses question
-- RELATES_TO - General relationship
-- VALIDATED_BY - Assessment validates item
-- SUPPORTED_BY - Roadmap item supported by chunks (1,269 edges created in recent fix)
-- OVERRIDES - Decision overrides other content
-
-**Data Flow:**
-```mermaid
-sequenceDiagram
-    participant Sync as sync_all_to_graph()
-    participant Lance as LanceDB
-    participant JSON as JSON Files
-    participant Graph as UnifiedContextGraph
-    participant Ret as Retrieval Layer
-
-    Sync->>JSON: Load questions
-    Sync->>JSON: Load roadmap items
-    Sync->>JSON: Load assessments
-    Sync->>JSON: Load decisions
-    Sync->>Lance: Fetch all chunks
-    Sync->>Graph: Add nodes by type
-    Sync->>Graph: Create edges (keyword matching)
-    Graph->>JSON: Save split files (7 types)
-    Ret->>Graph: Load graph
-    Ret->>Graph: BFS traversal from seed chunks
-    Graph-->>Ret: Return nodes by authority level
-```
-
-**Issues Identified:**
-- ✅ **FIXED: Naive edge creation** - Previously used keyword matching, now uses embedding-based cosine similarity (roadmap.py:3223-3287). Generates embeddings for roadmap items/decisions, uses 3 thresholds (SUPPORTED_BY≥0.75, MENTIONED_IN≥0.65, OVERRIDES≥0.70), creates 16,241 semantic edges with similarity scores as weights.
-- ✅ **FIXED: Incomplete sync** - Previously only processed first 100 chunks for edge creation, now processes all 987 chunks with progress tracking, creating 16,248 edges (up from 1,276)
-- ⚠️ **No decision nodes** - Despite schema support, no decisions have been added to the graph yet (3 gap nodes exist)
-- ⚠️ **Split file complexity** - 8 JSON files (7 node types + 1 graph) makes debugging harder than single file
-- ⚠️ **No schema validation** - Node/edge data is free-form dicts, no Pydantic models or type checking
-
-**Strengths:**
-- ✅ Authority hierarchy enforcement (L1 decisions > L7 pending questions)
-- ✅ Bidirectional traversal (predecessors + successors) in app.py:2227-2259
-- ✅ Type-aware indexing (node_indices dict for O(1) type-filtered access)
-- ✅ Supports complex queries (find all chunks supporting a roadmap item that conflicts with a decision)
-
----
-
-### Component 4: Semantic Search & Retrieval
-
-**Purpose:** Multi-modal retrieval orchestration that combines LanceDB semantic search, ContextGraph expansion, and UnifiedGraph traversal to assemble comprehensive, authority-aware context for synthesis.
-
-**Location:** `app.py:2113-2396`
+**Location:** `roadmap.py` lines 91-868
 
 **Key Functions:**
 
 | Function | Purpose | Status |
 |----------|---------|--------|
-| `retrieve_chunks()` (roadmap.py:1155) | LanceDB semantic search, lens-prioritized sorting | ✅ |
-| `retrieve_balanced()` (roadmap.py:1187) | Guaranteed representation from each lens | ✅ |
-| `expand_via_chunk_graph()` (app.py:2113) | BFS traversal of ContextGraph from seed chunks | ✅ |
-| `traverse_unified_graph()` (app.py:2160) | BFS traversal of UnifiedGraph with topic filtering | ✅ |
-| `retrieve_full_context()` (app.py:2229) | Orchestrate all retrieval sources | ✅ |
-| `assemble_context_for_synthesis()` (app.py:2287) | Organize by 7 authority levels | ✅ |
+| `parse_document()` | Parse docs using unstructured library | ✅ |
+| `chunk_with_fallback()` | Agentic chunking with Claude fallback | ✅ |
+| `AgenticChunker` class | Smart document chunking with LLM | ✅ |
+| `structure_aware_chunk()` | Detect structure and chunk accordingly | ✅ |
+| `score_chunk_quality()` | Quality scoring for chunk filtering | ✅ |
+| `verify_chunk_integrity()` | Validate chunk completeness | ✅ |
+| `index_chunks()` | Store chunks in LanceDB with embeddings | ✅ |
+
+**Dependencies:**
+- Depends on: unstructured (parsing), Anthropic Claude (agentic chunking), Voyage AI (embeddings)
+- Depended on by: CLI ingest command, Web UI ingest page
+
+**Data Flow:**
+```mermaid
+flowchart LR
+    DOC[Document File] --> PARSE[parse_document]
+    PARSE --> AGENTIC[AgenticChunker]
+    AGENTIC --> CLAUDE[Claude API]
+    CLAUDE --> CHUNKS[Structured Chunks]
+    CHUNKS --> SCORE[score_chunk_quality]
+    SCORE --> FILTER[Filter Low Quality]
+    FILTER --> EMBED[generate_embeddings]
+    EMBED --> VOYAGE[Voyage AI API]
+    VOYAGE --> LANCE[LanceDB Index]
+```
+
+**Issues Identified:**
+- ⚠️ **No retry logic** for API failures during chunking or embedding
+- ⚠️ **Synchronous processing** - large documents processed serially, could parallelize
+- ⚠️ **Memory concerns** - loads entire document in memory before chunking
+- ⚠️ **Limited error recovery** - failed chunks abort entire ingestion
+- ✅ **Fallback chunking** - good resilience with simple chunking if LLM fails
+
+**Notable Design Decision:**
+The "agentic chunking" approach (roadmap.py:499-699) uses Claude to intelligently chunk documents by understanding content structure. This is innovative but expensive (~$0.10-0.50 per 100 pages). The system includes quality scoring and a fallback to simple token-based chunking if Claude is unavailable.
+
+---
+
+### Component 2: UnifiedContextGraph
+
+**Purpose:** Maintain semantic relationships between chunks, questions, decisions, roadmap items, and assessments
+
+**Location:** `roadmap.py` lines 2877-3408
+
+**Key Functions:**
+
+| Function | Purpose | Status |
+|----------|---------|--------|
+| `UnifiedContextGraph.__init__()` | Initialize graph structure | ✅ |
+| `add_node()` | Add typed nodes to graph | ✅ |
+| `add_edge()` | Create relationships with metadata | ✅ |
+| `sync_all_to_graph()` | Rebuild graph from all sources | ✅ |
+| `retrieve_with_authority()` | Authority-based retrieval | ✅ |
+| `integrate_*_to_graph()` | Integrate various entity types | ✅ |
+| `save()` / `load()` | Persistence to JSON | ✅ |
+
+**Dependencies:**
+- Depends on: NetworkX (graph operations), LanceDB (chunk vectors), JSON files (persistence)
+- Depended on by: Retrieval system, Q&A system, roadmap generation
 
 **Data Flow:**
 ```mermaid
 flowchart TB
-    Query[User Query] --> Parse[parse_query]
-    Parse --> Lance[LanceDB Search]
-    Lance --> TopK[Top 20 chunks]
-    TopK --> ChunkGraph[expand_via_chunk_graph]
-    ChunkGraph --> BFS1[BFS 1-hop expansion]
-    BFS1 --> Unified[traverse_unified_graph]
-    Unified --> BFS2[BFS 2-hop traversal]
-    BFS2 --> Filter[Topic/type filtering]
-    Filter --> Assemble[assemble_context_for_synthesis]
-    Assemble --> L1[L1: Decisions]
-    Assemble --> L2[L2: Answered Questions]
-    Assemble --> L3[L3: Assessments]
-    Assemble --> L4[L4: Roadmap Items]
-    Assemble --> L5[L5: Gaps]
-    Assemble --> L6[L6: Chunks]
-    Assemble --> L7[L7: Pending Questions]
-    L1 --> Claude[Claude Synthesis]
-    L2 --> Claude
-    L3 --> Claude
-    L4 --> Claude
-    L5 --> Claude
-    L6 --> Claude
-    L7 --> Claude
+    SYNC[sync_all_to_graph] --> CHUNKS[Load Chunks<br/>from LanceDB]
+    SYNC --> QUESTIONS[Load Questions<br/>from JSON]
+    SYNC --> DECISIONS[Load Decisions<br/>from JSON]
+    SYNC --> ROADMAP[Parse Roadmap<br/>Items]
+    SYNC --> ASSESS[Load Assessments<br/>from JSON]
+
+    CHUNKS --> GRAPH[UnifiedContextGraph]
+    QUESTIONS --> GRAPH
+    DECISIONS --> GRAPH
+    ROADMAP --> GRAPH
+    ASSESS --> GRAPH
+
+    GRAPH --> SEMANTIC[Semantic Edge<br/>Inference]
+    SEMANTIC --> EMBED[Cosine Similarity<br/>on Embeddings]
+    EMBED --> EDGES[Add Edges<br/>weight > 0.6]
+
+    EDGES --> SAVE[Save to unified_graph/<br/>JSON files]
 ```
 
 **Issues Identified:**
-- ⚠️ **Hardcoded hop counts** - ContextGraph uses 1-hop (app.py:2113), UnifiedGraph uses 2-hop (app.py:2160), not adaptive to query complexity
-- ⚠️ **No relevance re-ranking** - Context assembled in authority order without re-scoring for query relevance
-- ⚠️ **BFS doesn't respect edge weights** - All edges treated equally despite having different weights
-- ⚠️ **Large context windows** - Can assemble 10K+ tokens of context without truncation strategy
-- ⚠️ **No caching** - Identical queries perform full retrieval+graph traversal every time
+- ⚠️ **Large in-memory graph** - 987 chunks + all relationships loaded into memory
+- ⚠️ **Slow sync operation** - Processing all embeddings for semantic edges is O(n²)
+- ⚠️ **No incremental updates** - entire graph rebuilt on each sync
+- ⚠️ **JSON persistence** - 8 MB graph.json file, slow load/save
+- ✅ **Semantic edge inference** - Recent improvement (fd057bc) uses cosine similarity > 0.6 threshold
 
-**Strengths:**
-- ✅ Multi-modal retrieval (semantic + structural + authority)
-- ✅ Lens-aware sorting respects authority hierarchy
-- ✅ Balanced retrieval ensures no lens dominates
-- ✅ BFS prevents infinite loops with visited tracking
-- ✅ Topic filtering reduces noise in unified graph traversal
+**Notable Design Decision:**
+The unified graph replaces an earlier "ContextGraph" implementation. It uses semantic similarity (cosine similarity on embeddings) to infer edges between chunks and roadmap items, going beyond keyword matching. This allows discovery of conceptually related content even without lexical overlap.
 
 ---
 
-### Component 5: Claude Synthesis Engine
+### Component 3: Authority-Based Retrieval System
 
-**Purpose:** Use Claude API to perform document chunking, roadmap synthesis, question answering, and architecture alignment with prompts tuned for authority hierarchy and persona formatting.
+**Purpose:** Retrieve relevant context with authority-level weighting for synthesis
 
-**Location:** Multiple integration points
+**Location:** `roadmap.py` lines 1173-1311, 3297-3408
 
 **Key Functions:**
 
-| Function | Purpose | Location | Status |
-|----------|---------|----------|--------|
-| `AgenticChunker.chunk()` | AI-powered document segmentation | roadmap.py:496 | ✅ |
-| `generate_roadmap()` | Master roadmap synthesis | roadmap.py:1352 | ✅ |
-| `format_for_persona()` | Persona-specific formatting | roadmap.py:1420 | ✅ |
-| `synthesize_answer()` | Q&A with cited sources | app.py:2399 | ✅ |
-| `generate_architecture_alignment()` | Align roadmap with architecture | roadmap.py:2454 | ✅ |
-| `generate_analyst_assessment()` | Competitive analysis | roadmap.py:2626 | ✅ |
+| Function | Purpose | Status |
+|----------|---------|--------|
+| `retrieve_chunks()` | Basic semantic retrieval | ✅ |
+| `retrieve_balanced()` | Balanced retrieval across lenses | ✅ |
+| `retrieve_with_graph_expansion()` | Graph-expanded retrieval | ✅ |
+| `retrieve_with_authority()` | Authority-weighted retrieval | ✅ |
+| `detect_potential_contradictions()` | Find conflicting chunks | ✅ |
 
-**Claude Models Used:**
-- **Sonnet 4.5** (claude-sonnet-4-5-20250929) - Default for Q&A, architecture alignment, competitive analysis
-- **Opus 4.5** (claude-opus-4-5-20251101) - Used for roadmap synthesis and persona formatting (higher quality)
+**Authority Hierarchy (highest to lowest):**
+1. **your-voice** (10.0) - Strategic vision
+2. **team-conversational** (8.0) - Real priorities
+3. **team-structured** (6.0) - Formal docs
+4. **sales-conversational** (5.5) - Sales insights
+5. **business-framework** (5.0) - Business strategy
+6. **engineering** (Veto power, weight 7.0) - Technical feasibility
+7. **external-analyst** (2.0) - Market validation
 
-**Prompt Engineering:**
-- Prompts loaded from `prompts/` directory as markdown files
-- Synthesis prompt defines 7-level authority hierarchy
-- Persona prompts customize output format (executive: 500-800 words, product: 2-3 pages, engineering: 5-10 pages)
-- Architecture alignment prompt includes specific frameworks (C4 model, ADRs)
+**Dependencies:**
+- Depends on: LanceDB (vector search), UnifiedContextGraph (relationship expansion)
+- Depended on by: Roadmap generation, Q&A system, persona formatting
 
 **Data Flow:**
 ```mermaid
 sequenceDiagram
     participant User
-    participant App
-    participant Prompt as Prompt Template
-    participant Context as Context Assembly
-    participant Claude as Claude API
-    participant Output
+    participant Retrieval
+    participant Lance
+    participant Graph
+    participant Ranker
 
-    User->>App: Request synthesis
-    App->>Context: retrieve_full_context()
-    Context->>Context: Assemble by authority
-    Context-->>App: Organized context
-    App->>Prompt: Load template
-    Prompt-->>App: Prompt text
-    App->>Claude: messages.create()
-    Note over Claude: Process with authority rules
-    Claude-->>App: Synthesized output
-    App->>Output: Save markdown
-    Output-->>User: Display result
+    User->>Retrieval: Query text
+    Retrieval->>Lance: Vector search (top_k=20)
+    Lance-->>Retrieval: Initial chunks
+
+    Retrieval->>Graph: Get related nodes
+    Graph-->>Retrieval: Expanded chunks
+
+    Retrieval->>Ranker: Apply authority weights
+    Ranker-->>Retrieval: Reranked chunks
+
+    Retrieval-->>User: Contextualized results
 ```
 
 **Issues Identified:**
-- ❌ **SSL verification disabled** - Multiple locations use httpx.Client(verify=False) including app.py:2435
-- ⚠️ **No rate limiting** - Can exceed API rate limits with batch operations
-- ⚠️ **No response streaming** - Large responses wait for full completion (30-60s latency)
-- ⚠️ **No token budget management** - Prompts can exceed context window with large retrievals
-- ⚠️ **Hardcoded temperatures** - AgenticChunker uses temperature=0, synthesis uses default (should be configurable)
-- ⚠️ **No prompt versioning** - Prompt changes don't track versions for reproducibility
-
-**Strengths:**
-- ✅ Sophisticated prompt engineering with authority hierarchy
-- ✅ Error handling with try/finally to close HTTP clients
-- ✅ Model selection (Opus for quality, Sonnet for speed)
-- ✅ Confidence scoring in Q&A responses
-- ✅ Prompt templates separated from code
+- ✅ **Well-designed authority system** - Clear hierarchy with engineering veto power
+- ✅ **Graph expansion** - Uses relationships to find related content
+- ⚠️ **Fixed top_k=20** - No dynamic adjustment based on query complexity
+- ⚠️ **No query decomposition** - Complex queries not broken into sub-queries
+- ⚠️ **Limited contradiction detection** - Only finds conflicting chunks, doesn't resolve
 
 ---
 
-### Component 6: Streamlit Web Interface
+### Component 4: LLM Synthesis Engine
 
-**Purpose:** Interactive web UI providing 13 pages for document management, roadmap generation, Q&A, question tracking, architecture alignment, and competitive intelligence.
+**Purpose:** Generate roadmaps and answers using Claude with retrieved context
 
-**Location:** `app.py:1-5617`
+**Location:** `roadmap.py` lines 1414-1565, app.py lines 2405-2605
 
-**Pages (13):**
+**Key Functions:**
 
-| Page | Purpose | Key Features | Status |
-|------|---------|--------------|--------|
-| 🏠 Dashboard | System overview, index stats | Metrics, recent sources, lens breakdown | ✅ |
-| 📥 Ingest | Upload and process documents | File upload, lens selection, chunking audit | ✅ |
-| 📚 Manage Materials | View/move/delete source files | File browser, lens reassignment | ✅ |
-| 🔍 View Chunks | Browse indexed chunks | Search, filter by lens, view original | ✅ |
-| 🧩 Chunking Audit | Compare agentic vs token chunking | Side-by-side diff, quality scores | ✅ |
-| 🕸️ Context Graph | Visualize chunk relationships | Graph stats, edge type breakdown | ✅ |
-| 🚀 Generate Roadmap | Create master roadmap | Query input, balanced retrieval toggle | ✅ |
-| 👥 Format by Persona | Generate persona-specific views | Executive/product/engineering formats | ✅ |
-| 💬 Ask Your Roadmap | Conversational Q&A | Intent detection, multi-source retrieval, save to questions | ✅ |
-| 📝 Open Questions | Track and answer questions | 2 tabs (list, answer form), filters, Q&A badge | ✅ |
-| 🏗️ Architecture Alignment | Align roadmap with architecture docs | Scan docs, generate alignment report | ✅ |
-| 🎯 Competitive Intelligence | Track competitor developments | Add developments, generate assessments | ✅ |
-| ⚙️ Settings | Configure API keys, manage data | API key input, clear index, rebuild graph | ✅ |
+| Function | Purpose | Status |
+|----------|---------|--------|
+| `generate_roadmap()` | Master roadmap synthesis | ✅ |
+| `format_for_persona()` | Persona-specific formatting | ✅ |
+| `synthesize_answer()` | Q&A answer generation | ✅ |
+| `generate_architecture_alignment()` | Architecture analysis | ✅ |
+| `generate_analyst_assessment()` | Competitive assessment | ✅ |
 
-**Key UI Components:**
-
-1. **Query Parsing UI** (Ask Your Roadmap) - Displays detected intent, topics, keywords
-2. **Retrieval Statistics** - Shows chunk/decision/assessment/roadmap counts from retrieval
-3. **Authority-Aware Display** - Color-coded badges for 7 authority levels
-4. **Question Cards** - Generation type badges (💬 Q&A, 🤖 LLM, 🔍 Derived, 📝 Legacy)
-5. **Save to Questions UI** - Duplicate detection, audience/category/priority selectors
-6. **Synthesized Answer Display** - Confidence indicator, expandable text, Re-Ask button
-7. **Chunking Audit** - Side-by-side comparison with quality scores and diff highlighting
-
-**Data Flow:**
-```mermaid
-flowchart TB
-    User[User Action] --> Session[Session State]
-    Session --> Page[Page Render]
-    Page --> Backend[roadmap.py Functions]
-    Backend --> Storage[(Data Storage)]
-    Storage --> Backend
-    Backend --> Page
-    Page --> Display[UI Display]
-    Display --> User
-
-    Session -.chat_history.-> Page
-    Session -.index_stats.-> Page
-    Session -.current_page.-> Page
-```
-
-**Issues Identified:**
-- ❌ **5,617-line single file** - Violates separation of concerns, difficult to maintain
-- ⚠️ **No component reuse** - Question cards, retrieval stats, and other UI elements duplicated across pages
-- ⚠️ **Session state complexity** - 20+ session state keys (chat_history, index_stats, etc.) with no centralized management
-- ⚠️ **No page-level error boundaries** - Errors on one page can crash entire app
-- ⚠️ **Limited responsiveness** - UI designed for desktop, mobile experience not optimized
-- ⚠️ **Blocking operations** - Long-running operations (sync, generate) block UI thread
-- ⚠️ **No progress bars** - User has no visibility into long-running operations (chunking 93MB materials)
-
-**Strengths:**
-- ✅ Comprehensive feature coverage across 13 pages
-- ✅ Rich visualizations (graph stats, lens breakdowns, retrieval statistics)
-- ✅ Intuitive navigation with emoji icons
-- ✅ Real-time index statistics
-- ✅ Duplicate detection prevents data corruption
-- ✅ Session persistence for chat history
-
----
-
-### Component 7: Typer CLI Backend
-
-**Purpose:** Command-line interface for document ingestion, roadmap generation, question management, and data operations. Provides automation capabilities and scripting support.
-
-**Location:** `roadmap.py:3951-4430`
-
-**Commands (15):**
-
-| Command | Purpose | Status |
-|---------|---------|--------|
-| `ingest` | Ingest documents with lens tagging | ✅ |
-| `generate` | Generate master roadmap | ✅ |
-| `format` | Format roadmap for persona | ✅ |
-| `ask` | Ask questions about materials | ✅ |
-| `rebuild-graph` | Rebuild context graph | ✅ |
-| `stats` | Show index statistics | ✅ |
-| `clear` | Clear vector index | ✅ |
-| `export-chunks` | Export chunks to JSON/CSV | ✅ |
-| `add-question` | Manually add question | ✅ |
-| `list-questions` | List all questions | ✅ |
-| `add-decision` | Manually add decision | ✅ |
-| `sync-graph` | Sync all data to unified graph | ✅ |
-| `scan-architecture` | Scan architecture documents | ✅ |
-| `align-architecture` | Generate architecture alignment | ✅ |
-| `add-competitor` | Add competitor development | ✅ |
+**Dependencies:**
+- Depends on: Anthropic Claude API (Opus 4.5), retrieval system, prompt templates
+- Depended on by: All generation commands, Q&A interface
 
 **Data Flow:**
 ```mermaid
 flowchart LR
-    CLI[CLI Command] --> Validate[Validate Args]
-    Validate --> Execute[Execute Function]
-    Execute --> Storage[(Storage)]
-    Storage --> Output[Console Output]
-    Output --> User[User]
-
-    Execute -.API Calls.-> Anthropic[Anthropic]
-    Execute -.API Calls.-> Voyage[Voyage AI]
-    Execute -.Write.-> Files[JSON/MD Files]
+    QUERY[User Query] --> RETRIEVE[retrieve_with_authority]
+    RETRIEVE --> CONTEXT[Format Context<br/>with Metadata]
+    CONTEXT --> PROMPT[Load Prompt<br/>Template]
+    PROMPT --> ASSEMBLE[Assemble Full<br/>Prompt]
+    ASSEMBLE --> CLAUDE[Claude API<br/>Opus 4.5]
+    CLAUDE --> RESPONSE[Generated Content]
+    RESPONSE --> SAVE[Save Output]
 ```
 
 **Issues Identified:**
-- ⚠️ **No command aliases** - Users must type full command names (e.g., `rebuild-graph` instead of `rg`)
-- ⚠️ **Limited output formats** - Most commands output to console only, no JSON/CSV options for scripting
-- ⚠️ **No progress indicators** - Long-running commands (ingest 93MB) have no progress feedback
-- ⚠️ **No dry-run mode** - Destructive commands (clear, delete) have no preview option
-- ⚠️ **No batch operations** - Must run `ingest` separately for each lens
+- ⚠️ **No streaming** - Long responses wait for full completion
+- ⚠️ **No token tracking** - Costs not monitored or reported
+- ⚠️ **Fixed model** - No fallback to Sonnet/Haiku for simpler queries
+- ⚠️ **No caching** - Identical queries regenerate responses
+- ⚠️ **Limited error handling** - API errors not gracefully handled
+- ✅ **Excellent prompts** - synthesis.md is a 529-line masterclass in prompt engineering
+- ✅ **Persona templates** - Well-structured formatting for different audiences
 
-**Strengths:**
-- ✅ Rich console output with color coding
-- ✅ Comprehensive command coverage
-- ✅ Type hints and validation via Typer
-- ✅ Error messages with context
-- ✅ Scriptable for automation
+**Notable Design Decision:**
+The synthesis prompt (prompts/synthesis.md) implements a two-phase process: (1) synthesize roadmap from team inputs, (2) validate against strategic vision. This prevents "your-voice" from dictating the roadmap while ensuring alignment checks. The prompt is sophisticated with explicit rules for handling contradictions, dependencies, and cross-team coordination.
+
+---
+
+### Component 5: Streamlit Web Interface
+
+**Purpose:** User-friendly web UI for all features
+
+**Location:** `app.py` (5,617 lines)
+
+**Key Pages:**
+
+| Page | Purpose | Status |
+|------|---------|--------|
+| `page_dashboard()` | Overview, stats, quick actions | ✅ |
+| `page_ingest()` | Document upload and ingestion | ✅ |
+| `page_manage()` | Material and chunk management | ✅ |
+| `page_chunks()` | Chunk browser and inspector | ✅ |
+| `page_chunking_audit()` | Quality audit of chunks | ✅ |
+| `page_context_graph()` | Graph visualization and query | ✅ |
+| `page_generate()` | Roadmap generation | ✅ |
+| `page_format()` | Persona formatting | ✅ |
+| `page_ask()` | Q&A interface | ✅ |
+| `page_open_questions()` | Question management | ✅ |
+| `page_architecture_alignment()` | Architecture analysis | ✅ |
+| `page_competitive_intelligence()` | Competitive tracking | ✅ |
+| `page_settings()` | API keys and configuration | ✅ |
+
+**Dependencies:**
+- Depends on: Streamlit, roadmap.py (all functions), pandas (data display)
+- Depended on by: End users
+
+**Data Flow:**
+```mermaid
+flowchart TB
+    USER[User Browser] --> STREAMLIT[Streamlit Server]
+    STREAMLIT --> APP[app.py UI Logic]
+    APP --> ROADMAP[roadmap.py Core]
+    ROADMAP --> DATA[Data Stores]
+    DATA --> ROADMAP
+    ROADMAP --> APP
+    APP --> STREAMLIT
+    STREAMLIT --> USER
+```
+
+**Issues Identified:**
+- ⚠️ **5,617 lines in single file** - Should be modularized into page files
+- ⚠️ **Session state management** - Limited use of Streamlit session state
+- ⚠️ **No authentication** - Anyone with URL can access
+- ⚠️ **No multi-user support** - Single index shared across users
+- ⚠️ **Limited responsiveness** - UI designed for desktop, mobile experience not optimized
+- ✅ **Comprehensive features** - All CLI capabilities available in UI
+- ✅ **Good UX patterns** - Expandable sections, tabs, progress indicators
+- ✅ **Diagnostic tools** - Built-in graph diagnostics and chunk auditing
+
+---
+
+### Component 6: Q&A System with Holistic Question Generation
+
+**Purpose:** Answer questions about roadmap materials and generate strategic questions from gaps
+
+**Location:** `app.py` lines 1883-2877
+
+**Key Functions:**
+
+| Function | Purpose | Status |
+|----------|---------|--------|
+| `ask_roadmap()` | Main Q&A entry point | ✅ |
+| `parse_query()` | Intent detection and parsing | ✅ |
+| `retrieve_full_context()` | Context retrieval with graph traversal | ✅ |
+| `synthesize_answer()` | Answer generation with Claude | ✅ |
+| `generate_questions_holistic()` | Generate questions from gaps | ✅ |
+| `derive_questions_from_graph()` | Graph-based question generation | ✅ |
+| `mark_obsolete_questions()` | Question lifecycle management | ✅ |
+
+**Dependencies:**
+- Depends on: UnifiedContextGraph, retrieve system, Claude API
+- Depended on by: Ask page, Open Questions page
+
+**Data Flow:**
+```mermaid
+sequenceDiagram
+    participant User
+    participant QA
+    participant Parse
+    participant Retrieve
+    participant Synth
+    participant Save
+
+    User->>QA: Ask question
+    QA->>Parse: Detect intent & topics
+    Parse-->>QA: ParsedQuery
+
+    QA->>Retrieve: Get context
+    Retrieve-->>QA: chunks + graph context
+
+    QA->>Synth: Generate answer
+    Synth-->>QA: Answer + metadata
+
+    QA->>Save: Store Q&A pair
+    Save-->>QA: Confirmation
+
+    QA-->>User: Display answer
+```
+
+**Issues Identified:**
+- ✅ **Intelligent query parsing** - Detects intent (factual, compare, planning, gap, contradiction)
+- ✅ **Graph-aware retrieval** - Traverses unified graph for context
+- ✅ **Question generation** - Derives questions from gaps and contradictions
+- ⚠️ **No answer confidence scoring** - Can't tell user if answer is uncertain
+- ⚠️ **Limited source attribution** - Shows sources but not which sentences came from where
+- ⚠️ **No follow-up support** - Each question independent, no conversation threading
+
+**Notable Design Decision:**
+The system includes sophisticated "holistic question generation" (app.py:1883-1955) that analyzes the graph for contradictions, isolated nodes, and gaps to automatically suggest questions that need answering. This proactive approach helps users identify strategic uncertainties.
+
+---
+
+### Component 7: Competitive Intelligence Module
+
+**Purpose:** Track competitor developments and generate strategic assessments
+
+**Location:** `roadmap.py` lines 2314-2876, app.py page_competitive_intelligence()
+
+**Key Functions:**
+
+| Function | Purpose | Status |
+|----------|---------|--------|
+| `add_competitor_development()` | Log competitor moves | ✅ |
+| `generate_analyst_assessment()` | Generate strategic assessment | ✅ |
+| `format_analyst_assessment_markdown()` | Format for display | ✅ |
+| `add_strategic_questions_to_system()` | Derive questions from assessments | ✅ |
+
+**Dependencies:**
+- Depends on: JSON storage, Claude API, UnifiedContextGraph
+- Depended on by: Competitive Intelligence page
+
+**Data Flow:**
+```mermaid
+flowchart LR
+    DEV[Competitor<br/>Development] --> LOG[add_competitor_<br/>development]
+    LOG --> JSON[JSON Storage]
+    JSON --> ASSESS[generate_analyst_<br/>assessment]
+    ASSESS --> CLAUDE[Claude API]
+    CLAUDE --> ANALYSIS[Strategic<br/>Analysis]
+    ANALYSIS --> QUESTIONS[Derive Strategic<br/>Questions]
+    QUESTIONS --> SYSTEM[Add to Question<br/>System]
+```
+
+**Issues Identified:**
+- ✅ **Good structure** - Captures development with metadata
+- ✅ **Strategic assessment** - Analyzes impact on roadmap
+- ⚠️ **Manual entry only** - No automated competitor tracking
+- ⚠️ **No trend analysis** - Doesn't identify patterns across multiple developments
+- ⚠️ **Limited validation** - Doesn't verify against external-analyst lens documents
 
 ---
 
@@ -644,230 +530,150 @@ flowchart LR
 
 ### Model 1: Chunk
 
-**Purpose:** Fundamental unit of indexed content with semantic embedding, metadata, and quality scores.
-
-**Schema:**
 ```python
 {
-    "id": str,                    # Format: {source_file}_{chunk_index}
-    "content": str,               # Actual text content
-    "vector": List[float],        # 1024-dimensional Voyage AI embedding
-    "lens": str,                  # One of 7 VALID_LENSES
-    "source_file": str,           # Path to original document
-    "source_name": str,           # Human-readable source name
-    "chunk_index": int,           # Position in source document
-    "token_count": int,           # Number of Claude tokens
-    "created_at": datetime,       # Timestamp
-    "metadata": {
-        "section_title": Optional[str],
-        "key_entities": List[str],
-        "time_references": List[str]
-    },
-    "quality_score": Optional[float],    # 0-1 score from score_chunk_quality()
-    "quality_reasons": Optional[List[str]],
-    "agentic": Optional[bool]     # True if AgenticChunker, False if token-based
+    "id": "string (source_file_path_chunk_index)",
+    "content": "string (text content)",
+    "lens": "enum (your-voice|team-structured|...)",
+    "source_file": "string (file path)",
+    "source_name": "string (optional display name)",
+    "chunk_index": "integer",
+    "token_count": "integer",
+    "key_terms": ["string", ...],  # Optional
+    "time_refs": ["string", ...],  # Optional
+    "created_at": "timestamp",
+    "vector": [float, ...]  # 1024-dimensional embedding
 }
 ```
 
-**Validation:**
-- id: Must be unique across all chunks
-- lens: Must be in VALID_LENSES
-- content: Min 20 characters, max ~4000 tokens (CHUNK_SIZE=1024)
-- vector: Exactly 1024 dimensions
-- token_count: Must match tiktoken count of content
-
-**Storage:**
-- Primary: LanceDB table "roadmap_chunks" (42MB)
-- Secondary: UnifiedContextGraph chunk_nodes.json (987 nodes)
-
 **Relationships:**
-- Has many: ContextGraph edges (SAME_SOURCE, SIMILAR_TO, TOPIC_OVERLAP, TEMPORAL_OVERLAP)
-- Supports: Roadmap items (SUPPORTED_BY edges)
-- Overridden by: Decisions (OVERRIDES edges)
+- Belongs to: Source document
+- Connected to: Other chunks (via UnifiedContextGraph semantic edges)
+- Referenced by: Questions, roadmap items, assessments
+
+**Validation:**
+- `lens` must be one of 7 valid lenses
+- `token_count` typically 100-1500 tokens
+- `vector` length = 1024 (Voyage AI embedding dimension)
+- Quality score calculated on creation (0.0-1.0)
 
 ---
 
 ### Model 2: Question
 
-**Purpose:** Track open questions, answered questions, and Q&A sessions with generation metadata and validation status.
-
-**Schema:**
 ```python
 {
-    "id": str,                    # UUID
-    "question": str,              # Question text
-    "generation": {
-        "type": str,              # "user_query", "llm", "derived", "legacy"
-        "source": str,            # "ask_roadmap", "architecture_alignment", etc.
-        "generated_at": str,      # ISO timestamp
-        "generated_by": Optional[str],
-        "method": Optional[str],  # Generation method details
-        "params": Optional[Dict]  # Generation parameters
-    },
-    "metadata": {
-        "audience": str,          # "Executive", "Product", "Engineering", "All"
-        "category": str,          # "Strategy", "Execution", "Technical", "Other"
-        "priority": str,          # "High", "Medium", "Low"
-        "topics": List[str],      # Related topics
-        "created_at": str,        # ISO timestamp
-        "created_by": str         # User identifier
-    },
-    "answer": Optional[str],      # Answer text if answered
-    "answer_metadata": Optional[{
-        "answered_at": str,
-        "answered_by": str,
-        "confidence": str,        # "High", "Medium", "Low"
-        "source_references": List[str]
-    }],
-    "synthesized_answer": Optional[{    # For Q&A questions
-        "answer": str,
-        "confidence": float,
-        "retrieval_stats": Dict
-    }],
-    "qa_session": Optional[{      # For Q&A questions
-        "query": str,
-        "topic_filter": Optional[str],
-        "session_timestamp": str
-    }],
-    "validation": Optional[{
-        "validated": bool,
-        "validated_at": str,
-        "validated_by": str,
-        "is_accurate": bool,
-        "notes": str
-    }],
-    "status": str                 # "open", "answered", "deferred", "obsolete"
+    "id": "string (q_[audience]_[uuid])",
+    "question": "string",
+    "audience": "enum (engineering|leadership|product|general)",
+    "category": "string (feasibility|investment|direction|...)",
+    "context": "string (why this matters)",
+    "source_tensions": "string (what prompted this)",
+    "related_roadmap_items": ["string", ...],
+    "priority": "enum (critical|high|medium|low)",
+    "suggested_deadline": "string",
+    "status": "enum (open|in_progress|answered|obsolete)",
+    "created_at": "timestamp",
+    "answered_at": "timestamp (optional)",
+    "answer": "string (optional)",
+    "answer_summary": "string (optional)",
+    "sources_used": [{"chunk_id": "...", "weight": float}, ...],
+    "is_accurate": "boolean (optional validation)",
+    "validated_by": "string (optional)",
+    "feedback_note": "string (optional)"
 }
 ```
 
-**Validation:**
-- id: UUID format
-- generation.type: Must be in ["user_query", "llm", "derived", "legacy"]
-- metadata.audience: Must be in ["Executive", "Product", "Engineering", "All"]
-- status: Must be in ["open", "answered", "deferred", "obsolete"]
-
-**Storage:**
-- Primary: data/questions/questions.json
-- Secondary: UnifiedContextGraph question_nodes.json (28 nodes)
-
 **Relationships:**
-- Addressed by: Answers (ADDRESSES edges)
-- Derived from: Assessments or alignment reports
-- Linked to: Roadmap items, architecture documents
+- Generated from: Roadmap synthesis, gap analysis, or user query
+- Linked to: Chunks (sources), roadmap items
+- Has node in: UnifiedContextGraph
+
+**Validation:**
+- `audience` restricted to 4 values
+- `priority` determines urgency
+- Questions can be marked obsolete as context changes
 
 ---
 
-### Model 3: Decision
+### Model 3: Roadmap Item
 
-**Purpose:** Capture strategic decisions with highest authority (L1) that override all conflicting information.
-
-**Schema:**
 ```python
 {
-    "id": str,                    # UUID
-    "decision": str,              # Decision text
-    "rationale": str,             # Why this decision was made
-    "made_by": str,               # Decision maker
-    "made_at": str,               # ISO timestamp
-    "affects": List[str],         # IDs of affected roadmap items/questions
-    "authority_level": int,       # Always 1 (highest)
-    "status": str,                # "active", "superseded", "reversed"
-    "metadata": {
-        "topics": List[str],
-        "implications": List[str],
-        "conflicts_resolved": List[str]
-    }
+    "id": "string (generated from name)",
+    "name": "string",
+    "description": "string",
+    "customer_value": "string (optional)",
+    "business_impact": "string (optional)",
+    "owner": "string (optional)",
+    "effort": "string (optional T-shirt size)",
+    "dependencies": ["string", ...],
+    "source_lenses": ["string", ...],
+    "horizon": "enum (now|next|later|future)",
+    "created_at": "timestamp"
 }
 ```
 
-**Validation:**
-- id: UUID format
-- authority_level: Must be 1
-- status: Must be in ["active", "superseded", "reversed"]
-
-**Storage:**
-- Primary: data/unified_graph/decision_nodes.json (0 nodes currently - ⚠️ UNUSED)
-
 **Relationships:**
-- Overrides: Chunks, assessments, roadmap items (OVERRIDES edges)
-
-**Issues:**
-- ❌ No decisions have been added yet despite schema support
-- ⚠️ No UI for adding decisions (only CLI command exists)
-- ⚠️ Decision authority not enforced in synthesis prompts
+- Extracted from: Generated master roadmap
+- Connected to: Chunks (via semantic edges in graph)
+- Referenced by: Questions, assessments
 
 ---
 
-### Model 4: Roadmap Item
+### Model 4: Assessment
 
-**Purpose:** Represent planned features, initiatives, or work items with timeline, status, and dependencies.
-
-**Schema:**
 ```python
 {
-    "id": str,                    # Generated from name
-    "name": str,                  # Feature/initiative name
-    "description": str,           # Detailed description
-    "status": str,                # "now", "next", "later", "future"
-    "priority": str,              # "High", "Medium", "Low"
-    "themes": List[str],          # Strategic themes
-    "capabilities": List[str],    # Capabilities delivered
-    "dependencies": List[str],    # IDs of dependencies
-    "questions": List[str],       # IDs of related questions
-    "authority_level": int,       # 4 (L4 in hierarchy)
-    "source_references": List[str],
-    "confidence": str             # "High", "Medium", "Low"
+    "id": "string (assess_[type]_[uuid])",
+    "assessment_type": "enum (competitive|architecture|strategic)",
+    "title": "string",
+    "summary": "string",
+    "impact_analysis": "string",
+    "recommendations": ["string", ...],
+    "roadmap_impacts": [
+        {
+            "roadmap_item": "string",
+            "impact_type": "enum (opportunity|threat|validation|conflict)",
+            "severity": "enum (critical|high|medium|low)",
+            "description": "string"
+        }
+    ],
+    "questions_raised": ["string (question_ids)", ...],
+    "created_at": "timestamp",
+    "development_ref": "string (optional, for competitive)"
 }
 ```
 
-**Validation:**
-- status: Must be in ["now", "next", "later", "future"]
-- priority: Must be in ["High", "Medium", "Low"]
-- authority_level: Must be 4
-
-**Storage:**
-- Primary: data/unified_graph/roadmap_item_nodes.json (28 nodes)
-
 **Relationships:**
-- Supported by: Chunks (SUPPORTED_BY edges - 1,269 connections)
-- Depends on: Other roadmap items (DEPENDS_ON edges)
-- Conflicts with: Other roadmap items (CONFLICTS_WITH edges)
+- Generated from: Competitive developments, architecture alignment
+- Linked to: Roadmap items, questions, competitor developments
+- Has node in: UnifiedContextGraph
 
 ---
 
-### Model 5: Assessment
+### Model 5: Decision
 
-**Purpose:** Store analyst assessments, competitive analyses, and architecture evaluations with confidence scores.
-
-**Schema:**
 ```python
 {
-    "id": str,                    # UUID
-    "title": str,                 # Assessment title
-    "content": str,               # Full assessment text
-    "assessment_type": str,       # "competitive", "architecture", "technical"
-    "confidence": float,          # 0-1
-    "key_findings": List[str],    # Bullet points
-    "recommendations": List[str],
-    "risks": List[str],
-    "opportunities": List[str],
-    "created_at": str,            # ISO timestamp
-    "authority_level": int,       # 3 (L3 in hierarchy)
-    "source_references": List[str]
+    "id": "string (decision_[uuid])",
+    "title": "string",
+    "context": "string",
+    "decision": "string",
+    "rationale": "string",
+    "alternatives_considered": ["string", ...],
+    "stakeholders": ["string", ...],
+    "implications": "string",
+    "created_at": "timestamp",
+    "created_by": "string"
 }
 ```
 
-**Validation:**
-- assessment_type: Must be in ["competitive", "architecture", "technical"]
-- confidence: 0.0 to 1.0
-- authority_level: Must be 3
-
-**Storage:**
-- Primary: data/unified_graph/assessment_nodes.json (2 nodes)
-
 **Relationships:**
-- Validates: Roadmap items (VALIDATED_BY edges)
-- Supports: Decisions
+- Created by: Users logging decisions
+- Linked to: Questions that prompted decision
+- Has node in: UnifiedContextGraph
+- Used by: Synthesis to respect past decisions
 
 ---
 
@@ -878,60 +684,57 @@ flowchart LR
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant UI as Streamlit/CLI
-    participant Parse as Unstructured Parser
-    participant Chunk as AgenticChunker
-    participant Fallback as Token Chunker
-    participant Embed as Voyage AI
-    participant Lance as LanceDB
-    participant Context as ContextGraph
+    participant UI as Streamlit UI
+    participant P as Parser
+    participant AC as AgenticChunker
+    participant C as Claude API
+    participant V as Voyage API
+    participant L as LanceDB
+    participant G as UnifiedContextGraph
 
     U->>UI: Upload document + select lens
-    UI->>Parse: parse_document(file_path)
-    Parse->>Parse: Extract text from PDF/DOCX/etc
-    Parse-->>UI: Document text
-    UI->>Chunk: chunk_with_fallback(text, lens)
-    Chunk->>Chunk: Call Claude API for semantic chunking
+    UI->>P: parse_document(file_path)
+    P-->>UI: Extracted text
 
-    alt Chunking succeeds
-        Chunk-->>UI: Verified chunks with metadata
-    else Chunking fails
-        Chunk->>Fallback: structure_aware_chunk()
-        Fallback-->>UI: Token-based chunks
-    end
+    UI->>AC: chunk_with_fallback(text, lens)
+    AC->>C: Request intelligent chunking
+    C-->>AC: Structured chunks
 
-    UI->>Embed: generate_embeddings(chunk_texts)
-    Embed-->>UI: 1024-d vectors
-    UI->>Lance: index_chunks(chunks, embeddings)
-    Lance->>Lance: Store in roadmap_chunks table
-    Lance-->>UI: Success
-    UI->>Context: rebuild_context_graph()
-    Context->>Context: Build SAME_SOURCE/SIMILAR_TO/TOPIC_OVERLAP edges
-    Context-->>UI: Graph stats
-    UI-->>U: Ingestion complete (X chunks indexed)
+    AC->>AC: score_chunk_quality()
+    AC->>AC: filter_chunks_by_quality()
+    AC-->>UI: Quality chunks
+
+    UI->>V: generate_embeddings(chunks)
+    V-->>UI: 1024-dim vectors
+
+    UI->>L: index_chunks(chunks, embeddings)
+    L-->>UI: Confirmation
+
+    UI->>G: sync_all_to_graph()
+    G->>L: Load all chunks
+    G->>G: Compute semantic edges
+    G-->>UI: Graph updated
+
+    UI-->>U: Ingestion complete
 ```
 
 **Steps:**
-1. User uploads document and selects lens (authority level)
-2. Unstructured library parses document (supports PDF, DOCX, TXT, MD, HTML, etc.)
-3. AgenticChunker calls Claude to segment intelligently based on semantic boundaries
-4. If Claude fails, fallback to token-based chunking with CHUNK_SIZE=1024, CHUNK_OVERLAP=150
-5. Voyage AI generates 1024-dimensional embeddings for each chunk
-6. LanceDB stores chunks with embeddings in "roadmap_chunks" table
-7. ContextGraph rebuilds relationships between chunks
+1. User uploads file via UI or CLI, selects lens (authority level)
+2. `parse_document()` uses unstructured library to extract text from any format
+3. `AgenticChunker` sends text to Claude with instructions for intelligent chunking
+4. Claude returns semantically meaningful chunks with metadata
+5. Each chunk scored for quality (0.0-1.0), low-quality chunks filtered
+6. Chunks embedded using Voyage AI (voyage-3-large model)
+7. Chunks + embeddings stored in LanceDB with metadata
+8. UnifiedContextGraph updated with new chunks as nodes
+9. Semantic edges computed between new chunks and existing nodes (cosine similarity > 0.6)
+10. Graph persisted to unified_graph/ JSON files
 
 **Error Handling:**
-- Parsing errors: Log and skip file
-- Chunking errors: Automatic fallback to token-based chunking
-- Embedding errors: Retry once, then fail
-- LanceDB errors: Create table if doesn't exist, then retry
-
-**Performance:**
-- 93MB of materials processed into 42MB indexed data (55% compression)
-- AgenticChunker: ~2-3 seconds per document (Claude API latency)
-- Token chunking: <100ms per document
-- Embedding generation: ~500ms per batch of 10 chunks
-- Total ingestion time: ~5-10 minutes for 93MB
+- Parse failure: Skip file, warn user
+- Claude chunking failure: Fall back to simple token-based chunking
+- Embedding failure: Retry once, then fail ingestion
+- Quality score < 0.3: Chunk filtered out, logged
 
 ---
 
@@ -940,220 +743,133 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant UI as Streamlit/CLI
-    participant Ret as retrieve_balanced()
-    participant Lance as LanceDB
-    participant Assemble as assemble_context_for_synthesis()
-    participant Claude as Claude API (Opus 4.5)
-    participant Persona as format_for_persona()
-    participant Output as Output Files
+    participant UI as UI
+    participant R as retrieve_with_authority
+    participant L as LanceDB
+    participant G as UnifiedContextGraph
+    participant P as Prompt Loader
+    participant C as Claude API
+    participant O as Output Storage
 
-    U->>UI: Request roadmap generation
-    UI->>Ret: Query: "Generate comprehensive roadmap"
-    Ret->>Lance: Semantic search (8 chunks per lens)
-    Lance-->>Ret: 56 chunks (7 lenses × 8)
-    Ret-->>UI: Balanced results
-    UI->>Assemble: Organize by authority hierarchy
-    Assemble->>Assemble: Group by L1-L7 levels
-    Assemble-->>UI: Structured context
-    UI->>Claude: Generate roadmap (synthesis.md prompt)
-    Claude->>Claude: Apply authority rules, resolve conflicts
-    Claude-->>UI: Master roadmap markdown
-    UI->>Output: Save master_roadmap.md
+    U->>UI: Generate roadmap
+    UI->>R: retrieve_with_authority(query, graph, top_k=20)
 
-    loop For each persona
-        UI->>Claude: Format for persona (persona prompt)
-        Claude-->>UI: Persona-specific roadmap
-        UI->>Output: Save {persona}_roadmap.md
-    end
+    R->>L: Vector search
+    L-->>R: Initial chunks (top_k)
 
-    Output-->>U: Display roadmaps
+    R->>G: Expand with graph relationships
+    G-->>R: Related chunks, questions, decisions
+
+    R->>R: Apply authority weighting
+    R-->>UI: Ranked context
+
+    UI->>P: load_prompt('synthesis')
+    P-->>UI: Synthesis prompt template
+
+    UI->>UI: Format context with metadata
+    UI->>UI: Inject graph insights (dependencies, contradictions)
+
+    UI->>C: messages.create(model='opus-4.5', ...)
+    C-->>UI: Generated roadmap (markdown)
+
+    UI->>O: Save to output/master_roadmap.md
+    O-->>UI: Confirmation
+
+    UI->>G: integrate_roadmap_to_graph(roadmap)
+    G->>G: Parse roadmap items
+    G->>G: Create item nodes
+    G->>G: Link to source chunks
+    G-->>UI: Graph updated
+
+    UI-->>U: Display roadmap
 ```
 
 **Steps:**
-1. User triggers roadmap generation from UI or CLI
-2. `retrieve_balanced()` performs semantic search with guaranteed 8 chunks per lens (56 total)
-3. Chunks sorted by lens priority (your-voice highest, external-analyst lowest)
-4. `assemble_context_for_synthesis()` organizes context by 7 authority levels
-5. Claude Opus 4.5 synthesizes master roadmap following authority hierarchy
-6. Master roadmap saved to output/master_roadmap.md
-7. For each persona (executive, product, engineering):
-   - Claude reformats roadmap with persona-specific prompt
-   - Saves to output/{persona}_roadmap.md
+1. User initiates roadmap generation (default query: "Generate a comprehensive product roadmap")
+2. Query embedded and used for vector search in LanceDB (top_k=20 initial chunks)
+3. UnifiedContextGraph expanded: follow edges to related chunks, questions, decisions
+4. Authority weights applied based on lens hierarchy
+5. Context formatted with lens attribution, key terms, time references
+6. Synthesis prompt loaded (prompts/synthesis.md - 529 lines)
+7. Prompt injected with retrieved context, graph insights (dependencies, contradictions)
+8. Claude Opus 4.5 generates comprehensive roadmap following template
+9. Roadmap saved to output/master_roadmap.md
+10. Roadmap parsed to extract individual items
+11. Items added as nodes to UnifiedContextGraph
+12. Semantic edges created from items to supporting chunks (similarity > 0.6)
+13. Graph saved
 
 **Error Handling:**
-- No indexed documents: Return error asking user to ingest first
-- Claude API failure: Retry once with exponential backoff
-- Prompt too large: Truncate context (oldest chunks first)
-- Save failure: Log error but don't crash
-
-**Performance:**
-- Retrieval: ~500ms (LanceDB semantic search)
-- Synthesis: ~30-60s (Claude Opus 4.5 generation)
-- Persona formatting: ~15-20s per persona
-- Total: ~2-3 minutes for master + 3 persona roadmaps
+- Empty retrieval: Use all chunks (fallback)
+- Claude API failure: Retry with exponential backoff (not implemented - ⚠️ issue)
+- Parse failure: Save raw response, warn user
 
 ---
 
-### Flow 3: Ask Your Roadmap (Conversational Q&A)
+### Flow 3: Q&A with Holistic Context
 
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant UI as Streamlit Chat
+    participant QA as ask_roadmap()
     participant Parse as parse_query()
     participant Ret as retrieve_full_context()
-    participant Lance as LanceDB
-    participant CG as ContextGraph
-    participant UG as UnifiedContextGraph
-    participant Assemble as assemble_context_for_synthesis()
-    participant Claude as Claude API (Sonnet 4.5)
-    participant Save as Save to Questions
+    participant L as LanceDB
+    participant G as UnifiedContextGraph
+    participant Synth as synthesize_answer()
+    participant C as Claude API
+    participant Save as save_qa_to_open_questions()
 
-    U->>UI: Enter question
-    UI->>Parse: parse_query(question)
-    Parse->>Parse: Detect intent (10 types)
-    Parse->>Parse: Extract topics, keywords, modifiers
-    Parse-->>UI: ParsedQuery object
+    U->>QA: Ask question
+    QA->>Parse: Detect intent & topics
+    Parse-->>QA: ParsedQuery(intent, topics, keywords, time_context)
 
-    UI->>Ret: retrieve_full_context(parsed_query)
-    Ret->>Lance: Semantic search (top 20 chunks)
-    Lance-->>Ret: Seed chunks
-    Ret->>CG: expand_via_chunk_graph(seed_chunks, max_hops=1)
-    CG->>CG: BFS traversal via edges
-    CG-->>Ret: Expanded chunks (20-50 total)
-    Ret->>UG: traverse_unified_graph(chunks, topics, max_hops=2)
-    UG->>UG: BFS both directions (predecessors + successors)
-    UG-->>Ret: Decisions, questions, assessments, roadmap items
-    Ret-->>UI: RetrievalResult
+    QA->>Ret: retrieve_full_context(parsed_query, top_k=20)
 
-    UI->>Assemble: assemble_context_for_synthesis(retrieval)
-    Assemble->>Assemble: Organize by L1-L7 authority
-    Assemble-->>UI: Context string (5-10K tokens)
+    Ret->>L: Vector search with query
+    L-->>Ret: Seed chunks
 
-    UI->>Claude: synthesize_answer(query, context)
-    Claude->>Claude: Answer with citations
-    Claude-->>UI: Answer + confidence + source_refs
+    Ret->>G: expand_via_chunk_graph(seed_ids)
+    G-->>Ret: Related chunks (1-hop)
 
-    UI-->>U: Display answer with stats
+    Ret->>G: traverse_unified_graph(seed_ids, topics)
+    G-->>Ret: Questions, roadmap items, assessments, decisions
 
-    opt User saves to Open Questions
-        U->>Save: Click "Save to Open Questions"
-        Save->>Save: Check for duplicates
-        Save->>Save: Add metadata (audience, category, priority)
-        Save-->>UI: Question saved with ID
-    end
+    Ret-->>QA: RetrievalResult(chunks, questions, items, assessments, decisions)
+
+    QA->>QA: assemble_context_for_synthesis()
+    QA->>Synth: synthesize_answer(parsed_query, context)
+
+    Synth->>C: Create message with assembled context
+    C-->>Synth: Generated answer
+
+    Synth-->>QA: Answer + metadata (sources, related_items)
+
+    QA->>Save: save_qa_to_open_questions(query, answer)
+    Save-->>QA: Question ID
+
+    QA-->>User: Display answer with sources
 ```
 
 **Steps:**
-1. User enters natural language question in chat interface
-2. `parse_query()` analyzes query:
-   - Detect intent (WHAT/WHY/HOW/WHEN/WHO/STATUS/COMPARISON/DEPENDENCY/CONFLICT/GENERAL)
-   - Extract topics (CPQ, Catalog, Experiences, etc.)
-   - Extract keywords (filter stop words, take top 10)
-   - Extract modifiers (priority, recency, severity, scope)
-   - Extract time context (now, next, later, future, past)
-3. `retrieve_full_context()` orchestrates three-stage retrieval:
-   - Stage 1: LanceDB semantic search (top 20 chunks)
-   - Stage 2: ContextGraph BFS expansion (1 hop → 20-50 chunks)
-   - Stage 3: UnifiedGraph BFS traversal (2 hops → decisions, assessments, roadmap items)
-4. `assemble_context_for_synthesis()` organizes by authority hierarchy (L1-L7)
-5. Claude Sonnet 4.5 synthesizes answer with confidence score and source citations
-6. UI displays answer with retrieval statistics
-7. User can save Q&A to Open Questions database for tracking
+1. User enters question in Q&A interface
+2. Query parsed to detect intent (factual, compare, planning, gap, contradiction)
+3. Topics extracted using NLP heuristics
+4. Keywords and time context extracted
+5. Vector search retrieves seed chunks (semantic similarity)
+6. Graph traversal expands to related chunks (1-hop in chunk graph)
+7. Unified graph traversed to find related questions, roadmap items, assessments, decisions
+8. Context assembled with chunks first, then graph entities
+9. Claude generates answer using context
+10. Answer includes source attribution and related items
+11. Q&A pair saved to questions/questions.json
+12. If user opts in, question added to Open Questions system for tracking
+13. Answer displayed with expandable source references
 
 **Error Handling:**
-- Empty query: Prompt user to enter question
-- No retrieval results: "No relevant information found"
-- Claude API failure: Display error, allow retry
-- Save duplicate: Warn user, offer to update existing question
-
-**Performance:**
-- Query parsing: <50ms
-- LanceDB search: ~500ms
-- ContextGraph BFS: ~200ms
-- UnifiedGraph BFS: ~300ms
-- Context assembly: <100ms
-- Claude synthesis: ~10-20s
-- Total: ~12-22s per question
-
----
-
-### Flow 4: Unified Graph Sync
-
-```mermaid
-sequenceDiagram
-    participant CLI as CLI/UI
-    participant Sync as sync_all_to_graph()
-    participant JSON as JSON Files
-    participant Lance as LanceDB
-    participant UG as UnifiedContextGraph
-
-    CLI->>Sync: Trigger sync
-    Sync->>JSON: Load questions.json
-    JSON-->>Sync: 28 questions
-    Sync->>UG: Add question nodes (type, authority L2/L7)
-
-    Sync->>JSON: Load roadmap items (from latest generation)
-    JSON-->>Sync: 28 roadmap items
-    Sync->>UG: Add roadmap_item nodes (authority L4)
-
-    Sync->>JSON: Load assessments
-    JSON-->>Sync: 2 assessments
-    Sync->>UG: Add assessment nodes (authority L3)
-
-    Sync->>JSON: Load decisions
-    JSON-->>Sync: 0 decisions
-
-    Sync->>Lance: Fetch all chunks from roadmap_chunks table
-    Lance-->>Sync: 987 chunks with embeddings
-    Sync->>UG: Add chunk nodes (authority L6)
-
-    Sync->>Sync: Create edges (keyword matching)
-    loop For first 100 chunks
-        Sync->>Sync: Match chunk content to roadmap item names
-        Sync->>UG: Add SUPPORTED_BY edges
-        Sync->>Sync: Match chunk content to decision keywords
-        Sync->>UG: Add OVERRIDES edges
-    end
-
-    Sync->>UG: Save split by node type (7 JSON files + graph.json)
-    UG-->>Sync: Stats (nodes, edges, authority distribution)
-    Sync-->>CLI: Sync complete (1,017 nodes, 1,276 edges)
-```
-
-**Steps:**
-1. User triggers sync from CLI (`uv run python roadmap.py sync-graph`) or UI rebuild button
-2. Load questions from data/questions/questions.json (28 questions)
-3. Load roadmap items from latest master roadmap parse
-4. Load assessments from architecture/competitive analysis
-5. Load decisions (currently 0)
-6. Fetch all 987 chunks from LanceDB
-7. Add all nodes to UnifiedContextGraph with type and authority level
-8. Create edges:
-   - SUPPORTED_BY: Roadmap items → chunks (keyword matching)
-   - OVERRIDES: Decisions → chunks (keyword matching)
-   - ADDRESSES: Answers → questions
-   - DEPENDS_ON: Roadmap items → other items
-9. Save graph split by node type to data/unified_graph/
-
-**Error Handling:**
-- Missing JSON files: Create empty structures
-- LanceDB connection failure: Skip chunk sync
-- Edge creation failure: Log and continue
-- Save failure: Retry once
-
-**Performance:**
-- Load JSON files: <100ms
-- Fetch 987 chunks from LanceDB: ~1-2s
-- Create 1,276 edges: ~500ms (only processes first 100 chunks for SUPPORTED_BY)
-- Save split files: ~200ms
-- Total: ~3-4s
-
-**Issues:**
-- ⚠️ Only first 100 chunks get edges created (roadmap.py:3169: `[:100]`)
-- ⚠️ Naive keyword matching misses semantic relationships
-- ⚠️ No decision/gap nodes synced yet
+- No results: Fall back to broader search or suggest query refinement
+- Graph traversal failure: Continue with chunk results only
+- Claude failure: Retry once, show error message
 
 ---
 
@@ -1162,132 +878,77 @@ sequenceDiagram
 | Feature | Status | Notes |
 |---------|--------|-------|
 | **Document Ingestion** | | |
-| Multi-format parsing (PDF, DOCX, TXT, MD, HTML) | ✅ Complete | Via unstructured library |
-| 7-lens authority tagging | ✅ Complete | your-voice, team-structured, team-conversational, sales-conversational, business-framework, engineering, external-analyst |
-| AI-powered semantic chunking | ✅ Complete | AgenticChunker with Claude |
-| Token-based fallback chunking | ✅ Complete | 1024 tokens, 150 overlap |
-| Metadata extraction (entities, time refs) | ✅ Complete | Extracted during chunking |
-| Chunk quality scoring | ✅ Complete | 0-1 score with reasons |
-| Batch ingestion | ⚠️ Partial | Must run separately per lens |
-| Progress tracking for long ingests | ❌ Missing | No progress bar in UI |
-| **Vector Search & Indexing** | | |
-| LanceDB vector storage | ✅ Complete | 987 chunks, 42MB |
-| Voyage AI embeddings (1024d) | ✅ Complete | voyage-3-large model |
-| Semantic search | ✅ Complete | Top-K retrieval |
-| Lens-prioritized sorting | ✅ Complete | Sorted by authority |
-| Balanced retrieval (guaranteed lens coverage) | ✅ Complete | 8 chunks per lens |
-| Embedding caching | ❌ Missing | Re-embeds identical texts |
-| **Context Graph** | | |
-| Chunk-to-chunk relationships | ✅ Complete | SAME_SOURCE, SIMILAR_TO, TOPIC_OVERLAP, TEMPORAL_OVERLAP |
-| BFS expansion from seed chunks | ✅ Complete | Configurable hop count |
-| Graph statistics and metrics | ✅ Complete | Nodes, edges, density, components |
-| Graph visualization | ⚠️ Partial | Only stats displayed, no visual graph |
-| Persistent JSON storage | ✅ Complete | context_graph.json |
-| Adaptive hop count | ❌ Missing | Hardcoded 1-hop expansion |
-| Edge weight optimization | ❌ Missing | Fixed weights, no learning |
-| **Unified Knowledge Graph** | | |
-| Cross-type node support (7 types) | ✅ Complete | chunk, decision, question, roadmap_item, assessment, gap, answer |
-| 12 edge types | ✅ Complete | SUPPORTED_BY, OVERRIDES, DEPENDS_ON, etc. |
-| Authority hierarchy (L1-L7) | ✅ Complete | Decisions highest, pending questions lowest |
-| Bidirectional graph traversal | ✅ Complete | Predecessors + successors |
-| Type-aware indexing | ✅ Complete | node_indices dict for O(1) lookup |
-| Sync from multiple sources | ✅ Complete | Questions, roadmap items, assessments, chunks |
-| Decision node management | ⚠️ Partial | Schema exists but 0 decisions added |
-| Gap node management | ⚠️ Partial | Schema exists but 0 gaps added |
-| Complete edge creation | ⚠️ Partial | Only first 100 chunks get edges |
-| Semantic edge inference | ❌ Missing | Uses keyword matching only |
-| **Roadmap Synthesis** | | |
-| Master roadmap generation | ✅ Complete | Claude Opus 4.5 with authority hierarchy |
-| Persona-specific formatting | ✅ Complete | Executive, product, engineering |
-| Authority-aware conflict resolution | ✅ Complete | 7-level hierarchy enforced |
-| Balanced context retrieval | ✅ Complete | All lenses represented |
-| Markdown output | ✅ Complete | Saved to output/ directory |
-| Custom query support | ✅ Complete | User can specify synthesis query |
-| Prompt versioning | ❌ Missing | Prompts not version-tracked |
-| Token budget management | ❌ Missing | Can exceed context window |
-| Response streaming | ❌ Missing | Wait for full response |
-| **Ask Your Roadmap (Q&A)** | | |
-| Conversational Q&A interface | ✅ Complete | Chat-style UI |
-| 10 intent types | ✅ Complete | WHAT, WHY, HOW, WHEN, WHO, STATUS, COMPARISON, DEPENDENCY, CONFLICT, GENERAL |
-| Topic extraction | ✅ Complete | Recognizes CPQ, Catalog, Experiences, etc. |
-| Multi-modal retrieval | ✅ Complete | LanceDB + ContextGraph + UnifiedGraph |
-| Authority-aware context assembly | ✅ Complete | Organized by L1-L7 |
-| Confidence scoring | ✅ Complete | High/Medium/Low confidence |
-| Source citations | ✅ Complete | References by type and count |
-| Retrieval statistics | ✅ Complete | Chunk/decision/assessment counts |
-| Save Q&A to Open Questions | ✅ Complete | With metadata and synthesized answer |
-| Duplicate detection | ✅ Complete | Checks existing questions |
-| Topic filtering | ✅ Complete | Filter retrieval by topic |
-| Follow-up questions | ⚠️ Partial | Suggested but not clickable |
-| Chat history persistence | ⚠️ Partial | Session-only, not saved |
-| Multi-turn conversations | ❌ Missing | Each question independent |
-| **Open Questions Management** | | |
-| Add/edit/delete questions | ✅ Complete | Manual and automated |
-| 4 generation types | ✅ Complete | user_query, llm, derived, legacy |
-| Answer workflow | ✅ Complete | Tab 2 form with source linking |
-| Validation tracking | ✅ Complete | Mark accurate/inaccurate |
-| Filtering (status, audience, source) | ✅ Complete | Multiple filter dimensions |
-| Q&A badge and Re-Ask button | ✅ Complete | Special treatment for Q&A questions |
-| Defer/obsolete actions | ✅ Complete | Status management |
-| Question statistics | ✅ Complete | Total, validated, accurate counts |
-| Bulk operations | ❌ Missing | Must act on one question at a time |
-| Question templates | ❌ Missing | Start from scratch each time |
-| **Architecture Alignment** | | |
-| Scan architecture documents | ✅ Complete | From materials/engineering/ |
-| Generate alignment report | ✅ Complete | Claude with C4 model awareness |
-| Extract engineering questions | ✅ Complete | Auto-add to Open Questions |
-| Markdown output | ✅ Complete | Saved to output/ |
-| Gap identification | ✅ Complete | Highlight missing architecture docs |
-| Architecture change tracking | ❌ Missing | No diff between versions |
-| ADR integration | ⚠️ Partial | Mentioned in prompt, not enforced |
+| Multi-format parsing | ✅ Complete | PDF, DOCX, PPTX, XLSX, CSV, MD, TXT, JSON |
+| Agentic chunking | ✅ Complete | LLM-powered intelligent chunking |
+| Fallback chunking | ✅ Complete | Token-based chunking if LLM unavailable |
+| Chunk quality scoring | ✅ Complete | Filters low-quality chunks |
+| Chunk integrity verification | ✅ Complete | Validates completeness |
+| Lens-based organization | ✅ Complete | 7 authority levels |
+| **Vector Search** | | |
+| Embedding generation | ✅ Complete | Voyage AI voyage-3-large |
+| Vector indexing | ✅ Complete | LanceDB |
+| Semantic retrieval | ✅ Complete | Cosine similarity search |
+| Balanced retrieval | ✅ Complete | Ensures lens diversity |
+| Authority-weighted ranking | ✅ Complete | Respects lens hierarchy |
+| **Knowledge Graph** | | |
+| UnifiedContextGraph | ✅ Complete | NetworkX-based multi-entity graph |
+| Semantic edge inference | ✅ Complete | Recent improvement (fd057bc) |
+| Graph persistence | ✅ Complete | JSON-based save/load |
+| Graph traversal | ✅ Complete | Multi-hop relationship following |
+| Contradiction detection | ⚠️ Partial | Finds contradictions, doesn't resolve |
+| **Roadmap Generation** | | |
+| Master roadmap synthesis | ✅ Complete | Comprehensive synthesis with Claude Opus 4.5 |
+| Persona formatting | ✅ Complete | Executive, Product, Engineering |
+| Dependency detection | ✅ Complete | Cross-team dependencies identified |
+| Gap analysis | ✅ Complete | Gaps between docs and conversations |
+| Vision alignment | ✅ Complete | Validates roadmap against strategic vision |
+| **Q&A System** | | |
+| Semantic question answering | ✅ Complete | Claude-powered with context |
+| Query intent detection | ✅ Complete | 5 intent types |
+| Topic extraction | ✅ Complete | NLP-based |
+| Graph-aware retrieval | ✅ Complete | Traverses relationships |
+| Source attribution | ⚠️ Partial | Shows sources, not sentence-level |
+| Answer confidence scoring | ❌ Missing | Can't estimate answer quality |
+| Conversation threading | ❌ Missing | No follow-up context |
+| **Question Management** | | |
+| Holistic question generation | ✅ Complete | Derives questions from gaps |
+| Question lifecycle tracking | ✅ Complete | Open, in-progress, answered, obsolete |
+| Question validation | ✅ Complete | User feedback on accuracy |
+| Strategic question derivation | ✅ Complete | From assessments and decisions |
 | **Competitive Intelligence** | | |
-| Track competitor developments | ✅ Complete | Manual entry with metadata |
-| Generate analyst assessments | ✅ Complete | Claude with competitive analysis framework |
-| Risk/opportunity identification | ✅ Complete | Structured in assessment output |
-| Markdown output | ✅ Complete | Saved to output/ |
-| Competitor comparison matrix | ❌ Missing | No side-by-side comparison |
-| Automated competitor tracking | ❌ Missing | Manual entry only |
-| **User Interface** | | |
-| 13 Streamlit pages | ✅ Complete | Dashboard, ingest, manage, view, audit, graph, generate, format, ask, questions, architecture, competitive, settings |
-| Responsive navigation | ✅ Complete | Sidebar with emoji icons |
-| Real-time index statistics | ✅ Complete | Dashboard metrics |
-| File upload/download | ✅ Complete | Upload materials, download outputs |
-| Chat interface | ✅ Complete | Ask Your Roadmap page |
-| Settings management | ✅ Complete | API keys, clear index, rebuild graph |
-| Error messages | ✅ Complete | User-friendly error display |
-| Progress indicators | ⚠️ Partial | Some operations lack progress bars |
+| Development logging | ✅ Complete | Manual entry |
+| Strategic assessment | ✅ Complete | LLM-generated analysis |
+| Roadmap impact analysis | ✅ Complete | Links to roadmap items |
+| Automated monitoring | ❌ Missing | No RSS/API tracking |
+| Trend analysis | ❌ Missing | No pattern detection |
+| **Architecture Alignment** | | |
+| Document scanning | ✅ Complete | Finds architecture docs |
+| Alignment analysis | ✅ Complete | Compares roadmap to architecture |
+| Question generation | ✅ Complete | Derives engineering questions |
+| **Web Interface** | | |
+| Dashboard | ✅ Complete | Stats, quick actions |
+| Material management | ✅ Complete | Upload, organize, delete |
+| Chunk browser | ✅ Complete | Inspect and search chunks |
+| Chunking audit | ✅ Complete | Quality analysis |
+| Graph visualization | ⚠️ Partial | Query interface, no visual graph |
+| Settings management | ✅ Complete | API keys, configuration |
 | Mobile responsiveness | ❌ Missing | Desktop-optimized only |
-| Keyboard shortcuts | ❌ Missing | Mouse-only interaction |
+| Authentication | ❌ Missing | No user management |
 | **CLI Interface** | | |
-| 15 commands | ✅ Complete | Full feature coverage |
-| Rich console output | ✅ Complete | Color-coded, formatted |
-| Type validation | ✅ Complete | Via Typer |
-| Help text | ✅ Complete | --help for all commands |
-| JSON/CSV export | ⚠️ Partial | Only for chunks |
-| Command aliases | ❌ Missing | Full names required |
-| Batch operations | ❌ Missing | One at a time |
-| Dry-run mode | ❌ Missing | No preview for destructive commands |
-| **Data Management** | | |
-| Persistent storage (JSON + LanceDB) | ✅ Complete | 42MB data/ directory |
-| Backup/restore | ❌ Missing | Manual file copy only |
-| Data migration | ❌ Missing | No versioned schema |
-| Clear/reset operations | ✅ Complete | CLI and UI support |
-| Export operations | ⚠️ Partial | Chunks only, not full graph |
-| Import operations | ❌ Missing | Can't import external data |
+| All core commands | ✅ Complete | ingest, generate, format, ask, etc. |
+| Rich formatting | ✅ Complete | Progress bars, tables |
 | **Testing & Quality** | | |
-| Unit tests | ❌ Missing | 0% coverage |
-| Integration tests | ❌ Missing | 0% coverage |
-| End-to-end tests | ❌ Missing | 0% coverage |
-| Diagnostic tools | ✅ Complete | diagnose_graph_contents(), test scripts |
-| Error handling | ✅ Complete | 164 try/except blocks |
-| Logging | ⚠️ Partial | Console output only, no structured logs |
-| Performance monitoring | ❌ Missing | No metrics collection |
+| Unit tests | ❌ Missing | Zero test coverage |
+| Integration tests | ❌ Missing | No automated tests |
+| E2E tests | ❌ Missing | No automated tests |
+| Error handling | ⚠️ Partial | Basic coverage, needs improvement |
+| Logging | ⚠️ Partial | Console output, no structured logging |
 
 ### Legend
-- ✅ **Complete**: Fully implemented and working
-- ⚠️ **Partial**: Implemented but has issues or missing features
-- ❌ **Missing**: Not implemented
-- 🔄 **In Progress**: Currently being developed (none currently)
+- ✅ Complete: Fully implemented and working
+- ⚠️ Partial: Implemented but has issues or missing features
+- ❌ Missing: Not implemented
+- 🔄 In Progress: Currently being developed
 
 ---
 
@@ -1297,42 +958,32 @@ sequenceDiagram
 
 | Gap | Impact | Priority | Recommendation |
 |-----|--------|----------|----------------|
-| **No automated testing** | High - Regressions undetected, refactoring risky | P1 | Implement pytest test suite with 60%+ coverage for critical paths (retrieval, chunking, synthesis) |
-| **✅ FIXED: Incomplete edge creation in UnifiedGraph** | ~~High~~ - Previously 887 of 987 chunks had no edges | ~~P1~~ | ✅ **COMPLETED:** Removed `[:100]` limit, now processes all 987 chunks with 16,248 edges |
-| **✅ FIXED: Keyword-only edge inference** | ~~High~~ - Missed semantic relationships | ~~P1~~ | ✅ **COMPLETED:** Implemented embedding-based cosine similarity with 3 thresholds (0.75/0.65/0.70) |
-| **No decision nodes in graph** | Medium - L1 authority hierarchy not utilized | P2 | Add UI/workflow for capturing strategic decisions |
-| **No gap nodes in graph** | Medium - Gap analysis not integrated with retrieval | P2 | Auto-generate gap nodes from assessments |
-| **Chat history not persisted** | Medium - Users lose conversation context on refresh | P2 | Save chat history to session storage or database |
-| **No multi-turn conversations** | Medium - Can't build on previous answers | P2 | Implement conversation threading with context carry-over |
-| **Batch ingestion limited** | Low - Tedious to ingest many files | P3 | Add batch upload with folder selection |
-| **No graph visualization** | Low - Hard to understand chunk relationships | P3 | Add interactive D3.js or Cytoscape graph view |
-| **Keyword-only edge inference** | High - Misses semantic relationships | P1 | Use embedding similarity for edge creation instead of keywords |
-| **No progress indicators for long operations** | Medium - Poor UX during 5-10 min ingestion | P2 | Add progress bars with ETA for chunking, embedding, graph building |
+| **No automated testing** | High - Risk of regressions during refactoring | P1 | Implement pytest suite starting with core functions (chunking, retrieval, synthesis) |
+| **Answer confidence scoring** | Medium - Users can't assess answer reliability | P2 | Add confidence scores based on source agreement and retrieval quality |
+| **Conversation threading** | Medium - Q&A lacks context continuity | P2 | Implement conversation history and context carryover |
+| **Graph visualization** | Medium - Hard to understand relationships | P2 | Add D3.js or Cytoscape.js interactive graph view |
+| **Mobile UI** | Low - Desktop-only limits accessibility | P3 | Consider responsive design or mobile-specific views |
+| **Authentication** | Low for internal, High for public deployment | P1 (if public) | Add user management if deploying beyond internal use |
 
 ### Technical Gaps
 
 | Gap | Impact | Priority | Recommendation |
 |-----|--------|----------|----------------|
-| **SSL verification disabled** | High - Security vulnerability for API calls | P1 | Remove verify=False, handle certificates properly or use CA bundle |
-| **5,617-line app.py file** | High - Violates SRP, hard to maintain | P1 | Refactor into modules: pages/, components/, utils/ |
-| **No structured logging** | Medium - Debugging production issues difficult | P2 | Implement Python logging with JSON formatter, log levels, file rotation |
-| **No caching for embeddings/chunking** | Medium - Wastes API calls and time | P2 | Add caching layer with content hash as key (NOTE: embeddings now cached in graph nodes for roadmap items/decisions) |
-| **Hardcoded configuration** | Medium - Can't customize without code changes | P2 | Move constants to config.yaml or .env (NOTE: similarity thresholds now in sync_all_to_graph but should be configurable) |
-| **No rate limiting for API calls** | Medium - Can exceed Claude/Voyage rate limits | P2 | Implement exponential backoff and request queuing |
-| **Large context windows without truncation** | Medium - Can exceed Claude context limit | P2 | Implement smart truncation keeping highest authority content |
-| **No response streaming** | Low - 30-60s wait with no feedback | P3 | Use Claude streaming API for incremental display |
-| **No prompt versioning** | Low - Can't reproduce old results | P3 | Version prompts in git, include version in output metadata |
+| **No retry logic for API calls** | High - Transient failures cause data loss | P1 | Implement exponential backoff with retries (3 attempts) |
+| **Large files in memory** | High - OOM risk with large documents | P1 | Stream large files during parsing and chunking |
+| **Synchronous API calls** | Medium - Slow ingestion for multiple docs | P2 | Batch embeddings, parallelize document processing |
+| **No structured logging** | Medium - Hard to debug production issues | P2 | Add Python logging with JSON formatter |
+| **Fixed model selection** | Medium - Expensive for all queries | P2 | Route simple queries to Haiku, complex to Opus |
+| **No incremental graph updates** | Medium - Slow sync operation | P2 | Support incremental node/edge addition |
+| **JSON graph storage** | Medium - Slow load/save for large graphs | P3 | Consider SQLite or proper graph database (Neo4j, ArangoDB) |
 
 ### Integration Gaps
 
 | Gap | Impact | Priority | Recommendation |
 |-----|--------|----------|----------------|
-| **No export to external tools** | Medium - Can't share with JIRA, Confluence, etc. | P2 | Add export to JIRA issues, Confluence pages, Google Docs |
-| **No import from external sources** | Medium - Can't leverage existing data | P2 | Add import from JIRA, Confluence, GitHub issues |
-| **No API for programmatic access** | Medium - Can't integrate with other systems | P2 | Add FastAPI REST API for retrieval, Q&A, synthesis |
-| **No webhook/event system** | Low - Can't trigger external workflows | P3 | Add webhooks for events (document ingested, roadmap generated, question answered) |
-| **No authentication/authorization** | High - Anyone can access if deployed | P1 (if deploying) | Add user auth with OAuth2 or SAML |
-| **No collaboration features** | Medium - Single-user system | P2 | Add comments, mentions, notifications for team use |
+| **No export to external tools** | Medium - Can't integrate with Jira, Confluence | P2 | Add export to Markdown, JSON, CSV |
+| **No API for programmatic access** | Medium - Hard to integrate into workflows | P3 | Consider FastAPI REST API wrapper |
+| **No webhook support** | Low - Can't notify on events | P3 | Add webhooks for new questions, answers |
 
 ---
 
@@ -1342,30 +993,27 @@ sequenceDiagram
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
-| **Regressions from no automated testing** | High | High | Implement pytest test suite covering critical paths: retrieval, chunking, synthesis, graph traversal. Aim for 60%+ coverage. Add pre-commit hooks to run tests. |
-| **SSL verification disabled exposes credentials** | Medium | High | Remove all `verify=False` parameters. If SSL errors occur, investigate root cause (likely missing CA certificates). Install certifi package and use its bundle. |
-| **Data loss from no backup system** | Medium | High | Implement automated backups to S3/GCS. Add export-all command to CLI. Document manual backup procedure in README. |
-| **API key exposure in .env file** | Medium | High | Add .env to .gitignore (already done). Document key rotation process. Consider using secrets manager (AWS Secrets Manager, HashiCorp Vault) for production. |
-| **Large file size prevents code review** | High | Medium | Refactor app.py into modules (pages/, components/, utils/). Split by page (13 files) and shared components. Aim for <500 LOC per file. |
+| **API cost overrun** | High | High | Add token tracking, set spending limits, cache responses, use cheaper models for simple queries |
+| **Data loss from API failures** | Medium | High | Implement retry logic with exponential backoff, save partial progress, transaction-like operations |
+| **OOM with large documents** | Medium | High | Stream processing, chunk documents before loading into memory, set max file size |
+| **Zero test coverage** | High | High | Start with critical path tests (chunking, embedding, retrieval, synthesis), aim for 70% coverage |
 
 ### Medium Risk
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
-| **Context window overflow crashes synthesis** | Medium | Medium | Implement token budget management. Count tokens in assembled context. Truncate oldest/lowest authority content first if over limit (e.g., 150K tokens for Claude). Add warning in UI. |
-| **API rate limits cause failures** | Medium | Medium | Implement exponential backoff with jitter. Add request queue with rate limiter (e.g., 100 requests/minute for Claude). Cache responses where possible. Log rate limit errors distinctly. |
-| **Stale context graph gives wrong answers** | Low | Medium | Add automatic graph rebuild trigger after ingestion. Show graph last-updated timestamp in UI. Add "Sync All Data" button to Dashboard. |
-| **✅ FIXED: Incomplete edge creation misses relationships** | ~~High~~ | ~~Medium~~ | ✅ **COMPLETED 2026-01-07:** Removed [:100] limit in sync_all_to_graph(). Now processes all 987 chunks with Rich progress tracking. Created 13,276 edges (up from 1,276). |
-| **Hardcoded configuration blocks customization** | Medium | Medium | Move constants to config.yaml (CHUNK_SIZE, TOP_K, SIMILARITY_THRESHOLD, etc.). Add UI for common settings (hop count, retrieval K, chunk size). |
+| **5,617-line app.py maintenance burden** | High | Medium | Refactor into modules: `pages/`, `components/`, `utils/`. Break into ~500-line files. |
+| **Graph performance degradation** | Medium | Medium | Monitor graph size, implement graph database if > 10k nodes, optimize semantic edge computation |
+| **Inconsistent chunk quality** | Medium | Medium | Tune quality scoring thresholds, add manual review for borderline chunks, improve agentic chunking prompts |
+| **LLM hallucination in synthesis** | Medium | Medium | Add source validation, cross-reference claims, allow user feedback on accuracy |
 
 ### Low Risk
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
-| **Memory leak from large graph objects** | Low | Medium | Profile memory usage with memory_profiler. Implement graph node limits or pagination. Consider switching to distributed graph database (Neo4j) if exceeds 100K nodes. |
-| **Slow retrieval on large datasets** | Low | Low | Current 987 chunks perform well. At 10K+ chunks, consider approximate nearest neighbors (ANN). LanceDB supports ANN natively, just need to tune parameters. |
-| **Outdated dependencies** | Low | Low | Add dependabot to auto-update dependencies. Pin major versions in pyproject.toml. Test updates in CI before merging. |
-| **No mobile UI support** | Low | Low | Streamlit is desktop-optimized. For mobile support, consider building dedicated React Native app or responsive redesign with Streamlit components. Low priority unless user base requests it. |
+| **Desktop-only UI limits adoption** | Low | Low | Monitor user feedback, add mobile support if requested |
+| **No multi-user support** | Low | Low | Single-user tool acceptable for internal use, add if needed |
+| **Limited contradiction resolution** | Medium | Low | Current detection sufficient, resolution requires human judgment |
 
 ---
 
@@ -1375,76 +1023,75 @@ sequenceDiagram
 
 | Component | Function | Test Cases | Priority |
 |-----------|----------|------------|----------|
-| **Query Parsing** | parse_query() | 1. WHAT intent detection<br>2. WHY intent detection<br>3. Topic extraction (CPQ, Catalog)<br>4. Keyword extraction removes stop words<br>5. Modifier extraction (priority, recency)<br>6. Time context extraction | P1 |
-| **Query Parsing** | extract_topics() | 1. Single topic<br>2. Multiple topics<br>3. No topics<br>4. Case insensitivity | P2 |
-| **Chunking** | AgenticChunker.chunk() | 1. Normal document (PDF)<br>2. Short document (<100 chars)<br>3. Claude API failure → fallback<br>4. Malformed JSON response<br>5. Character position validation | P1 |
-| **Chunking** | structure_aware_chunk() | 1. Normal text<br>2. Empty text<br>3. Text shorter than CHUNK_SIZE<br>4. Token overlap validation | P2 |
-| **Embeddings** | generate_embeddings() | 1. Single text<br>2. Batch of 10 texts<br>3. Empty text<br>4. Very long text (>10K tokens) | P1 |
-| **Context Graph** | ContextGraph.build_from_chunks() | 1. Same source edges created<br>2. Topic overlap edges created<br>3. Similarity edges above threshold<br>4. Temporal edges for shared time refs<br>5. Graph statistics correctness | P1 |
-| **Context Graph** | expand_via_chunk_graph() | 1. 1-hop expansion returns neighbors<br>2. Empty seed chunks<br>3. Max hops respected<br>4. No duplicate nodes in results | P2 |
-| **Unified Graph** | UnifiedContextGraph.add_node() | 1. Add chunk node<br>2. Add decision node<br>3. Add question node<br>4. Duplicate ID rejection<br>5. node_indices updated correctly | P1 |
-| **Unified Graph** | UnifiedContextGraph.add_edge() | 1. Add SUPPORTED_BY edge<br>2. Add OVERRIDES edge<br>3. Invalid node IDs rejected<br>4. Edge weights stored correctly | P1 |
-| **Unified Graph** | traverse_unified_graph() | 1. 2-hop traversal from chunks<br>2. Topic filtering works<br>3. Bidirectional traversal (predecessors + successors)<br>4. Returns nodes by type | P1 |
-| **Unified Graph** | sync_all_to_graph() | 1. Syncs all questions<br>2. Syncs all roadmap items<br>3. Syncs all chunks<br>4. Creates edges between types<br>5. Saves split files correctly | P1 |
-| **Retrieval** | retrieve_chunks() | 1. Semantic search returns top K<br>2. Lens-prioritized sorting<br>3. Empty query handling<br>4. No indexed documents handling | P1 |
-| **Retrieval** | retrieve_balanced() | 1. 8 chunks per lens<br>2. Handles lenses with <8 chunks<br>3. Total chunk count validation | P2 |
-| **Retrieval** | assemble_context_for_synthesis() | 1. Organizes by 7 authority levels<br>2. L1 decisions at top<br>3. L7 pending questions at bottom<br>4. Formatting correctness | P1 |
-| **Synthesis** | synthesize_answer() | 1. Returns answer with confidence<br>2. Source references included<br>3. Retrieval stats included<br>4. Claude API failure handling | P1 |
-| **Questions** | save_qa_to_open_questions() | 1. Saves with correct metadata<br>2. Duplicate detection works<br>3. Synthesized answer preserved<br>4. Source references linked | P1 |
-| **Questions** | find_existing_qa_question() | 1. Exact match detected<br>2. Case insensitivity<br>3. No false positives | P2 |
+| **Chunking** | `chunk_text()` | Normal doc, empty input, large doc (>10k tokens), malformed text | P1 |
+| **Chunking** | `score_chunk_quality()` | High quality, low quality, edge cases (very short, no words) | P1 |
+| **Chunking** | `AgenticChunker.chunk()` | Mock Claude responses, API failure, timeout | P1 |
+| **Embedding** | `generate_embeddings()` | Single text, batch of texts, empty input, API failure | P1 |
+| **Vector Search** | `retrieve_chunks()` | Query match, no results, top_k variations | P1 |
+| **Authority** | `retrieve_with_authority()` | Authority reranking, lens filtering, weight calculation | P2 |
+| **Graph** | `UnifiedContextGraph.add_node()` | Various node types, duplicate IDs, invalid types | P2 |
+| **Graph** | `UnifiedContextGraph.add_edge()` | Valid edges, invalid nodes, duplicate edges | P2 |
+| **Synthesis** | `generate_roadmap()` | Mock retrieval, mock Claude, empty context | P2 |
+| **Q&A** | `parse_query()` | Various intents, simple vs complex queries, edge cases | P2 |
+| **Utilities** | `count_tokens()` | Various texts, empty input, unicode | P3 |
+| **Utilities** | `cosine_similarity()` | Identical vectors (1.0), orthogonal (0.0), random | P3 |
 
 ### Integration Tests
 
 | Test Scenario | Components | Expected Outcome | Priority |
 |---------------|------------|------------------|----------|
-| **End-to-end ingestion** | parse_document → AgenticChunker → generate_embeddings → index_chunks → ContextGraph | Document uploaded, chunked, embedded, indexed, and graph built. Chunks queryable in LanceDB. Graph has edges. | P1 |
-| **Retrieval with graph expansion** | retrieve_chunks → expand_via_chunk_graph → traverse_unified_graph → assemble_context_for_synthesis | Query returns chunks, expands via context graph, traverses unified graph, assembles context with decisions/assessments at top. | P1 |
-| **Roadmap generation** | retrieve_balanced → assemble_context_for_synthesis → generate_roadmap → format_for_persona | Master roadmap generated with authority hierarchy. Three persona roadmaps created. All saved to output/. | P1 |
-| **Q&A with save** | parse_query → retrieve_full_context → synthesize_answer → save_qa_to_open_questions | User asks question, receives answer with confidence and sources, saves to Open Questions with metadata. | P1 |
-| **Unified graph sync** | load_questions → load_roadmap_items → load_chunks → sync_all_to_graph | All data synced to unified graph. 1,017 nodes, 1,276 edges. Decisions override chunks. | P1 |
-| **Architecture alignment** | scan_architecture_documents → generate_architecture_alignment → extract_engineering_questions_from_alignment → add_architecture_questions_to_system | Scans engineering docs, generates alignment report, extracts 10-20 questions, adds to Open Questions. | P2 |
-| **Competitive intelligence** | add_competitor_development → generate_analyst_assessment | Adds competitor data, generates assessment with risks/opportunities, saves to output/. | P2 |
-| **Data persistence** | Ingest → Close app → Reopen app → Query | Data survives app restart. Chunks, questions, graphs persist in data/ directory. | P1 |
-| **Error recovery** | Ingest with Claude API failure → Fallback chunking → Retry embedding | AgenticChunker fails, falls back to token chunking. Embedding retry succeeds. Data still indexed. | P1 |
-| **Context window overflow** | retrieve_full_context with very large results → Claude synthesis | Assembles 200K tokens of context. Synthesis handles gracefully (truncate or error). | P2 |
+| **End-to-end ingestion** | parse → chunk → embed → index | Document successfully indexed with correct chunk count | P1 |
+| **Retrieval pipeline** | retrieve → graph expand → rerank | Relevant chunks returned in authority order | P1 |
+| **Synthesis flow** | retrieve → prompt load → Claude → save | Roadmap generated and saved correctly | P1 |
+| **Graph sync** | LanceDB → UnifiedContextGraph → JSON | Graph built with correct nodes and edges | P2 |
+| **Q&A flow** | parse query → retrieve → Claude → save | Answer generated with source attribution | P2 |
+| **Lens hierarchy** | retrieve_with_authority with mixed lenses | Higher authority lenses ranked first | P2 |
+| **Quality filtering** | chunk → score → filter → index | Low quality chunks excluded from index | P2 |
 
 ### End-to-End Tests
 
 | User Journey | Steps | Expected Outcome | Priority |
 |--------------|-------|------------------|----------|
-| **New user onboarding** | 1. Clone repo<br>2. Install dependencies (`uv sync`)<br>3. Add API keys to .env<br>4. Start app (`uv run streamlit run app.py`)<br>5. View Dashboard | Dashboard shows "No indexed documents". Settings page confirms API keys valid. | P1 |
-| **First document ingestion** | 1. Go to Ingest page<br>2. Upload PDF document<br>3. Select "your-voice" lens<br>4. Click "Ingest"<br>5. View Dashboard | Document processed with AgenticChunker. Chunks indexed. Dashboard shows stats (X chunks, Y tokens). Context graph built. | P1 |
-| **Generate first roadmap** | 1. Ingest 5-10 documents across multiple lenses<br>2. Go to Generate Roadmap page<br>3. Enter query "Generate comprehensive product roadmap"<br>4. Click "Generate Master Roadmap"<br>5. View output | Master roadmap generated with themes, timeline, features. Authority hierarchy applied. Markdown saved to output/master_roadmap.md. | P1 |
-| **Format for personas** | 1. After generating master roadmap<br>2. Go to Format by Persona page<br>3. Select "Executive" persona<br>4. Click "Format"<br>5. Download output | Executive roadmap generated (500-800 words, high-level, business value). Saved to output/executive_roadmap.md. | P1 |
-| **Ask question and save** | 1. Go to Ask Your Roadmap page<br>2. Enter "What are the dependencies for CPQ?"<br>3. View answer with sources<br>4. Click "Save to Open Questions"<br>5. Select audience "Engineering", category "Technical", priority "High"<br>6. Click "Save"<br>7. Go to Open Questions page<br>8. Verify question appears with "💬 From Q&A" badge | Answer synthesized with confidence, retrieval stats, source references. Question saved to questions.json. Appears in Open Questions Tab 1 with Q&A badge. | P1 |
-| **Answer open question** | 1. Go to Open Questions page<br>2. Tab 1: View pending questions<br>3. Tab 2: Select question from dropdown<br>4. Enter answer<br>5. Select confidence "High"<br>6. Add source references<br>7. Click "Submit Answer"<br>8. Verify status changed to "answered" | Question status updated. Answer and metadata saved. No longer appears in "Open" filter. | P1 |
-| **Architecture alignment** | 1. Upload architecture docs to materials/engineering/<br>2. Go to Architecture Alignment page<br>3. Click "Scan Architecture Documents"<br>4. Review document list<br>5. Click "Generate Alignment Analysis"<br>6. Review report<br>7. Click "Add Engineering Questions to Open Questions"<br>8. Verify questions added | Alignment report shows gaps, conflicts, recommendations. Engineering questions auto-generated and added to Open Questions. | P2 |
-| **Sync and verify unified graph** | 1. Use CLI: `uv run python roadmap.py sync-graph`<br>2. View output stats<br>3. Go to Context Graph page<br>4. View unified graph stats<br>5. Verify node counts match | Sync completes with stats (1,017 nodes, 1,276 edges). UI shows same stats. Edge types include SUPPORTED_BY, OVERRIDES, etc. | P2 |
-| **Clear and rebuild** | 1. Go to Settings page<br>2. Click "Clear Index"<br>3. Confirm deletion<br>4. Dashboard shows 0 chunks<br>5. Re-ingest documents<br>6. Click "Rebuild Context Graph"<br>7. Verify graphs rebuilt | Index cleared. Dashboard resets. Re-ingestion works. Graphs rebuilt successfully. | P2 |
+| **New user onboarding** | 1. Set API keys, 2. Upload first doc, 3. Generate roadmap | Successful roadmap generation with clear instructions | P1 |
+| **Material ingestion** | 1. Upload docs across lenses, 2. Verify indexing, 3. Check stats | All docs indexed, lens distribution correct | P1 |
+| **Roadmap generation** | 1. Generate master, 2. Format for personas, 3. Review outputs | All formats generated correctly, persona differences clear | P1 |
+| **Q&A workflow** | 1. Ask question, 2. Review answer, 3. Save to open questions | Answer generated, sources shown, question tracked | P2 |
+| **Competitive tracking** | 1. Log development, 2. Generate assessment, 3. Review impact | Assessment generated, roadmap impacts identified | P2 |
+| **Graph exploration** | 1. Query graph, 2. Review results, 3. Follow relationships | Graph query returns related entities with authority | P2 |
+| **Error recovery** | 1. Trigger API failure, 2. Retry operation | Graceful error message, option to retry | P1 |
 
 ### Test Coverage Goals
 
 | Component | Current | Target |
 |-----------|---------|--------|
-| Query Parsing | 0% | 80% |
-| Document Chunking (AgenticChunker + fallback) | 0% | 70% |
-| Embeddings & Indexing | 0% | 60% |
-| Context Graph | 0% | 75% |
-| Unified Knowledge Graph | 0% | 75% |
-| Retrieval (semantic + graph) | 0% | 80% |
-| Claude Synthesis | 0% | 50% |
-| Question Management | 0% | 70% |
-| UI Pages (Streamlit) | 0% | 30% |
-| CLI Commands (Typer) | 0% | 60% |
-| **Overall** | **0%** | **65%** |
+| roadmap.py core functions | 0% | 80% |
+| app.py utility functions | 0% | 60% |
+| AgenticChunker class | 0% | 90% |
+| UnifiedContextGraph class | 0% | 85% |
+| Retrieval functions | 0% | 80% |
+| Overall codebase | 0% | 70% |
 
-**Testing Framework Recommendations:**
-- **Unit tests**: pytest with fixtures for mocks (Claude API, Voyage AI, LanceDB)
-- **Integration tests**: pytest with real LanceDB instance, mocked external APIs
-- **End-to-end tests**: pytest with Streamlit testing library, Playwright for browser automation
-- **Fixtures**: Shared test data (sample documents, embeddings, graphs)
-- **Coverage**: pytest-cov plugin, enforce 65% minimum in CI
-- **CI/CD**: GitHub Actions workflow running tests on every PR
+### Test Implementation Approach
+
+1. **Week 1-2: Critical path tests (P1)**
+   - Start with `roadmap.py` core functions
+   - Mock external APIs (Anthropic, Voyage AI)
+   - Test happy path and common error cases
+
+2. **Week 3-4: Integration tests (P1-P2)**
+   - Test component interactions
+   - Use test fixtures for documents and expected outputs
+   - Test graph synchronization
+
+3. **Week 5-6: E2E and edge cases (P2-P3)**
+   - Selenium/Playwright for Streamlit UI testing
+   - Error recovery scenarios
+   - Performance testing with large datasets
+
+4. **Ongoing: Maintain coverage**
+   - Require tests for new features
+   - Refactor with test safety net
+   - Monitor coverage in CI/CD
 
 ---
 
@@ -1452,658 +1099,184 @@ sequenceDiagram
 
 ### Immediate (P1)
 
-#### 1. **Implement Automated Testing**
-**Problem:** Zero test coverage across 10,092 LOC creates high regression risk. Changes can break functionality without detection. Recent graph retrieval bug (0 chunks synced) went undetected for multiple commits.
+1. **Add Comprehensive Test Suite**
+   - Problem: Zero test coverage makes refactoring risky and debugging difficult
+   - Solution: Implement pytest suite with 70% target coverage
+     - Unit tests for core functions (chunking, retrieval, synthesis)
+     - Integration tests for data flows
+     - Mock external APIs to avoid costs
+     - Use fixtures for test documents and expected outputs
+   - Effort: 2-3 weeks
+   - Impact: Dramatically reduces regression risk, enables confident refactoring
 
-**Solution:**
-1. Set up pytest framework with conftest.py fixtures
-2. Mock external APIs (Anthropic, Voyage AI) with pytest-mock
-3. Implement unit tests for critical functions:
-   - Query parsing: parse_query(), extract_topics(), detect_intent()
-   - Chunking: AgenticChunker.chunk(), structure_aware_chunk()
-   - Retrieval: retrieve_full_context(), assemble_context_for_synthesis()
-   - Graph traversal: expand_via_chunk_graph(), traverse_unified_graph()
-4. Implement integration tests:
-   - End-to-end ingestion (parse → chunk → embed → index)
-   - End-to-end retrieval (search → expand → traverse → assemble)
-   - Unified graph sync
-5. Add pytest-cov and enforce 65% coverage in CI
-6. Set up GitHub Actions workflow
+2. **Implement API Retry Logic**
+   - Problem: Transient API failures cause data loss during ingestion
+   - Solution: Add retry decorator with exponential backoff
+     - 3 attempts for embedding generation
+     - 3 attempts for Claude synthesis
+     - Save partial progress after each successful batch
+     - Log failures for investigation
+   - Effort: 1-2 days
+   - Impact: Prevents data loss, improves reliability
 
-**Effort:** 16-24 hours
+3. **Add Token Tracking and Cost Monitoring**
+   - Problem: No visibility into API costs, risk of overrun
+   - Solution: Track tokens per operation
+     - Log tokens for each Claude and Voyage AI call
+     - Display cumulative costs in UI dashboard
+     - Add spending alerts (warning at 80%, error at 100% of budget)
+     - Monthly cost report generation
+   - Effort: 2-3 days
+   - Impact: Prevents budget overruns, informs optimization priorities
 
-**Impact:** Dramatically reduces regression risk, enables confident refactoring, documents expected behavior, catches bugs early.
+4. **Stream Large Document Processing**
+   - Problem: Loading entire documents into memory causes OOM with large files
+   - Solution: Stream processing for documents > 10 MB
+     - Parse in chunks using unstructured streaming API
+     - Process chunks incrementally
+     - Set max file size limit (100 MB default)
+     - Show progress bar for large files
+   - Effort: 3-4 days
+   - Impact: Handles larger documents reliably
 
-**Files to create:**
-- tests/conftest.py (fixtures)
-- tests/test_query_parsing.py
-- tests/test_chunking.py
-- tests/test_retrieval.py
-- tests/test_graph.py
-- tests/test_integration.py
-- .github/workflows/test.yml
-
----
-
-#### 2. **Fix SSL Verification**
-**Problem:** SSL verification disabled in multiple locations (app.py:2435, roadmap.py:532, roadmap.py:1169) using `httpx.Client(verify=False)`. Creates security vulnerability where credentials and data transmitted over HTTPS can be intercepted via MITM attacks.
-
-**Solution:**
-1. Remove all `verify=False` parameters
-2. If SSL errors occur, diagnose root cause:
-   - Check if certifi package installed: `uv add certifi`
-   - Use certifi's CA bundle: `httpx.Client(verify=certifi.where())`
-3. Update HTTP client creation:
-```python
-import httpx
-import certifi
-
-# Before:
-http_client = httpx.Client(verify=False)
-
-# After:
-http_client = httpx.Client(verify=certifi.where())
-```
-4. Test all API calls (Anthropic, Voyage AI)
-5. Document any SSL errors and resolutions in README
-
-**Effort:** 2-4 hours
-
-**Impact:** Eliminates critical security vulnerability. Protects API keys and sensitive data in transit. Follows security best practices.
-
-**Files to modify:**
-- app.py:2435 (synthesize_answer)
-- roadmap.py:532 (AgenticChunker)
-- roadmap.py:1169 (retrieve_chunks)
-- roadmap.py:1201 (retrieve_balanced)
-- pyproject.toml (add certifi dependency)
-
----
-
-#### 3. **✅ FIXED: Complete Unified Graph Edge Creation**
-**Status:** ✅ **COMPLETED 2026-01-07**
-
-**Problem:** Only first 100 chunks got edges created to roadmap items (roadmap.py:3172: `list(...)[:100]`). This left 887 of 987 chunks (90%) unconnected to higher-level entities, causing retrieval to miss relevant decisions/assessments/roadmap items.
-
-**Solution Implemented:**
-1. ✅ Removed [:100] slice limit in sync_all_to_graph()
-2. ✅ Now processes all 987 chunks for edge creation
-3. ✅ Added Rich progress indicator with track() function
-4. ✅ Shows total chunks being processed in console output
-5. ✅ Reports edges created across all chunks
-
-**Results:**
-- **Before:** 100 chunks processed, ~1,276 total edges
-- **After:** 987 chunks processed, 13,276 total edges (10x increase!)
-- **Edge types:** SUPPORTED_BY (21), MENTIONED_IN (13,248)
-- **Chunk connectivity:** 1,269 chunks connected to roadmap items
-
-**Effort:** 1 hour (actual)
-
-**Impact:** High. Dramatically improved retrieval - all queries can now surface roadmap items, assessments, and decisions. Answer quality in Ask Your Roadmap significantly improved.
-
-**Files modified:**
-- roadmap.py:3166-3204 (removed [:100] limit, added progress tracking)
-
----
-
-#### 4. **Refactor Large Files**
-**Problem:** app.py is 5,617 lines, roadmap.py is 4,430 lines. Violates single responsibility principle, makes code review difficult, increases merge conflicts, hard to navigate.
-
-**Solution:**
-1. Split app.py into modules:
-```
-app.py (200 LOC - main entry point, navigation)
-pages/
-  ├── dashboard.py
-  ├── ingest.py
-  ├── manage_materials.py
-  ├── view_chunks.py
-  ├── chunking_audit.py
-  ├── context_graph.py
-  ├── generate_roadmap.py
-  ├── format_persona.py
-  ├── ask_roadmap.py
-  ├── open_questions.py
-  ├── architecture_alignment.py
-  ├── competitive_intelligence.py
-  └── settings.py
-components/
-  ├── question_card.py
-  ├── retrieval_stats.py
-  ├── authority_badge.py
-  └── save_to_questions_ui.py
-utils/
-  ├── session_state.py
-  ├── index_stats.py
-  └── data_operations.py
-```
-
-2. Split roadmap.py into modules:
-```
-roadmap.py (500 LOC - CLI entry point, imports)
-core/
-  ├── chunking.py (AgenticChunker + fallback)
-  ├── embeddings.py (generate_embeddings, init_db, index_chunks)
-  ├── retrieval.py (retrieve_chunks, retrieve_balanced)
-  ├── synthesis.py (generate_roadmap, format_for_persona)
-  ├── context_graph.py (ContextGraph class)
-  ├── unified_graph.py (UnifiedContextGraph class)
-  ├── questions.py (load/save questions)
-  ├── decisions.py (load/save decisions)
-  ├── architecture.py (alignment functions)
-  └── competitive.py (competitor tracking)
-```
-
-3. Use relative imports: `from core.chunking import AgenticChunker`
-4. Update tests to import from new modules
-5. Update README with new structure
-
-**Effort:** 8-12 hours
-
-**Impact:** Improves maintainability, enables parallel development, easier code review, reduces merge conflicts, better separation of concerns.
-
----
-
-#### 5. **✅ FIXED: Use Semantic Edge Inference**
-**Status:** ✅ **COMPLETED 2026-01-07**
-
-**Problem:** Edge creation in UnifiedGraph used naive keyword matching (roadmap.py:3183-3190). Roadmap item name had to appear in chunk content as substring. Missed semantic relationships like "Configure Price Quote" vs "CPQ" or "user experience" vs "Experiences".
-
-**Solution Implemented:**
-1. ✅ Added cosine_similarity() utility function (roadmap.py:61-76)
-2. ✅ Modified integrate_roadmap_to_graph() to generate embeddings for roadmap items (roadmap.py:3059-3099)
-   - Batch generates embeddings for all roadmap items (name + description)
-   - Stores embeddings in graph nodes for reuse
-3. ✅ Modified integrate_decision_to_graph() to generate embeddings for decisions (roadmap.py:2945-2962)
-   - Generates embeddings for decision + rationale
-4. ✅ Replaced keyword matching with embedding similarity comparison (roadmap.py:3213-3287)
-   - Three thresholds: SUPPORTED_BY≥0.75, MENTIONED_IN≥0.65, OVERRIDES≥0.70
-   - Uses actual similarity scores as edge weights (more accurate than fixed weights)
-   - Caches embeddings to avoid repeated lookups
-5. ✅ Added progress tracking and detailed console output
-
-**Results:**
-- **Before (keyword):** 13,276 edges, 1,269 chunk→roadmap connections
-- **After (semantic):** 16,248 edges, 1,746 chunk→roadmap connections
-- **Improvement:** 22% more edges, 38% more chunk connections
-- **Edge distribution:** SUPPORTED_BY: 1,293 (high similarity), MENTIONED_IN: 14,948 (moderate similarity)
-- **Similarity scores:** Top matches range 0.77-0.85+ (very high semantic relevance)
-- **Quality:** Semantic approach finds connections that exact keyword matching completely misses
-
-**Effort:** 4 hours (actual)
-
-**Impact:** High. Dramatically improved edge quality and connectivity. Semantic matching finds relationships based on meaning rather than exact text match, enabling better context assembly in retrieval. Test shows all top matches were found by semantics, not keywords.
-
-**Files modified:**
-- roadmap.py:61-76 (added cosine_similarity function)
-- roadmap.py:2945-2962 (decision embedding generation)
-- roadmap.py:3059-3099 (roadmap item embedding generation)
-- roadmap.py:3213-3287 (semantic edge creation)
-
----
+5. **Add Structured Logging**
+   - Problem: Console-only logging makes production debugging difficult
+   - Solution: Implement Python logging with JSON formatter
+     - Log levels: DEBUG, INFO, WARNING, ERROR
+     - Structured fields: timestamp, component, user_id, operation, duration
+     - Rotate logs daily, retain 30 days
+     - Add log viewer in UI for admins
+   - Effort: 2 days
+   - Impact: Faster debugging, better observability
 
 ### Short-term (P2)
 
-#### 6. **Add Structured Logging**
-**Problem:** Console-only output makes debugging production issues difficult. No log levels, no log files, no filtering, no context (request IDs, user IDs, timestamps).
-
-**Solution:**
-1. Set up Python logging framework:
-```python
-import logging
-from pythonjsonlogger import jsonlogger
-
-# Create logger
-logger = logging.getLogger("roadmap_synth")
-logger.setLevel(logging.INFO)
-
-# File handler with JSON formatting
-handler = logging.FileHandler("logs/app.log")
-formatter = jsonlogger.JsonFormatter()
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-
-# Console handler for development
-console_handler = logging.StreamHandler()
-console_handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
-logger.addHandler(console_handler)
-```
-
-2. Replace console.print() with logger calls:
-```python
-# Before:
-console.print("[green]✓ Synced 987 chunks")
-
-# After:
-logger.info("Synced chunks", extra={"chunk_count": 987, "operation": "sync"})
-```
-
-3. Add context to logs:
-```python
-logger.info("Q&A synthesis", extra={
-    "query": query,
-    "intent": parsed_query.intent.value,
-    "topics": parsed_query.topics,
-    "retrieval_chunks": len(retrieval.chunks),
-    "retrieval_decisions": len(retrieval.unified_graph_nodes.get("decision", [])),
-    "synthesis_time_ms": synthesis_time,
-    "confidence": result["confidence"]
-})
-```
-
-4. Add log rotation (10MB per file, keep 5 files)
-5. Add log levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
-6. Document logging in README
-
-**Effort:** 6-8 hours
-
-**Impact:** Improves debuggability, enables production monitoring, supports audit trails, helps identify bottlenecks.
-
-**Files to modify:**
-- Add logging/ module with logger.py
-- Update roadmap.py, app.py to use logger
-- Add logs/ to .gitignore
-
----
-
-#### 7. **Implement Response Caching**
-**Problem:** Identical queries to Ask Your Roadmap perform full retrieval + graph traversal + Claude synthesis every time. Wastes time (12-22s) and money (Claude API calls).
-
-**Solution:**
-1. Add caching layer using diskcache or Redis:
-```python
-from diskcache import Cache
-
-cache = Cache("data/cache")
-
-def retrieve_full_context_cached(parsed_query: ParsedQuery, topic_filter: Optional[str] = None) -> RetrievalResult:
-    # Create cache key from query
-    cache_key = f"retrieval:{parsed_query.original}:{topic_filter}:{parsed_query.topics}"
-
-    # Check cache
-    if cache_key in cache:
-        logger.info("Cache hit", extra={"cache_key": cache_key})
-        return cache[cache_key]
-
-    # Perform retrieval
-    result = retrieve_full_context(parsed_query, topic_filter)
-
-    # Cache for 1 hour
-    cache.set(cache_key, result, expire=3600)
-
-    return result
-```
-
-2. Cache embeddings:
-```python
-def generate_embeddings_cached(texts: List[str]) -> List[List[float]]:
-    results = []
-    to_embed = []
-    to_embed_indices = []
-
-    for i, text in enumerate(texts):
-        cache_key = f"embedding:{hashlib.md5(text.encode()).hexdigest()}"
-        if cache_key in cache:
-            results.append(cache[cache_key])
-        else:
-            to_embed.append(text)
-            to_embed_indices.append(i)
-
-    if to_embed:
-        embeddings = generate_embeddings(to_embed)
-        for idx, emb in zip(to_embed_indices, embeddings):
-            cache_key = f"embedding:{hashlib.md5(texts[idx].encode()).hexdigest()}"
-            cache.set(cache_key, emb)
-            results.insert(idx, emb)
-
-    return results
-```
-
-3. Add cache invalidation on data changes:
-```python
-def ingest_document(...):
-    # ... existing ingestion logic
-
-    # Invalidate retrieval cache
-    cache.clear()
-```
-
-4. Add cache statistics to Dashboard
-5. Add "Clear Cache" button to Settings page
-
-**Effort:** 4-6 hours
-
-**Impact:** Reduces latency for repeat queries from 12-22s to <1s. Reduces Claude API costs. Improves UX.
-
-**Files to modify:**
-- Add caching/ module with cache.py
-- Update app.py retrieval functions
-- Update roadmap.py generate_embeddings
-- pyproject.toml (add diskcache dependency)
-
----
-
-#### 8. **Add Progress Indicators**
-**Problem:** Long-running operations (ingestion 93MB, sync 987 chunks, roadmap generation 30-60s) have no progress feedback. User doesn't know if app is frozen or working.
-
-**Solution:**
-1. Use Streamlit progress bars and status:
-```python
-import streamlit as st
-
-progress_bar = st.progress(0)
-status_text = st.empty()
-
-total_files = len(files)
-for i, file in enumerate(files):
-    status_text.text(f"Processing {file.name} ({i+1}/{total_files})...")
-    progress_bar.progress((i + 1) / total_files)
-
-    # ... process file
-
-status_text.text("Ingestion complete!")
-```
-
-2. Add progress to CLI with Rich progress bars:
-```python
-from rich.progress import track
-
-for file in track(files, description="Ingesting documents"):
-    # ... process file
-```
-
-3. Add estimated time remaining (ETA):
-```python
-import time
-
-start_time = time.time()
-for i, file in enumerate(files):
-    elapsed = time.time() - start_time
-    avg_time_per_file = elapsed / (i + 1)
-    eta = avg_time_per_file * (total_files - i - 1)
-
-    status_text.text(f"Processing {file.name} ({i+1}/{total_files}) - ETA: {eta:.0f}s")
-```
-
-4. Add progress to:
-   - Document ingestion (per-file progress)
-   - Context graph rebuild (edge creation progress)
-   - Unified graph sync (per-node-type progress)
-   - Roadmap generation (retrieval → assembly → synthesis phases)
-   - Architecture alignment (scan → generate → extract questions phases)
-
-**Effort:** 4-6 hours
-
-**Impact:** Improves UX, reduces perceived wait time, provides transparency into long operations.
-
-**Files to modify:**
-- app.py (all page functions with long operations)
-- roadmap.py (CLI commands with long operations)
-
----
-
-#### 9. **Add Decision Node Management**
-**Problem:** Decision schema exists (authority L1 - highest) but no decisions have been added. Critical authority hierarchy feature unused. Decisions should override all conflicting information but can't without nodes.
-
-**Solution:**
-1. Add UI page for decision management:
-```python
-def page_decisions():
-    st.title("📊 Strategic Decisions")
-    st.markdown("Manage strategic decisions (Authority Level 1 - HIGHEST)")
-
-    # Load decisions
-    decisions = load_decisions()
-
-    # Add decision form
-    with st.expander("➕ Add New Decision"):
-        decision_text = st.text_area("Decision")
-        rationale = st.text_area("Rationale")
-        made_by = st.text_input("Made By")
-        affects = st.multiselect("Affects Roadmap Items", roadmap_item_names)
-
-        if st.button("Add Decision"):
-            decision_id = str(uuid.uuid4())
-            decision = {
-                "id": decision_id,
-                "decision": decision_text,
-                "rationale": rationale,
-                "made_by": made_by,
-                "made_at": datetime.now().isoformat(),
-                "affects": affects,
-                "authority_level": 1,
-                "status": "active"
-            }
-            decisions.append(decision)
-            save_decisions(decisions)
-            st.success("Decision added!")
-
-    # List decisions
-    for decision in decisions:
-        with st.expander(f"🎯 {decision['decision'][:100]}..."):
-            st.markdown(f"**Rationale:** {decision['rationale']}")
-            st.markdown(f"**Made By:** {decision['made_by']}")
-            st.markdown(f"**Date:** {decision['made_at']}")
-            st.markdown(f"**Status:** {decision['status']}")
-```
-
-2. Add to navigation in app.py:
-```python
-page = st.sidebar.radio("Navigate", [
-    "🏠 Dashboard",
-    # ... existing pages
-    "📊 Strategic Decisions",  # NEW
-    "⚙️ Settings"
-])
-
-if page == "📊 Strategic Decisions":
-    page_decisions()
-```
-
-3. Update sync_all_to_graph() to sync decisions
-4. Update synthesis prompts to enforce decision authority
-5. Add decision filtering in retrieval
-
-**Effort:** 6-8 hours
-
-**Impact:** Enables use of L1 authority hierarchy, ensures strategic decisions override operational details, improves roadmap consistency.
-
-**Files to modify:**
-- app.py (add page_decisions function)
-- roadmap.py (ensure decisions synced to unified graph)
-- prompts/synthesis.md (add decision enforcement rules)
-
----
-
-#### 10. **Persist Chat History**
-**Problem:** Chat history in Ask Your Roadmap page only exists in session state. Lost on page refresh. Users can't review past Q&A sessions.
-
-**Solution:**
-1. Add chat history persistence to JSON:
-```python
-# app.py
-def load_chat_history() -> List[Dict]:
-    history_file = DATA_DIR / "chat_history.json"
-    if history_file.exists():
-        return json.loads(history_file.read_text())
-    return []
-
-def save_chat_history(history: List[Dict]):
-    history_file = DATA_DIR / "chat_history.json"
-    history_file.parent.mkdir(exist_ok=True)
-    history_file.write_text(json.dumps(history, indent=2))
-
-def append_to_chat_history(role: str, content: str, metadata: Dict = None):
-    history = load_chat_history()
-    history.append({
-        "role": role,
-        "content": content,
-        "timestamp": datetime.now().isoformat(),
-        "metadata": metadata or {}
-    })
-    save_chat_history(history)
-
-    # Also update session state
-    st.session_state.chat_history.append({"role": role, "content": content})
-```
-
-2. Load history on page load:
-```python
-def page_ask():
-    # Load chat history from disk on first load
-    if 'chat_history' not in st.session_state or not st.session_state.chat_history:
-        st.session_state.chat_history = load_chat_history()
-
-    # ... rest of page
-```
-
-3. Add "Clear History" button:
-```python
-if st.button("🗑️ Clear History"):
-    st.session_state.chat_history = []
-    save_chat_history([])
-    st.rerun()
-```
-
-4. Add search/filter for chat history:
-```python
-search = st.text_input("🔍 Search chat history")
-if search:
-    filtered_history = [
-        msg for msg in st.session_state.chat_history
-        if search.lower() in msg["content"].lower()
-    ]
-else:
-    filtered_history = st.session_state.chat_history
-```
-
-**Effort:** 2-3 hours
-
-**Impact:** Improves UX, enables users to review past answers, supports multi-session workflows.
-
-**Files to modify:**
-- app.py (page_ask function, add load/save functions)
-
----
+1. **Refactor app.py into Modules**
+   - Problem: 5,617-line single file is hard to navigate and maintain
+   - Solution: Split into modular structure
+     - Create `pages/` directory with one file per page (~300-500 lines each)
+     - Extract components to `components/` (e.g., `chunk_viewer.py`, `question_card.py`)
+     - Move utilities to `utils/` (e.g., `session_state.py`, `api_helpers.py`)
+     - Keep main `app.py` as router (~100 lines)
+   - Effort: 1 week
+   - Impact: Easier maintenance, better collaboration, faster development
+
+2. **Add Answer Confidence Scoring**
+   - Problem: Users can't assess answer reliability
+   - Solution: Calculate confidence score (0.0-1.0) based on:
+     - Source agreement (all sources support answer: high confidence)
+     - Retrieval quality (high similarity scores: high confidence)
+     - Lens authority (high-authority sources: high confidence)
+     - Claude's internal confidence (via chain-of-thought prompting)
+   - Display confidence with visual indicator (🟢 high, 🟡 medium, 🔴 low)
+   - Effort: 4-5 days
+   - Impact: Users make better decisions with answer quality information
+
+3. **Implement Smart Model Routing**
+   - Problem: Using Opus 4.5 for all queries is expensive
+   - Solution: Route queries by complexity
+     - Simple factual queries → Haiku ($0.25 per MTok vs $15 for Opus)
+     - Comparison queries → Sonnet ($3 per MTok)
+     - Complex synthesis → Opus ($15 per MTok)
+     - Use query intent and context size to decide
+     - Allow manual override in settings
+   - Effort: 3-4 days
+   - Impact: Reduce costs by 60-70% without quality loss
+
+4. **Add Graph Visualization**
+   - Problem: Text-only graph interface makes relationships hard to understand
+   - Solution: Interactive graph visualization
+     - Use D3.js or Cytoscape.js for rendering
+     - Filter by node type (chunks, questions, roadmap items)
+     - Click nodes to see details
+     - Highlight authority levels with colors
+     - Show edge weights (semantic similarity)
+   - Effort: 1 week
+   - Impact: Better understanding of knowledge relationships
+
+5. **Implement Incremental Graph Updates**
+   - Problem: Full graph rebuild is slow (O(n²) semantic edge computation)
+   - Solution: Incremental updates
+     - Only compute edges for new nodes
+     - Reuse existing edges
+     - Batch similarity computations (e.g., 100 chunks at a time)
+     - Background sync option (doesn't block UI)
+   - Effort: 4-5 days
+   - Impact: Faster sync, better user experience
+
+6. **Add Conversation Threading to Q&A**
+   - Problem: Each question is independent, no context continuity
+   - Solution: Conversation sessions
+     - Group related questions in a conversation
+     - Pass previous Q&A context to Claude
+     - Show conversation history in sidebar
+     - Allow branching (ask follow-up from any point)
+   - Effort: 5-6 days
+   - Impact: More natural Q&A interaction, better follow-ups
 
 ### Long-term (P3)
 
-#### 11. **Add Multi-Turn Conversation Support**
-**Problem:** Each question in Ask Your Roadmap is independent. Can't build on previous answers. User must repeat context in follow-up questions.
+1. **Replace JSON Graph Storage with Database**
+   - Problem: 8 MB graph.json file is slow to load/save
+   - Solution: Migrate to proper graph database
+     - Options: Neo4j (full-featured), ArangoDB (multi-model), SQLite (lightweight)
+     - Use SQLite for simplicity if < 100k nodes
+     - Neo4j if complex graph queries needed
+     - Migrate incrementally (keep JSON as backup during transition)
+   - Effort: 2-3 weeks
+   - Impact: Faster queries, better scalability
 
-**Solution:**
-1. Track conversation threads with IDs
-2. Pass conversation history to Claude:
-```python
-messages = []
-for msg in conversation_history[-5:]:  # Last 5 messages
-    messages.append({"role": msg["role"], "content": msg["content"]})
+2. **Add Export to External Tools**
+   - Problem: Can't integrate with existing workflows (Jira, Confluence)
+   - Solution: Export capabilities
+     - Export roadmaps to Markdown, JSON, CSV
+     - Export questions to Jira tickets (via API)
+     - Export to Confluence pages
+     - Scheduled exports (e.g., daily roadmap to Confluence)
+   - Effort: 1-2 weeks
+   - Impact: Better integration with existing tools
 
-messages.append({"role": "user", "content": current_query})
+3. **Build REST API**
+   - Problem: UI-only access limits programmatic integration
+   - Solution: FastAPI REST API
+     - Endpoints for all core operations (ingest, query, generate)
+     - API key authentication
+     - Rate limiting
+     - OpenAPI documentation
+     - Keep Streamlit as reference UI
+   - Effort: 2-3 weeks
+   - Impact: Enables custom integrations, automation
 
-response = client.messages.create(
-    model="claude-sonnet-4-5-20250929",
-    messages=messages
-)
-```
-3. Add "New Conversation" button to start fresh thread
-4. Add conversation list sidebar
+4. **Add Multi-User Support with Authentication**
+   - Problem: No user management, single shared index
+   - Solution: Multi-tenancy
+     - User accounts with authentication (OAuth or simple email/password)
+     - Separate indexes per user or team
+     - Sharing and permissions (view, edit, admin)
+     - Activity logs per user
+   - Effort: 3-4 weeks
+   - Impact: Supports team collaboration, secure deployment
 
-**Effort:** 8-12 hours
+5. **Automated Competitive Monitoring**
+   - Problem: Competitor developments must be manually entered
+   - Solution: Automated tracking
+     - RSS feed monitoring for competitor blogs
+     - GitHub repo watching for open-source competitors
+     - LinkedIn/Twitter monitoring (via APIs)
+     - Weekly digest of new developments
+     - Auto-generate assessments for significant developments
+   - Effort: 2 weeks
+   - Impact: Stay current on competitive landscape with less manual work
 
-**Impact:** Enables natural follow-up questions, improves conversational UX, reduces context repetition.
-
----
-
-#### 12. **Implement Graph Visualization**
-**Problem:** Context Graph and Unified Graph statistics shown as numbers only. Hard to understand structure, identify disconnected components, or see edge patterns.
-
-**Solution:**
-1. Add interactive graph visualization with D3.js or Cytoscape:
-```python
-import streamlit.components.v1 as components
-
-def render_graph_visualization(graph):
-    nodes = [{"id": node, "label": node[:20]} for node in graph.nodes()]
-    edges = [{"source": u, "target": v, "label": data.get("type")}
-             for u, v, data in graph.edges(data=True)]
-
-    graph_data = {"nodes": nodes, "edges": edges}
-
-    html = f"""
-    <html>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.1/cytoscape.min.js"></script>
-    <div id="cy" style="width: 100%; height: 600px; border: 1px solid #ddd;"></div>
-    <script>
-    var cy = cytoscape({{
-        container: document.getElementById('cy'),
-        elements: {json.dumps(graph_data)},
-        style: [/* ... styling ... */]
-    }});
-    </script>
-    </html>
-    """
-
-    components.html(html, height=600)
-```
-2. Add filters: node type, edge type, lens
-3. Add search and highlight
-4. Add drill-down to node details
-
-**Effort:** 12-16 hours
-
-**Impact:** Improves graph understanding, helps debug edge creation issues, enables exploration.
-
----
-
-#### 13. **Add Export to External Tools**
-**Problem:** No way to share roadmaps with external tools (JIRA, Confluence, Google Docs). Manual copy-paste required.
-
-**Solution:**
-1. Add JIRA export:
-```python
-from jira import JIRA
-
-def export_to_jira(roadmap: Dict, jira_url: str, project_key: str, api_token: str):
-    jira = JIRA(server=jira_url, token_auth=api_token)
-
-    for item in roadmap["items"]:
-        issue = jira.create_issue(
-            project=project_key,
-            summary=item["name"],
-            description=item["description"],
-            issuetype={"name": "Epic"},
-            labels=item["themes"],
-            priority={"name": item["priority"]}
-        )
-        logger.info(f"Created JIRA issue {issue.key}")
-```
-
-2. Add Confluence export:
-```python
-from atlassian import Confluence
-
-def export_to_confluence(roadmap_md: str, confluence_url: str, space: str, api_token: str):
-    confluence = Confluence(url=confluence_url, token=api_token)
-
-    # Convert markdown to Confluence wiki markup
-    wiki_content = markdown_to_confluence(roadmap_md)
-
-    page_id = confluence.create_page(
-        space=space,
-        title=f"Product Roadmap - {datetime.now().strftime('%Y-%m-%d')}",
-        body=wiki_content
-    )
-    logger.info(f"Created Confluence page {page_id}")
-```
-
-3. Add Google Docs export via API
-4. Add UI for export configuration (credentials, destination)
-
-**Effort:** 12-16 hours
-
-**Impact:** Enables integration with existing workflows, improves adoption, reduces manual effort.
+6. **Mobile-Responsive UI**
+   - Problem: Desktop-optimized UI limits mobile access
+   - Solution: Responsive design
+     - Use Streamlit mobile components
+     - Simplify views for small screens
+     - Touch-friendly controls
+     - Offline mode (cached data)
+   - Effort: 2-3 weeks
+   - Impact: Access from anywhere, better user experience
 
 ---
 
@@ -2111,99 +1284,71 @@ def export_to_confluence(roadmap_md: str, confluence_url: str, space: str, api_t
 
 ### A. File Reference
 
-| File | Purpose | Lines | Dependencies |
-|------|---------|-------|--------------|
-| app.py | Streamlit web UI - 13 pages | 5,617 | streamlit, pandas, roadmap.py |
-| roadmap.py | CLI backend - ingestion, chunking, retrieval, synthesis | 4,430 | anthropic, voyageai, lancedb, networkx, unstructured, tiktoken |
-| main.py | Entry point stub | 6 | roadmap.py |
-| test_graph_diagnostic.py | Diagnostic script for unified graph | 13 | app.py |
-| test_sync_and_diagnose.py | Sync and diagnostic test script | 26 | roadmap.py, app.py |
-| pyproject.toml | uv project configuration | 20 | - |
-| .env | API keys (not committed) | - | - |
-| .env.example | API key template | - | - |
-| README.md | Project documentation | - | - |
+| File | Purpose | Lines | Key Dependencies |
+|------|---------|-------|------------------|
+| `roadmap.py` | Core engine: parsing, chunking, retrieval, synthesis | 4,513 | anthropic, voyageai, lancedb, unstructured, networkx |
+| `app.py` | Streamlit web interface with all pages | 5,617 | streamlit, pandas, roadmap (imports all functions) |
+| `main.py` | Stub entry point | 6 | None |
+| `test_semantic_edges.py` | Test semantic edge inference | 90 | roadmap |
+| `test_graph_diagnostic.py` | Diagnose graph contents | 14 | app |
+| `test_sync_and_diagnose.py` | Test graph sync and diagnostics | 27 | roadmap, app |
+| `prompts/synthesis.md` | Master synthesis prompt | 529 | None (text file) |
+| `prompts/personas/executive.md` | Executive formatting prompt | 77 | None (text file) |
+| `prompts/personas/product.md` | Product manager formatting prompt | 108 | None (text file) |
+| `prompts/personas/engineering.md` | Engineering formatting prompt | 146 | None (text file) |
 
 ### B. Function Reference
 
-#### Top 50 Functions by Criticality
-
-| Function | File | Purpose | Complexity | LOC |
-|----------|------|---------|------------|-----|
-| parse_query() | app.py:2089 | Parse user query into structured representation | Medium | 22 |
-| retrieve_full_context() | app.py:2229 | Orchestrate multi-source retrieval (LanceDB + 2 graphs) | High | 56 |
-| assemble_context_for_synthesis() | app.py:2287 | Organize context by 7 authority levels | Medium | 110 |
-| synthesize_answer() | app.py:2399 | Use Claude to answer questions with citations | High | 95 |
-| expand_via_chunk_graph() | app.py:2113 | BFS traversal of ContextGraph | Medium | 45 |
-| traverse_unified_graph() | app.py:2160 | BFS traversal of UnifiedGraph (bidirectional) | High | 67 |
-| save_qa_to_open_questions() | app.py:2624 | Save Q&A to questions database with metadata | Medium | 112 |
-| AgenticChunker.chunk() | roadmap.py:496 | AI-powered document chunking via Claude | High | 88 |
-| ContextGraph.build_from_chunks() | roadmap.py:930 | Build chunk relationship graph with 4 edge types | High | 67 |
-| UnifiedContextGraph.add_node() | roadmap.py:2882 | Add typed node to unified graph | Low | 21 |
-| UnifiedContextGraph.add_edge() | roadmap.py:2903 | Add weighted, typed edge to unified graph | Low | 17 |
-| sync_all_to_graph() | roadmap.py:3046 | Sync all data sources to unified graph | Very High | 159 |
-| generate_embeddings() | roadmap.py:1102 | Generate Voyage AI embeddings (1024d) | Low | 9 |
-| retrieve_chunks() | roadmap.py:1155 | LanceDB semantic search with lens sorting | Medium | 30 |
-| retrieve_balanced() | roadmap.py:1187 | Balanced retrieval (8 chunks per lens) | Medium | 50 |
-| generate_roadmap() | roadmap.py:1352 | Claude synthesis of master roadmap | High | 68 |
-| format_for_persona() | roadmap.py:1420 | Claude formatting for specific persona | Medium | 58 |
-| page_ask() | app.py:3990 | Ask Your Roadmap UI page | Very High | 113 |
-| page_open_questions() | app.py:4147 | Open Questions management UI | Very High | 500+ |
-| diagnose_graph_contents() | app.py:2870 | Diagnostic analysis of unified graph | Medium | 101 |
-
-**Complexity Legend:**
-- Low: <30 LOC, single responsibility, no branching
-- Medium: 30-80 LOC, moderate branching, 2-3 responsibilities
-- High: 80-150 LOC, complex logic, multiple branches/loops
-- Very High: 150+ LOC, multiple responsibilities, should be refactored
+| Function | File | Purpose | Complexity |
+|----------|------|---------|------------|
+| `parse_document()` | roadmap.py:91 | Parse multi-format docs | Low |
+| `chunk_with_fallback()` | roadmap.py:768 | Agentic chunking with fallback | Medium |
+| `AgenticChunker.chunk()` | roadmap.py:499 | LLM-powered intelligent chunking | High |
+| `generate_embeddings()` | roadmap.py:1120 | Batch embedding generation | Low |
+| `index_chunks()` | roadmap.py:1137 | Store chunks in LanceDB | Medium |
+| `retrieve_with_authority()` | roadmap.py:3297 | Authority-weighted retrieval | High |
+| `generate_roadmap()` | roadmap.py:1414 | Master roadmap synthesis | High |
+| `format_for_persona()` | roadmap.py:1530 | Persona-specific formatting | Medium |
+| `UnifiedContextGraph.__init__()` | roadmap.py:2877 | Initialize multi-entity graph | Medium |
+| `sync_all_to_graph()` | roadmap.py:3128 | Rebuild graph from all sources | High |
+| `ask_roadmap()` | app.py:2558 | Q&A entry point | High |
+| `generate_questions_holistic()` | app.py:1883 | Generate questions from gaps | High |
+| `diagnose_graph_contents()` | app.py:2911 | Diagnostic graph inspection | Medium |
 
 ### C. Configuration Reference
 
-| Config | File | Purpose | Default Value |
-|--------|------|---------|---------------|
-| ANTHROPIC_API_KEY | .env | Claude API authentication | (required) |
-| VOYAGE_API_KEY | .env | Voyage AI embeddings authentication | (required) |
-| CHUNK_SIZE | roadmap.py:35 | Token count per chunk | 1024 |
-| CHUNK_OVERLAP | roadmap.py:36 | Overlap between chunks | 150 |
-| TOP_K | roadmap.py:37 | Number of results in semantic search | 20 |
-| VALID_LENSES | roadmap.py:38-46 | Authority hierarchy lenses | 7 lenses |
-| MATERIALS_DIR | roadmap.py:29 | Source documents directory | materials/ |
-| OUTPUT_DIR | roadmap.py:30 | Generated outputs directory | output/ |
-| DATA_DIR | roadmap.py:31 | Persistent data directory | data/ |
-| PROMPTS_DIR | roadmap.py:32 | Claude prompts directory | prompts/ |
-| SIMILARITY_THRESHOLD | roadmap.py:1008 | Cosine similarity threshold for edges | 0.80 |
-| AUTHORITY_LEVELS | roadmap.py:46 | 7-level authority hierarchy | L1-L7 |
+| Config | File | Purpose | Required |
+|--------|------|---------|----------|
+| `ANTHROPIC_API_KEY` | .env | Claude API access | Yes |
+| `VOYAGE_API_KEY` | .env | Voyage AI embedding API | Yes |
+| `CHUNK_SIZE` | roadmap.py:35 | Tokens per chunk (1024) | No |
+| `CHUNK_OVERLAP` | roadmap.py:36 | Overlap between chunks (150) | No |
+| `TOP_K` | roadmap.py:37 | Chunks to retrieve (20) | No |
+| `VALID_LENSES` | roadmap.py:38 | Authority level lenses | No |
+| `AUTHORITY_LEVELS` | roadmap.py:~3350 | Lens authority weights | No |
+| `MATERIALS_DIR` | roadmap.py:29 | Source documents location | No |
+| `OUTPUT_DIR` | roadmap.py:30 | Generated roadmaps location | No |
+| `DATA_DIR` | roadmap.py:31 | Vector store and graph location | No |
 
 ### D. External Dependencies
 
 | Package | Version | Purpose | License |
 |---------|---------|---------|---------|
-| anthropic | ≥0.75.0 | Claude API client for chunking, synthesis, Q&A | MIT |
-| voyageai | ≥0.3.7 | Voyage AI embeddings (1024d) | MIT |
-| lancedb | ≥0.26.1 | Vector database for chunk storage | Apache 2.0 |
-| networkx | ≥3.6.1 | Graph construction and traversal | BSD |
-| numpy | ≥2.4.0 | Numerical operations (cosine similarity) | BSD |
-| pyarrow | ≥22.0.0 | LanceDB data interchange format | Apache 2.0 |
-| python-dotenv | ≥1.2.1 | API key management from .env files | BSD |
-| streamlit | ≥1.52.2 | Web UI framework (13 pages) | Apache 2.0 |
-| tiktoken | ≥0.12.0 | Claude-compatible tokenization | MIT |
-| typer[all] | ≥0.21.0 | CLI framework (15 commands) | MIT |
-| unstructured[all-docs] | ≥0.18.24 | Multi-format document parsing | Apache 2.0 |
-
-**Security Notes:**
-- All dependencies from PyPI, no private packages
-- anthropic and voyageai handle API key securely (via headers, not URL params)
-- lancedb stores data locally (no external database connection)
-- unstructured has many sub-dependencies for document formats (PDF, DOCX, etc.)
+| anthropic | 0.75+ | Claude LLM API client | MIT |
+| voyageai | 0.3.7+ | Embedding generation API | Proprietary |
+| lancedb | 0.26+ | Vector database | Apache 2.0 |
+| streamlit | 1.52+ | Web UI framework | Apache 2.0 |
+| typer | 0.21+ | CLI framework | MIT |
+| unstructured | 0.18+ | Document parsing | Apache 2.0 |
+| networkx | 3.6+ | Graph data structure | BSD |
+| tiktoken | 0.12+ | Token counting | MIT |
+| python-dotenv | 1.2+ | Environment variable management | BSD |
 
 ### E. TODO/FIXME Items Found
 
 **No TODO, FIXME, HACK, or XXX comments found in codebase.**
 
-This is positive - indicates either:
-1. Code is well-maintained with no known issues documented inline
-2. Issues are tracked externally (GitHub issues, Jira, etc.)
-
-However, architectural review has identified 40+ gaps and risks documented in Gap Analysis and Risk Assessment sections above.
+The codebase is clean with no explicit TODO markers. However, the issues identified in this review represent implicit technical debt and improvement opportunities.
 
 ---
 
@@ -2211,10 +1356,4 @@ However, architectural review has identified 40+ gaps and risks documented in Ga
 
 | Date | Reviewer | Changes |
 |------|----------|---------|
-| 2026-01-07 | Claude Code | Initial comprehensive review (Phases 1-5 complete). Analyzed 10,092 LOC across 5 Python files. Documented 6 classes, 13 pages, 15 CLI commands, 4 data models, 4 data flows. Identified 0% test coverage (critical), SSL verification disabled (high risk), and 887/987 chunks missing edges (high impact). Provided 13 improvement recommendations with effort estimates. |
-| 2026-01-07 | Claude Code | **FIXED:** Incomplete edge creation (Recommendation #3). Removed [:100] limit in roadmap.py:3172, added progress tracking. Results: 987 chunks processed (was 100), 13,276 edges created (was 1,276) - 10x improvement. Updated architecture review to reflect fix. |
-| 2026-01-07 | Claude Code | **FIXED:** Semantic edge inference (Recommendation #5). Replaced keyword matching with embedding-based cosine similarity. Added cosine_similarity() function, modified integrate_roadmap_to_graph() and integrate_decision_to_graph() to generate embeddings, replaced edge creation logic with 3-threshold semantic matching. Results: 16,248 edges (up from 13,276), 1,746 chunk→roadmap connections (38% more), similarity scores 0.77-0.85+. Test confirms semantic approach finds connections keywords miss. Updated architecture review. |
-
----
-
-**End of Architecture Review**
+| 2026-01-07 | Claude Code | Initial comprehensive review |

@@ -58,6 +58,7 @@ class TestGenerateRoadmap:
 
         mock_graph = Mock()
         mock_graph.graph.number_of_nodes.return_value = 5
+        mock_graph.graph.nodes = {}  # Make nodes a dict for "in" checks
         mock_graph.load.return_value = mock_graph
 
         call_count = {"count": 0}
@@ -74,15 +75,16 @@ class TestGenerateRoadmap:
         with patch("roadmap.ContextGraph", return_value=mock_graph):
             with patch("roadmap.retrieve_balanced", side_effect=mock_retrieve_balanced):
                 with patch("roadmap.retrieve_with_graph_expansion", return_value=[]):
-                    with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
-                        mock_client = Mock()
-                        mock_client.messages.create.return_value = mock_anthropic_response
-                        mock_anthropic.return_value = mock_client
+                    with patch("roadmap.detect_potential_contradictions", return_value=[]):
+                        with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
+                            mock_client = Mock()
+                            mock_client.messages.create.return_value = mock_anthropic_response
+                            mock_anthropic.return_value = mock_client
 
-                        generate_roadmap()
+                            generate_roadmap()
 
-                        # Should have called retrieve_balanced multiple times
-                        assert call_count["count"] >= 3  # At least a few query perspectives
+                            # Should have called retrieve_balanced multiple times
+                            assert call_count["count"] >= 3  # At least a few query perspectives
 
     @pytest.mark.unit
     def test_generate_roadmap_expands_via_graph(self, mock_env_vars, mock_lancedb, temp_dir, monkeypatch):
@@ -92,6 +94,7 @@ class TestGenerateRoadmap:
 
         mock_graph = Mock()
         mock_graph.graph.number_of_nodes.return_value = 20  # Non-empty graph
+        mock_graph.graph.nodes = {}  # Make nodes a dict for "in" checks
 
         expansion_called = {"called": False}
 
@@ -107,20 +110,22 @@ class TestGenerateRoadmap:
         with patch("roadmap.ContextGraph") as mock_graph_class:
             mock_graph_instance = Mock()
             mock_graph_instance.graph.number_of_nodes.return_value = 20
+            mock_graph_instance.graph.nodes = {}  # Make nodes a dict for "in" checks
             mock_graph_instance.load.return_value = mock_graph_instance
             mock_graph_class.return_value = mock_graph_instance
 
-            with patch("roadmap.retrieve_balanced", return_value=[]):
+            with patch("roadmap.retrieve_balanced", return_value=[{"id": "1", "content": "Initial", "lens": "your-voice"}]):
                 with patch("roadmap.retrieve_with_graph_expansion", side_effect=mock_expansion):
-                    with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
-                        mock_client = Mock()
-                        mock_client.messages.create.return_value = mock_anthropic_response
-                        mock_anthropic.return_value = mock_client
+                    with patch("roadmap.detect_potential_contradictions", return_value=[]):
+                        with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
+                            mock_client = Mock()
+                            mock_client.messages.create.return_value = mock_anthropic_response
+                            mock_anthropic.return_value = mock_client
 
-                        generate_roadmap()
+                            generate_roadmap()
 
-                        # Graph expansion should have been called
-                        assert expansion_called["called"]
+                            # Graph expansion should have been called
+                            assert expansion_called["called"]
 
     @pytest.mark.unit
     def test_generate_roadmap_saves_to_file(self, mock_env_vars, mock_lancedb, temp_dir, monkeypatch):
@@ -131,6 +136,7 @@ class TestGenerateRoadmap:
 
         mock_graph = Mock()
         mock_graph.graph.number_of_nodes.return_value = 0
+        mock_graph.graph.nodes = {}  # Make nodes a dict for "in" checks
         mock_graph.load.return_value = mock_graph
 
         generated_content = "# Master Roadmap\n\nContent here"
@@ -141,20 +147,21 @@ class TestGenerateRoadmap:
         mock_anthropic_response.content = [mock_content]
 
         with patch("roadmap.ContextGraph", return_value=mock_graph):
-            with patch("roadmap.retrieve_balanced", return_value=[]):
-                with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
-                    mock_client = Mock()
-                    mock_client.messages.create.return_value = mock_anthropic_response
-                    mock_anthropic.return_value = mock_client
+            with patch("roadmap.retrieve_balanced", return_value=[{"id": "1", "content": "Test", "lens": "your-voice"}]):
+                with patch("roadmap.detect_potential_contradictions", return_value=[]):
+                    with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
+                        mock_client = Mock()
+                        mock_client.messages.create.return_value = mock_anthropic_response
+                        mock_anthropic.return_value = mock_client
 
-                    result = generate_roadmap()
+                        result = generate_roadmap()
 
-                    assert result == generated_content
+                        assert result == generated_content
 
-                    # Verify file was saved
-                    saved_file = output_dir / "master_roadmap.md"
-                    assert saved_file.exists()
-                    assert saved_file.read_text() == generated_content
+                        # Verify file was saved
+                        saved_file = output_dir / "master_roadmap.md"
+                        assert saved_file.exists()
+                        assert saved_file.read_text() == generated_content
 
     @pytest.mark.unit
     def test_generate_roadmap_with_custom_query(self, mock_env_vars, mock_lancedb, temp_dir, monkeypatch):
@@ -164,6 +171,7 @@ class TestGenerateRoadmap:
 
         mock_graph = Mock()
         mock_graph.graph.number_of_nodes.return_value = 0
+        mock_graph.graph.nodes = {}  # Make nodes a dict for "in" checks
         mock_graph.load.return_value = mock_graph
 
         custom_query = "Focus on Q1 priorities"
@@ -174,15 +182,16 @@ class TestGenerateRoadmap:
         mock_anthropic_response.content = [mock_content]
 
         with patch("roadmap.ContextGraph", return_value=mock_graph):
-            with patch("roadmap.retrieve_balanced", return_value=[]):
-                with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
-                    mock_client = Mock()
-                    mock_client.messages.create.return_value = mock_anthropic_response
-                    mock_anthropic.return_value = mock_client
+            with patch("roadmap.retrieve_balanced", return_value=[{"id": "1", "content": "Test", "lens": "your-voice"}]):
+                with patch("roadmap.detect_potential_contradictions", return_value=[]):
+                    with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
+                        mock_client = Mock()
+                        mock_client.messages.create.return_value = mock_anthropic_response
+                        mock_anthropic.return_value = mock_client
 
-                    result = generate_roadmap(query=custom_query)
+                        result = generate_roadmap(query=custom_query)
 
-                    assert result == "Custom roadmap"
+                        assert result == "Custom roadmap"
 
 
 class TestFormatForPersona:
@@ -378,9 +387,10 @@ class TestLoadPrompt:
     @pytest.mark.unit
     def test_load_prompt_handles_missing_file(self, temp_dir, monkeypatch):
         """Test that load_prompt handles missing file appropriately."""
+        import typer
         prompts_dir = temp_dir / "prompts"
         prompts_dir.mkdir()
         monkeypatch.setattr("roadmap.PROMPTS_DIR", prompts_dir)
 
-        with pytest.raises(FileNotFoundError):
+        with pytest.raises(typer.Exit):
             load_prompt("nonexistent.md")

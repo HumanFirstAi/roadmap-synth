@@ -76,6 +76,38 @@ def cosine_similarity(vec1: List[float], vec2: List[float]) -> float:
     return float(dot_product / (norm1 * norm2))
 
 
+def cosine_similarity_batch(query_matrix, target_matrix):
+    """
+    Calculate cosine similarity between all query and target vectors in batch.
+
+    Args:
+        query_matrix: numpy array of shape (n_queries, embedding_dim)
+        target_matrix: numpy array of shape (n_targets, embedding_dim)
+
+    Returns:
+        Similarity matrix of shape (n_queries, n_targets) as numpy array
+    """
+    import numpy as np
+
+    # Normalize rows (L2 norm)
+    query_norms = np.linalg.norm(query_matrix, axis=1, keepdims=True)
+    target_norms = np.linalg.norm(target_matrix, axis=1, keepdims=True)
+
+    # Handle zero norms
+    query_norms = np.where(query_norms == 0, 1, query_norms)
+    target_norms = np.where(target_norms == 0, 1, target_norms)
+
+    # Normalize vectors
+    query_normalized = query_matrix / query_norms
+    target_normalized = target_matrix / target_norms
+
+    # Compute all similarities in one matrix multiplication
+    # Result shape: (n_queries, n_targets)
+    similarities = np.dot(query_normalized, target_normalized.T)
+
+    return similarities
+
+
 def validate_api_keys():
     """Validate that required API keys are set"""
     if not ANTHROPIC_API_KEY:
@@ -3225,59 +3257,89 @@ def sync_all_to_graph() -> UnifiedContextGraph:
         MENTIONED_IN_THRESHOLD = 0.65  # Moderate relevance
         OVERRIDES_THRESHOLD = 0.70     # Decision relevance
 
-        # Cache for roadmap item embeddings (avoid repeated lookups)
-        roadmap_embeddings = {}
+        # Build chunk embedding matrix
+        chunk_ids = []
+        chunk_embeddings_list = []
+        for chunk_id, chunk_data in chunk_items:
+            chunk_node = graph.graph.nodes[chunk_id]
+            chunk_embedding = chunk_node.get("embedding")
+            if chunk_embedding is not None:
+                chunk_ids.append(chunk_id)
+                chunk_embeddings_list.append(chunk_embedding)
+
+        if not chunk_embeddings_list:
+            console.print("[yellow]No chunks with embeddings found")
+            graph.save()
+            return graph
+
+        chunk_matrix = np.array(chunk_embeddings_list)
+        console.print(f"[blue]Built chunk matrix: {chunk_matrix.shape}")
+
+        # Build roadmap item embedding matrix
+        roadmap_ids = []
+        roadmap_embeddings_list = []
         for ri_id, ri_data in graph.node_indices["roadmap_item"].items():
-            # Get embedding from node
             ri_node = graph.graph.nodes[ri_id]
             ri_embedding = ri_node.get("embedding")
             if ri_embedding is not None:
-                roadmap_embeddings[ri_id] = (ri_data, ri_embedding)
+                roadmap_ids.append(ri_id)
+                roadmap_embeddings_list.append(ri_embedding)
 
-        # Cache for decision embeddings
-        decision_embeddings = {}
+        # Build decision embedding matrix
+        decision_ids = []
+        decision_embeddings_list = []
         for dec_id, dec_data in graph.node_indices["decision"].items():
             dec_node = graph.graph.nodes[dec_id]
             dec_embedding = dec_node.get("embedding")
             if dec_embedding is not None:
-                decision_embeddings[dec_id] = (dec_data, dec_embedding)
+                decision_ids.append(dec_id)
+                decision_embeddings_list.append(dec_embedding)
 
-        console.print(f"[blue]Using semantic similarity with {len(roadmap_embeddings)} roadmap items, {len(decision_embeddings)} decisions")
+        console.print(f"[blue]Using semantic similarity with {len(roadmap_ids)} roadmap items, {len(decision_ids)} decisions")
 
-        # Process all chunks with progress tracking
-        for chunk_id, chunk_data in track(chunk_items, description="Creating semantic edges"):
-            # Get chunk embedding
-            chunk_node = graph.graph.nodes[chunk_id]
-            chunk_embedding = chunk_node.get("embedding")
+        # Batch compute similarities for roadmap items
+        if roadmap_embeddings_list:
+            roadmap_matrix = np.array(roadmap_embeddings_list)
+            console.print(f"[blue]Computing {len(chunk_ids)} × {len(roadmap_ids)} = {len(chunk_ids) * len(roadmap_ids):,} roadmap similarities in batch...")
 
-            if chunk_embedding is None:
-                continue  # Skip chunks without embeddings
+            # Compute all chunk-to-roadmap similarities at once
+            roadmap_similarities = cosine_similarity_batch(chunk_matrix, roadmap_matrix)
 
-            # Link to roadmap items based on embedding similarity
-            for ri_id, (ri_data, ri_embedding) in roadmap_embeddings.items():
-                similarity = cosine_similarity(chunk_embedding, ri_embedding)
+            # Create edges based on thresholds
+            for i, chunk_id in enumerate(chunk_ids):
+                for j, ri_id in enumerate(roadmap_ids):
+                    similarity = roadmap_similarities[i, j]
 
-                # Create SUPPORTED_BY edge for high similarity
-                if similarity >= SUPPORTED_BY_THRESHOLD:
-                    if not graph.graph.has_edge(ri_id, chunk_id):
-                        graph.add_edge(ri_id, chunk_id, edge_type="SUPPORTED_BY", weight=similarity)
-                        edges_created += 1
+                    # Create SUPPORTED_BY edge for high similarity
+                    if similarity >= SUPPORTED_BY_THRESHOLD:
+                        if not graph.graph.has_edge(ri_id, chunk_id):
+                            graph.add_edge(ri_id, chunk_id, edge_type="SUPPORTED_BY", weight=float(similarity))
+                            edges_created += 1
 
-                # Create MENTIONED_IN edge for moderate similarity
-                elif similarity >= MENTIONED_IN_THRESHOLD:
-                    if not graph.graph.has_edge(ri_id, chunk_id):
-                        graph.add_edge(ri_id, chunk_id, edge_type="MENTIONED_IN", weight=similarity)
-                        edges_created += 1
+                    # Create MENTIONED_IN edge for moderate similarity
+                    elif similarity >= MENTIONED_IN_THRESHOLD:
+                        if not graph.graph.has_edge(ri_id, chunk_id):
+                            graph.add_edge(ri_id, chunk_id, edge_type="MENTIONED_IN", weight=float(similarity))
+                            edges_created += 1
 
-            # Link to decisions based on embedding similarity
-            for dec_id, (dec_data, dec_embedding) in decision_embeddings.items():
-                similarity = cosine_similarity(chunk_embedding, dec_embedding)
+        # Batch compute similarities for decisions
+        if decision_embeddings_list:
+            decision_matrix = np.array(decision_embeddings_list)
+            console.print(f"[blue]Computing {len(chunk_ids)} × {len(decision_ids)} = {len(chunk_ids) * len(decision_ids):,} decision similarities in batch...")
 
-                # Create OVERRIDES edge for relevant decisions
-                if similarity >= OVERRIDES_THRESHOLD:
-                    if not graph.graph.has_edge(dec_id, chunk_id):
-                        graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=similarity)
-                        edges_created += 1
+            # Compute all chunk-to-decision similarities at once
+            decision_similarities = cosine_similarity_batch(chunk_matrix, decision_matrix)
+
+            # Create edges based on thresholds
+            for i, chunk_id in enumerate(chunk_ids):
+                for j, dec_id in enumerate(decision_ids):
+                    similarity = decision_similarities[i, j]
+
+                    # Create OVERRIDES edge for relevant decisions
+                    if similarity >= OVERRIDES_THRESHOLD:
+                        if not graph.graph.has_edge(dec_id, chunk_id):
+                            graph.add_edge(dec_id, chunk_id, edge_type="OVERRIDES", weight=float(similarity))
+                            edges_created += 1
 
         console.print(f"[green]✓ Created {edges_created} semantic edges across {total_chunks} chunks")
         console.print(f"[blue]Edge thresholds: SUPPORTED_BY≥{SUPPORTED_BY_THRESHOLD}, MENTIONED_IN≥{MENTIONED_IN_THRESHOLD}, OVERRIDES≥{OVERRIDES_THRESHOLD}")

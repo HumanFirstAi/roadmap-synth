@@ -40,6 +40,9 @@ class TestSyncAllToGraph:
             "roadmap_item": {},
             "gap": {},
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         with patch("roadmap.UnifiedContextGraph.load", return_value=mock_graph):
             with patch("roadmap.load_questions", return_value=[]):
@@ -67,6 +70,9 @@ class TestSyncAllToGraph:
             "chunk": {}, "question": {}, "decision": {},
             "assessment": {}, "roadmap_item": {}, "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         integration_called = {"called": False, "content": None}
 
@@ -103,6 +109,9 @@ class TestSyncAllToGraph:
             "chunk": {}, "question": {}, "decision": {},
             "assessment": {}, "roadmap_item": {}, "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         integrated_questions = []
 
@@ -138,6 +147,9 @@ class TestSyncAllToGraph:
             "chunk": {}, "question": {}, "decision": {},
             "assessment": {}, "roadmap_item": {}, "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         integrated_decisions = []
 
@@ -177,6 +189,9 @@ class TestSyncAllToGraph:
             "roadmap_item": {},
             "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         integrated_questions = []
 
@@ -216,6 +231,9 @@ class TestSyncAllToGraph:
             "chunk": {}, "question": {}, "decision": {},
             "assessment": {}, "roadmap_item": {}, "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         integrated_assessments = []
 
@@ -245,6 +263,9 @@ class TestSyncAllToGraph:
             "chunk": {}, "question": {}, "decision": {},
             "assessment": {}, "roadmap_item": {}, "gap": {}
         }
+        mock_graph.graph = Mock()
+        mock_graph.graph.number_of_nodes.return_value = 10
+        mock_graph.graph.number_of_edges.return_value = 15
 
         with patch("roadmap.UnifiedContextGraph.load", return_value=mock_graph):
             with patch("roadmap.load_questions", return_value=[]):
@@ -287,10 +308,10 @@ class TestIntegrateDecisionToGraph:
         with patch("roadmap.generate_embeddings", return_value=[sample_embeddings[0]]):
             integrate_decision_to_graph(graph, decision)
 
-            # Verify embedding was stored
-            decision_node = graph.node_indices["decision"]["d2"]
-            assert "embedding" in decision_node
-            assert len(decision_node["embedding"]) == 1024
+            # Verify embedding was stored in the graph (not in node_indices)
+            assert "d2" in graph.graph.nodes
+            assert "embedding" in graph.graph.nodes["d2"]
+            assert len(graph.graph.nodes["d2"]["embedding"]) == 1024
 
 
 class TestIntegrateQuestionToGraph:
@@ -343,17 +364,29 @@ class TestIntegrateRoadmapToGraph:
         roadmap_content = """
 # Master Roadmap
 
-## Now (Q1 2026)
-- CPQ Improvements
-- Catalog Enhancement
+## Now
 
-## Next (Q2 2026)
-- API Modernization
-- Database Migration
+### CPQ Improvements
+Enhance the CPQ system
 
-## Later (Q3-Q4 2026)
-- AI Features
-- Mobile App
+### Catalog Enhancement
+Improve catalog features
+
+## Next
+
+### API Modernization
+Modernize the API layer
+
+### Database Migration
+Migrate to new database
+
+## Later
+
+### AI Features
+Add AI capabilities
+
+### Mobile App
+Build mobile application
         """
 
         with patch("roadmap.generate_embeddings", return_value=[sample_embeddings[0]] * 10):

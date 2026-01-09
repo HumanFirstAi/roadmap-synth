@@ -1,0 +1,172 @@
+Unknown 0:11
+Hey, hey, Jonathan
+
+Speaker 1 0:13
+afternoon, how you doing? Oops, sorry my speaker is not gone. Wait just one second.
+
+Unknown 0:27
+Oops.
+
+Unknown 0:40
+You good. I can hear you.
+
+Speaker 1 0:44
+Okay, great. Thank you. Sorry, sorry about that. I just had to switch the speakers. That's all right. Happy New Year. How are you?
+
+Speaker 2 0:51
+Yeah, likewise, good. Thank you. Getting my feet under the desk after two days.
+
+Unknown 0:57
+Did you have a good did you have a good break?
+
+Speaker 1 1:01
+I did. I did I, I mean, I, I was hoping and praying that we don't get any escalations and and, you know, I almost achieved that goal. Good, yeah,
+
+Unknown 1:17
+yeah. I was away.
+
+Unknown 1:20
+Didn't take any calls, didn't look at my phone. Good break. Good break. Yeah, yeah.
+
+Speaker 2 1:28
+So there was a couple of things I wanted to just kind of spin up with you now that we're back. The first is, I think Manfred probably had a chat with you yesterday. I spoke with him about trying to tidy up all the concepts on CPQ so we can talk about that. And then I wanted to just touch base on on unify, and a couple of other things I've got Alan and experiences. And one other thing, which is target architecture for AI paywall. Just trying to get all this stuff tidied up before the end of, preferably end of Feb, but maybe middle of March, something like that. So just on the on the CPQ thing, I spent a lot of time reading across all of the documentation. Right? I spent time with John Burns, spent time with Manfred read spent time with navs. Read five quoting. So did a lot of kind of discovery. And the one thing that comes across really quite clearly is that there's just this sprawl of concepts and ideas, and they're, they're in very different, you know, they're at different stages and different objectives. And so the way I compartmentalised it, and I kind of ran this by Manfred yesterday, is what we need, what we really need to do. And then there's also Shakir, is view. On what he wants to achieve. And what we don't have is we don't have a positioning document with our sick. We don't have a document that says, Listen, this is the direction of travel. You know, everyone needs to get lined up behind that, and we need to tackle things in a way that that people can understand the direction of travel and what the scope of operation is. So my head, you've got one side, you've got cpqx, and on the other side you've got next gen. And there are a couple of tensions there. I'll talk about vibe quoting in a second. The first tension is parity. When is next gen going to deliver parity
+
+Unknown 3:54
+against cpqx?
+
+Speaker 2 3:58
+And what does parity mean? And what is the percentage of parity that we need to get to? Because it'll never be 100% but what's enough to say we have a superior product, right?
+
+Unknown 4:13
+Once you get parity? What's the migration plan?
+
+Speaker 2 4:18
+None of that in my understanding that we have some of that, but we don't have a really concrete view of what that means, right? And and on the other side, you've got John Burns, which has got this very cpqx focus, and Manfred that's got a very next gen focus. The join between the two is they both agree that there needs to be shared componentry. So if you build something once, it should be used like guided. I mean, maybe not guided selling, but, but figuring products. Yeah, exactly. So a thing in the middle that uses so it seems to me that if you were to be really reductive about this, you'd go, I only want to build things that both systems can use, because that's the most efficient use of our engineering resource, right? I want to reduce the amount of stuff that I'm going to build exclusively for cpqx, because the goal is to migrate to next gen. And therefore, why would I invest in cpqx, other than this lick of paint that that Shakir wants? So that's number one. Number two, who we actually building for? Right? Shakir comes along and says, Hey, I want a better deal desk experience. Well, that's fine because it's predominantly only deal desk people that use Salesforce the cpqx, but Manfred wants to build for a general audience of sales people and deal desk people. And depending on how you log in, you've different environments, right?
+
+Speaker 1 5:57
+Can I add a third persona? Yeah, and it's a an important persona that I spoke with Manfred after the call that I that you're referring to. I we had a very long call, and late in the evening. The third persona is, if you look at all you know, where we make the most money, regardless of CPQ, billing, et cetera, right? These are the top quadrant customers, okay, all of those customers have custom needs, right? And the custom needs are implemented by our GST. They go, have a ball. And I can show you a lot of examples, like what we did at BMC, what we did at Unity, what we did at zoom, etc, etc, and who does that? Right? Our GS team does it, or our partners team, like Deloitte, does it, and then their own developers take over and continue to build on it for enabling their sales operations team and their sales team, okay, we have to take that into strong consideration, also as a persona that we have to enable such that, you know, today we don't have that love from the developer. We have improved quite a bit. We've gotten the Zoom developers to, you know, somewhat, maybe not even like us, but you know that they could work with our platform, right? They could do things with our platform that's not been a, you know, a focus area in the past, before I joined, before all of this happened, right? And teen is in all these large customer discussions, as you might imagine, right? And he's, you know, I will forward you an email just enough that he's working with nice with their leadership. Don't know the full detail, but there's a lot of things going on there. So what I'm trying to say is that he's, you know, also jumped on to this. So again, I'm probably going on a tangent here. So if you there's a you need to get inserted into that call somehow. And I would probably work with Shakir and have him add you into that call. There's a bi weekly call with Team. Team is driving the CPQ like crazy, right? He's in it. He's, he's, you know, making decisions. He's influencing the team. He's calling me directly. A lot of things are happening, and teen is part of it, so therefore you need to be part of it, so you can hear his, you know, perceptions and his sentiments also directly. Okay, so that's just a side note. I want, I wanted to convey that to you, you know, while we were chatting last week, but I want to take this opportunity so, so sorry, going back to your thinking, right? We need to add, and then we, you know, when we get deeper, and if we have time, I can quickly show you what I mean by that, right, what, what kind of customizations are being done. And I don't think Jonathan, regardless of how much experience we have, every customer is going to be different. We our tool as a baseline product should offer the baseline capabilities in in the best manner possible. Okay, and get out of you know, and give them hooks in various places for them to customise it and have at it, right? For example, a simple example is deal score. So in the new architecture, our deal score is an MCP tool, right? So we would have our machine learning, you know, algorithm to modify the parameters to calculate a deal score. That's our you know, in house built deal scoring mechanism. A customer might say, I don't want that. And they would have an option to go overwrite that, to say, No, I have built my own machine learning algorithm. I want my score to be the one that you want, that I want you to use. All we would say is, go replace an MCP tool with your own tool for deal score. But that's just a very simple example, conceptually, right? So developers are first class citizens it, let's just call it it, right? Who needs to be able to modify output? So that's that's one element. It's coming all the way to the top, because every deal that we are faced right now. Laser fish being the recent example. Gs folks are, I mean, customers don't want to pay, right? Millions of dollars in saying, oh, GS, come and do this for me. I mean, some customers, yeah, they're okay to pay. 100k 200k whatever, right large customers, but at the end of the day, after that, they're done. We need to make it very, very friendly for the IT persona also.
+
+Speaker 2 10:52
+So how much of the existing platform makes
+
+Unknown 11:00
+that it persona happy.
+
+Speaker 1 11:09
+So today, in the last one year, we have, we have gone when you say existing, you're talking about so the next gen or the current code studio
+
+Unknown 11:21
+both Well, next gen has 00,
+
+Speaker 1 11:27
+of that it persona taken into account right now, today, zero. Current is, you know, we are better than where we were a year ago, but we, we haven't even socialised that enough. So if you look at for, you know, what's called the table talks that we did, right? And you know, the the it persona level communication that we have to do, we haven't done enough to even socialise what we have those guys that do know, like when we have an opportunity to directly speak with customers like, you know, donally, financials, right? Zoom being either the most equipped at the moment, there are other customers who aren't even aware of everything that we have done in the past, right? So I would, I would call it capability wise, we are much better than where we were. But customers are not aware of, in my opinion, they're not aware of we haven't
+
+Speaker 2 12:31
+how far, if we take next gen, for example, and then I'll include quote five quoting in that how much is there the same level of requirement to have that it persona considered as there is in cpqx, it has to be okay. So vibe quoting, does that have that persona captured today or not? No, and neither does next gen Correct. Okay. All right, understand that. Let me just go. Let me keep on the on the theme of CPQ, and then I'll get to teen in a second.
+
+Unknown 13:16
+Do we agree that
+
+Speaker 2 13:21
+we need to have a position on engineering investment into shared components, a parity definition and a migration strategy, 100% okay, all right, so, so That's fine. That's that's lacking right now, and I think, and then we need to have a persona description, which is who we building for deal desk owner, which is the current user today, sales ops and sales Well, do you call sales ops, deal desk or not? No, no, I won't. So sales, ops and sales, and then the it persona, so those need to be written up. Then we have, and I'm putting vibe quoting in team to one side, then we have a single strategy
+
+Unknown 14:18
+that we can
+
+Speaker 2 14:21
+create as an all star, everyone knows what it is. Everyone knows where we're going. It becomes a single document. Everyone can have their 10 cents. And if Shakir wants to override and say, ignore these two personas, just build for deal desk, then that's fine. That's a but we don't have anything that strategically consolidates everything into one place right now. So I'm going to, I'm going to work on that. I'm not going to take an engineering lens right now. I'm just going to take a product lens and then I'll get the engineering, your engineering input into that, right
+
+Unknown 14:55
+let me then go on to and
+
+Speaker 2 14:59
+then, yes, that's fine. So let me then go on to team, and then I'll go on to vibe coating. How much the the challenge is that we do this, and then there is all this background noise from Team. Is it your sense that that it is constructive or not constructive,
+
+Speaker 1 15:25
+it's a new market, and it's a new thinking, and the way that I am doing it internally is even though we are calling it separate, you mentioned something which is common services, right? Actually, I'm using those common services on both sides for the white coating, all white coding is going to be, is an optics about you. It's not tied to the mothership, meaning it's not tied to our product catalogue. Okay? It's rules free. Those are the additional let's just call it, you know, a pressure relief valve within white coding. But things like, if you upload a document and I parse it, right, that's a common service between the two. Yeah.
+
+Speaker 2 16:11
+And also, we've got this call, I think, with with Pendo or something. No, who is it? Not Pendo? There's a call,
+
+Unknown 16:21
+get balance. No.
+
+Speaker 2 16:22
+Promoter, something, contract. Are you in that call or not?
+
+Speaker 1 16:26
+Oh, I know the tool very well, because I used it in my past life, but I'm not in a call.
+
+Speaker 2 16:30
+Yeah, I think, I think there's some move to try and maybe do a deal there. I don't know if that's an OEM deal or if it's an acquisition or whatever, but I've been asked to come in with the platform, by the way. Okay, all right, so I might, I might come back to you on that, but let me just give you a sense of what I think about teen and vibe quoting to me. And I think Manfred also played this back to me, so I don't think it's an unshared for you. Vibe quoting is a forcing function for Zora to do things in a different way, right? I think you could almost replace vibe quoting with any other dev project, right? It's just, let's build something. Let's build it in an unconstrained way. Let's build it without lots of PRDs and tdds. Let's just, let's, let's build this thing out and see if we can build something that's valuable, right? In my mind, and that is teens. I don't I think teen could have chosen anything, but I think choosing CPQ is a, probably quite a useful way of doing it, because it's probably an easy space to to play it right. You're replacing a spreadsheet. What I, what I, what I don't see, is a world, and I can't, I can't visualise this. What is the world where we have parity on CPQ, next gen CPQ, where we have a quote pad, or whatever it's going to get called, and we also have a vibe quoting product. So where's the unification of that? Are they discrete as an end state?
+
+Speaker 1 18:16
+The unification will? There are a couple of like we talked about, there are some shared services that's that's one thing that's happening. But the unification from a journey point of view, right from a from a customer journey point of view, is, if you are a sales guy, let's say you use by coding as your platform to play with and produce these like pre quote, that naturally, that you are using your own rules to build with you when you come, when it comes a point to say, Okay, I want to push this to my proper sales operations team so they can book the order like typically in an enterprise, that's what happens. You build something, and then you say, take it to my sales ops, they do the quality control checks, whatever, and then they, you know, turn it into an order that that can go to, you know, to the downstream fulfilment processes, right? That connector is part of the white coating platform also, right? So it can be Zora CPQ connector, right? And it will also be a Salesforce CPQ connector. So if the customers are not using our CPQ, they can use, they can still use this platform, and then they can push it into sales for CPQ if they want
+
+Speaker 2 19:31
+it, if, I mean, I know, quote studio might change its name, but let's just call it next gen quote pad. Or, sorry, quote pad will change to its name, but let's call it next gen, not quite not quote, but let's just call it next gen quote studio wherever, right next gen. CPQ has next gen, but
+
+Speaker 1 19:50
+there's another name that kind of bubbled up. It's called core studio, AI. But anyway, next gen is good
+
+Speaker 2 19:56
+enough for me. Yeah. I mean, I agree with you. It doesn't really matter. But what is the what is the competition like? Just say you got a salesperson goes into the field and and we've got vibe quoting, and we've got next gen quote studio. How are they different? How are they the same?
+
+Speaker 1 20:15
+Okay, so that's the that's where team, the first team's viewpoint is the salesperson is not going to sell by coding.
+
+Unknown 20:27
+Okay, so we already saw quote next gen, quote studio correct.
+
+Speaker 1 20:30
+It even was specifically called out day before yesterday when we met with Team Pete and Manfred was there. Shaky was travelling. The regular cause that we have, right? We it was clearly called out that by coding number one is not a product yet. It's an experimental positioning. We are not building any ARR forecast based of that. We're not going to sell it. It will be self, you know, marketed through word of mouth, networking, market validation will occur, you know, in the early part of this year, but very fast to see if this even is a fit. That's the positioning at the moment. Yeah, and it's a like you said, Not, you know, any fanfare behind it, it's going to organically go through. That's why the concept of, even you have to be invited to use white coating, blah, blah, blah, right? We can see people, we can, you know, do that for you, if you if you want to. But I'm just saying, you know, that's the idea, that's the mentality that he's driving this by saying it's like, you know, a startup just throwing out a product without revenue. It's negative in your P and L as an example, right? Because it is, it is that, and see if it has a market, you know, pull that's their position.
+
+Speaker 2 21:57
+Yeah, I get that. So that's my original point. Is you could actually just call this Project X. It doesn't, it doesn't even matter that it's five quoting correct. It just happens to be that that's the product we chose, correct.
+
+Speaker 1 22:12
+Okay, so it happens to compete, from what's called, you know, functionality point of view, like you said, the personas that we're tackling, and this is why team yesterday, when he was talking to me, one on one, he was like, you know, when our messaging goes out, next gen is really a tool that, you know, we are optimising for these like, you know, flexible. Do anything, you know, customise it for your business needs with an AI, you know, re, you know, platform that we have completely, you know, built from the ground up for a native AI tool and, etc, etc, and sell that to your personas, which are, you Know, it, sales, ops, deals desk, but they enable your sales guys in a certain way. You can never make sales guys happy, because they will never be happy with right CPQ, because it's too much.
+
+Speaker 2 23:11
+I mean, five quoting at the best will turn in Well, five quoting may become a lead gen.
+
+Speaker 1 23:18
+He's saying our messaging is going to be sales guys without constraints, is by coding it up, it optimised.
+
+Unknown 23:28
+Platform is next gen, okay?
+
+Speaker 2 23:31
+That, that I think, is lacking in some of the conversations
+
+Speaker 1 23:37
+and this, this came out just yesterday when he called me directly and wanted to go deeper and show me all the customer because he hears just things like laser fish has CPQ complexity, right? And I gave him a two paragraph. I said, let me go dig in. When I dug in, I found out it comes back to the same problem team. The current platform allows you to customise the heck out of your business wants, therefore you put GS in front of them. Gs will do anything and everything a customer wants. It works until it does not where, when the customer tries to use all of that and expands their code lines, rules, blah, blah, blah, we don't scare
+
+Speaker 2 24:18
+Yeah, of course, course. So let me ask you, all right, so I think we we need to in the positioning document. We need to call this out. We need to give vibe quoting. I mean, my preference would have been to call it Project X, because vibe quoting is starting to filter out into the wider ecosystem in the business, and it creates a dysfunctional view of CPQ. We've got too many you know, what is CPQ to the business today? So we need to have a document that says, well, vibe quoting is actually just a is a an exercise by teen I mean, I won't be explicit like this, but it's an exercise in a new operational motion for an enterprise business to you know, they used to call it a skunk works in the old days. Remember that? Right? That's what it was. It was like the CEO has a project, he spins up a team, he goes and spends a million quid. It doesn't work. There's no real plan. There's no real unification. Everyone spends a lot of time on it. And maybe it may, maybe it sees the light of day. Maybe it doesn't my, my, my concern, my only concern with that, because I, I'll be in those calls, but I don't I, you know, it's, it's the boss, right? So he gets to do what he likes. But my only concern is the, well, I mean, from a if Todd signs off the P and L, that's fine. You can have as many engineers as you like. But what about Siva? Does Siva have the mental bandwidth to compartmentalise these things, or is it actually a positive exercise where he gets to play in one space and then transpose ideas into a more structured space?
+
+Speaker 1 26:00
+He is in a much better position today than he was when we started. And I'm going to, you know, his general sentiment is very, very positive, right? And I'm using a slight well before we go, because we only have a minute. I do have to jump to another call. Unfortunately, he's in a he's in a good mental space right now. He understands the difference between the two, and I am working very, very closely with him. So, you know, so that's a positive step, right? He gets it. You know, the visit helped tremendously. He to the extent where he said, Oh man, I think I wish we had this discussion in August, when the team, the 10x team, was formed, you know. So his clarity has improved quite a bit. And he's, you know, he's embracing it much, much quicker than even, you know, and you would hear it, you know, if you, if you participate in discussions with him. So he's in a he's in a good, comfortable position.
+
+Speaker 2 27:08
+So, all right, two, two actions, then I'm going to include what we've said in this unified document. Three actions. I'm going to get myself into the call with team, because I just want to hear but thirdly, what I'd like to do is I'd like to get on a call with you and Siva, where he explains, he tells me that story I want to under. Want to internalise that story. Is that okay?
+
+Speaker 1 27:33
+Yeah, that's perfectly fine. Yeah. Let me get a matter. There is a call tomorrow if you wanted to, or if you wanted to,
+
+Speaker 2 27:40
+no, tomorrow's good. I'm yeah, if you can add me to the call, or if it's a call, is a call with SIVA as a call with Team Siva. Yeah, if you, if you don't mind adding me, I'd like to, I just like half an hour to hear that clarity and his, his feedback?
+
+Speaker 1 28:04
+Yeah, sure, let me, let me find that call. I think there is a call that he did set up. Oh, there you go. Cpqx, code pad by coding alignment. That's even the subject of the call. So you may hear it from him directly. All right. Brilliant, okay,
+
+Speaker 2 28:21
+yeah, good. That's no problem. I think we've got time later this week as well.
+
+Speaker 1 28:26
+Yeah, by the way, the new recommendation for our one on one constantly conflicts with Pete's, you know, skip level calls that he has. So you might, I just looked, I mean, I accepted the recommendation that you made in in weeks, that we don't have that conflict, but it appears that there is a constant conflict, so you might want to check that out. Okay, maybe we need to find another time.
+
+Speaker 2 28:52
+Okay, let me have a look. Thank you. Thanks for flagging. Thank you. Cheers. You.
+
+Transcribed by https://otter.ai

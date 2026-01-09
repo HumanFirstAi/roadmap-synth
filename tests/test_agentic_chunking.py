@@ -55,21 +55,25 @@ class TestAgenticChunker:
     def test_chunk_document_with_valid_json_response(self, mock_env_vars):
         """Test chunking with valid JSON response from Claude."""
         with patch("roadmap.anthropic.Anthropic") as mock_anthropic:
-            # Mock Claude response
+            document_text = "Long document text " * 50
+
+            # Mock Claude response with start/end character positions
             mock_response = Mock()
             mock_content = Mock()
             mock_content.text = json.dumps({
                 "chunks": [
                     {
                         "chunk_index": 0,
-                        "content": "First chunk content",
+                        "start_char": 0,
+                        "end_char": 100,
                         "section_title": "Introduction",
                         "key_entities": ["Product", "Roadmap"],
                         "time_references": ["Q1 2026"]
                     },
                     {
                         "chunk_index": 1,
-                        "content": "Second chunk content",
+                        "start_char": 100,
+                        "end_char": 200,
                         "section_title": "Strategy",
                         "key_entities": ["Team", "Goals"],
                         "time_references": []
@@ -83,16 +87,16 @@ class TestAgenticChunker:
             mock_anthropic.return_value = mock_client
 
             chunker = AgenticChunker()
-            document_text = "Long document text " * 50
             result = chunker.chunk_document(document_text, "test.md", "team-structured")
 
             assert len(result) == 2
-            assert result[0]["content"] == "First chunk content"
+            # Content is extracted from document using start_char:end_char
+            assert result[0]["content"] == document_text[0:100]
             assert result[0]["lens"] == "team-structured"
             assert result[0]["metadata"]["section_title"] == "Introduction"
             assert "Product" in result[0]["metadata"]["key_entities"]
 
-            assert result[1]["content"] == "Second chunk content"
+            assert result[1]["content"] == document_text[100:200]
             assert result[1]["chunk_index"] == 1
 
     @pytest.mark.unit
@@ -412,7 +416,12 @@ class TestFilterChunksByQuality:
         ]
 
         with patch("roadmap.score_chunk_quality") as mock_score:
-            mock_score.return_value = {"score": 0.1, "reasons": ["Too short"]}
+            mock_score.return_value = {
+                "score": 0.1,
+                "reasons": ["Too short"],
+                "should_index": False,
+                "lens": "team-conversational"
+            }
 
             kept, filtered = filter_chunks_by_quality(chunks, log_filtered=True)
 
